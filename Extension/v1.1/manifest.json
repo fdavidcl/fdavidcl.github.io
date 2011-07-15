@@ -1,0 +1,25 @@
+﻿{
+  "name": "Tuenti Pro",
+  "version": "1",
+  "description": "Opciones para mejorar tu experiencia en Tuenti: actualizar en tiempo real, quitar anuncios, cambiar estilos y ocultar todo lo que no necesites.",
+  "homepage_url": "http://tuentipro.blogspot.com/",
+  "options_page": "opciones.html",
+  "icons": { "128": "icon.png" },
+  "background_page": "background.html",
+  "content_scripts": [
+    {
+		"matches": ["*://tuenti.com/*", "*://www.tuenti.com/*"],
+		"js": ["main.js"]
+    }
+  ],
+  "page_action": {
+    "default_icon": "iconsmall.png",
+    "default_title": "Tuenti Pro",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+	"tabs", "*://*/*", "https://*/*", "http://*/*",
+    "*://tuenti.com/",
+    "*://www.tuenti.com/"
+  ]
+}

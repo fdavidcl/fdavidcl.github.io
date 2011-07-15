@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+		function reloadTab() { // reloadTab function by Ansel Santosa: http://www.anselsantosa.com/
+			chrome.windows.getCurrent(function(win) {
+				var cwin = win.id;
+				chrome.tabs.getAllInWindow(cwin, function(tabs) {
+					for (var i = 0; i < tabs.length; i++) {
+						var t = tabs[i].url;
+							if (t.match('www.tuenti.com')||t.match('tuenti.com')) {
+								var tab = tabs[i];
+								chrome.tabs.update(tab.id, {url: tab.url, selected: tab.selected}, null);
+							}
+					}
+				});
+			});
+		}
+		var tuentiactivo = false;
+		var tuentiinicio = false;
+		/*function Refresca(tabId, changeInfo, tab){
+			setInterval(function(tab) {
+				chrome.tabs.getCurrent(function (tab) {
+					  var tabUrl = encodeURIComponent(tab.url);
+					  var tabTitle = encodeURIComponent(tab.title);
+					  chrome.tabs.update(tab.id, {url: "http://www.tuenti.com/#m=Home&func=index"});
+				});
+			}, 1000);
+		}*/
+		
+		function cUrl(tabId, changeInfo, tab) {
+			if (tab.url.indexOf('www.tuenti.com') > -1||tab.url.indexOf('://tuenti.com') > -1) {
+			  chrome.pageAction.show(tabId);
+			  tuentiactivo = true;
+			//setInterval(function(tabId, tab) {
+			//	chrome.tabs.getCurrent(function (tab) {
+					  //var tabUrl = encodeURIComponent(tab.url);
+					  //var tabTitle = encodeURIComponent(tab.title);
+					  //chrome.tabs.update(tabId, {url: "http://www.tuenti.com/#m=Home&func=index"});
+					  
+				//chrome.tabs.executeScript(tabId, {code: "function() {Home.view_home.click('?m=Home&func=index&ajax=1&store=1&stats=%7B%22a%22%3A%22NavigationBarClick%22%2C%22s%22%3A%22Logo%22%2C%22d%22%3A%7B%22referer%22%3A%22__actualUrl__%22%7D%7D&ajax_target=canvas', [], []); return false;}"});
+			//	});
+			//}, 1000);
+			  //setInterval('Refresca('+tab+', "'+tab.url+'")', 10000);
+			  //setInterval('Refresca("'+tab.url+'")', 10000);
+			  if (tab.url.indexOf('m=Home') > -1) {
+				tuentiinicio = true;
+			  } else {
+				tuentiinicio = false;
+			  }
+			} else {
+			  tuentiactivo = false;
+			}
+		};
+		chrome.tabs.onUpdated.addListener(cUrl);
+		//chrome.tabs.onUpdated.addListener(Refresca);
+		
+	  //Home.view_home.click('?m=Home&func=index&ajax=1&store=1&stats=%7B%22a%22%3A%22NavigationBarClick%22%2C%22s%22%3A%22Logo%22%2C%22d%22%3A%7B%22referer%22%3A%22__actualUrl__%22%7D%7D&ajax_target=canvas', [], []); return false;
+	  
+	  
+		chrome.extension.onRequest.addListener(function (request, sender, sendResponse) {
+			if (request.action == "reload") { reloadTab(); }
+			else if (tuentiactivo == true) {
+				sendResponse({
+					"o": localStorage[request.elements],
+					"s": localStorage[request.script]
+				});
+			}
+		});
+		
+		/*
+	  
+		chrome.extension.onRequest.addListener(function (request, sender, sendResponse) {
+			if (request.action == "reload") { reloadTab(); }
+			else if (tuentiinicio==true && tuentiactivo == true) {
+				sendResponse({
+					"o": localStorage[request.elements],
+					"s": localStorage[request.script]
+				});
+			} else if (tuentiinicio==true) {
+				sendResponse({
+					"o": "",
+					"s": localStorage[request.script]
+				});
+			} else if (tuentiactivo==true) {
+				sendResponse({
+					"o": localStorage[request.elements],
+					"s": ""
+				});
+			}
+		});*/
+    </script>
+  </head>
+</html>
