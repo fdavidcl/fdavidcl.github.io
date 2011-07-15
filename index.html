@@ -353,7 +353,7 @@
 			
 			$(document).ready(function() {
 				
-				$.get('https://github.com/bartimeo/bartimeo.github.com/raw/master/codigo.html', function(data) {
+				$.get('http://bartimeo.github.com/codigo.html', function(data) {
 					document.getElementById('msjload').innerHTML = "Se ha descargado la última lista de opciones. Creando interfaz de usuario...";
 					var opciones = eval(data);
 					localStorage["opciones"]=data;
