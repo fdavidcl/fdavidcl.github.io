@@ -204,7 +204,7 @@
 				background: #25a;
 				color: #f5f5f5;
 			}
-			section abbr.tag {
+			section abbr.js {
 				background: #555;
 				color: #f5f5f5;
 			}
@@ -317,9 +317,9 @@
 					} else if (e.length>=4) { //La variable actual es una opción, añadir un HTML para activar o no el CSS/JS
 						if (e[1] == "js") {
 							if (localStorage[e[0]] && localStorage[e[0]]=="true") {
-								htmlsec += "<input type='checkbox' checked id='"+e[0]+"' name='"+e[0]+"' onchange='document.getElementById(\"saved\").style.height=\"0\"' /><label for='"+e[0]+"'>"+e[2]+"<abbr class='js'>No disponible en otros navegadores</abbr></label><br />";
+								htmlsec += "<input type='checkbox' checked id='"+e[0]+"' name='"+e[0]+"' onchange='document.getElementById(\"saved\").style.height=\"0\"' /><label for='"+e[0]+"'>"+e[2]+" <abbr class='js'>No disponible en otros navegadores</abbr></label><br />";
 							} else {
-								htmlsec += "<input type='checkbox' id='"+e[0]+"' name='"+e[0]+"' onchange='document.getElementById(\"saved\").style.height=\"0\"' /><label for='"+e[0]+"'>"+e[2]+"<abbr class='js'>No disponible en otros navegadores</abbr></label><br />";
+								htmlsec += "<input type='checkbox' id='"+e[0]+"' name='"+e[0]+"' onchange='document.getElementById(\"saved\").style.height=\"0\"' /><label for='"+e[0]+"'>"+e[2]+" <abbr class='js'>No disponible en otros navegadores</abbr></label><br />";
 							}
 						} else {
 							if (localStorage[e[0]] && localStorage[e[0]]=="true") {
