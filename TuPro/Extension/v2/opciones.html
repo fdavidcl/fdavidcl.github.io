@@ -204,7 +204,7 @@
 				color: #f5f5f5;
 			}
 			
-			#custcss{
+			#custcss, #custjs{
 				width:720px;
 				height:200px;
 			}
@@ -234,6 +234,16 @@
 				color: #68c;
 				text-decoration: none;
 				background: transparent;
+			}
+			
+			.marcadev {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				padding: 0px 10px 20px;
+				font-size: 11px;
+				width: 200px;
+				color: #444;
 			}
 			
 			
@@ -280,7 +290,10 @@
 				if (!(document.getElementById('custcss').value.indexOf('</style>') > -1)) {
 					codigocss += document.getElementById('custcss').value;
 				}
+				codigojs += document.getElementById('custjs').value;
+				
 				localStorage["custcss"] = document.getElementById('custcss').value;
+				localStorage["custjs"] = document.getElementById('custjs').value;
 				
 				document.getElementById("cssfinal").value = codigocss;
 				document.getElementById("jsfinal").value = codigojs;
@@ -327,12 +340,19 @@
 					}
 				}
 				htmlnav += "</nav>";
-				htmlsec += "</section>";
+				htmlsec += '</section>';
 				
 				var htmlfinal = htmlnav + htmlsec;
 				$('body').html(htmlfinal);
 				
+				
+				/*** Versión desarrolladores ***/
+				$('#expert').html('<h1>Para expertos</h1><span>En esta sección puedes probar tu propio código e inyectarlo en Tuenti. Si desarrollas alguna característica interesante, que te gustaría que apareciese en TuPro, <a href="http://tuentipro.blogspot.com/2011/06/sugerir-una-funcion.html">contribúyela</a>.</span>Añadir CSS personalizado<br /><span>Usa la vista de desarrollador de Chrome (tecla F12) para investigar en el código de Tuenti.</span><textarea id="custcss"></textarea><p>Añadir Javascript personalizado<br /><span>Asegúrate de que tu Javascript es correcto, por ejemplo, mediante <a href="http://www.jslint.com/">JSLint</a>.</span><textarea id="custjs"></textarea><p><div class="csscode">Código CSS generado con las opciones guardadas<br /><textarea id="cssfinal" readonly></textarea></div><p><div class="jscode">Código Javascript generado con las opciones guardadas<br /><textarea id="jsfinal" readonly></textarea></div>');
+				
+				$('body').append('<div class="marcadev">Estás usando TuPro para desarrolladores. Si te interesa colaborar en TuPro, <a href="http://tuentipro.blogspot.com/2011/06/contacto.html">contacta con el creador</a>.</div>');
+				
 				if ( localStorage["custcss"] &&  localStorage["custcss"]!="undefined" ) {document.getElementById('custcss').value = localStorage["custcss"];}
+				if ( localStorage["custjs"] &&  localStorage["custjs"]!="undefined" ) {document.getElementById('custjs').value = localStorage["custjs"];}
 				if ( localStorage["mintuenti"] &&  localStorage["mintuenti"]!="undefined" ) {document.getElementById('cssfinal').value = localStorage["mintuenti"];}
 				if ( localStorage["mintuentiscript"] &&  localStorage["mintuentiscript"]!="undefined" ) {document.getElementById('jsfinal').value = localStorage["mintuentiscript"];}
 			}
