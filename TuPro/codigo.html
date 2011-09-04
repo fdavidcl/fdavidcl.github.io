@@ -129,7 +129,7 @@
 ["pi_qinfo", "css", "Quitar Información personal", "#profile .left .personalInfo { display: none !important; }"],
 ["pi_qinter", "css", "Quitar Intereses", "#profile .left .interests { display: none !important; }"],
 ["<h2>Sidebar derecha</h2>"],
-["pd_cambiarcontamig", "js", "Modificar contador de amigos", 'var contadoramigos = "(', ["contadoramigos_text", "Número de amigos"], ')"; setInterval(function() {if (location.href.indexOf("m=Profile")>-1) { if (document.getElementsByClassName("counter")[2].innerText!=contadoramigos) document.getElementsByClassName("counter")[2].innerText=contadoramigos;}}, 50);'],
+["pd_cambiarcontamig", "js", "Modificar contador de amigos", 'var contadoramigos = "(', ["contadoramigos_text", "Número de amigos"], ')"; setInterval(function() {if (location.href.indexOf("m=Profile")>-1 && document.getElementsByClassName("counter")[2]) { if (document.getElementsByClassName("counter")[2].innerText!=contadoramigos) document.getElementsByClassName("counter")[2].innerText=contadoramigos;}}, 50);'],
 ["pd_qfot", "css", "Quitar Fotos", "#profile .right #latest_photos { display: none !important; }"],
 ["pd_qamicom", "css", "Quitar Amigos en común", "#profile .right #mutual_friends { display: none !important; }"],
 ["pd_qamis", "css", "Quitar Amigos", "#profile .right #friends { display: none !important; }"],
