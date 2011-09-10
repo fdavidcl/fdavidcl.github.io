@@ -208,6 +208,10 @@
 				width:720px;
 				height:200px;
 			}
+			#custhtml {
+				height:2em;
+				margin-left: 0;
+			}
 			.csscode #cssfinal, .jscode #jsfinal{
 			height:300px;background:#eee;width:720px;-webkit-transition-property:opacity, height, margin, border-color;-webkit-transition-duration:.2s;-webkit-transition-timing-function:ease-out;border:1px solid navy;overflow-y:scroll;margin:0
 			}
@@ -295,6 +299,7 @@
 				
 				localStorage["custcss"] = document.getElementById('custcss').value;
 				localStorage["custjs"] = document.getElementById('custjs').value;
+				localStorage["custhtml"] = document.getElementById('custhtml').value;
 				
 				document.getElementById("cssfinal").value = codigocss;
 				document.getElementById("jsfinal").value = codigojs;
@@ -348,7 +353,7 @@
 				
 				
 				/*** Versión desarrolladores ***/
-				$('#expert').html('<h1>Para expertos</h1><span>En esta sección puedes probar tu propio código e inyectarlo en Tuenti. Si desarrollas alguna característica interesante, que te gustaría que apareciese en TuPro, <a href="http://tuentipro.blogspot.com/2011/06/sugerir-una-funcion.html">contribúyela</a>.</span>Añadir HTML personalizado<br /><span>Este código se incluirá debajo de Tuenti.</span><textarea id="custhtml"></textarea><p>Añadir CSS personalizado<br /><span>Usa la vista de desarrollador de Chrome (tecla F12) para investigar en el código de Tuenti.</span><textarea id="custcss"></textarea><p>Añadir Javascript personalizado<br /><span>Asegúrate de que tu Javascript es correcto, por ejemplo, mediante <a href="http://www.jslint.com/">JSLint</a>.</span><textarea id="custjs"></textarea><p><div class="csscode">Código CSS generado con las opciones guardadas<br /><textarea id="cssfinal" readonly></textarea></div><p><div class="jscode">Código Javascript generado con las opciones guardadas<br /><textarea id="jsfinal" readonly></textarea></div>');
+				$('#expert').html('<h1>Para expertos</h1><span>En esta sección puedes probar tu propio código e inyectarlo en Tuenti. Si desarrollas alguna característica interesante, que te gustaría que apareciese en TuPro, <a href="http://tuentipro.blogspot.com/2011/06/sugerir-una-funcion.html">contribúyela</a>.</span>Añadir HTML personalizado<br /><span>Este código se incluirá debajo de Tuenti. Por ahora solo puedes introducir una línea de HTML, usa este <a href="http://kangax.github.com/html-minifier/">HTML minifier</a> para reducirlo.</span><input type="text" id="custhtml" /><p>Añadir CSS personalizado<br /><span>Usa la vista de desarrollador de Chrome (tecla F12) para investigar en el código de Tuenti.</span><textarea id="custcss"></textarea><p>Añadir Javascript personalizado<br /><span>Asegúrate de que tu Javascript es correcto, por ejemplo, mediante <a href="http://www.jslint.com/">JSLint</a>.</span><textarea id="custjs"></textarea><p><div class="csscode">Código CSS generado con las opciones guardadas<br /><textarea id="cssfinal" readonly></textarea></div><p><div class="jscode">Código Javascript generado con las opciones guardadas<br /><textarea id="jsfinal" readonly></textarea></div>');
 				
 				$('body').append('<div class="marcadev">Estás usando TuPro para desarrolladores. Si te interesa colaborar en TuPro, <a href="http://tuentipro.blogspot.com/2011/06/contacto.html">contacta con el creador</a>.</div>');
 				
