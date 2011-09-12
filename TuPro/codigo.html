@@ -125,6 +125,7 @@
 ["qeve", "css", "Quitar el módulo Patrocinados <abbr class='tag'>contribución de Pablo G.</abbr>", ".left #home_unit_ads_container_id { display: none !important; }"],
 ["qcal", "css", "Quitar el calendario de eventos", ".left #appointments { display: none !important; }"],
 ["<h2>Sidebar derecha</h2>"],
+["modlyr", "js", "Añadir búsqueda de letras de canciones", 'var modlyr = document.createElement("div"); modlyr.innerHTML = \'<h2>Letras de canciones</h2><iframe src="http://bartimeo.github.com/TuPro/lyrics.html" style="width: 210px; height: 350px;"></iframe><div class="foot"></div>\'; modlyr.className = "mod"; modlyr.id = "tupro_modlyr"; setInterval(function() {if (!document.getElementById("tupro_modlyr") && location.href.indexOf("m=Home")>-1 && document.getElementById("appointments")) {  document.getElementsByClassName("right")[0].appendChild(modlyr);}}, 50);'],
 ["dqami", "css", "Quitar \"Añadir amigos\"", "#home_friends_importer { display: none !important; } "],
 ["dqsug", "css", "Quitar Sugerencias de amistad", "#canvas_friend_suggestions { display: none !important; } "],
 ["dqcht", "css", "Quitar ventana de chat de la sidebar derecha (no te desconecta del chat)", "#chat_home_module { display: none !important; } "],
