@@ -1,0 +1,222 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: Segoe UI;
+	height: 100%;
+	width: 100%;
+}
+#wrapper {
+	width: 960px;
+	margin: 0 auto;
+	/*position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;*/
+	min-height: 100%;
+	background: #f5f5f5;
+}
+header {
+	font-size: 16px;
+	background: white;
+	font-weight: bold;
+	height: 42px;
+	vertical-align: auto;
+	position: fixed;
+	width: 910px;
+	padding: 0 25px;
+	background: -webkit-linear-gradient(top, #f3f3f3 0%, #ddd 50%);
+	-webkit-box-shadow: 0px 10px 10px #f5f5f5;
+}
+	h1, h2, h3, h4 {
+		margin: 0;
+		padding: 0;
+		font-family: Segoe UI Light;
+		font-weight: normal;
+	}
+	h1 {
+		padding: 4px 0;
+		font-size: 24px;
+		display: inline-block;
+		width: 135px;
+		float: left;
+		padding-left: 40px;
+		background: url("/images/icon32.png") left center no-repeat;
+	}
+	header ul {
+		margin: 0 0 0 20px;
+		padding: 0;
+		display: inline-block;
+		list-style: none;
+		height: 42px;
+	}
+	header li {
+		display: inline-block;
+		height: 42px;
+	}
+	header a {
+		display: block;
+		height: 32px;
+		padding: 10px 10px 0 10px;
+		text-transform: uppercase;
+		color: #444;
+		text-decoration: none;
+		-webkit-transition: background .15s ease-in-out, color .15s ease-in-out, -webkit-box-shadow .15s ease-in-out;
+	}
+	header a:hover:not(.activetab) {
+		background: #eee;
+		-webkit-box-shadow: inset 0px -10px 10px -10px #bbb;
+		color: #000;
+	}
+	header a:active, header a.activetab {
+		background: #f5f5f5;
+		-webkit-box-shadow: 0px -10px 10px #aaa;
+	}
+
+.padd {
+	padding: 20px;
+}
+
+/*** Página de acceso a las opciones ***/
+.opaccess div.tuenti, .opaccess div.facebook, .opaccess div.twitter, .opaccess div.diaspora {
+	-webkit-perspective: 400;
+}
+.opaccess .padd a {
+	display: block;
+	float: left;
+	width: 330px;
+	padding: 20px 60px;
+	margin: 10px 10px 0 0;
+	color: white;
+	text-decoration: none;
+	font-size: 24px;
+	
+	 -webkit-transform-style: preserve-3d;
+	-webkit-transition-property: transform, -webkit-transform, perspective; -webkit-transition-duration: 0.4s;
+}
+	.opaccess a.tuenti {
+		background: url('/images/logo_tuenti.png') left center no-repeat rgb(111,163,202);
+		text-align: right;
+	}
+	.opaccess a.facebook {
+		background: url('/images/logo_facebook.jpg') right center no-repeat rgb(59,89,153);
+	}
+	.opaccess a.twitter {
+		background: url('/images/logo_twitter.png') left center no-repeat rgb(51,204,255);
+		text-align: right;
+	}
+	.opaccess a.diaspora {
+		background: url('/images/logo_diaspora.png') right center no-repeat #000;
+		color: #f0f0f0;
+	}
+	.opaccess .padd a.tuenti:hover, .opaccess .padd a.twitter:hover {
+		-webkit-transform: rotateY(-1.5deg);
+	}
+	.opaccess .padd a.facebook:hover, .opaccess .padd a.diaspora:hover {
+		-webkit-transform: rotateY(1.5deg);
+	}
+	.opaccess .padd a:active {
+		opacity: .7;
+	}
+
+/*** Páginas de opciones de redes ***/
+	nav {
+		width: 220px;
+		float: left;
+		position: fixed;
+		top: 42px;
+		bottom: 0;
+		background: #dddddf;
+		overflow: auto;
+		overflow-y: auto;
+		overflow-x: hidden;
+		padding-bottom: 1em;
+	}
+		nav h4 {
+			margin: 6px 10px 10px;
+			padding-left: 24px;
+			font-size: 18px;
+			color: #444;
+			background: url("/images/icon16.png") left center no-repeat;
+		}
+		nav a {
+			display: block;
+			padding: 8px 10px 8px 30px;
+			margin-left:15px;
+			font-size: 13px;
+			text-align: left;
+			cursor: pointer;
+			-webkit-transition: background .15s ease-in-out, -webkit-box-shadow .1s ease-in-out;
+			border-top-left-radius: 15px;
+			border-bottom-left-radius: 15px;
+		}
+		nav a:hover, nav a:focus {
+			background: #eaeaea;
+		}
+		nav a.active, nav a:active {
+			background: #f5f5f5;
+			color: black;
+			-webkit-box-shadow: 20px 0px 10px #aaa;
+		}
+		
+	article {
+		margin-left: 220px;
+		padding: 50px 20px 10px;
+		font-size: 14px;
+	}
+	article:not(.active) {
+		display: none;
+	}
+		article h2 {
+			font-size: 32px;
+			padding-bottom: 10px;
+			border-bottom: 1px solid #ccc;
+			-webkit-box-shadow: 0px 15px 30px -15px rgba(0,0,0,0.2);
+			margin-bottom: 15px;
+			text-shadow: 0px 1px 0px white;
+		}
+		article label {
+			padding: 0 40px 0 0;
+			border: 2px solid transparent;
+			cursor: pointer;
+			display: block;
+			width: 470px;
+			-webkit-user-select: none;
+			overflow: hidden;
+			min-height: 60px;
+			margin-bottom: 10px;
+			zoom: 105%;
+		}
+			article input[type="checkbox"] + label > span {
+				display: block;
+				float: left;
+				width: 90px;
+				margin-right: 10px;
+				height: 60px;
+			}
+			article input#hidecalendar + label > span {
+				background: url('https://isocial.googlecode.com/svn/images/prevop1.png') 0px 0px no-repeat;
+			}
+			article input#hideinvitesevents + label > span {
+				background: url('https://isocial.googlecode.com/svn/images/prevop1.png') 0px -60px no-repeat;
+			}
+			article label p {
+				display: block;
+				font-size: 12px;
+				color: #666;
+				margin: 0;
+			}
+		article input[type="checkbox"]:checked + label {
+			border-color: #8ae;
+			background: url('/images/tick.png') right center no-repeat;
+		}
+		article label:hover {
+			border-color: #e0e0e0;
+		}
+		article  input[type="checkbox"]:checked + label:hover {
+			border-color: #e88;
+			background: url('/images/tickr.png') right center no-repeat;
+		}
+		article input[type="checkbox"] {
+			display: none;
+		}
