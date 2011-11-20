@@ -16,6 +16,9 @@ html, body {
 	min-height: 100%;
 	background: #f5f5f5;
 }
+#wrapper.opaccess {
+	background: #dde8ea;
+}
 header {
 	font-size: 16px;
 	background: white;
@@ -25,7 +28,9 @@ header {
 	position: fixed;
 	width: 910px;
 	padding: 0 25px;
-	background: -webkit-linear-gradient(top, #f3f3f3 0%, #ddd 50%);
+	background: -webkit-linear-gradient(top, #acd 40%, #dde8ea 100%);
+}
+#wrapper:not(.opaccess) header {
 	-webkit-box-shadow: 0px 10px 10px #f5f5f5;
 }
 	h1, h2, h3, h4 {
@@ -74,7 +79,7 @@ header {
 	}
 
 .padd {
-	padding: 20px;
+	padding: 70px 20px 20px;
 }
 
 /*** Página de acceso a las opciones ***/
@@ -110,10 +115,10 @@ header {
 		color: #f0f0f0;
 	}
 	.opaccess .padd a.tuenti:hover, .opaccess .padd a.twitter:hover {
-		-webkit-transform: rotateY(-1.5deg);
+		-webkit-transform: rotateY(-2deg);
 	}
 	.opaccess .padd a.facebook:hover, .opaccess .padd a.diaspora:hover {
-		-webkit-transform: rotateY(1.5deg);
+		-webkit-transform: rotateY(2deg);
 	}
 	.opaccess .padd a:active {
 		opacity: .7;
@@ -126,7 +131,7 @@ header {
 		position: fixed;
 		top: 42px;
 		bottom: 0;
-		background: #dddddf;
+		background: #dde8ea;
 		overflow: auto;
 		overflow-y: auto;
 		overflow-x: hidden;
@@ -149,9 +154,11 @@ header {
 			-webkit-transition: background .15s ease-in-out, -webkit-box-shadow .1s ease-in-out;
 			border-top-left-radius: 15px;
 			border-bottom-left-radius: 15px;
+			text-decoration: none;
+			color: #000;
 		}
 		nav a:hover, nav a:focus {
-			background: #eaeaea;
+			background: #eaeff3;
 		}
 		nav a.active, nav a:active {
 			background: #f5f5f5;
@@ -185,7 +192,7 @@ header {
 			overflow: hidden;
 			min-height: 60px;
 			margin-bottom: 10px;
-			zoom: 105%;
+			azoom: 105%;
 		}
 			article input[type="checkbox"] + label > span {
 				display: block;

@@ -12,24 +12,16 @@
 					document.getElementById('s_'+document.location.hash.replace("#","")).className = 'active';
 				}
 			}
-			function asignaEnlaces() {
-				var sec = document.getElementsByTagName('nav')[0].querySelectorAll('a');
-				for (i=0; i<sec.length; i++) {
-					sec[i].onclick = function() {
-						location.hash = this.id.replace('l_','');
-					}
-				}
-				hashSec();
-			}
 			window.onhashchange = function(){hashSec()};
+			window.onload = function(){hashSec()};
 		</script>
 	</head>
-	<body onload="asignaEnlaces();">
+	<body>
 		<div id="wrapper">
 			<header>
 				<h1>iSocial</h1>
 				<ul>
-					<!--<li><a href="/general/opciones.html">General</a></li>-->
+					<li><a href="/general/opciones.html">General</a></li>
 					<li><a href="/tuenti/opciones.html" class="activetab">Tuenti</a></li>
 					<li><a href="/facebook/opciones.html">Facebook</a></li>
 					<li><a href="/twitter/opciones.html">Twitter</a></li>
@@ -37,20 +29,20 @@
 				</ul>
 			</header>
 			<nav>
-				<a id="l_inioptions" class="active">Inicio</a>
-				<a id="l_options_calendar_pages" class="">Calendario y páginas</a>
-				<a id="l_options_games" class="">Juegos</a>
-				<a id="l_options_appearance" class="">Apariencia</a>
-				<a id="l_options_chat" class="">Chat</a>
-				<a id="l_options_video" class="">Vídeo</a>
-				<a id="l_options_photo" class="">Fotos</a>
-				<a id="l_options_preferences" class="">Elementos iSocial</a>
-				<a id="l_options_advertising" class="">Publicidad</a>
-				<a id="l_options_friends" class="">Amigos en Tuenti</a>
-				<a id="l_options_tu" class="">Tu</a>
+				<a href="#inioptions" id="l_inioptions" class="active">Inicio</a>
+				<a href="#options_calendar_pages" id="l_options_calendar_pages" class="">Calendario y páginas</a>
+				<a href="#options_games" id="l_options_games" class="">Juegos</a>
+				<a href="#options_appearance" id="l_options_appearance" class="">Apariencia</a>
+				<a href="#options_chat" id="l_options_chat" class="">Chat</a>
+				<a href="#options_video" id="l_options_video" class="">Vídeo</a>
+				<a href="#options_photo" id="l_options_photo" class="">Fotos</a>
+				<a href="#options_preferences" id="l_options_preferences" class="">Elementos iSocial</a>
+				<a href="#options_advertising" id="l_options_advertising" class="">Publicidad</a>
+				<a href="#options_friends" id="l_options_friends" class="">Amigos en Tuenti</a>
+				<a href="#options_tu" id="l_options_tu" class="">Tu</a>
 			</nav>
 			<article id="s_inioptions" class="active">
-				<h2>Inicio</h2>
+				<h2>iSocial para Tuenti</h2>
 				Puedes configurar completamente Tuenti, desde quitar cualquier cosa que no te guste de Tuenti o no uses hasta el modo en el que quieres que aparezcan las cosas.<p>
 				iSocial es una extensión que únicamente modifica el aspecto visual de Tuenti.com pero no su funcionamiento. Esta extensión ha sido realizada sin ánimo de lucro, por lo que no se permite la copia total o parcial de su contenido.<p>
 				Esta extensión fue originalmente creada para modificar el fondo de pantalla y algunos colores, pero su mejora en cuanto a funcionalidades y rendimiento ha hecho que iSocial sea una de las extensiones más usadas para modificar el aspecto visual de la red social Tuenti.
