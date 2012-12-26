@@ -17,19 +17,19 @@
 				
 				this.Send = function() {
 					if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
-						this.xmlhttp = new XMLHttpRequest();
+						var xmlhttp = new XMLHttpRequest();
 					}
 					else { // code for IE6, IE5
-						this.xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+						xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 					}
 					
-					this.xmlhttp.onreadystatechange = function() {
-						if (this.xmlhttp.readyState == 4 && this.xmlhttp.status == 200) {
+					xmlhttp.onreadystatechange = function() {
+						if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 							this.callback(xmlhttp.responseText);
 						}
 					}
-					this.xmlhttp.open("GET", this.url, true);
-					this.xmlhttp.send();
+					xmlhttp.open("GET", this.url, true);
+					xmlhttp.send();
 				}
 			}
 			
