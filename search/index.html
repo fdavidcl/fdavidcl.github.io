@@ -33,7 +33,13 @@
 				}
 			}
 			
+			function jsonFlickrApi(resp) {
+				if (resp.stat == "ok")
+					MuestraFoto(resp.photos.photo);
+			}
+			
 			function MuestraFoto(ans) {
+				if (
 				var image_url = "farm" + ans.farm + ".staticflickr.com/" + ans.server + "/" + ans.id + "_" + ans.secret + "_b.jpg";
 				document.body.background = "url(" + image_url + ") center center no-repeat";
 				document.body.backgroundSize = 'cover';
@@ -45,7 +51,7 @@
 			
 			var request_url = "http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=57173f814692d24e8ff63ef78f15f057&per_page=1&page=1&format=json&api_sig=b4f4544d078cc120974c0f871ab258e1";
 			
-			var request = new PeticionAjax(request_url, MuestraFoto);
+			var request = new PeticionAjax(request_url, eval);
 			request.Send();
 			
 		</script>
