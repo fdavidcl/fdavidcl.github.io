@@ -34,12 +34,14 @@
 			}
 			
 			function jsonFlickrApi(resp) {
-				if (resp.stat == "ok")
-					MuestraFoto(resp.photos.photo);
+				if (resp.stat == "ok") {
+					console.log(resp);
+					MuestraFoto(resp.photos.photo[0]);
+				}
 			}
 			
 			function MuestraFoto(ans) {
-				var image_url = "farm" + ans.farm + ".staticflickr.com/" + ans.server + "/" + ans.id + "_" + ans.secret + "_b.jpg";
+				var image_url = "http://farm" + ans.farm + ".staticflickr.com/" + ans.server + "/" + ans.id + "_" + ans.secret + "_b.jpg";
 				document.body.background = "url(" + image_url + ") center center no-repeat";
 				document.body.backgroundSize = 'cover';
 				document.body.OBackgroundSize = 'cover';
