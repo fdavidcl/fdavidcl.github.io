@@ -1,0 +1,263 @@
+
+* {
+
+}
+html {
+	margin: 0;
+	padding: 0;
+	height: 100% !important;
+	min-width: 100%;
+	width: auto !important;
+}
+body {
+	margin: 0;
+	padding: 0;
+	height: 100% !important;
+	overflow-y: hidden;
+	overflow-x: auto;
+	min-width: 100%;
+}
+.edit {
+	opacity: .3;
+}
+.edit:hover {
+	opacity: .9;
+}
+.user_mode .edit, .search_mode .edit {
+	display: none !important;
+}
+#window_space {
+	height: 0;
+}
+	.window {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 3;
+	}
+#wrapper {
+	display: table;
+}
+	#left {
+		display: table-cell;
+		width: 580px;
+		min-width: 580px;
+		height: 100%;
+		vertical-align: top;
+	}
+		#search {
+			padding-top: 10px;
+			margin: 20px 20px 0 20px;
+		}
+			#search input[type="search"] {
+				display: block;
+				width: 540px;
+				font-size: 26px;
+				outline: none;
+				margin: 0;
+			}
+			#search input[type="submit"] {
+				display: none;
+			}
+			#select_engine {
+			}
+				#select_engine input[type="radio"] {
+					display: none;
+				}
+				#select_engine label {
+					display: inline-block;
+					cursor: pointer;
+				}
+				#select_engine label:hover {
+				}
+				#select_engine input[type="radio"]:checked + label {
+				}
+				#add_engine {
+					float: right;
+					font-size: 20px;
+					font-weight: bold;
+					opacity: .5;
+					cursor: pointer;
+				}
+				#add_engine:hover {
+					opacity: 1;
+				}
+			#search_output {
+				display: none;
+			}
+			.search_mode #search_output {
+				display: block;
+				margin: 10px 0 10px;
+			}
+				.search_mode #search_output a {
+					display: block;
+					background-repeat: no-repeat;
+				}
+					.search_mode #search_output a .from {
+					}
+					.search_mode #search_output a .url {
+						display: inline-block;
+						float: right;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+			
+			#engine_output {
+				display: none;
+			}
+			.search_mode #engine_output {
+				display: block;
+			}
+				.search_mode #engine_output a {
+					margin: 10px 0 0;
+					display: block;
+				}
+					.search_mode #engine_output a .url {
+						display: block;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+		#widgets {
+			margin: 30px 20px 0 20px;
+		}
+		.search_mode #widgets {
+			display: none;
+		}
+			#widgets > a {
+				float: left;
+				width: 255px;
+				overflow: hidden;
+				margin: 0 0 10px;
+				padding: 0 10px 0 0;
+			}
+			#widgets > a.r {
+				margin-left: 10px;
+			}
+				#widgets > a .content {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+				#widgets > a.prelive .content + .content {
+					display: none;
+				}
+				#widgets > a.live .content:first-child {
+				}
+				#widgets > a.live .content + .content {
+				}
+				#widgets > a .title {
+				}
+	#right {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		vertical-align: top;
+		max-height: 100%;
+		overflow: hidden;
+	}
+		.tower {
+			display: table-cell;
+			min-width: 180px;
+			max-height: 100%;
+			vertical-align: top;
+			padding-left: 20px;
+		}
+			.tower h1, #right .add_tower {
+				margin: 20px 0 8px 0;
+				height: 1.4em;
+			}
+				.tower h1 > span {
+					position: absolute;
+					z-index: 0;
+					-webkit-transition: opacity 0.2s ease-in-out;
+					-moz-transition: opacity 0.2s ease-in-out;
+					-ms-transition: opacity 0.2s ease-in-out;
+					-o-transition: opacity 0.2s ease-in-out;
+					transition: opacity 0.2s ease-in-out;
+				}
+				.edit_mode .tower h1 > span {
+					opacity: .3;
+				}
+				.edit_mode .tower h1:hover > span {
+					opacity: .15;
+				}
+				.tower h1 > a.edit {
+					position: relative;
+					z-index: 1;
+					float: right;
+					width: auto;
+					height: auto;
+					display: inline-block;
+					height: 100%;
+					-webkit-transition: opacity 0.2s ease-in-out;
+					-moz-transition: opacity 0.2s ease-in-out;
+					-ms-transition: opacity 0.2s ease-in-out;
+					-o-transition: opacity 0.2s ease-in-out;
+					transition: opacity 0.2s ease-in-out;
+				}
+				.edit_mode .tower h1 > a.edit {
+					opacity: .8;
+				}
+				.edit_mode .tower h1:hover > a.edit {
+					opacity: 1;
+				}
+				.edit_mode .tower h1:hover > a.edit:hover {
+					opacity: 0.8;
+				}
+			.tower .col {
+				display: table-cell;
+				padding: 0 10px 0 0;
+				margin: 0;
+			}
+				.tower a {
+				}
+				.tower h3 {
+					margin: 6px 0 2px;
+				}
+				.search_mode .tower h3 {
+					display: none;
+				}
+					.tower h3 > a.add_link {
+						position: relative;
+						float: right;
+						width: auto;
+						height: auto;
+					}
+					.tower h3 > a.del_section {
+						position: relative;
+						float: right;
+						width: auto;
+						height: auto;
+					}
+				.tower a.bm {
+					vertical-align: middle;
+					width: 140px;
+					height: 38px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					display: block;
+				}
+					.tower a.bm > .edit {
+						display: inline-block;
+						float: left;
+					}
+						.edit_mode .tower a.bm:hover > .edit {
+							background: rgba(255,100,100,0.3);
+							opacity: 0.5;
+						}
+						.edit_mode .tower a.bm > .edit:hover {
+							background: rgba(255,100,100,0.6);
+							opacity: 0.9;
+						}
+		#right .add_tower {
+			display: inline-block;
+		}
+	footer {
+		position: fixed;
+		bottom: 0;
+		left: 0
+	}
