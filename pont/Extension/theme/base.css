@@ -95,6 +95,12 @@ body {
 					display: block;
 					background-repeat: no-repeat;
 				}
+					#ddg_banner {
+						display: block;
+						text-align: right;
+						font-size: 12px;
+						opacity: .7;
+					}
 					.search_mode #search_output a .from {
 					}
 					.search_mode #search_output a .url {

@@ -1,0 +1,13 @@
+{
+	"content_security_policy": "script-src 'self' 'unsafe-eval' chrome-extension://; object-src 'self'",
+	"manifest_version": 2,
+	"name": "Pont Companion",
+	"description": "Set Pont as new tab page.",
+	"chrome_url_overrides" : {
+		"newtab": "index.html"
+	},
+	"version": "1",
+	"web_accessible_resources": [
+		"index.html"
+	]
+}

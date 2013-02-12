@@ -55,27 +55,6 @@ var search = {
 		}
 	],
 	Display: function() {
-		/*var quantity = search.engines.length;
-		for (var i = 0; i < quantity; i++) {
-			var op = document.createElement('input');
-			op.type = "radio";
-			op.name = "search_engine";
-			op.id = "search_radio_" + i;
-			
-			var lb = document.createElement('label');
-			lb.setAttribute("for", "search_radio_" + i);
-			lb.textContent = search.engines[i].name;
-			
-			document.querySelector('#select_engine').insertBefore(op, document.querySelector('#add_engine'));
-			document.querySelector('#select_engine').insertBefore(lb, document.querySelector('#add_engine'));
-			
-			if (search.engines[i].Load) {
-				search.engines[i].Load();
-			}
-		}
-		if (document.querySelector('#search_radio_0')) {
-			document.querySelector('#search_radio_0').checked="checked";
-		}*/
 		
 	},
 	Instant: function() {
@@ -172,10 +151,49 @@ var search = {
 		
 		html_out += search_html;
 		
-		document.querySelector('#search_output').innerHTML = html_out;
+		document.querySelector('#bookmarks_o').innerHTML = html_out;
 	},
 	InsertDDG: function(content) {
+		content = JSON.parse(content);
+		document.querySelector('#instant_o').innerHTML = "";
+		var resultado = false;
+		var def_link = false;
+		var ddgl = document.createElement('span');
 		
+		if (content.Results[0]) {
+			var lin = content.Results[0];
+			var res = document.createElement('a');
+			res.innerHTML = lin.Text + "<span class='url'>" + lin.FirstURL + "</span>";
+			res.href = lin.FirstURL;
+			if (lin.Icon) {
+				res.style.backgroundImage = "url(" + lin.Icon.URL + ")";
+			}
+			
+			ddgl.appendChild(res);
+			resultado = true;
+		}
+		if (content.Abstract != "") {
+			var abs = document.createElement('a');
+			abs.innerHTML = content.Abstract;
+			abs.href = content.AbstractURL;
+			ddgl.appendChild(abs);
+			
+			resultado = true;
+			def_link = true;
+		}
+		if (content.Answer != "") {
+			var ans = document.createElement('a');
+			ans.innerHTML = content.Answer.split('">')[1].split('</a>')[0].replace(/,/g, "");
+			ddgl.appendChild(ans);
+			
+			resultado = true;
+		}
+		
+		ddgl.innerHTML += '<span id="ddg_banner">DuckDuckGo</span>';
+		
+		if (resultado) {
+			document.querySelector('#instant_o').appendChild(ddgl);
+		}
 	},
 	FormSubmit: function() {
 		if (search.best[0]) {
@@ -399,7 +417,7 @@ var right_panel = {
 			var tower = right_panel.towers[i];
 			var elem_t = document.createElement("div");
 			elem_t.className = "tower";
-			var inner = "<h1><span>" + tower.title + "</span><a title='Eliminar torre' class='edit del_tower' href='javascript:right_panel.DeleteTower(" + i + ")'>x</a><a title='Añadir sección' class='edit add_section' href='javascript:right_panel.AddSection(" + i + ")'>+</a></h1>";
+			var inner = "<h1><span>" + tower.title + "</span></h1>";
 			inner += "<div class='col'>";
 			
 			var link_counter = 0;
@@ -413,14 +431,14 @@ var right_panel = {
 				}
 				
 				if (section.name) {
-					inner += "<h3>" + section.name + "<a title='Eliminar sección' class='edit del_section' href='javascript:right_panel.DeleteSection(" + i + ", " + j + ")'>x</a><a title='Añadir enlace' class='edit add_link' href='javascript:right_panel.AddLink(" + i + ", " + j + ")'>+</a></h3>";
+					inner += "<h3>" + section.name + "</h3>";
 					link_counter++;
 				}
 				
 				var quantity = section.links.length;
 				for (var k = 0; k < quantity; k++) {
 					var link = section.links[k];
-					inner += "<a class='bm' id='l" + i + "_" + j + "_" + k + "' href='" + link.href + "' style='background-image: url(" + link.favicon + ");'><span title='Eliminar enlace' class='edit del_link' onclick='event.preventDefault(); right_panel.DeleteLink(" + i + ", " + j + ", " + k + ")'>x</span>" + link.name + "</a>";
+					inner += "<a class='bm' id='l" + i + "_" + j + "_" + k + "' href='" + link.href + "' style='background-image: url(" + link.favicon + ");'>" + link.name + "</a>";
 					link_counter++;
 					
 					if (link_counter >= linkspercol) {
@@ -436,72 +454,6 @@ var right_panel = {
 			
 			document.querySelector('#right').appendChild(elem_t);
 		}
-		document.querySelector('#right').innerHTML += '<div class="tower"><a title="Añadir torre" class="edit add_tower" href="javascript:right_panel.AddTower()">+</a></div>';
-	},
-	AddTower: function() {
-		var new_tower = {
-			title: "",
-			sections: [
-				{
-					links: [
-						
-					]
-				}
-			]
-		}
-		
-		new_tower.title = io.Ask("Título", "Nueva torre");
-		
-		right_panel.towers.push(new_tower);
-		right_panel.Save();
-	},
-	AddSection: function(tower) {
-		var new_section = {
-			name: "",
-			links: [
-				
-			]
-		};
-		
-		new_section.name = io.Ask("Nombre", "Nueva sección");
-		
-		right_panel.towers[tower].sections.push(new_section);
-		right_panel.Save();
-	},
-	AddLink: function(tower, section) {
-		var new_link = {
-			name: "Nombre",
-			href: "http://www.example.com",
-			favicon: "http://www.example.com/favicon.ico"
-		};
-		
-		new_link.name = io.Ask('Nombre', new_link.name);
-		new_link.href = io.Ask('Dirección', "http://" + new_link.name + ".com");
-		var guess = new_link.href.split('://')[0] + "://" + new_link.href.split('://')[1].split('/')[0] + "/favicon.ico";
-		new_link.favicon = io.Ask('Icono (favicon)', guess);
-		
-		right_panel.towers[tower].sections[section].links.push(new_link);
-		right_panel.Save();
-	},
-	DeleteTower: function(tower) {
-		if (io.Confirm("¿Seguro que deseas borrar esta torre? Todos los enlaces que contiene se perderán")) {
-			right_panel.towers.splice(tower, 1);
-		}
-		right_panel.Save();
-	},
-	DeleteSection: function(tower, section) {
-		if (io.Confirm("¿Seguro que deseas borrar esta sección? Todos los enlaces que contiene se perderán")) {
-			right_panel.towers[tower].sections.splice(section, 1);
-		}
-		right_panel.Save();
-	},
-	DeleteLink: function(tower, section, link) {
-		right_panel.towers[tower].sections[section].links.splice(link, 1);
-		right_panel.Save();
-	},
-	Save: function() {
-		localStorage.towersData = JSON.stringify(right_panel.towers);
-		right_panel.Display();
 	}
 };
 
@@ -565,26 +517,12 @@ var config = {
 	ChangeMode: function(mode) {
 		document.querySelector("body").className = mode;
 	},
-	ToggleEditMode: function() {
-		var current = document.querySelector("body").className;
-		if (current == config.modes.user) {
-			config.ChangeMode(config.modes.edit);
-		} else {
-			config.ChangeMode(config.modes.user);
-		}
-	},
 	LoadTheme: function() {
 		document.querySelector("#theme").href = localStorage.usertheme ?
 			localStorage.usertheme : "theme/metro_dark.css";
 	},
-	SetTheme: function() {
-		var new_theme = document.querySelector('#choose_theme input:checked').value;
-		localStorage.usertheme = new_theme;
-		document.querySelector("#theme").href = new_theme;
-	},
 	Load: function() {
 		config.LoadTheme();
-		config.ChangeMode(config.modes.user);
 	}
 };
 

@@ -1,0 +1,1 @@
+function r(){location.href="chrome-extension://cdiddnjoajcjlgcpeejhkmfcoacdojcg/main.html"}; r();
