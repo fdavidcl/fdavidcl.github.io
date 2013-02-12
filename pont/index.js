@@ -1,1 +1,0 @@
-function r(){location.href="http://localhost/Github/fdavidcl.github.com/pont/newtab.html"}; r();
