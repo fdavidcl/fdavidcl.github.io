@@ -7,6 +7,23 @@ body {
 	color: #fff;
 	font-family: Open Sans, Segoe UI;
 }
+body::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	background: #a0a0a0;
+	border-top: 1px solid #a0a0a0;
+}
+body::-webkit-scrollbar-thumb {
+	border-top: 1px solid #a0a0a0;
+	background: #d0d0d0;
+	border-radius: 0;
+}
+body::-webkit-scrollbar-thumb:hover {
+	background: #f0f0f0;
+}
+body::-webkit-scrollbar-thumb:active {
+	background: #555;
+}
 #window_space {
 }
 	.window {
@@ -31,10 +48,21 @@ body {
 			.window > div .buttons {
 				float: right;
 			}
+				.window > div .options a {
+					color: white;
+					text-decoration: none;
+					font-size: 14px;
+					margin: 0 -20px;
+					padding: 14px 20px;
+					cursor: default;
+				}
+				.window > div .options a:hover {
+					background: rgba(255,255,255,.1);
+				}
 				.window > div .buttons a {
 					display: inline-block;
 					padding: 4px 10px;
-					margin-left: 5px;
+					margin: 0 0 5px 5px;
 					border: 2px solid white;
 					color: white;
 					background: #3a3a3a;
@@ -83,8 +111,8 @@ body {
 			}
 			.search_mode #search_output {
 			}
-				.search_mode #search_output a {
-					margin: 10px 0 0;
+				.search_mode #search_output .results a {
+					margin: 5px 0 0;
 					padding: 10px 14px 10px 34px;
 					background-color: #444;
 					background-position: 10px center;
@@ -93,11 +121,17 @@ body {
 					font-size: 14px;
 					text-decoration: none;
 				}
-				.search_mode #search_output a[href]:hover, .search_mode #search_output a[href]:focus {
+				.search_mode #search_output .results a.highlight, .search_mode #search_output .results a.highlight {
 					background-color: #666;
 				}
-				.search_mode #search_output a[href]:first-child {
+				.search_mode #search_output:hover .results a.highlight, .search_mode #search_output:hover .results a.highlight {
+					background-color: #444;
+				}
+				.search_mode #search_output .results a[href]:hover, .search_mode #search_output .results a[href]:focus {
 					background-color: #666;
+				}
+				#ddg_banner a {
+					color: #fff;
 				}
 					.search_mode #search_output a .from {
 						color: #c0c0c0;
@@ -117,9 +151,16 @@ body {
 					padding-top: 10px;
 					text-align: right;
 					font-size: 42px;
+					line-height: 60px;
+					text-transform: lowercase;
 					font-family: Open Sans Light, Segoe UI Light;
 					sdsfs-webkit-transition: all .4s ease-in-out;
 				}
+				#widgets > a .content:first-child {
+				}
+					#widgets > a .content .small {
+						font-size: 24px;
+					}
 				#widgets > a.prelive .content + .content {
 				}
 				#widgets > a.live .content:first-child {
@@ -157,9 +198,9 @@ body {
 
 	#right {
 	}
-		.tower {
+		#right {
 		}
-			.tower h1, #right .add_tower {
+			#right h1, #right .add_tower {
 				padding: 0;
 				font-family: Segoe UI Light;
 				font-size: 26px;
@@ -168,43 +209,43 @@ body {
 				text-decoration: none;
 				text-transform: lowercase;
 			}
-				.tower h1 > span {
+				#right h1 > span {
 				}
-				.tower h1 > a.add_section {
+				#right h1 > a.add_section {
 					padding: 0px 6px 0px;
 					font-size: 40px;
 				}
-				.tower h1 > a.del_tower {
+				#right h1 > a.del_tower {
 					padding: 2px 6px 0px;
 					font-size: 36px;
 				}
-			.tower .col {
+			#right .col {
 			}
-				.tower a {
+				#right a {
 					color: white;
 					text-decoration: none;
 				}
-				.tower h3 {
+				#right h3 {
 					font-weight: normal;
-					font-size: inherit;
+					font-size: 13px;
 					color: #acf;
 					border-bottom: 1px solid #666;
 					padding: 0 0 2px;
 				}
-					.tower h3 > a.add_link {
+					#right h3 > a.add_link {
 						padding: 1px 6px 0px;
 						font-size: 20px;
 						line-height: 120%;
 						color: white;
 					}
-					.tower h3 > a.del_section {
+					#right h3 > a.del_section {
 						padding: 2px 6px 3px;
 						font-size: 16px;
 						line-height: 120%;
 					}
-				.tower a.bm {
+				#right a.bm {
 					padding: 4px 10px 4px 40px;
-					font-size: 14px;
+					font-size: 13px;
 					color: inherit;
 					text-decoration: inherit;
 					background-size: 20px;
@@ -216,15 +257,15 @@ body {
 					-moz-transition: background .08s ease-out;
 					-webkit-transition: background .08s ease-out;
 				}
-				.tower a.bm:hover {
+				#right a.bm:hover {
 					background-color: rgba(255, 255, 255, 0.3);
 				}
-				.edit_mode .tower a.bm:hover {
+				.edit_mode #right a.bm:hover {
 					background-color: rgba(255, 255, 255, 0.3);
 					background-size: 0;
 					background-position: 20px center;
 				}
-					.tower a.bm > .edit {
+					#right a.bm > .edit {
 						width: 30px;
 						height: 28px;
 						margin: 0 5px 0 -35px;

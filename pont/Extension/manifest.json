@@ -1,20 +1,20 @@
 {
 	"content_security_policy": "script-src 'self' 'unsafe-eval' chrome-extension:// https://api.duckduckgo.com/; object-src 'self'",
 	"manifest_version": 2,
-	"name": "Pont",
+	"name": "codename PONT",
 	"permissions": [
 		"http://*/",
 		"https://*/", 
 		"tabs", 
 		"storage", 
 		"unlimitedStorage", 
-		"chrome://favicon/" 
+		"chrome://favicon/",
+		"bookmarks"
 	],
 	"optional_permissions": [
-		"bookmarks"
 	],
 	"version": "0.1",
 	"web_accessible_resources": [
-		"newtab.html"
+		"main.html"
 	]
 }

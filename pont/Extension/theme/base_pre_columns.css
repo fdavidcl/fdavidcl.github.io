@@ -49,12 +49,10 @@ body {
 			cursor: pointer;
 		}
 #wrapper {
-	white-space: nowrap;
-	height: 100%;
-	max-height: 100%;
+	display: table;
 }
 	#left {
-		display: inline-block;
+		display: table-cell;
 		width: 580px;
 		min-width: 580px;
 		height: 100%;
@@ -177,37 +175,25 @@ body {
 				}
 	#right {
 		display: inline-block;
-		position: absolute;
-		top: 20px;
-		bottom: 0;
-		margin: 0 0 0 20px;
+		margin: 0;
 		padding: 0 10px 0 0;
-		overflow: visible;
-		-webkit-column-width: 150px;
-		-webkit-column-gap: 10px;
+		vertical-align: top;
+		max-height: 100%;
+		overflow: hidden;
 	}
-	#right>* {
-		-webkit-column-break-inside: avoid;
-	}
-		/*.tower {
-			display: inline-block;
+		.tower {
+			display: table-cell;
 			min-width: 180px;
 			max-height: 100%;
 			vertical-align: top;
 			padding-left: 20px;
-		}*/
-			#right h1, #right .add_tower {
-				margin: 0 0 8px 0;
+			-webkit-column-width: 200px;
+		}
+			.tower h1, #right .add_tower {
+				margin: 20px 0 8px 0;
 				height: 1.4em;
-				max-width: 190px;
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
 			}
-			#right h1:not(:first-child) {
-				-webkit-column-break-before: always;
-			}
-				#right h1 > span {
+				.tower h1 > span {
 					aposition: absolute;
 					white-space: nowrap;
 					overflow: hidden;
@@ -219,13 +205,13 @@ body {
 					-o-transition: opacity 0.2s ease-in-out;
 					transition: opacity 0.2s ease-in-out;
 				}
-				.edit_mode #right h1 > span {
+				.edit_mode .tower h1 > span {
 					opacity: .3;
 				}
-				.edit_mode #right h1:hover > span {
+				.edit_mode .tower h1:hover > span {
 					opacity: .15;
 				}
-				#right h1 > a.edit {
+				.tower h1 > a.edit {
 					position: relative;
 					z-index: 1;
 					float: right;
@@ -239,73 +225,69 @@ body {
 					-o-transition: opacity 0.2s ease-in-out;
 					transition: opacity 0.2s ease-in-out;
 				}
-				.edit_mode #right h1 > a.edit {
+				.edit_mode .tower h1 > a.edit {
 					opacity: .8;
 				}
-				.edit_mode #right h1:hover > a.edit {
+				.edit_mode .tower h1:hover > a.edit {
 					opacity: 1;
 				}
-				.edit_mode #right h1:hover > a.edit:hover {
+				.edit_mode .tower h1:hover > a.edit:hover {
 					opacity: 0.8;
 				}
-			#right .col {
+			.tower .col {
 				display: table-cell;
 				vertical-align: top;
 				margin: 0;
 			}
-			#right .col:not(:last-child) {
+			.tower .col:not(:last-child) {
 				padding: 0 10px 0 0;
 			}
-			.search_mode #right .col {
+			.search_mode .tower .col {
 				display: inline-block !important;
 				padding: 0;
 			}
-				#right a {
+				.tower a {
 				}
-				#right h3 {
+				.tower h3 {
 					margin: 18px 0 2px;
 					
 					white-space: nowrap;
 					max-width: 190px;
 					overflow: hidden;
 					text-overflow: ellipsis;
-					-webkit-column-break-after: avoid;
-					a-webkit-column-break-before: always;
 				}
-				#right h3 + a {
-					a-webkit-column-break-after: always;
-				}
-					#right h3 > a.add_link {
+					.tower h3 > a.add_link {
 						position: relative;
 						float: right;
 						width: auto;
 						height: auto;
 					}
-					#right h3 > a.del_section {
+					.tower h3 > a.del_section {
 						position: relative;
 						float: right;
 						width: auto;
 						height: auto;
 					}
-				#right a.bm {
+				.tower a.bm {
+					vertical-align: middle;
 					width: 140px;
 					height: 36px;
 					overflow: hidden;
+					text-overflow: ellipsis;
 					display: block;
-					white-space: normal;
 				}
 				.user_mode a.bm {
 					display: block !important;
 				}
-					#right a.bm > .edit {
+					.tower a.bm > .edit {
 						display: inline-block;
 						float: left;
 					}
-						.edit_mode #right a.bm:hover > .edit {
+						.edit_mode .tower a.bm:hover > .edit {
 							background: rgba(255,100,100,0.3);
 							opacity: 0.5;
 						}
-						.edit_mode #right a.bm > .edit:hover {
+						.edit_mode .tower a.bm > .edit:hover {
 							background: rgba(255,100,100,0.6);
 							opacity: 0.9;
 						}
@@ -313,8 +295,8 @@ body {
 			display: inline-block;
 		}
 	footer {
-		position: absolute;
+		position: fixed;
 		bottom: 0;
-		left: 0;
+		right: 0;
 		font-size: smaller;
 	}

@@ -3,8 +3,8 @@
 
 }
 body {
-	background: url(../back/gray_jean.png) #ddd;
-	color: #000;
+	background: url(../back/stressed_linen.png) #444;
+	color: #fff;
 	font-family: Open Sans, Segoe UI;
 }
 body::-webkit-scrollbar {
@@ -35,38 +35,50 @@ body::-webkit-scrollbar-thumb:active {
 			bottom: 0;
 			height: auto !important;
 			padding: 20px 20px;
-			background: #e0e0e0;
-			border-left: 1px solid #fafafa;
+			background: #222;
+			border-left: 1px solid #101010;
 		}
 			.window > div header {
 				margin: 0;
 				padding: 0 0 10px;
-				color: #222;
+				color: #eee;
 				font-size: 30px;
 				font-family: Open Sans Light, Segoe UI Light, sans-serif;
 			}
 			.window > div .buttons {
 				float: right;
 			}
+				.window > div .options a {
+					color: white;
+					text-decoration: none;
+					font-size: 14px;
+					margin: 0 -20px;
+					padding: 14px 20px;
+					cursor: default;
+				}
+				.window > div .options a:hover {
+					background: rgba(255,255,255,.1);
+				}
 				.window > div .buttons a {
 					display: inline-block;
 					padding: 4px 10px;
 					margin: 0 0 5px 5px;
-					border: 2px solid black;
-					color: black;
-					background: #ddd;
+					border: 2px solid white;
+					color: white;
+					background: #3a3a3a;
 					text-decoration: none;
 				}
 				.window > div .buttons a:hover {
-					background: #ccc;
+					background: #555;
 				}
 				.window > div .buttons a.accept:hover {
-					background: #acf;
+					background: #257;
 				}
 				.window > div .buttons a:active {
-					background: #000 !important;
-					color: white;
+					background: #fff !important;
+					color: black;
 				}
+
 #wrapper {
 }
 	#left {
@@ -85,10 +97,10 @@ body::-webkit-scrollbar-thumb:active {
 					padding: 4px 6px;
 				}
 				#select_engine label:hover {
-					color: rgba(0,0,0,.8);
+					color: rgba(255,255,255,.8);
 				}
 				#select_engine input[type="radio"]:checked + label {
-					background: rgba(0, 0, 0, 0.3);
+					background: rgba(255, 255, 255, 0.3);
 					color: white;
 				}
 				#add_engine {
@@ -102,33 +114,36 @@ body::-webkit-scrollbar-thumb:active {
 				.search_mode #search_output .results a {
 					margin: 5px 0 0;
 					padding: 10px 14px 10px 34px;
+					background-color: #444;
 					background-position: 10px center;
 					background-size: 16px;
-					background-color: #dadada;
-					color: black;
+					color: white;
 					font-size: 14px;
 					text-decoration: none;
 				}
 				.search_mode #search_output .results a.highlight, .search_mode #search_output .results a.highlight {
-					background-color: #c0c0c0;
+					background-color: #666;
 				}
 				.search_mode #search_output:hover .results a.highlight, .search_mode #search_output:hover .results a.highlight {
-					background-color: #dadada;
+					background-color: #444;
 				}
 				.search_mode #search_output .results a[href]:hover, .search_mode #search_output .results a[href]:focus {
-					background-color: #c0c0c0;
+					background-color: #666;
+				}
+				#ddg_banner a {
+					color: #fff;
 				}
 					.search_mode #search_output a .from {
-						color: #888;
+						color: #c0c0c0;
 					}
 					.search_mode #search_output a .url {
-						color: #888;
+						color: #c0c0c0;
 						width: 180px;
 					}
 		#widgets {
 		}
 			#widgets > a {
-				background: rgba(0,0,0,.12);
+				background: rgba(255,255,255,.2);
 				color: inherit;
 				text-decoration: inherit;
 			}
@@ -136,8 +151,8 @@ body::-webkit-scrollbar-thumb:active {
 					padding-top: 10px;
 					text-align: right;
 					font-size: 42px;
-					text-transform: lowercase;
 					line-height: 60px;
+					text-transform: lowercase;
 					font-family: Open Sans Light, Segoe UI Light;
 					sdsfs-webkit-transition: all .4s ease-in-out;
 				}
@@ -183,54 +198,54 @@ body::-webkit-scrollbar-thumb:active {
 
 	#right {
 	}
-		#right {
+		.tower {
 		}
-			#right h1, #right .add_tower {
+			.tower h1, #right .add_tower {
 				padding: 0;
 				font-family: Segoe UI Light;
 				font-size: 26px;
 				font-weight: normal;
-				color: #222;
+				color: #e0e0e0;
 				text-decoration: none;
 				text-transform: lowercase;
 			}
-				#right h1 > span {
+				.tower h1 > span {
 				}
-				#right h1 > a.add_section {
+				.tower h1 > a.add_section {
 					padding: 0px 6px 0px;
 					font-size: 40px;
 				}
-				#right h1 > a.del_tower {
+				.tower h1 > a.del_tower {
 					padding: 2px 6px 0px;
 					font-size: 36px;
 				}
-			#right .col {
+			.tower .col {
 			}
-				#right a {
-					color: inherit;
+				.tower a {
+					color: white;
 					text-decoration: none;
 				}
-				#right h3 {
+				.tower h3 {
 					font-weight: normal;
-					font-size: inherit;
-					color: #047;
-					border-bottom: 1px solid #ccc;
+					font-size: 13px;
+					color: #acf;
+					border-bottom: 1px solid #666;
 					padding: 0 0 2px;
 				}
-					#right h3 > a.add_link {
+					.tower h3 > a.add_link {
 						padding: 1px 6px 0px;
 						font-size: 20px;
 						line-height: 120%;
-						color: black;
+						color: white;
 					}
-					#right h3 > a.del_section {
+					.tower h3 > a.del_section {
 						padding: 2px 6px 3px;
 						font-size: 16px;
 						line-height: 120%;
 					}
-				#right a.bm {
+				.tower a.bm {
 					padding: 4px 10px 4px 40px;
-					font-size: 14px;
+					font-size: 13px;
 					color: inherit;
 					text-decoration: inherit;
 					background-size: 20px;
@@ -242,15 +257,15 @@ body::-webkit-scrollbar-thumb:active {
 					-moz-transition: background .08s ease-out;
 					-webkit-transition: background .08s ease-out;
 				}
-				#right a.bm:hover {
-					background-color: rgba(0, 0, 0, 0.16);
+				.tower a.bm:hover {
+					background-color: rgba(255, 255, 255, 0.3);
 				}
-				.edit_mode #right a.bm:hover {
-					background-color: rgba(0, 0, 0, 0.16);
+				.edit_mode .tower a.bm:hover {
+					background-color: rgba(255, 255, 255, 0.3);
 					background-size: 0;
 					background-position: 20px center;
 				}
-					#right a.bm > .edit {
+					.tower a.bm > .edit {
 						width: 30px;
 						height: 28px;
 						margin: 0 5px 0 -35px;
@@ -264,9 +279,9 @@ body::-webkit-scrollbar-thumb:active {
 						-webkit-transition: all .08s ease-out;
 					}
 	footer {
-		background: rgba(0, 0, 0, 0.12);
+		background: rgba(255,255,255,0.2);
 		padding: 6px 10px;
 	}
 		footer a {
-			color: black;
+			color: white;
 		}

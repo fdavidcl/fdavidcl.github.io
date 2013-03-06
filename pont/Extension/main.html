@@ -6,19 +6,25 @@
 		<link rel="stylesheet" href="theme/base.css" />
 		<link rel="stylesheet" href="theme/metro_dark.css" id="theme" />
 		
-		<script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/bookmarks.js"></script>
+		<script type="text/javascript" src="js/search.js"></script>
 	</head>
 	<body>
 		<div id="window_space"></div>
 		<div id="wrapper">
 			<section id="left">
 				<div id="search">
-					<form id="search_form" action="http://www.google.es/search">
-						<input type="search" name="q" id="search_input" autocomplete="off" />
+					<form id="search_form">
+						<input type="search" id="search_input" autocomplete="off" />
 						<input type="submit" />
 						<div id="search_output">
-							<div id="instant_o"></div>
-							<div id="bookmarks_o"></div>
+							<div id="go_o" class="results"></div>
+							<div id="bookmarks_o" class="results"></div>
+							<div id="instant_o" class="results"></div>
+							<div id="engines_o" class="results"></div>
+							<span id="ddg_banner">Respuestas instantáneas proporcionadas por <a href="http://duckduckgo.com">DuckDuckGo</a></span>
 						</div>
 					</form>
 				</div>
@@ -26,9 +32,9 @@
 					<!-- Los widgets se crean dinámicamente -->
 				</div>
 			</section>
-			<section id="right">
+			<div id="right">
 				<!-- Los enlaces se crean dinámicamente -->
-			</section>
+			</div>
 		</div>
 		<footer id="option_icons">
 			<a hreF="#config" id="edit_mode_button">Configuración</a>
