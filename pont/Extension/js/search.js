@@ -5,6 +5,7 @@
  
 /*
  * BUGS
+	La búsqueda se rompe con el símbolo +
  * TODO
 	
  */

@@ -142,7 +142,7 @@ var widgets = {
 				var wreq = new AjaxRequest("http://weather.yahooapis.com/forecastrss?p=SPXX0045&u=c", widgets.icons[4].GetInfo);
 				wreq.Send();
 			},
-			update_freq: 60
+			update_freq: 6000
 		},
 		{
 			title: "Granada",
@@ -164,7 +164,7 @@ var widgets = {
 				var wreq = new AjaxRequest("http://weather.yahooapis.com/forecastrss?p=SPXX0040&u=c", widgets.icons[5].GetInfo);
 				wreq.Send();
 			},
-			update_freq: 60
+			update_freq: 6000
 		},
 		{
 			title: "The Verge",
