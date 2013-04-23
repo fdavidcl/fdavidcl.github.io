@@ -145,9 +145,9 @@ body::-webkit-scrollbar-thumb:active {
 						color: #c0c0c0;
 						width: 180px;
 					}
-		#widgets {
+		#liveinfo {
 		}
-			#widgets > a {
+			#liveinfo > a {
 				background: rgba(0,0,0,0.2);
 				color: inherit;
 				text-decoration: inherit;
@@ -155,7 +155,7 @@ body::-webkit-scrollbar-thumb:active {
 				aborder-radius: 6px;
 				awidth: 249px;
 			}
-				#widgets > a .content {
+				#liveinfo > a .content {
 					padding-top: 10px;
 					text-align: right;
 					font-size: 36px;
@@ -163,26 +163,26 @@ body::-webkit-scrollbar-thumb:active {
 					line-height: 40px;
 					sdsfs-webkit-transition: all .4s ease-in-out;
 				}
-					#widgets > a .content .small {
+					#liveinfo > a .content .small {
 						font-size: 24px;
 					}
-				#widgets > a.prelive .content + .content {
+				#liveinfo > a.prelive .content + .content {
 				}
-				#widgets > a.live .content:first-child {
+				#liveinfo > a.live .content:first-child {
 					animation: livetile2 10s infinite;
 					-o-animation: livetile2 10s infinite;
 					-ms-animation: livetile2 10s infinite;
 					-moz-animation: livetile2 10s infinite;
 					-webkit-animation: livetile2 10s infinite;
 				}
-				#widgets > a.live .content + .content {
+				#liveinfo > a.live .content + .content {
 					animation: livetile1 10s infinite;
 					-o-animation: livetile1 10s infinite;
 					-ms-animation: livetile1 10s infinite;
 					-moz-animation: livetile1 10s infinite;
 					-webkit-animation: livetile1 10s infinite;
 				}
-				#widgets > a .title {
+				#liveinfo > a .title {
 					padding: 0 0 5px 5px;
 					font-size: 14px;
 				}

@@ -14,6 +14,8 @@
  * TODO
 	Dar al usuario la posibilidad de ocultar torres, convertir una
 	carpeta de marcadores en una o varias torres.
+	o bien
+	Favoritos: Mostrar únicamente los marcadores preferidos por el usuario.
  */
  
 var bookmarks = {

@@ -3,21 +3,35 @@
 	<head>
 		<title>Inicio</title>
 		
-		<link rel="stylesheet" href="theme/base.css" />
-		<link rel="stylesheet" href="theme/metro_dark.css" id="theme" />
+		<!--link rel="stylesheet" href="theme/base.css" /-->
+		<link rel="stylesheet" href="theme/minimal.css" id="theme" />
 		
 		<script type="text/javascript" src="js/main.js"></script>
-		<script type="text/javascript" src="js/config.js"></script>
 		<script type="text/javascript" src="js/bookmarks.js"></script>
+		<script type="text/javascript" src="js/icons.js"></script>
+		<script type="text/javascript" src="js/widgets.js"></script>
 		<script type="text/javascript" src="js/search.js"></script>
+		<script type="text/javascript" src="js/config.js"></script>
 	</head>
 	<body>
+		<!--------------------------------------------------------------
+			#       #    ######    #             ##
+			#       #   #      #   #            #  #
+			#########   #      #   #           #    #
+			#       #   #      #   #          ########
+			#       #    ######    #######   #        #      
+		--------------------------------------------------------------->
+		<!--
+			Estructura básica de la página de Nueva pestaña.
+			Todo el contenido es creado dinámicamente desde los
+			archivos Javascript correspondientes.
+		-->
 		<div id="window_space"></div>
 		<div id="wrapper">
 			<section id="left">
 				<div id="search">
 					<form id="search_form">
-						<input type="search" id="search_input" autocomplete="off" />
+						<input type="text" id="search_input" autocomplete="off" />
 						<input type="submit" />
 						<div id="search_output">
 							<div id="go_o" class="results"></div>
@@ -28,7 +42,7 @@
 						</div>
 					</form>
 				</div>
-				<div id="widgets">
+				<div id="liveinfo">
 					<!-- Los widgets se crean dinámicamente -->
 				</div>
 			</section>

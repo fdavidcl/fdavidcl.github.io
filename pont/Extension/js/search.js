@@ -84,8 +84,8 @@ var search = {
 			
 			var removed_list = "";
 			
-			for (var i = 0; i < right_panel.towers.length; i++) {
-				var this_tower = right_panel.towers[i];
+			for (var i = 0; i < icons.towers.length; i++) {
+				var this_tower = icons.towers[i];
 				var any_link_in_tower = false;
 				
 				for (var j = 0; j < this_tower[sections].length; j++) {
@@ -328,7 +328,7 @@ var search = {
 		}
 	},
 	Load: function() {
-		search.Display();
+		this.Display();
 		document.querySelector('#search_form > input').focus();
 		document.querySelector('#search_form > input').oninput = function() { search.Instant(); };
 		document.querySelector('#search_form > input').onpaste = function() { search.Instant(); };

@@ -10,56 +10,9 @@
  * TODO
 	Ordenar este archivo y main.js
  */
-
-right_panel.Display = function() {
-	var lim = right_panel.towers.length;
-	
-	var sections = 1, links = 1, href = 1, name = 0;
-	
-	document.querySelector('#right').innerHTML = "";
-	
-	for (var i = 0; i < lim; i++) {
-		var tower = right_panel.towers[i];
-		var elem_t = document.createElement("div");
-		var inner = "<h1 id='tower_" + i + "'><span>" + tower[name] + "</span></h1>";
-		
-		var link_counter = 1;
-		var lim_sec = tower[sections].length;
-		for (var j = 0; j < lim_sec; j++) {
-			var section = tower[sections][j];
-			
-			if (section[name] && section[name] != "") {
-				inner += "<h3 id='section_" + i + "_" + j + "'>" + section[name] + "</h3>";
-				link_counter++;
-			}
-			
-			var quantity = section[links].length;
-			for (var k = 0; k < quantity; k++) {
-				var link = section[links][k];
-				var l_elem = document.createElement('a');
-				l_elem.className = 'bm';
-				l_elem.id = "l" + i + "_" + j + "_" + k;
-				l_elem.href = link[href];
-				l_elem.style.backgroundImage = "url(chrome://favicon/" + link[href] + ")";
-				l_elem.innerHTML = link[name];
-				var dummy = document.createElement('div');
-				dummy.appendChild(l_elem);
-				
-				inner += dummy.innerHTML;
-				
-				link_counter++;
-			}
-		}
-		
-		elem_t.innerHTML = inner;
-		
-		document.querySelector('#right').innerHTML += elem_t.innerHTML;
-		
-	}
-};
-
+ 
 /*
-right_panel.AddTower = function() {
+icons.AddTower = function() {
 	var new_tower = {
 		title: "",
 		sections: [
@@ -73,11 +26,11 @@ right_panel.AddTower = function() {
 	
 	new_tower.title = io.Ask("Título", "Nueva torre");
 	
-	right_panel.towers.push(new_tower);
-	right_panel.Save();
+	icons.towers.push(new_tower);
+	icons.Save();
 };
 
-right_panel.AddSection = function(tower) {
+icons.AddSection = function(tower) {
 	var new_section = {
 		name: "",
 		links: [
@@ -87,37 +40,37 @@ right_panel.AddSection = function(tower) {
 	
 	new_section.name = io.Ask("Nombre", "Nueva sección");
 	
-	right_panel.towers[tower].sections.push(new_section);
-	right_panel.Save();
+	icons.towers[tower].sections.push(new_section);
+	icons.Save();
 };
-right_panel.AddLink = function(tower, section) {
+icons.AddLink = function(tower, section) {
 	var new_link = {};
 	
 	new_link.name = io.Ask('Nombre', new_link.name);
 	new_link.href = io.Ask('Dirección', "http://" + new_link.name.toLowerCase() + ".com");
 	
-	right_panel.towers[tower].sections[section].links.push(new_link);
-	right_panel.Save();
+	icons.towers[tower].sections[section].links.push(new_link);
+	icons.Save();
 };
-right_panel.DeleteTower = function(tower) {
+icons.DeleteTower = function(tower) {
 	if (io.Confirm("¿Seguro que deseas borrar esta torre? Todos los enlaces que contiene se perderán")) {
-		right_panel.towers.splice(tower, 1);
+		icons.towers.splice(tower, 1);
 	}
-	right_panel.Save();
+	icons.Save();
 };
-right_panel.DeleteSection = function(tower, section) {
+icons.DeleteSection = function(tower, section) {
 	if (io.Confirm("¿Seguro que deseas borrar esta sección? Todos los enlaces que contiene se perderán")) {
-		right_panel.towers[tower].sections.splice(section, 1);
+		icons.towers[tower].sections.splice(section, 1);
 	}
-	right_panel.Save();
+	icons.Save();
 };
-right_panel.DeleteLink = function(tower, section, link) {
-	right_panel.towers[tower].sections[section].links.splice(link, 1);
-	right_panel.Save();
+icons.DeleteLink = function(tower, section, link) {
+	icons.towers[tower].sections[section].links.splice(link, 1);
+	icons.Save();
 };
-right_panel.Save = function() {
-	localStorage.towersData = JSON.stringify(right_panel.towers);
-	right_panel.Display();
+icons.Save = function() {
+	localStorage.towersData = JSON.stringify(icons.towers);
+	icons.Display();
 };
 */
 
@@ -142,7 +95,7 @@ var io = {
 			width: 400,
 			height: 300,
 			title: "Temas",
-			content: 'Elige uno de los temas disponibles.<p><span id="choose_theme"><input type="radio" name="theme" value="theme/metro_dark.css" id="metro_dark" /><label for="metro_dark">Metro Dark</label><br /><input type="radio" name="theme" value="theme/metro_light.css" id="metro_light" /><label for="metro_light">Metro Light</label><br /><input type="radio" name="theme" value="theme/neon_dark.css" id="neon_dark" /><label for="neon_dark">Neon Dark</label><br /></span><p>',
+			content: 'Elige uno de los temas disponibles.<p><span id="choose_theme"><input type="radio" name="theme" value="theme/metro_dark.css" id="metro_dark" /><label for="metro_dark">Metro Dark</label><br /><input type="radio" name="theme" value="theme/metro_light.css" id="metro_light" /><label for="metro_light">Metro Light</label><br /><input type="radio" name="theme" value="theme/neon_dark.css" id="neon_dark" /><label for="neon_dark">Neon Dark</label><br /><input type="radio" name="theme" value="theme/gnome.css" id="gnome" /><label for="gnome">GNOME</label><br /><input type="radio" name="theme" value="theme/minimal.css" id="minimal" /><label for="minimal">minimal</label><br /></span><p>',
 			buttons: [
 				["Listo", function() { config.SetTheme(); io.CloseWindow('#window_theme')}],
 				["Cancelar", function() { location.hash = "#config"; }]
@@ -271,7 +224,7 @@ var config = {
 	},
 	LoadTheme: function() {
 		document.querySelector("#theme").href = localStorage.usertheme ?
-			localStorage.usertheme : "theme/metro_dark.css";
+			localStorage.usertheme+"?_="+new Date().getTime() : "theme/metro_dark.css";
 	},
 	Load: function() {
 		config.LoadTheme();
@@ -279,6 +232,10 @@ var config = {
 	},
 	GetMode: function() {
 		switch (location.hash) {
+			case "":
+				if (document.querySelector('.window'))
+					io.CloseWindow('.window');
+			break;
 			case "#config":
 				io.ShowWindow(io.windows.general_conf);
 			break;
