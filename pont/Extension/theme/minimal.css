@@ -146,10 +146,10 @@ body.search_mode {
 						font-size: smaller;
 						color: #ccc;
 					}
-				#search_output .results a:hover {
+				#search_output .results a[href]:hover {
 					color: #ccc;
 				}
-					#search_output .results a:hover .url {
+					#search_output .results a[href]:hover .url {
 						color: #aaa;
 						text-decoration: underline;
 					}
@@ -224,15 +224,15 @@ body.search_mode {
 					width: 100%;
 				}
 				#liveinfo>a.live, #liveinfo>a.live .title {
-					animation: livetile 10s infinite;
-					-webkit-animation: livetile 10s infinite;
+					animation: livetile 10s infinite ease;
+					-webkit-animation: livetile 10s infinite ease;
 				}
 				#liveinfo>a.live .content:first-child {
 					animation: livetile2 10s infinite;
 					-o-animation: livetile2 10s infinite;
 					-ms-animation: livetile2 10s infinite;
 					-moz-animation: livetile2 10s infinite;
-					-webkit-animation: livetile2 10s infinite;
+					-webkit-animation: livetile2 10s infinite ease;
 				}
 				#liveinfo>a.prelive .content+.content {
 					display: none;
@@ -274,8 +274,8 @@ body.search_mode {
 			margin: 0px 0 8px 10px;
 			padding: 2px 6px;
 			font-weight: normal;
-			font-size: 24px;
-			background: rgba(0,0,0,.3);
+			font-size: 20px;
+			background: rgba(255,255,255,.3);
 		}
 		#right a + h1 {
 			margin-top: 16px;
@@ -314,4 +314,7 @@ body.search_mode {
 		color: white;
 		text-decoration: none;
 		font-size: smaller;
+	}
+	#option_icons a i {
+		margin-right: .3em;
 	}

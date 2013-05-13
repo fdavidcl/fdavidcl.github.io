@@ -38,6 +38,7 @@ var search = {
 		},
 		{
 			name: "Youtube",
+			favicon: "http://www.youtube.com/favicon.ico",
 			url: {
 				left: "http://www.youtube.com/results?search_query=",
 				right: ""

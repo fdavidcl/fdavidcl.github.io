@@ -10,8 +10,7 @@ function AjaxRequest(url, callback) {
 	this.Send = function() {
 		if (window.XMLHttpRequest) {
 			var xmlhttp = new XMLHttpRequest();
-		}
-		else {
+		} else {
 			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 		}
 
@@ -23,7 +22,7 @@ function AjaxRequest(url, callback) {
 					callback(xmlhttp.responseText);
 				}
 			}
-		}
+		};
 		xmlhttp.open("GET", this.url, true);
 		xmlhttp.send();
 	}

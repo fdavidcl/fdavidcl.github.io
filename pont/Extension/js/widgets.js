@@ -7,8 +7,9 @@
  * BUGS
 	
  * TODO
-	Añadir y modificar liveinfo personalizados
-	Modificar widget del tiempo
+	Interfaz para añadir y modificar liveinfo personalizados
+	Modificar widget del tiempo más fácilmente
+	Integración de notificaciones sociales con iSocial
  */
 
 
