@@ -263,12 +263,12 @@
 				var codigojs = "var foco = true;\n window.onblur = function() {foco=false;}\n window.onfocus = function() {foco=true;}\n";
 				
 				for (var i=0;i < opciones.length; i++) {
-					if (opciones[i].length >= 4) { //Si se trata de una opción con código
+					if (opciones[i].length >= 4) { //Si se trata de una opciï¿½n con cï¿½digo
 						localStorage[opciones[i][0]] = document.getElementById(opciones[i][0]).checked;
 						if (document.getElementById(opciones[i][0]).checked) {
-							if (opciones[i][1] == "css") { //Si se trata de una opción CSS
+							if (opciones[i][1] == "css") { //Si se trata de una opciï¿½n CSS
 								codigocss += opciones[i][3];
-								if (opciones[i].length > 4) { //Sencillo código para generar código con variables aportadas por el usuario
+								if (opciones[i].length > 4) { //Sencillo cï¿½digo para generar cï¿½digo con variables aportadas por el usuario
 									for (var j=4; j < opciones[i].length; j++) {
 										codigocss += document.getElementById(opciones[i][j][0]).value;
 										localStorage[opciones[i][j][0]] = document.getElementById(opciones[i][j][0]).value;
@@ -276,9 +276,9 @@
 										codigocss += opciones[i][j];
 									}
 								}
-							} else if (opciones[i][1] == "js") { //Si la opción es Javascript
+							} else if (opciones[i][1] == "js") { //Si la opciï¿½n es Javascript
 								codigojs += opciones[i][3];
-								if (opciones[i].length > 4) { //Sencillo código para generar código con variables aportadas por el usuario
+								if (opciones[i].length > 4) { //Sencillo cï¿½digo para generar cï¿½digo con variables aportadas por el usuario
 									for (var j=4; j < opciones[i].length; j++) {
 										codigojs += document.getElementById(opciones[i][j][0]).value;
 										localStorage[opciones[i][j][0]] = document.getElementById(opciones[i][j][0]).value;
@@ -320,17 +320,17 @@
 		</script><script>
 			function genhtml(o) {
 			
-				var htmlnav = "<nav id=\"nav\"><h1>TuPro</h1><a id='save' href='javascript:save();switchsec(\"expert\");'>Guardar y obtener CSS</a><div id='saved'>Se ha guardado tu configuración.</div><div id='error1'>Hubo un error al descargar las opciones. Se ha utilizado la última versión que funcionó. Si el problema persiste, por favor <a href='http://tuentipro.blogspot.com/2011/06/sugerir-una-funcion.html'>contacta con el desarrollador</a>.</div><div id='error2'>Se ha producido un error de Javascript y no se ha podido cargar la lista de opciones más reciente. Se está usando la última lista que funcionó. Si el problema persiste, por favor <a href='http://tuentipro.blogspot.com/2011/06/sugerir-una-funcion.html'>contacta con el desarrollador</a>.</div>";
+				var htmlnav = "<nav id=\"nav\"><h1>TuPro</h1><a id='save' href='javascript:save();switchsec(\"expert\");'>Guardar y obtener CSS</a><div id='saved'>Se ha guardado tu configuraciï¿½n.</div><div id='error1'>Hubo un error al descargar las opciones. Se ha utilizado la ï¿½ltima versiï¿½n que funcionï¿½. Si el problema persiste, por favor <a href='http://tuentipro.blogspot.com/2011/06/sugerir-una-funcion.html'>contacta con el desarrollador</a>.</div><div id='error2'>Se ha producido un error de Javascript y no se ha podido cargar la lista de opciones mï¿½s reciente. Se estï¿½ usando la ï¿½ltima lista que funcionï¿½. Si el problema persiste, por favor <a href='http://tuentipro.blogspot.com/2011/06/sugerir-una-funcion.html'>contacta con el desarrollador</a>.</div>";
 				var htmlsec = "<span id='estoycargando' style='display:none; opacity: 0; visibility: hidden;'></span><section id='vacia'>";
 				for (var i=0;i < o.length;i++) {
 					var e = o[i];
 					
-					if (e.length==2) { //Si la variable actual es una sección nueva
+					if (e.length==2) { //Si la variable actual es una secciï¿½n nueva
 						htmlnav += "<a href='#"+e[0]+"' id='link"+e[0]+"' onclick='switchsec(\""+e[0]+"\")'>"+e[1]+"</a>";
 						htmlsec += "</section><section id='"+e[0]+"'><h1>"+e[1]+"</h1>";
-					} else if (e.length==1) { //La variable actual es puro HTML, añadir tal cual
+					} else if (e.length==1) { //La variable actual es puro HTML, aï¿½adir tal cual
 						htmlsec += e[0];
-					} else if (e.length>=4) { //La variable actual es una opción, añadir un HTML para activar o no el CSS/JS
+					} else if (e.length>=4) { //La variable actual es una opciï¿½n, aï¿½adir un HTML para activar o no el CSS/JS
 						if (e[1] == "js") {
 							if (localStorage[e[0]] && localStorage[e[0]]=="true") {
 								htmlsec += "<input type='checkbox' checked id='"+e[0]+"' name='"+e[0]+"' onchange='document.getElementById(\"saved\").style.height=\"0\"' /><label for='"+e[0]+"'>"+e[2]+" <abbr class='js'>No disponible en otros navegadores</abbr></label><br />";
@@ -360,10 +360,10 @@
 				
 				var htmlfinal = htmlnav + htmlsec;
 				$('body').html(htmlfinal);
-				/*** Versión desarrolladores ***/
-				$('#expert').html('<h1>Para expertos</h1><span>En esta sección puedes probar tu propio código e inyectarlo en Tuenti. Si desarrollas alguna característica interesante, que te gustaría que apareciese en TuPro, <a href="http://tuentipro.blogspot.com/2011/06/sugerir-una-funcion.html">contribúyela</a>.</span>Añadir HTML personalizado<br /><span>Este código se incluirá debajo de Tuenti.</span><textarea id="custhtml"></textarea><p>Añadir CSS personalizado<br /><span>Usa la vista de desarrollador de Chrome (tecla F12) para investigar en el código de Tuenti.</span><textarea id="custcss"></textarea><p>Añadir Javascript personalizado<br /><span>Asegúrate de que tu Javascript es correcto, por ejemplo, mediante <a href="http://www.jslint.com/">JSLint</a>.</span><textarea id="custjs"></textarea><p><div class="csscode">Código CSS generado con las opciones guardadas<br /><textarea id="cssfinal" readonly></textarea></div><p><div class="jscode">Código Javascript generado con las opciones guardadas<br /><textarea id="jsfinal" readonly></textarea></div>');
+				/*** Versiï¿½n desarrolladores ***/
+				$('#expert').html('<h1>Para expertos</h1><span>En esta secciï¿½n puedes probar tu propio cï¿½digo e inyectarlo en Tuenti. Si desarrollas alguna caracterï¿½stica interesante, que te gustarï¿½a que apareciese en TuPro, <a href="http://tuentipro.blogspot.com/2011/06/sugerir-una-funcion.html">contribï¿½yela</a>.</span>Aï¿½adir HTML personalizado<br /><span>Este cï¿½digo se incluirï¿½ debajo de Tuenti.</span><textarea id="custhtml"></textarea><p>Aï¿½adir CSS personalizado<br /><span>Usa la vista de desarrollador de Chrome (tecla F12) para investigar en el cï¿½digo de Tuenti.</span><textarea id="custcss"></textarea><p>Aï¿½adir Javascript personalizado<br /><span>Asegï¿½rate de que tu Javascript es correcto, por ejemplo, mediante <a href="http://www.jslint.com/">JSLint</a>.</span><textarea id="custjs"></textarea><p><div class="csscode">Cï¿½digo CSS generado con las opciones guardadas<br /><textarea id="cssfinal" readonly></textarea></div><p><div class="jscode">Cï¿½digo Javascript generado con las opciones guardadas<br /><textarea id="jsfinal" readonly></textarea></div>');
 				
-				$('body').append('<div class="marcadev">Estás usando TuPro para otros navegadores. Si alguna función da problemas, <a href="http://tuentipro.blogspot.com/2011/06/contacto.html">contacta con el creador</a>.</div>');
+				$('body').append('<div class="marcadev">Estï¿½s usando TuPro para otros navegadores. Si alguna funciï¿½n da problemas, <a href="http://tuentipro.blogspot.com/2011/06/contacto.html">contacta con el creador</a>.</div>');
 				
 				if ( localStorage["custhtml"] &&  localStorage["custhtml"]!="undefined" ) {document.getElementById('custhtml').value = localStorage["custhtml"];}
 				if ( localStorage["custcss"] &&  localStorage["custcss"]!="undefined" ) {document.getElementById('custcss').value = localStorage["custcss"];}
@@ -375,8 +375,8 @@
 			
 			$(document).ready(function() {
 				
-				$.get('http://bartimeo.github.com/TuPro/codigo.html', function(data) {
-					document.getElementById('msjload').innerHTML = "Se ha descargado la última lista de opciones. Creando interfaz de usuario...";
+				$.get('http://fdavidcl.github.com/TuPro/codigo.html', function(data) {
+					document.getElementById('msjload').innerHTML = "Se ha descargado la ï¿½ltima lista de opciones. Creando interfaz de usuario...";
 					var opciones = eval(data);
 					localStorage["opciones"]=data;
 					
@@ -392,7 +392,7 @@
 						document.getElementById('error1').style.height='6em';
 						//setTimeout(function() {document.getElementById('error1').style.height='0';}, 15000);
 					} else {
-						var htmlfinal = "<div class='error'><h1>Error - TuPro</h1>Hubo un problema al acceder a las opciones a través de Internet. Comprueba tu conexión a Internet, <a href='javascript:location.reload(true)'>recarga esta página</a> o <a href='http://tuentipro.blogspot.com/2011/06/sugerir-una-funcion.html'>contacta con el desarrollador</a>.<p>Disculpa las molestias.</p></div>";
+						var htmlfinal = "<div class='error'><h1>Error - TuPro</h1>Hubo un problema al acceder a las opciones a travï¿½s de Internet. Comprueba tu conexiï¿½n a Internet, <a href='javascript:location.reload(true)'>recarga esta pï¿½gina</a> o <a href='http://tuentipro.blogspot.com/2011/06/sugerir-una-funcion.html'>contacta con el desarrollador</a>.<p>Disculpa las molestias.</p></div>";
 						$('body').html(htmlfinal);
 					}
 				});
@@ -401,7 +401,7 @@
 		
 	</head>
 	<body>
-		<div class="error" id="estoycargando"><h1>TuPro</h1><span id="msjload">Se está descargando la última versión de las opciones de TuPro. Por favor espera unos segundos...</span></div>
+		<div class="error" id="estoycargando"><h1>TuPro</h1><span id="msjload">Se estï¿½ descargando la ï¿½ltima versiï¿½n de las opciones de TuPro. Por favor espera unos segundos...</span></div>
 		<script>
 		function cargarultima() {
 			genhtml(eval(localStorage["opciones"]));
@@ -413,9 +413,9 @@
 		setTimeout(function() {
 			var msjerr = document.createElement('p');
 			if (localStorage["opciones"]) {
-				msjerr.innerHTML = "Parece que esto está tardando más de lo que debería. Puedes <a href='javascript:cargarultima()'>recuperar la última lista de opciones que funcionó</a>."
+				msjerr.innerHTML = "Parece que esto estï¿½ tardando mï¿½s de lo que deberï¿½a. Puedes <a href='javascript:cargarultima()'>recuperar la ï¿½ltima lista de opciones que funcionï¿½</a>."
 			} else {
-				msjerr.innerHTML = "Parece que esto está tardando más de lo que debería. No se puede recuperar la última lista de opciones funcional. Si el problema persiste, por favor <a href='http://tuentipro.blogspot.com/2011/06/sugerir-una-funcion.html'>informa al desarrollador</a>.<p>Disculpa las molestias.";
+				msjerr.innerHTML = "Parece que esto estï¿½ tardando mï¿½s de lo que deberï¿½a. No se puede recuperar la ï¿½ltima lista de opciones funcional. Si el problema persiste, por favor <a href='http://tuentipro.blogspot.com/2011/06/sugerir-una-funcion.html'>informa al desarrollador</a>.<p>Disculpa las molestias.";
 			}
 			document.getElementById('estoycargando').appendChild(msjerr);
 		}, 15000);
