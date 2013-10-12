@@ -1,10 +1,9 @@
 #!/bin/bash
 
-# Titulo: crea_proyecto.sh
-# Fecha: 21/11/2011
-# Autor: Francisco David Charte
-# Versión: 1.0
-# Descripción: Prepara una jerarquía de directorios
+# project.sh
+# author: David Charte
+# version: 1.2
+# description: Prepara una jerarquía de directorios
 #              adecuada en el directorio indicado, para
 #              crear un proyecto.
 #              En caso de existir un proyecto, actualiza el
@@ -60,7 +59,7 @@
 
    # Creamos los archivos por defecto
    touch $PR_DIR/src/main.cpp &&
-   printf "using namespace std;\n\nint main(int argc, char *argv[]){\n\t\n}" > $PR_DIR/src/main.cpp &&
+   printf "\nint main(int argc, char *argv[]){\n\t\n}" > $PR_DIR/src/main.cpp &&
    printf "  [ OK ]  Creado archivo main.cpp\n"
 
    # Creamos el Makefile por defecto
