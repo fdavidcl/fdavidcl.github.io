@@ -1,14 +1,12 @@
 #!/bin/bash
 
 # project.sh
-# author: David Charte
-# version: 1.2
-# description: Prepara una jerarquía de directorios
-#              adecuada en el directorio indicado, para
-#              crear un proyecto.
-#              En caso de existir un proyecto, actualiza el
-#              archivo Makefile según los archivos de src/ 
-#              y include/
+# Date: 21/11/2011
+# Author: David Charte
+# Version: 2.0
+# Description: Creates directory hierarchies for C++ projects,
+#              and manages Makefiles.
+# License: WTFPL (Do What The Fuck You Want To Public License)
 
 [[ $# -gt 0 ]] && {
     NM="$1"
@@ -16,15 +14,15 @@
 } || {
 	PR_DIR="./"
 	NM="`pwd | rev | cut -d"/" -f1 | rev`"
-   echo "Se utilizará el directorio actual (proyecto $NM)."
+   echo "Using current directory... (project $NM)."
 }
-	
+
 [[ -d $PR_DIR ]] && {
    [[ -f $PR_DIR/Makefile ]] || {
-      echo "El directorio $PR_DIR existe y no es un proyecto. Saliendo."
+      echo "Directory $PR_DIR exists and it's not a project. Aborting."
       exit 1;
    } && {
-      printf "Proyecto existente en $PR_DIR. Actualizando...\n"
+      printf "Existing project in $PR_DIR. Updating...\n"
       
       LAST=`pwd`
       cd $PR_DIR/src/
@@ -47,20 +45,20 @@
       echo '	rm $(OBJ)/*.o' >> $MF &&
       echo 'doc:' >> $MF &&
       echo '	doxygen $(DOC)/doxys/Doxyfile' >> $MF &&
-      printf " [ OK ] Actualizado Makefile del proyecto\n"
+      printf " [ OK ] Makefile updated\n"
    }
 } || {
-  	printf "Creando el proyecto $NM...\n"
+  	printf "Creating new project $NM...\n"
 
-   mkdir $PR_DIR && printf "  [ OK ]  Creado el directorio del proyecto\n"
+   mkdir $PR_DIR && printf "  [ OK ]  Project directory created\n"
 
    mkdir $PR_DIR/bin $PR_DIR/doc $PR_DIR/include $PR_DIR/lib $PR_DIR/obj $PR_DIR/src &&
-   printf "  [ OK ]  Creada jerarquía de directorios\n"
+   printf "  [ OK ]  Directory hierarchy created\n"
 
    # Creamos los archivos por defecto
    touch $PR_DIR/src/main.cpp &&
-   printf "\nint main(int argc, char *argv[]){\n\t\n}" > $PR_DIR/src/main.cpp &&
-   printf "  [ OK ]  Creado archivo main.cpp\n"
+   printf "\n\nint main(int argc, char *argv[]){\n\t\n}" > $PR_DIR/src/main.cpp &&
+   printf "  [ OK ]  New main.cpp file created\n"
 
    # Creamos el Makefile por defecto
    MF="$PR_DIR/Makefile" &&
@@ -75,5 +73,5 @@
    echo '	rm $(OBJ)/*.o' >> $MF &&
    echo 'doc:' >> $MF &&
    echo '	doxygen $(DOC)/doxys/Doxyfile' >> $MF &&
-   printf "  [ OK ]  Creado archivo Makefile\n"
+   printf "  [ OK ]  New Makefile created\n"
 }
