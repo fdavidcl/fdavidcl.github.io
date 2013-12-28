@@ -104,6 +104,28 @@
 
       /****/
 
+      /** Tooltip Latex **/
+      .m-help-code {
+         margin-bottom: 0.6em !important;
+      }
+      .m-help-code:after {
+         content: "\\( LaTeX en línea \\)";
+         border: solid #ddd;
+         border-width: 1px 0 0;
+         padding-top: 0.6em;
+         margin-top: 0.6em;
+         display: block;
+      }
+      .m-help-post:before {
+         content: "$$ Ecuación en LaTeX $$";
+         border: solid #ddd;
+         border-width: 0 0 1px;
+         padding-bottom: 0.6em;
+         margin-bottom: 0.6em;
+         margin-top: 0;
+         display: block;
+      }
+
       .m-face {
          border-radius: 0;
       }
