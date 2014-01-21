@@ -45,6 +45,7 @@
       echo '	rm $(OBJ)/*.o' >> $MF &&
       echo 'doc:' >> $MF &&
       echo '	doxygen $(DOC)/doxys/Doxyfile' >> $MF &&
+      echo '.PHONY: all clean doc' >> $MF &&
       printf " [ OK ] Makefile updated\n"
    }
 } || {
