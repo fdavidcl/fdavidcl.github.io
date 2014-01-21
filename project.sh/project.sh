@@ -3,10 +3,11 @@
 # project.sh
 # Date: 21/11/2011
 # Author: David Charte
-# Version: 2.0
+# Version: 2.1
 # Description: Creates directory hierarchies for C++ projects,
 #              and manages Makefiles.
 # License: WTFPL (Do What The Fuck You Want To Public License)
+# Thanks to Iván Calle for beta-testing!
 
 [[ $# -gt 0 ]] && {
     NM="$1"
