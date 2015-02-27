@@ -1,5 +1,5 @@
 ---
-permalink: /.well-known/webfinger/
+permalink: /.well-known/webfinger/index.json
 ---
 {
 	"subject" : "acct:david@fdavidcl.me",
