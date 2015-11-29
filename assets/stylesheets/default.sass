@@ -1,0 +1,110 @@
+---
+---
+
+$background: #f0f0f0
+$foreground: #000
+$accent: #00bcd4
+$sidebar-back: darken($accent, 20%)
+$sidebar-fore: $background
+
+body, html
+  height: 100%
+
+body
+  background: $background
+
+.wrapper
+  min-height: 100%
+
+  .sidebar
+    background: $sidebar-back
+    color: $background
+    text-align: center
+
+    .side-content
+      padding: 2em
+
+      header
+        white-space: nowrap
+
+        .profile-pic
+          width: 8em
+          display: inline-block
+          vertical-align: middle
+          border: .3em solid
+          border-radius: 8em
+          box-shadow: 0 1px 5px -1px rgba(0,0,0,0.4)
+
+        .name-box
+          display: inline-block
+          vertical-align: middle
+          margin-right: 2em
+          text-align: right
+
+          h1, h3
+            margin: 0
+
+          h1
+            font-size: 250%
+            font-weight: 300
+            letter-spacing: -.05em
+            padding: 1em 0 0
+
+          h3
+            color: mix($sidebar-back, $sidebar-fore, 30%)
+            padding: 0.3em 0 1em
+
+      .social-links
+        clear: both
+        margin-top: 2em
+
+        .social-button
+          padding: .25em .5em
+          margin: 0 .25em
+          border: .1em solid
+          color: $sidebar-fore
+          text-decoration: none
+          text-transform: uppercase
+          font-size: 90%
+
+          &:hover
+            opacity: .7
+
+  .main
+    background: $background
+    color: $foreground
+    min-height: 100%
+
+    .main-content
+      padding: 2em
+
+      h2
+        font-weight: normal
+        font-style: italic
+        opacity: .7
+
+
+@media (min-width: 48em)
+  .wrapper
+    .sidebar
+      position: fixed
+      top: 0
+      bottom: 0
+
+      .side-content
+        padding: 6em 2em 2em
+        text-align: right
+
+        header
+          .profile-pic
+            margin-right: -6.2em
+
+        .social-links
+          .social-button
+            border: 0px solid
+            display: block
+            padding: 0.5em 0
+
+    .main
+      margin-left: 25%
+      padding-top: 14em

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/pure/0.6.0/base-min.css">
+    <!--link rel="stylesheet" href="https://cdn.jsdelivr.net/pure/0.6.0/buttons-min.css"-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/pure/0.6.0/grids-responsive-min.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/stylesheets/default.css">
+  </head>
+  <body>
+    <div class="wrapper pure-g">
+      <aside class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="side-content">
+          <header>
+            <div class="name-box">
+              <h1>David Charte</h1>
+              <h3>fdavidcl</h3>
+            </div>
+            <img src="https://secure.gravatar.com/avatar/7083d161b041964b75c38376d9dee37a?s=200" class="profile-pic" />
+          </header>
+          <nav class="social-links">
+            <a class="social-button github-link" href="https://github.com/fdavidcl">Github</a>
+            <a class="social-button blog-link" href="http://blog.fdavidcl.me">Blog</a>
+            <a class="social-button twitter-link" href="https://twitter.com/fdavidcl">Twitter</a>
+            <!--a href="http://www.tumblr.com/follow/fdavidcl" title="Sígue Undefined"><img src="http://static.tumblr.com/mgtegk6/AAQmqluf9/sq_tumblr.png" width='28' height='28' /></a-->
+            <!--a href='http://www.feedly.com/home#subscription/feed%2Fhttp%3A%2F%2Ffdavidcl.tumblr.com%2Frss'  target='_blank' title="Léeme en Feedly"><img id='feedlyFollow' src='http://s3.feedly.com/img/follows/feedly-follow-square-flat-green_2x.png' alt='Feedly' width='28' height='28'></a>
+            <a title="Sígueme en Twitter" href='https://twitter.com/fdavidcl'>
+              <img id='my_tweets' src='http://static.tumblr.com/mgtegk6/0u5mol9z3/sq_twitter.png' alt='Twitter' width='28' height='28'>
+            </a>
+            <!--a title="Sígueme en Diaspora*" href='http://dia.so/fdavidcl'><img id='my_tweets' src='http://static.tumblr.com/mgtegk6/PApn690b2/diaspora-icon.png' alt='Diaspora*' width='28' height='28'></a>
+            <a href='https://github.com/fdavidcl' title="Mis proyectos en Github">
+              <img id='githubFollow' src='http://static.tumblr.com/mgtegk6/if0mol9yp/sq_github.png' alt='Github' width='28' height='28'>
+            </a>
+            <a href='https://telegram.me/fdavidcl' title="Telegram">
+              <img src='http://static.tumblr.com/mgtegk6/Jusnrqttr/sq_telegram.png' alt='Telegram' width='28' height='28'>
+            </a>
+            <!--a href='https://live.xbox.com/en-US/Profile' title="Xbox Live"><img src='http://static.tumblr.com/mgtegk6/m8qmx8vua/xbox_flat.png' alt='Xbox' width='28' height='28'></a-->
+            <!--a href='http://engadget.com/profile/fdavidcl/' title="Mis gadgets"><img src="http://static.tumblr.com/mgtegk6/8cln0nip9/engadgeticon.png" alt='gdgt' width='28' height='28' style="background-color: #444" /></a-->
+            <!--a title="Pregúntame cosas" href='http://fdavidcl.tumblr.com/ask'><img id='tumblrAsk' src='http://static.tumblr.com/mgtegk6/b9Bmomyic/sq_ask.png' alt='Ask me anything' width='28' height='28'></a-->
+          </nav>
+        </div>
+      </aside>
+      <div class="main pure-u-1 pure-u-md-3-4">
+        <div class="main-content">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
