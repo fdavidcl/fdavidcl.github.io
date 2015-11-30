@@ -9,3 +9,7 @@ profile:
   twitter: fdavidcl
   linkedin: fdavidcl
   scholar: FRv_MwYAAAAJ
+
+collections:
+  - publications
+  - projects

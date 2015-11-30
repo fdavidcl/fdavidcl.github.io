@@ -1,6 +1,4 @@
 ---
-layout: default
-category: publications
 title: "Working with Multilabel Datasets in R: the mldr Package"
 link: "https://journal.r-project.org/archive/accepted/charte-charte.pdf"
 ---

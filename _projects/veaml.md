@@ -1,6 +1,4 @@
 ---
-layout: default
-category: projects
 title: Video Editing Abstraction Markup Language
 link: "http://fdavidcl.me/veaml"
 ---

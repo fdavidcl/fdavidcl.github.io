@@ -3,16 +3,10 @@ layout: default
 title: Main
 ---
 
-{% for category in site.categories %}
-  <h3 id="{{ category | first }}">{{ category | first | capitalize }}</h3>
-  {% assign items = category | last %}
-  {% for i in items %}
-    <article>
-      {% if i.link %}<a class="title-link" hreF="{{ i.link }}">{% endif %}
-        <h1>{{ i.title }}</h1>
-      {% if i.link %}</a>{% endif %}
+<h3 id="publications">Publications</h3>
+{% assign collection = site.publications %}
+{% include collection.html %}
 
-      {{ i.content }}
-    </article>
-  {% endfor %}
-{% endfor %}
+<h3 id="projects">Projects</h3>
+{% assign collection = site.projects %}
+{% include collection.html %}
