@@ -3,4 +3,16 @@ layout: default
 title: Main
 ---
 
-<h2>There's no content here yet...</h2>
+{% for category in site.categories %}
+  <h3 id="{{ category | first }}">{{ category | first | capitalize }}</h3>
+  {% assign items = category | last %}
+  {% for i in items %}
+    <article>
+      {% if i.link %}<a class="title-link" hreF="{{ i.link }}">{% endif %}
+        <h1>{{ i.title }}</h1>
+      {% if i.link %}</a>{% endif %}
+
+      {{ i.content }}
+    </article>
+  {% endfor %}
+{% endfor %}
