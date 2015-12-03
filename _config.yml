@@ -11,6 +11,11 @@ profile:
     LinkedIn: https://linkedin.com/in/fdavidcl
     Scholar: https://scholar.google.es/citations?user=FRv_MwYAAAAJ
 
+style:
+  background: "f0f0f0"
+  foreground: "000000"
+  accent: "00bcd4"
+
 collections:
   - publications
   - projects
