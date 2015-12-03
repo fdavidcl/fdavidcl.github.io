@@ -6,7 +6,6 @@
     <title>{{ page.title }}</title>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/pure/0.6.0/base-min.css">
-    <!--link rel="stylesheet" href="https://cdn.jsdelivr.net/pure/0.6.0/buttons-min.css"-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/pure/0.6.0/grids-responsive-min.css">
     <link rel="stylesheet" href="{{ site.baseurl }}assets/stylesheets/default.css">
   </head>
@@ -19,14 +18,12 @@
               <h1>{{ site.profile.name }}</h1>
               <h3>{{ site.profile.alias }}</h3>
             </a>
-            <img src="{{ site.profile.pic }}" class="profile-pic" />
+            {% if site.profile.pic %}<img src="{{ site.profile.pic }}" class="profile-pic" />{% endif %}
           </header>
           <nav class="social-links">
-            <a class="social-button github-link" href="https://github.com/{{ site.profile.github }}">Github</a>
-            <a class="social-button blog-link" href="{{ site.profile.blog }}">Blog</a>
-            <a class="social-button twitter-link" href="https://twitter.com/{{ site.profile.twitter }}">Twitter</a>
-            <a class="social-button linkedin-link" href="https://linkedin.com/in/{{ site.profile.linkedin }}">LinkedIn</a>
-            <a class="social-button scholar-link" href="https://scholar.google.es/citations?user={{ site.profile.scholar }}">Scholar</a>
+            {% for link in site.profile.links %}
+              <a class="social-button {{ link | first }}-link" href="{{ link | last }}">{{ link | first }}</a>
+            {% endfor %}
           </nav>
         </div>
       </aside>
