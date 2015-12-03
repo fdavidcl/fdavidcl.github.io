@@ -1,9 +1,0 @@
-{% for i in collection %}
-  <article>
-    {% if i.link %}<a class="title-link" hreF="{{ i.link }}">{% endif %}
-      <h1>{{ i.title }}</h1>
-    {% if i.link %}</a>{% endif %}
-
-    {{ i.content }}
-  </article>
-{% endfor %}
