@@ -4,11 +4,11 @@ title: Main
 ---
 
 {% for collection in site.collections %}
-  <h3 id="{{ collection | first }}">{{ collection | first }}</h3>
+  <h3 id="{{ collection.label }}">{{ collection.label }}</h3>
 
-  {% for i in collection[1].docs %}
+  {% for i in collection.docs %}
     <article>
-      {% if i.link %}<a class="title-link" hreF="{{ i.link }}">{% endif %}
+      {% if i.link %}<a class="title-link" href="{{ i.link }}">{% endif %}
         <h1>{{ i.title }}</h1>
       {% if i.link %}</a>{% endif %}
 
