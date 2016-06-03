@@ -3,7 +3,8 @@ layout: default
 title: Main
 ---
 
-{% for collection in site.collections %}
+{% for name in site.lists %}
+  {% assign collection = site.collections | where: 'label',name | first %}
   <h3 id="{{ collection.label }}">{{ collection.label }}</h3>
 
   {% for i in collection.docs %}

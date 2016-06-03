@@ -16,6 +16,12 @@ style:
   foreground: "000000"
   accent: "00bcd4"
 
+# This list helps the index page show the correct collections in the desired order
+lists:
+  - publications
+  - projects
+
+# This list tells Jekyll which collections exist
 collections:
   - publications
   - projects
