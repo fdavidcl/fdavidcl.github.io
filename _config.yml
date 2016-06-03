@@ -18,10 +18,10 @@ style:
 
 # This list helps the index page show the correct collections in the desired order
 lists:
-  - publications
+  - research
   - projects
 
 # This list tells Jekyll which collections exist
 collections:
-  - publications
+  - research
   - projects
