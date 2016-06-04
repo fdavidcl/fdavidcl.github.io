@@ -15,6 +15,7 @@ style:
   background: "f0f0f0"
   foreground: "000000"
   accent: "00bcd4"
+  font: "Lato"
 
 # This list helps the index page show the correct collections in the desired order
 lists:
