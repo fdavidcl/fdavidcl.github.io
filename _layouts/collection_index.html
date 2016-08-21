@@ -8,3 +8,17 @@ layout: default
     {{ topic.content }}
   </article>
 {% endfor %}
+
+<style>
+.wrapper .sidebar .side-content .sections .section-{{ page.title }} {
+  background: #{{ site.style.background }};
+  color: #{{ site.style.foreground }};
+  border-color: #{{ site.style.background }}
+}
+@media (min-width: 64em) {
+  .wrapper .sidebar .side-content .sections .section-{{ page.title }} {
+    margin-right: -2rem;
+    padding-right: 2rem;
+  }
+}
+</style>

@@ -24,3 +24,17 @@ paginate:
 
   <a href="{{ paginator.next_page_path }}">Más antiguos</a>
 </nav>
+
+<style>
+.wrapper .sidebar .side-content .sections .section-blog {
+  background: #{{ site.style.background }};
+  color: #{{ site.style.foreground }};
+  border-color: #{{ site.style.background }}
+}
+@media (min-width: 64em) {
+  .wrapper .sidebar .side-content .sections .section-blog {
+    margin-right: -2rem;
+    padding-right: 2rem;
+  }
+}
+</style>

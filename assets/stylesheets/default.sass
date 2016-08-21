@@ -14,7 +14,6 @@ body, html
   font-size: 16px
 
 a
-  transition: opacity .2s ease, color .2s ease
   color: $sidebar-back
 
 body
@@ -31,17 +30,20 @@ body
     text-align: center
 
     .side-content
-      padding: 2em 2em 1em
+      padding: 2rem 2rem 1rem
+
+      a
+        color: $sidebar-fore
 
       header
         white-space: nowrap
 
         .profile-pic
-          width: 6em
+          width: 6rem
           display: inline-block
           vertical-align: middle
-          border: .3em solid
-          border-radius: 8em
+          border: .3rem solid
+          border-radius: 8rem
           abox-shadow: -2px 1px 5px -3px rgba(0,0,0,0.4)
 
         .name-box
@@ -49,7 +51,7 @@ body
           color: inherit
           text-decoration: none
           vertical-align: middle
-          margin-right: 2em
+          margin-right: 2rem
           text-align: right
 
           h1, h3
@@ -65,22 +67,27 @@ body
             color: mix($sidebar-back, $sidebar-fore, 30%)
             padding: 0.3em 0 1em
 
-      .social-links
+      .sections, .social-links
         clear: both
-        margin-top: 2em
+        margin-top: 2rem
 
-        .social-button
+        .section-link, .social-button
           display: inline-block
-          padding: .25em .5em
-          margin: 0 .25em 1em
+          padding: .25rem .5rem
+          margin: 0 .25rem 1rem
           border: .1em solid
           color: $sidebar-fore
           text-decoration: none
           text-transform: uppercase
           font-size: 90%
+          transition: opacity .1s ease, color .1s ease
 
           &:hover
             opacity: .7
+
+          &.social-button
+            border: 0px solid
+            font-size: 1.2rem
 
   .main
     background: $background
@@ -89,6 +96,7 @@ body
 
     .main-content
       padding: 2em
+      line-height: 1.5
 
       a.title-link
         color: mix($accent, $foreground, 60%)
@@ -98,59 +106,56 @@ body
         &:hover
           color: mix($accent, $foreground, 80%)
 
+      h1
+        line-height: 1.1em
+
       h2
         font-weight: normal
         font-style: italic
         opacity: .7
 
       h3
-        margin-top: 4em
         text-transform: uppercase
-        color: mix($foreground, $background, 40%)
-        padding: 0 0 0.4em
-        border-bottom: 1px solid mix($foreground, $background, 20%)
+        color: mix($foreground, $background, 50%)
 
       img
         max-width: 100%
 
 
 
-@media (min-width: 48em)
+@media (min-width: 64em)
+  body
+    font-size: 18px
+
   .wrapper
     .sidebar
       position: fixed
       top: 0
       bottom: 0
+      width: 24rem
 
       .side-content
-        padding: 6em 2em 2em
+        padding: 6rem 2rem 2rem
         text-align: right
 
         header
           .profile-pic
-            margin-right: -5.25em
+            margin-right: -5.25rem
 
-        .social-links
-          .social-button
+        .sections
+          .section-link
             border: 0px solid
             display: block
-            padding: 0.7em 0
-            margin-bottom: 0
+            padding: 0.7rem 0
+            margin: 0
 
     .main
-      margin-left: 33.333333%
-      padding-top: 9.6em
-      max-width: 50em
-      line-height: 1.5em
+      margin-left: 24rem
 
       .main-content
+        padding: 8.6rem 5rem 0
+        max-width: 50rem
+
         h1
           font-size: 220%
-
-        article:first-child
-          margin-top: 4em
-
-@media (min-width: 80em)
-  .wrapper
-    .main
-      margin-left: 25%
+          margin-top: 0

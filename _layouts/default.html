@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
     <link href='https://fonts.googleapis.com/css?family={{ site.style.font }}:400,300,700,400italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/pure/0.6.0/base-min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/pure/0.6.0/grids-responsive-min.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/stylesheets/normalize.css">
     <link rel="stylesheet" href="{{ site.baseurl }}assets/stylesheets/default.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
   </head>
   <body>
     <div class="wrapper pure-g">
-      <aside class="sidebar pure-u-1 pure-u-md-1-3 pure-u-xl-1-4">
+      <aside class="sidebar">
         <div class="side-content">
           <header>
             <a class="name-box" href="{{ site.baseurl }}">
@@ -20,14 +20,25 @@
             </a>
             {% if site.profile.pic %}<img src="{{ site.profile.pic }}" class="profile-pic" />{% endif %}
           </header>
+          <nav class="sections">
+            {% if site.enable_blog %}
+              <a href="/blog" class="section-link section-blog">blog</a>
+            {% endif %}
+            {% for name in site.lists %}
+              <a href="/{{ name }}" class="section-link section-{{ name }}">{{ name }}</a>
+            {% endfor %}
+          </nav>
           <nav class="social-links">
             {% for link in site.profile.links %}
-              <a class="social-button {{ link | first }}-link" href="{{ link | last }}">{{ link | first }}</a>
+              {% assign properties = link | last %}
+              <a class="social-button {{ link | first }}-link" href="{{ properties.url }}" title="{{ link | first }}"><!--
+                --><i class="fa fa-{{ properties.icon }}"></i><!--
+              --></a>
             {% endfor %}
           </nav>
         </div>
       </aside>
-      <div class="main pure-u-1 pure-u-md-2-3 pure-u-xl-1-2">
+      <div class="main">
         <div class="main-content">
           {{ content }}
         </div>
