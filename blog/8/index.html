@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog (page 8) - fdavidcl</title>
+    <link href='https://fonts.googleapis.com/css?family=Source Sans Pro:400,300,700,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/assets/stylesheets/default.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="wrapper pure-g">
+      <aside class="sidebar">
+        <div class="side-content">
+          <header>
+            <a class="name-box" href="/">
+              <h1>David Charte</h1>
+              <h3>fdavidcl</h3>
+            </a>
+            <img src="https://secure.gravatar.com/avatar/7083d161b041964b75c38376d9dee37a?s=200" class="profile-pic" />
+          </header>
+          <nav class="sections">
+            
+              <a href="/blog" class="section-link section-blog">blog</a>
+            
+            
+              <a href="/research" class="section-link section-research">research</a>
+            
+              <a href="/projects" class="section-link section-projects">projects</a>
+            
+          </nav>
+          <nav class="social-links">
+            
+              
+              <a class="social-button Blog-link" href="http://blog.fdavidcl.me" title="Blog"><!--
+                --><i class="fa fa-rss"></i><!--
+              --></a>
+            
+              
+              <a class="social-button Github-link" href="https://github.com/fdavidcl" title="Github"><!--
+                --><i class="fa fa-github"></i><!--
+              --></a>
+            
+              
+              <a class="social-button Twitter-link" href="https://twitter.com/fdavidcl" title="Twitter"><!--
+                --><i class="fa fa-twitter"></i><!--
+              --></a>
+            
+              
+              <a class="social-button LinkedIn-link" href="https://linkedin.com/in/fdavidcl" title="LinkedIn"><!--
+                --><i class="fa fa-linkedin"></i><!--
+              --></a>
+            
+              
+              <a class="social-button Scholar-link" href="https://scholar.google.es/citations?user=FRv_MwYAAAAJ" title="Scholar"><!--
+                --><i class="fa fa-graduation-cap"></i><!--
+              --></a>
+            
+          </nav>
+        </div>
+      </aside>
+      <div class="main">
+        <div class="main-content">
+          
+  <article>
+  <span class="date">13-04-2013</span>
+  <a href="/blog/8/"><h1>Hackintosh y distros de OS X</h1></a>
+
+  <p><em><strong>Nota</strong>: Algunas de las prácticas comentadas en este post no son legales y no las apoyo ni las recomiendo.</em></p>
+<p>Hackintosh es un término que se refiere a la instalación de OS X (aka Mac OS X) en PCs. Desde que Apple lanzó los primeros ordenadores Mac con procesadores Intel en 2006, esta práctica se ha ido desarrollando y hoy día contamos con abundante documentación sobre cómo convertir un PC normal en un Hackintosh.</p>
+<h3>Mac vs. PC</h3>
+<p><img src="http://66.media.tumblr.com/e91072e234d7e28e03f509a096113cc4/tumblr_inline_ml7fzt4LCp1qz4rgp.png"/></p>
+
+<p>El mayor problema que puede plantearse a la hora de tratar de instalar OS X en un PC es generalmente el soporte de hardware: OS X únicamente soporta procesadores Intel, luego un PC con procesador de AMD no podrá ejecutar una versión original de OS X; además la gama de tarjetas gráficas soportadas es limitada, teniendo frecuentemente mejor soporte para las de Nvidia que para las AMD/ATI. Para ampliar el hardware soportado, a excepción del procesador, se utilizan controladores o <em>kexts</em> para dispositivos específicos, que permiten la utilización de los mismos bajo OS X. Se puede encontrar una gran variedad de <em>kexts</em> en la página de descargas del proyecto <a href="http://www.osx86.net/">OSx86</a>.</p>
+<p>Por otro lado, los Mac utilizan discos con tablas de particiones GUID y arranque EFI, y sin embargo la mayoría de los PCs utilizan el sistema MBR para estas tareas, a excepción de los ordenadores más recientes con Windows 8 que incluyen UEFI como sustituta de la clásica BIOS. Para solventar el problema del arranque se utilizan cargadores de arranque especiales, como Chameleon, Chimera o el más reciente Clover, que soporta los dos tipos de arranque, el clásico y el (U)EFI. Para permitir que OS X se deje instalar en discos particionados sin GPT (<em>GUID Partition Table</em>) existen algunas soluciones que requieren modificar los archivos de instalación del sistema, o bien se puede convertir la tabla de particiones a GUID desde el instalador de OS X.</p>
+<h3>OS X y las distros</h3>
+<p>La palabra <em>distro</em> suele referirse a Linux, cuando se habla de las distintas variedades (o distribuciones) que hay disponibles, ya que cualquiera puede crear su propio sistema operativo basado en Linux. Sin embargo, OS X no es libre luego las <em>distros</em> de este S.O. no son lo más común del mundo, ya que utilizar una conlleva la piratería (de hecho, en muchos foros sobre Hackintosh no se permite o no se recomienda hablar de ellas). <span>En ocasiones la única forma de instalar OS X en algunos PCs es utilizar una de estas distros, que no modifican gran parte del sistema, sino que añaden soporte para más procesadores, tarjetas gráficas y otro hardware.</span></p>
+<p>Una de las más conocidas en el mundillo Hackintosh es iAtkos, un proyecto que trata de facilitar la instalación de OS X y de drivers adecuados sin ir más allá. Hay algunas más, como EmpireEFI, iDeneb, Hazard; algunas aseguran soportar procesadores AMD pero por lo general es difícil llegar a una buena compatibilidad.</p>
+<h3>Montando un Hackintosh</h3>
+<p>Existen multitud de guías para instalar diferentes versiones de OS X en PCs, varias aplicaciones que ayudan en el proceso, incluso guías de cómo comprar un ordenador de forma que sea totalmente compatible con una versión original de OS X (se ahorra bastante dinero, incluso comprando OS X aparte del ordenador). Podéis encontrarlas en <a href="http://lifehacker.com/5841604/the-always-up+to+date-guide-to-building-a-hackintosh">Lifehacker</a>, <a href="http://www.tonymacx86.com/61-unibeast-install-os-x-mountain-lion-any-supported-intel-based-pc.html">Tonymacx86</a> y en <span>los foros de <a href="http://www.insanelymac.com/forum/topic/281192-guide-a-fast-and-easy-way-to-install-mountain-lion/">InsanelyMac</a>, además de muchos otros sitios.</span></p>
+
+
+<!--
+  
+-->
+</article>
+
+
+  <article>
+  <span class="date">06-04-2013</span>
+  <a href="/blog/8/"><h1>Truco (Javascript): Seleccionando elementos con querySelector</h1></a>
+
+  <p>Una de las novedades recientes de Javascript es la inclusión de un nuevo método para seleccionar elementos que ofrece mucha más funcionalidad que los tradicionales <code>getElementById</code>, <code>getElementsByTagName</code>, etc. Se trata de <code>querySelector</code>. La sintaxis es sencilla, seleccionamos elementos igual que en CSS, usando <code>.</code> para denotar clases y <code>#</code> para identificadores.</p>
+<pre><code>var con_id = document.querySelector("#elemento_con_id");<br/>var elegante = document.querySelector(".elemento_con_clase");<br/>var familia = document.querySelector(".padre div#descendiente &gt; a.hijo");<br/></code></pre>
+<p><code>querySelector</code> seleccionará la primera ocurrencia del selector introducido. Si, por el contrario, queremos seleccionar todos los elementos que coincidan, podemos usar <code>querySelectorAll</code>, que devuelve un array de nodos HTML:</p>
+<pre><code>var todos_con_clase = document.querySelectorAll('.una_clase');
+var activadas = document.querySelectorAll("input[type='checkbox']:checked");</code></pre>
+
+
+<!--
+  
+-->
+</article>
+
+
+  <article>
+  <span class="date">26-03-2013</span>
+  <a href="/blog/8/"><h1>JS1K, impresionantes scripts en 1KB</h1></a>
+
+  <p><img src="http://67.media.tumblr.com/c234992419262abd488db2fab96cd7b3/tumblr_inline_mk9lazcRi01qz4rgp.png"/></p>
+
+<p><a href="http://js1k.com/">JS1K</a> es una competición anual que consiste en crear el guion en Javascript más original en un solo kilobyte. Eso son 512 caracteres de código como máximo, ya que Javascript utiliza la codificación Unicode de 16 bits.</p>
+<p>Aun en un espacio tan limitado, se pueden crear verdaderas maravillas, y la prueba está en la <a href="http://js1k.com/2013-spring/demos">sección de Demos</a> de cada año, en la que se publican todas las entradas aceptadas en la competición, y que realizan cosas de lo más variado, desde simular el <a href="http://js1k.com/2013-spring/demo/1348">crecimiento de un árbol meciéndose con el viento</a> hasta <a href="http://js1k.com/2012-love/demo/1274">sintetizar texto a voz</a>, pasando por un montón de juegos (como <a href="http://js1k.com/2013-spring/demo/1448">Meteors</a>, en la imagen) y efectos visuales.</p>
+
+
+<!--
+  
+-->
+</article>
+
+
+  <article>
+  <span class="date">20-03-2013</span>
+  <a href="/blog/8/"><h1>Truco (Javascript): Gestionando las clases de los elementos</h1></a>
+
+  <p>Un poco conocido atributo de elementos HTML en Javascript, <code>classList</code>, nos permite añadir o quitar clases CSS rápida y fácilmente:</p>
+<pre><code>var mi_elemento = document.getElementById("elem_html");<br/>
+mi_elemento.classList.add("nueva_clase");
+mi_elemento.classList.remove("otra_clase");
+// No importa si el elemento tiene o no la clase 'otra_clase',
+// se quitará si la tiene</code></pre>
+
+
+<!--
+  
+-->
+</article>
+
+
+
+<nav class="pagination">
+  
+    <a href="/blog/7/">Newer</a>
+  
+
+  <span class="note">8 of 10</span>
+
+  
+    <a href="/blog/9/">Older</a>
+  
+
+  <a href="/blog/archive">All posts</a>
+</nav>
+
+<style>
+.wrapper .sidebar .side-content .sections .section-blog {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff
+}
+@media (min-width: 64em) {
+  .wrapper .sidebar .side-content .sections .section-blog {
+    margin-right: -2rem;
+    padding-right: 2rem;
+  }
+}
+</style>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
