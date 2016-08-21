@@ -1,0 +1,26 @@
+---
+layout: default
+title: Blog
+paginate:
+  per_page: 5
+  limit: false
+  permalink:    /:num/
+  title_suffix: " (página :num)"
+---
+
+{% for post in paginator.posts %}
+<article class="">
+  <a href="{{ post.url }}"><h1>{{ post.title }}</h1></a>
+  {{ post.content | truncatewords:60 }}
+
+  <p><a href="{{ post.url }}">Seguir leyendo...</a></p>
+</article>
+{% endfor %}
+
+<nav>
+  <a href="{{ paginator.previous_page_path }}">Más nuevos</a>
+
+  {{ paginator.page }} de {{ paginator.total_pages }}
+
+  <a href="{{ paginator.next_page_path }}">Más antiguos</a>
+</nav>

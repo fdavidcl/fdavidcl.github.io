@@ -22,14 +22,19 @@ lists:
   - research
   - projects
 
-permalink: pretty
+# This list tells Jekyll which collections exist
+collections:
+  research:
+    output: true
+  projects:
+
+# Settings for the blog section
+gems:
+  - octopress-paginate
+
+permalink: /blog/:year/:month/:day/:title/
 
 markdown: kramdown
 kramdown:
   parse_span_html: false
 highlighter: rouge
-
-# This list tells Jekyll which collections exist
-collections:
-  - research
-  - projects
