@@ -5,15 +5,15 @@ profile:
   alias: fdavidcl
   pic: https://secure.gravatar.com/avatar/7083d161b041964b75c38376d9dee37a?s=200
   links:
-    Blog:
-      url: http://blog.fdavidcl.me
-      icon: rss
-    Github:
-      url: https://github.com/fdavidcl
-      icon: github
     Twitter:
       url: https://twitter.com/fdavidcl
       icon: twitter
+    Instagram:
+      url: https://instagram.com/fdavidcl
+      icon: instagram
+    Github:
+      url: https://github.com/fdavidcl
+      icon: github
     LinkedIn:
       url: https://linkedin.com/in/fdavidcl
       icon: linkedin
