@@ -42,6 +42,7 @@ collections:
 enable_blog: true
 gems:
   - octopress-paginate
+  - jekyll-minifier
 
 exclude:
   - Gemfile
