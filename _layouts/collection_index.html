@@ -1,0 +1,10 @@
+---
+layout: default
+---
+
+{% for topic in page.col %}
+  <article>
+    <a href="{{ topic.url }}"><h1>{{ topic.title }}</h1></a>
+    {{ topic.content }}
+  </article>
+{% endfor %}

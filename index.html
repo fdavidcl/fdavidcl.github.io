@@ -3,17 +3,17 @@ layout: default
 title: Main
 ---
 
+<article class="">
+  <a href="/posts"><h1>blog</h1></a>
+</article>
+
 {% for name in site.lists %}
-  {% assign collection = site.collections | where: 'label',name | first %}
-  <h3 id="{{ collection.label }}">{{ collection.label }}</h3>
-
-  {% for i in collection.docs %}
-    <article>
-      {% if i.link %}<a class="title-link" href="{{ i.link }}">{% endif %}
-        <h1>{{ i.title }}</h1>
-      {% if i.link %}</a>{% endif %}
-
-      {{ i.content }}
-    </article>
-  {% endfor %}
+  <a href="/{{ name }}"><h1>{{ name }}</h1></a>
 {% endfor %}
+
+<!--
+<h3>Latest posts</h3>
+{% for post in site.posts %}
+  <a href="{{ post.url }}"><h4>{{ post.title }}</h4></a>
+{% endfor %}
+-->
