@@ -46,6 +46,11 @@ gems:
 exclude:
   - Gemfile
 
+defaults:
+  - values:
+      lang: es
+      layout: post
+
 permalink: /blog/:year/:month/:day/:title/
 
 markdown: kramdown
