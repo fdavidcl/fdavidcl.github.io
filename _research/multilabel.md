@@ -1,5 +1,6 @@
 ---
 title: Multilabel classification
+layout: post
 ---
 
 Multilabel classification is a variant of the classification problem where each instance can be associated with a subset of labels from the set of available ones. Some of my collaborations within this field are:
