@@ -5,11 +5,21 @@ profile:
   alias: fdavidcl
   pic: https://secure.gravatar.com/avatar/7083d161b041964b75c38376d9dee37a?s=200
   links:
-    Blog: http://blog.fdavidcl.me
-    Github: https://github.com/fdavidcl
-    Twitter: https://twitter.com/fdavidcl
-    LinkedIn: https://linkedin.com/in/fdavidcl
-    Scholar: https://scholar.google.es/citations?user=FRv_MwYAAAAJ
+    Blog:
+      url: http://blog.fdavidcl.me
+      icon: rss
+    Github:
+      url: https://github.com/fdavidcl
+      icon: github
+    Twitter:
+      url: https://twitter.com/fdavidcl
+      icon: twitter
+    LinkedIn:
+      url: https://linkedin.com/in/fdavidcl
+      icon: linkedin
+    Scholar:
+      url: https://scholar.google.es/citations?user=FRv_MwYAAAAJ
+      icon: graduation-cap
 
 style:
   background: "ffffff"
@@ -29,8 +39,12 @@ collections:
   projects:
 
 # Settings for the blog section
+enable_blog: true
 gems:
   - octopress-paginate
+
+exclude:
+  - Gemfile
 
 permalink: /blog/:year/:month/:day/:title/
 
