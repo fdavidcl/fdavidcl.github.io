@@ -2,27 +2,28 @@
 layout: default
 title: Blog
 paginate:
-  per_page: 5
+  per_page: 4
   limit: false
   permalink:    /:num/
-  title_suffix: " (página :num)"
+  title_suffix: " (page :num)"
 ---
 
 {% for post in paginator.posts %}
-<article class="">
-  <a href="{{ post.url }}"><h1>{{ post.title }}</h1></a>
-  {{ post.content | truncatewords:60 }}
-
-  <p><a href="{{ post.url }}">Seguir leyendo...</a></p>
-</article>
+  {% include single_post.html %}
 {% endfor %}
 
-<nav>
-  <a href="{{ paginator.previous_page_path }}">Más nuevos</a>
+<nav class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}">Newer</a>
+  {% endif %}
 
-  {{ paginator.page }} de {{ paginator.total_pages }}
+  <span class="note">{{ paginator.page }} of {{ paginator.total_pages }}</span>
 
-  <a href="{{ paginator.next_page_path }}">Más antiguos</a>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}">Older</a>
+  {% endif %}
+
+  <a href="/blog/archive">All posts</a>
 </nav>
 
 <style>

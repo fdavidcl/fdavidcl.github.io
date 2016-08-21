@@ -108,6 +108,7 @@ body
 
       h1
         line-height: 1.1em
+        letter-spacing: -0.03rem
 
       h2
         font-weight: normal
@@ -121,8 +122,39 @@ body
       img
         max-width: 100%
 
+      article
+        margin-bottom: 4rem
+
+        .date
+          color: lighten($foreground, 70%)
+          font-weight: bold
+
+      .pagination
+        width: 100%
+        text-align: right
+
+        .note
+          color: mix($foreground, $background, 50%)
+          display: inline-block
+          padding: .2rem .6rem
+
+
+        a
+          display: inline-block
+          text-decoration: none
+          padding: .2rem .6rem
+          border: .1rem solid lighten($foreground, 80%)
+
       article.home
         font-size: 1.4em
+
+      .archive-post
+        margin: 0 0 .2rem
+        color: lighten($foreground, 70%)
+        font-weight: bold
+
+        a
+          font-weight: normal
 
 .big-text
   font-size: 300%
@@ -159,7 +191,7 @@ body
       margin-left: 24rem
 
       .main-content
-        padding: 8.6rem 5rem 0
+        padding: 8.6rem 5rem 2rem
         max-width: 50rem
 
         h1
