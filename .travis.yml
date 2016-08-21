@@ -1,0 +1,24 @@
+language: ruby
+
+rvm:
+ - 2.3.1
+
+# Adapted from https://github.com/iblancasa/blog_files/blob/master/.travis.yml
+before_install:
+  - git config --global user.email "fdavidcl@protonmail.com"
+  - git config --global user.name "David Charte"
+  - git clone -b gh-pages https://${GITHUB_TOKEN}@github.com/fdavidcl/fdavidcl.github.io.git _site
+  - sudo rm -r _site/*
+
+script:
+  - bundle exec jekyll build
+
+after_script:
+  - cd _site/
+  - git ls-files --deleted -z | xargs -0 git rm
+  - git commit -am "Update blog at `date`"
+  - git push origin master --quiet
+
+branches:
+  only:
+    - jekyll-site
