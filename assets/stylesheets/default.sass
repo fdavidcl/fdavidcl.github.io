@@ -11,9 +11,11 @@ $font: "{{ site.style.font }}"
 body, html
   height: 100%
   font-family: $font, sans-serif
+  font-size: 16px
 
 a
   transition: opacity .2s ease, color .2s ease
+  color: $sidebar-back
 
 body
   background: $background
@@ -135,10 +137,15 @@ body
     .main
       margin-left: 33.333333%
       padding-top: 9.6em
+      max-width: 50em
+      line-height: 1.5em
 
       .main-content
         h1
           font-size: 220%
+
+        article:first-child
+          margin-top: 4em
 
 @media (min-width: 80em)
   .wrapper
