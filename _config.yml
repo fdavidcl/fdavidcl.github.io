@@ -12,15 +12,22 @@ profile:
     Scholar: https://scholar.google.es/citations?user=FRv_MwYAAAAJ
 
 style:
-  background: "f0f0f0"
+  background: "ffffff"
   foreground: "000000"
   accent: "00bcd4"
-  font: "Lato"
+  font: "Source Sans Pro"
 
 # This list helps the index page show the correct collections in the desired order
 lists:
   - research
   - projects
+
+permalink: pretty
+
+markdown: kramdown
+kramdown:
+  parse_span_html: false
+highlighter: rouge
 
 # This list tells Jekyll which collections exist
 collections:
