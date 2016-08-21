@@ -45,6 +45,7 @@ gems:
 
 exclude:
   - Gemfile
+  - vendor
 
 defaults:
   - values:

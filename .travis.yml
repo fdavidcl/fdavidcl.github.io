@@ -7,16 +7,18 @@ rvm:
 before_install:
   - git config --global user.email "fdavidcl@protonmail.com"
   - git config --global user.name "David Charte"
-  - git clone -b gh-pages https://${GITHUB_TOKEN}@github.com/fdavidcl/fdavidcl.github.io.git _site
-  - sudo rm -r _site/*
+  - git clone -b master https://${GITHUB_TOKEN}@github.com/fdavidcl/fdavidcl.github.io.git _site
+  - rm -rf _site/*
 
 script:
   - bundle exec jekyll build
 
-after_script:
+after_success:
   - cd _site/
   - git ls-files --deleted -z | xargs -0 git rm
-  - git commit -am "Update blog at `date`"
+  - git add *
+  - git add .
+  - git commit -am "Update blog at `date` [ci skip]"
   - git push origin master --quiet
 
 branches:
