@@ -1,0 +1,17 @@
+---
+layout: post
+title: 'Truco (Javascript): Seleccionando elementos con querySelector'
+date: '2013-04-07T01:08:06+02:00'
+tags:
+- informatica
+- programación
+- javascript
+- truco
+- code
+tumblr_url: http://blog.fdavidcl.me/post/47314557169/truco-javascript-seleccionando-elementos-con
+---
+<p>Una de las novedades recientes de Javascript es la inclusión de un nuevo método para seleccionar elementos que ofrece mucha más funcionalidad que los tradicionales <code>getElementById</code>, <code>getElementsByTagName</code>, etc. Se trata de <code>querySelector</code>. La sintaxis es sencilla, seleccionamos elementos igual que en CSS, usando <code>.</code> para denotar clases y <code>#</code> para identificadores.</p>
+<pre><code>var con_id = document.querySelector("#elemento_con_id");<br/>var elegante = document.querySelector(".elemento_con_clase");<br/>var familia = document.querySelector(".padre div#descendiente &gt; a.hijo");<br/></code></pre>
+<p><code>querySelector</code> seleccionará la primera ocurrencia del selector introducido. Si, por el contrario, queremos seleccionar todos los elementos que coincidan, podemos usar <code>querySelectorAll</code>, que devuelve un array de nodos HTML:</p>
+<pre><code>var todos_con_clase = document.querySelectorAll('.una_clase');
+var activadas = document.querySelectorAll("input[type='checkbox']:checked");</code></pre>

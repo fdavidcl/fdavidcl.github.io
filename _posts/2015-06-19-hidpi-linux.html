@@ -1,0 +1,41 @@
+---
+layout: post
+title: Gestionando HiDPI en Linux
+date: '2015-06-19T20:27:05+02:00'
+tags:
+- tech
+- linux
+- hidpi
+- 4k
+- uhd
+tumblr_url: http://blog.fdavidcl.me/post/121935917922/hidpi-linux
+---
+<p>Desde hace un tiempo estoy usando un Dell XPS 15 como ordenador principal, y esta máquina incluye una característica que lo hace increíble y, a veces, casi inusable: la resolución de la pantalla. Me refiero a su pantalla UHD, que en términos numéricos son 3840 píxeles de ancho por 2160 de alto. Para haceros una idea, eso significa que en esta pantalla caben los píxeles de exactamente 4 pantallas Full HD (1920x1080). La densidad de píxeles resulta en 282 PPI, bastante alta para una pantalla de 15 pulgadas, por lo que entra en la categoría de lo que denominamos HiDPI.</p>
+
+<p>Y evidentemente, leer y ver contenido en una pantalla como esta es genial, todo se ve muy nítido y es imposible ver algo pixelado. El problema viene al utilizar aplicaciones para otros fines: ofimática, desarrollo o edición de imágenes. Según con qué bibliotecas estén compuestas las interfaces de usuario, o según las opciones que aporten estos programas, se podrán o no adaptar a la resolución, y por tanto escalarse a un tamaño mayor para que sea usable.</p>
+
+<p><strong>GNOME</strong></p>
+
+<p>La tercera versión de GNOME y de GTK+ están ya más que preparadas para las pantallas HiDPI, y resulta muy sencillo escalar las interfaces tanto de la Shell como de las aplicaciones de GNOME. Basta con abrir la Herramienta de retoques (o Tweak Tool), y ajustar el escalado de ventanas a 2:</p>
+
+<p><a href="http://i.imgur.com/6ggqmHB.jpg"><img src="http://67.media.tumblr.com/0b576df42eb1ab6ef79a809f18d0846f/tumblr_inline_nq7dle0HHa1r7kqtk_540.jpg" alt="image"/></a></p>
+
+<p>Este ajuste permite adaptar el tamaño de todas las aplicaciones GTK+3, pero no así las que usen GTK+2 u otras bibliotecas (Qt, wxWidgets&hellip;). Qt en su versión 5 sí adapta el tamaño de los elementos a la resolución, pero las versiones anteriores no lo hacen y aún hay pocas aplicaciones que se hayan pasado a esta nueva versión.</p>
+
+<p><strong>Firefox</strong></p>
+
+<p>En Firefox el ajuste del tamaño &ldquo;virtual&rdquo; de un píxel se puede ajustar, bien manualmente, o bien mediante una extensión que permite un comportamiento dinámico según la resolución de la pantalla en que se encuentre el navegador (lo que nos permite usar proyectores o monitores externos que no sean HiDPI): <a href="https://addons.mozilla.org/en-US/firefox/addon/autohidpi/">AutoHiDPI</a>. Basta instalarla y podemos personalizar el aumento de tamaño cuando la ventana de Firefox esté en un monitor HiDPI.</p>
+
+<p><strong>Atom</strong></p>
+
+<p>Atom es un editor de texto y código muy completo y extensible mediante <em>paquetes</em>. Uno de estos paquetes, apropiadamente llamado <a href="https://atom.io/packages/hidpi">hidpi</a>, realiza la misma tarea que la extensión de Firefox anterior: ajusta la ampliación de elementos en Atom a la resolución del monitor en que se use.</p>
+
+<p><strong>Otras aplicaciones</strong></p>
+
+<p>Hay muchas otras aplicaciones que aún no se adaptan del todo a este tipo de resoluciones. Por ejemplo, todavía no he encontrado un reproductor de música para Linux que se adapte y me resulte cómodo (Rhythmbox sí funciona, pero la gestión de listas es menos intuitiva; sigo usando Clementine). El asunto es peor cuando hablamos de editores de imágenes, los botones de herramientas de <a href="http://pinta-project.com/">Pinta</a> y <a href="https://krita.org/">Krita</a> son demasiado pequeños para poder usarse cómodamente, aunque es un alivio que se esté trabajando en <a href="https://krita.org/item/krita-2-9-2-released/">portar Krita a Qt 5</a>.</p>
+
+<p><a href="http://i.imgur.com/PRd7714.jpg"><img src="http://67.media.tumblr.com/721a184f440e1763fe4353395ce5e8df/tumblr_inline_nq7ex3gnhT1r7kqtk_540.png" alt=""/></a></p>
+
+<p><em>Pinta, Krita, Exaile y Audacity no se adaptan a la resolución UHD.</em></p>
+
+<p>Hasta aquí estos pequeños consejos para quienes tengáis pantallas de muy alta resolución. espero que sean útiles y si sabéis de alguna buena aplicación que funcione bien con HiDPI, no dudéis en dejarla en los comentarios.</p>

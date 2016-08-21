@@ -1,0 +1,46 @@
+---
+layout: post
+title: Open Data Day y el hackathon de datos abiertos
+date: '2015-02-24T12:46:00+01:00'
+tags:
+- code
+- opendata
+- opendataday
+- open data day
+- hackathon
+- urbancityhack
+tumblr_url: http://blog.fdavidcl.me/post/111946713012/open-data-day-y-el-hackathon-de-datos-abiertos
+---
+<p><em><a href="https://joindiaspora.com/posts/5653136">Versión en inglés</a></em></p>
+
+<p>Este pasado sábado 21 de febrero se celebraba el Open Data Day, un día en el que se promueve la publicación de datos administrativos y gubernamentales. Con este objetivo, se organizó un hackathon (maratón de programación) a lo largo de todo el fin de semana, que pretendía demostrar la utilidad de estos datos abiertos mediante análisis y minería de datos, visualizaciones y gráficos, etc.</p>
+
+<h3>El Open Data Day en Granada</h3>
+
+<blockquote class="twitter-tweet" lang="es"><p>Empezando la sesión de viernes del <a href="https://twitter.com/hashtag/opendataday?src=hash">#opendataday</a>, con <a href="https://twitter.com/jjmerelo">@jjmerelo</a> , <a href="https://twitter.com/OSLUGR">@OSLUGR</a> y gente <a href="http://t.co/5jMecwlVJk">pic.twitter.com/5jMecwlVJk</a></p><div>— David Charte (@fdavidcl) </div><a href="https://twitter.com/fdavidcl/status/568690265369796608">febrero 20, 2015</a></blockquote>
+
+<p>En particular, en Granada fue la <a href="http://osl.ugr.es">Oficina de Software Libre</a> de la Universidad de Granada la que <a href="http://osl.ugr.es/2015/01/26/open-data-day-2015/">organizó el hackathon local</a> para la ocasión. En él, se presentaron tres proyectos distintos de forma que los participantes del hackathon se unieran a uno de ellos y colaboraran desde el viernes hasta el lunes. Estos tres proyectos trataban temas bastante distintos:</p>
+
+<ul><li><strong>Scraping y análisis de datos del ayuntamiento</strong>, propuesto por el periodista de datos <a href="https://twitter.com/inchocordero">Incho Cordero</a>. Esta iniciativa proponía recuperar contratos del ayuntamiento de Granada, sobre todo de obras y similares, para realizar un estudio sobre las empresas contratadas y los costes de dichos contratos, tras un proceso de scraping previo para extraer la información de los PDFs en los que se publica.</li>
+<li><strong>Monitorización y predicción del estado de tráfico</strong>, a raíz del <a href="https://proyectopetra.wordpress.com/">Proyecto PETRA</a>. El proyecto en cuestión utiliza unos dispositivos de bajo coste que rastrean señales de Bluetooth y Wi-Fi para detectar coches mediante los manos libres y móviles. De esta forma se obtienen datos sobre el paso de los dispositivos en distintos puntos de las carreteras y se pueden utilizar para, a partir de cambios ligeros en el tráfico, predecir distintos estados futuros.</li>
+<li><strong>Comparación de portales de transparencia universitarios</strong>, presentado por <a href="https://twitter.com/mhmario89">Mario Heredia</a>, <a href="https://twitter.com/moloco5">Mónica López</a>, <a href="https://twitter.com/germaaan_">Germán Martínez</a>&hellip; Este último proyecto consistía en utilizar los portales de transparencia de las distintas universidades españolas, para realizar comparativas acerca de los datos que proporcionan y de las universidades en sí, incluyendo scraping de los datos que estuviesen en formatos poco accesibles.</li>
+</ul><h3>El hackathon con el proyecto PETRA</h3>
+
+<p>Me apunté al hackathon del proyecto PETRA sencillamente porque prometía más ciencia de datos y menos temas político-administrativos, por lo que resultaba más interesante que los otros dos. El objetivo durante el fin de semana fue encontrar fuentes de datos de tráfico, extraer esos datos y publicarlos, para después tratar de realizar visualizaciones sobre mapas.</p>
+
+<p>Gracias a que el equipo estaba compuesto por gente de conocimientos muy diversos, tanto distintos lenguajes de programación como distintas materias sobre minería y visualización de datos, se pudieron distribuir tareas y proponer ideas, todo en forma de <a href="https://github.com/global-urban-datafest/grx-PETRA/issues/">issues del repositorio</a>, que combinadas llevarían a cabo los objetivos, entre ellas:</p>
+
+<ul><li>Extracción de los datos de paso de vehículos por estaciones de la DGT</li>
+<li>Concatenación y preprocesamiento de dichos datos</li>
+<li>Estudio y obtención de datos de diferentes APIs de tráfico</li>
+<li>Minería de datos y clasificación con WEKA</li>
+<li>Estudio de plataformas de mapas</li>
+<li>Estudio de librerías de gráficos para visualización de datos</li>
+<li>Hacer un logo para el proyecto</li>
+</ul><p>Todos los resultados están publicados en el <a href="https://github.com/global-urban-datafest/grx-PETRA">repositorio dedicado al hackathon</a>, incluyendo el <a href="https://github.com/global-urban-datafest/grx-PETRA/blob/master/Datasets/dgt/all.csv">archivo CSV</a> con los datos de la DGT acerca de las estaciones de monitorización, extraídos de varios PDFs; <a href="https://github.com/global-urban-datafest/grx-PETRA/blob/master/Datasets/dgt/joinSources.sh">los</a> <a href="https://github.com/global-urban-datafest/grx-PETRA/blob/master/Datasets/dgt/processCSV.py">scripts</a> <a href="https://github.com/global-urban-datafest/grx-PETRA/blob/master/Datasets/concat.js">utilizados</a> para preprocesarlos; el <a href="https://github.com/global-urban-datafest/grx-PETRA/blob/master/Datasets/apis/traffic_apis.R">código</a> de obtención de datos de APIs en R; el estudio de recursos para <a href="https://github.com/global-urban-datafest/grx-PETRA/issues/10">gráficos</a> y <a href="https://github.com/global-urban-datafest/grx-PETRA/issues/9">mapas</a>, y cómo no, las <a href="https://github.com/global-urban-datafest/grx-PETRA/tree/master/Logo">propuestas de logo</a> para el proyecto.</p>
+
+<p>Además de esto, se realizaron algunos gráficos en Google <a href="https://www.google.com/fusiontables/DataSource?docid=1v8M5FZCgBdUaXLVx3WGKa3wEa-IHOTR_J_67YhWu#rows:id=1">Fusion Tables</a>, se extrajo información interesante mediante Weka y se publicaron también los datos en <a href="https://fdavidcl.shinyapps.io/PETRA">una aplicación web</a> realizada con Shiny. Todo esto se resumió en la <a href="//www.slideshare.net/fergunet/open-dataday-hackathon-conclusiones">presentación de conclusiones</a> para el lunes.</p>
+
+<blockquote class="twitter-tweet" lang="es"><p>El equipo del <a href="https://twitter.com/proyectoPETRA">@proyectoPETRA</a> en el <a href="https://twitter.com/hashtag/SmartCityHack?src=hash">#SmartCityHack</a> <a href="https://twitter.com/hashtag/OpenDataDay?src=hash">#OpenDataDay</a> trabajando en <a href="https://twitter.com/fcienciasugr">@fcienciasugr</a> <a href="https://twitter.com/hashtag/grx?src=hash">#grx</a> <a href="http://t.co/P82wNTvIDP">pic.twitter.com/P82wNTvIDP</a></p><div>— Pablo García (@fergunet) </div><a href="https://twitter.com/fergunet/status/569102017056129024">febrero 21, 2015</a></blockquote>
+
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

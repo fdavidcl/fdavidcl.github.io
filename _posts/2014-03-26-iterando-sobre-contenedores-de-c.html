@@ -1,0 +1,50 @@
+---
+layout: post
+title: Iterando sobre contenedores de C++
+date: '2014-03-26T21:15:00+01:00'
+tags:
+- code
+- c++
+- donttrythisathome
+tumblr_url: http://blog.fdavidcl.me/post/80804902695/iterando-sobre-contenedores-de-c
+---
+<p>Si escribís código en C++ y usáis los contenedores de la STL (<code>std::vector</code>, <code>std::list</code>, etc.) probablemente estéis hartos de la forma de iterar sobre ellos:</p>
+
+<pre><code class="cpp">for (std::vector&lt;int&gt;::iterator it = v.begin(); it != v.end(); ++it)
+</code></pre>
+
+<p>La vida es demasiado corta para estar escribiendo cabeceras de bucles de ese estilo, así que aquí viene una solución en forma de macro del preprocesador, cosa que no es muy buena idea, pero lo cuento más bien como <em>proof of concept</em>:</p>
+
+<pre><code>#define each(c, i, s) for (auto (i) = (c).begin(); (i) != (c).end(); ++(i)) {s;}
+</code></pre>
+
+<p>Esta macro recibe un contenedor, un nombre para el iterador y una serie de sentencias, de forma que se pueda ejecutar algo del tipo:</p>
+
+<pre><code class="cpp">std::vector&lt;int&gt; v(20);
+
+std::iota(v.begin(), v.end(), 1); // Rellena con valores de 1 a 20
+
+each (v, it,
+   std::cout &lt;&lt; *it;
+   std::cout &lt;&lt; " ";
+);
+</code></pre>
+
+<p>Y es válido para cualquier contenedor con iteradores y métodos <code>begin()</code> y <code>end()</code>, por lo que se puede usar con vectores, listas, mapas o clases propias. El código resultante es más abstracto y limpio, pero realmente una macro de preprocesador no es una buena forma de ahorrarnos código, ya que no son muy seguras y podemos caer en errores de sintaxis muy fácilmente.</p>
+
+<p>La alternativa segura y correcta sería usar la STL, que incluye en la biblioteca <code>&lt;algorithm&gt;</code> una función <code>for_each</code> que permite hacer algo muy parecido:</p>
+
+<pre><code class="cpp">std::for_each (v.begin(), v.end(), [](int &amp;n) {
+   std::cout &lt;&lt; n;
+   std::cout &lt;&lt; " ";
+});
+</code></pre>
+
+<p>Y por último, la manera más cómoda y familiar de recorrer un contenedor sería utilizar la nueva sintaxis de <code>for</code> incluida en el estándar C++11, similar a las de otros lenguajes:</p>
+
+<pre><code class="cpp">for (int &amp;n : v) { // Itera sobre cada elemento n en v
+   std::cout &lt;&lt; n &lt;&lt; " ";
+}
+</code></pre>
+
+<p>Documentación: <a href="http://en.cppreference.com/w/cpp/algorithm/for_each">for_each</a>, <a href="http://en.cppreference.com/w/cpp/language/range-for">range for</a></p>

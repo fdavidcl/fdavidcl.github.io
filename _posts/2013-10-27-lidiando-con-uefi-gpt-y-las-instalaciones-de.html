@@ -1,0 +1,18 @@
+---
+layout: post
+title: 'Lidiando con UEFI, GPT y las instalaciones de Linux (I): Introducción'
+date: '2013-10-27T17:18:00+01:00'
+tags:
+- tech
+- uefi
+- gpt
+- linux
+tumblr_url: http://blog.fdavidcl.me/post/65241668621/lidiando-con-uefi-gpt-y-las-instalaciones-de
+---
+<p><img alt="image" src="http://67.media.tumblr.com/4e9795ea163456aeb983af3b61bfbbc6/tumblr_inline_mvc6eoEsUG1r7kqtk.jpg"/></p>
+<p>El sistema de arranque por BIOS ha sido hasta ahora uno de los componentes que menos han cambiado en los ordenadores, desde su creación. Sin embargo, desde hace unos meses y sobre todo gracias al lanzamiento de Windows 8, los fabricantes están comenzando a implementar un nuevo método de arranque, <strong>más rápido, potente y seguro</strong>, denominado UEFI (<em>Unified Extensible Firmware Interface</em>). Sin meterme mucho en la historia de su creación, todo comenzó en mediados de los 90 cuando la BIOS presentaba demasiadas limitaciones para nuevas plataformas de servidores. Entonces Intel desarrolló EFI, y después se creó el Unified EFI Forum, que lanzó la actual especificación de UEFI.</p>
+<p>Por otro lado MBR (<em>Master Boot Record</em>) se introdujo en 1983, y consiste en una forma de almacenar información sobre la organización de los datos en el disco duro (particiones, sistemas de archivos, etc.). Sin embargo también está mostrando ya sus años, al no ser capaz, por ejemplo, de manejar discos de más de 2 TB o de crear más de 4 particiones. Su sustituta es GPT (<em>GUID Partition Table</em>), que en teoría puede manejar discos de más de 8.590.000.000 TB, y organizarlos en <strong>hasta 128 particiones</strong>.</p>
+<p>Y con todos estos cambios, lo normal es que se pierda compatibilidad con plataformas y sistemas que aún no se hayan adaptado a las nuevas especificaciones. Por un lado tenemos a Mac OS X, que lleva años implementando EFI en todos los ordenadores (mejorando la rapidez de arranque y la seguridad, pero dificultando la instalación de otros S.O.). Windows, por su parte, soporta el uso de EFI/UEFI desde Vista, pero no ha sido hasta ahora, con el lanzamiento de Windows 8, cuando Microsoft ha requerido a los fabricantes que instalen por defecto UEFI, añadiendo además un componente llamado Secure Boot, que <strong>impide arrancar un sistema operativo</strong> si este no aporta una clave de seguridad adecuada.</p>
+<p>Finalmente, el soporte de UEFI y GPT en sistemas Linux es más heterogéneo, con distribuciones que se han adaptado rápido y otras que están necesitando más tiempo (en general, las más importantes ya soportan UEFI). Existen cargadores de arranque preparados para EFI y para arrancar Linux desde el año 2000 (elilo), pero no había una constancia en el buen funcionamiento de estas soluciones en distintos ordenadores y distintas distros de Linux.</p>
+<p>Por eso, en los siguientes posts de esta serie iré introduciendo algunos consejos que os vendrán bien a la hora de instalar nuevos S.O. y particionar el disco duro.</p>
+<p><a href="http://fdavidcl.tumblr.com/post/65535293683/lidiando-con-uefi-gpt-y-las-instalaciones-de-linux">→ (II) El Setup</a></p>

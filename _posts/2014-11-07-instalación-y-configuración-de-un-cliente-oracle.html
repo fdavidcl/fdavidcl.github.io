@@ -1,0 +1,28 @@
+---
+layout: post
+title: Instalación y configuración de un cliente Oracle en Linux
+date: '2014-11-07T12:05:00+01:00'
+tags:
+- code
+- database
+- oracle
+- linux
+tumblr_url: http://blog.fdavidcl.me/post/102001104002/instalación-y-configuración-de-un-cliente-oracle
+---
+<p>Instalar un cliente de bases de datos puede ser tedioso, y más cuando se trata de Oracle. Además, el soporte y la ayuda para Linux suelen ser más bien nulos. Así que aquí va una guía rápida de cómo instalar un cliente de Oracle (SQL*Plus) y configurarlo para conectarlo al servidor de bases de datos.</p>
+<blockquote>
+<p><strong>Nota:</strong> La guía de instalación es para sistemas basados en Ubuntu/Debian. Para los sistemas que utilizan paquetes RPM hay paquetes disponibles para descarga en la página oficial de Oracle.</p>
+</blockquote>
+<p>Lo primero que haremos será ejecutar los siguientes comandos para instalar SQL*Plus en nuestro ordenador:</p>
+<pre><code class="bash">wget <a href="https://oss.oracle.com/debian/dists/unstable/non-free/binary-i386/oracle-xe-client_10.2.0.1-1.2_i386.deb">https://oss.oracle.com/debian/dists/unstable/non-free/binary-i386/oracle-xe-client_10.2.0.1-1.2_i386.deb</a>
+wget <a href="https://oss.oracle.com/debian/dists/unstable/main/binary-i386/libaio_0.3.104-1_i386.deb">https://oss.oracle.com/debian/dists/unstable/main/binary-i386/libaio_0.3.104-1_i386.deb</a>
+sudo dpkg -i --force depends libaio_0.3.104-1_i386.deb oracle-xe-client_10.2.0.1-1.2_i386.deb<br/>sudo apt-get -f install<br/>sudo apt-get install rlwrap<br/></code></pre>
+<p>Ahora, para configurar la conexión al servidor, utilizaremos un archivo <code>tnsnames.ora</code> que normalmente se nos habrá proporcionado. El archivo tiene el formato siguiente:</p>
+<pre><code class="sql">connection_name =
+  (
+    // datos de la conexión
+  )</code></pre>
+<p>El dato que nos interesa es el nombre de la conexión (<em>connection_name</em> en este caso). Guardad este archivo en el directorio <code>~/.oracle/</code> (cread la carpeta si es necesario). Crearemos ahora un alias que tome el archivo y utilice ese nombre de conexión. Para ello añadid la siguiente línea a vuestro archivo <code>~/.bash_aliases</code> (o <code>~/.bashrc</code> si no tenéis el <code>.bash_aliases</code>):</p>
+<pre><code class="bash">alias sqlplus="export TNS_ADMIN=\"`echo ~`/.oracle/\" &amp;&amp; rlwrap /usr/lib/oracle/xe/app/oracle/product/10.2.0/client/bin/sqlplus username@connection_name"</code></pre>
+<p>donde <em>username</em> es nuestro nombre de usuario en el servidor Oracle, <em>connection_name</em> el nombre que pusimos a la conexión en el archivo <code>tnsnames.ora</code>. Aseguraos también de que el directorio que apunta al ejecutable <code>sqlplus</code> es correcto.</p>
+<p>La configuración ya está terminada, ahora abrid una nueva terminal (necesario para cargar los nuevos <code>.bashrc</code>/<code>.bash_aliases</code>) y ejecutad el comando <code>sqlplus</code>. Debería preguntar vuestra contraseña y conectar correctamente. No olvidéis conectar por VPN a la red de vuestro servidor Oracle si es necesario.</p>
