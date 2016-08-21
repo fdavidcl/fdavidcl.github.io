@@ -1,0 +1,12 @@
+<article>
+  <span class="date">{{ post.date | date: "%d-%m-%Y" }}</span>
+  <a href="{{ page.url }}"><h1>{{ post.title }}</h1></a>
+
+  {{ post.content }}
+
+<!--
+  {% for tag in page.tags %}
+    {{ tag }}
+  {% endfor %}
+-->
+</article>
