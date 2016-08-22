@@ -26,6 +26,7 @@ style:
   foreground: "000000"
   accent: "00bcd4"
   font: "Source Sans Pro"
+  monofont: "Inconsolata"
 
 # This list helps the index page show the correct collections in the desired order
 lists:
@@ -42,7 +43,7 @@ collections:
 enable_blog: true
 gems:
   - octopress-paginate
-  - jekyll-minifier
+#  - jekyll-minifier
 
 exclude:
   - Gemfile
