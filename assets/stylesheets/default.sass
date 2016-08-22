@@ -97,6 +97,8 @@ body
     .main-content
       padding: 2em
       line-height: 1.5
+      max-width: 40em
+      margin: 0 auto
 
       a.title-link
         color: mix($accent, $foreground, 60%)
@@ -129,6 +131,17 @@ body
           color: lighten($foreground, 70%)
           font-weight: bold
 
+        code
+          font-family: {{ site.style.monofont }}, monospace, monospace
+
+        pre
+          background: darken($background, 5%)
+          max-width: 100%
+          overflow-x: auto
+          padding: .2rem .6rem
+
+          code
+
       .pagination
         width: 100%
         text-align: right
@@ -137,7 +150,6 @@ body
           color: mix($foreground, $background, 50%)
           display: inline-block
           padding: .2rem .6rem
-
 
         a
           display: inline-block
@@ -192,7 +204,7 @@ body
 
       .main-content
         padding: 8.6rem 5rem 2rem
-        max-width: 50rem
+        margin: 0
 
         h1
           font-size: 220%
