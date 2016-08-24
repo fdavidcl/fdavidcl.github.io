@@ -1,10 +1,14 @@
 ---
-title: Cómo hacer accesible un blog Jekyll a quien no sabe de Jekyll ni GitHub
+title: Un sistema de contribuciones a blogs Jekyll para gente sin conocimientos de Jekyll, GitHub o Markdown
 ---
 
 Durante un tiempo, los colaboradores del [blog de LibreIM](http://tux.ugr.es/dgiim/blog) hemos tenido que componer los posts prácticamente a mano, haciendo uso de un editor de texto para escribirlos, Git para llevar el registro de cambios y una *pull request* en GitHub para enviar el post, revisarlo y corregirlo. Evidentemente, este puede ser un proceso ideal para desarrolladores acostumbrados al proceso, pero está lejos de ser perfecto cuando tratamos de mantener un blog colaborativo abierto a que cualquiera publique su conocimiento. Lo que buscamos es una forma de abstraer el proceso de edición y envío de posts para hacer el blog accesible a mucha más gente.
 
 La solución que concebimos consta de dos partes: por un lado, un backend que utilizaría una cuenta *bot* de GitHub para la gestión automática de ramas y *pull requests*; por otro, una aplicación web con un formulario y un sencillo editor desde la que se enviarían los posts.
+
+{:.fig}
+![Formulario resultante](/assets/images/jekyll-form.png)
+Un ejemplo del [formulario resultante](http://tux.ugr.es/dgiim/new/post)
 
 ## Preparativos previos
 
@@ -159,4 +163,85 @@ Para iniciar el servidor web con nuestra aplicación, debería bastar con ejecut
 
 ### Añadiendo un editor de verdad
 
-Todo esto ya está muy bien, y la aplicación ahorra un montón de esfuerzo para cada vez que se crea un nuevo post. Pero aún queda una barrera que evitaría que algunos usuarios estuvieran cómodos escribiendo: el marcado de formato con Markdown. 
+Todo esto ya está muy bien, y la aplicación ahorra un montón de esfuerzo para cada vez que se crea un nuevo post. Pero aún queda una barrera que evitaría que algunos usuarios estuvieran cómodos escribiendo: el marcado de formato con Markdown. Existen diversos editores Markdown que pueden incrustarse en una página web, algunos con amplias funcionalidades y otros más sencillos. Nosotros optamos por [SimpleMDE](https://simplemde.com/), que facilita la escritura mediante algunas pistas visuales en el código y unos botones que dan acceso a la mayoría de opciones de formato de Markdown.
+
+Este editor aporta además una opción de previsualización personalizable, lo que quiere decir que podemos modificar la forma en que se compila el código Markdown y se muestra dicha vista previa. Como los blogs Jekyll usan el intérprete [Kramdown](http://kramdown.gettalong.org/) por defecto, podemos añadir una ruta al servidor que compile un documento mediante esta herramienta. Además, utilizamos también la gema [Rouge](http://rouge.jneen.net/) para resaltado de código.
+
+~~~ ruby
+# form.rb
+# ...
+post "/preview/?" do
+  Kramdown::Document.new(params[:content], syntax_highlighter: :rouge).to_html
+end
+~~~
+
+Por otro lado, el editor habrá que inicializarlo mediante un código similar al siguiente:
+
+~~~ haml
+%form{action: "/posts", method: "post"}
+  -# ...
+  %textarea#markdown_editor{name: "content", placeholder: "Contenido"}
+
+%link{rel: "stylesheet", href: "https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css"}
+%script{src: "https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"}
+:javascript
+  // La típica función para peticiones AJAX
+  function AjaxRequest(url, method, data, callback) {
+    var xmlhttp;
+
+    if (window.XMLHttpRequest)
+      xmlhttp = new XMLHttpRequest();
+    else
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        if (xmlhttp.responseXML) {
+          callback(xmlhttp.responseXML);
+        } else {
+          callback(xmlhttp.responseText);
+        }
+      }
+    };
+
+    xmlhttp.open(method, url, true);
+
+    if (method == "POST")
+      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    xmlhttp.send(data);
+  }
+
+  // Inicializa el editor Markdown con algunas opciones extra
+  var simplemde = new SimpleMDE({
+    element: document.getElementById("markdown_editor"),
+    blockStyles: {
+      code: "~~~"
+    },
+    // Usa el sistema propio para vista previa (kramdown + rouge)
+    previewRender: function(plainText, preview) {
+      // Esperar un segundo sin cambios para hacer la petición
+      if (window.delay)
+        clearTimeout(window.delay);
+
+      window.delay = setTimeout(function() {
+        AjaxRequest("/preview", "POST", "content=" + encodeURIComponent(plainText), function(response) {
+          // `preview` es el nodo que contiene la vista previa
+          preview.innerHTML = response;
+        });
+      }, 1000);
+
+      return preview.innerHTML;
+    }
+  });
+~~~
+
+Ahora sí, con todo esto tenemos un editor que facilita la tarea de escribir un post a cualquiera.
+
+## Los extras
+
+Un par de funcionalidades adicionales que hemos utilizado en [el formulario para LibreIM](http://tux.ugr.es/dgiim/new/post) son la inclusión de [MathJax](http://mathjax.org/) para interpretar fórmulas en LaTeX, y de un CAPTCHA mediante la gema [recaptcha](https://rubygems.org/gems/recaptcha/). No entro aquí en más detalle porque son fáciles de usar; además, todo nuestro código está [publicado en GitHub](https://github.com/libreim/form-im).
+
+## En conclusión...
+
+Mantener un blog en Jekyll tiene muchas ventajas: se puede hostear en cualquier servidor ya que es un generador de sitios estáticos, se puede realizar control de cambios por Git, etc. Y, con un poco de trabajo y una pequeña aplicación web, también se puede hacer accesible la colaboración a cualquier persona, incluso sin conocimientos de GitHub, Jekyll o Markdown. Ahora queda la parte complicada: convencer a más personas para que contribuyan al blog ;)
