@@ -8,6 +8,13 @@ $sidebar-back: darken($accent, 20%)
 $sidebar-fore: $background
 $font: "{{ site.style.font }}"
 
+=button-style
+  display: inline-block
+  text-decoration: none
+  padding: .2rem .6rem
+  margin: 0 0 .2rem
+  border: .1rem solid lighten($foreground, 80%)
+
 body, html
   height: 100%
   font-family: $font, Arial, sans-serif
@@ -146,6 +153,13 @@ body
           padding: 0.2rem 0.6rem
           text-align: center
 
+        .tags
+          a
+            +button-style
+
+            &:before
+              content: "#"
+
       .pagination
         width: 100%
         text-align: right
@@ -156,10 +170,8 @@ body
           padding: .2rem .6rem
 
         a
-          display: inline-block
-          text-decoration: none
-          padding: .2rem .6rem
-          border: .1rem solid lighten($foreground, 80%)
+          +button-style
+
 
       article.home
         font-size: 1.4em

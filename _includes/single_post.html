@@ -4,9 +4,9 @@
 
   {{ post.content }}
 
-<!--
-  {% for tag in page.tags %}
-    {{ tag }}
-  {% endfor %}
--->
+  <div class="tags">
+    {% for tag in post.tags %}
+      <a href="/tag/{{ tag }}">{{ tag }}</a>
+    {% endfor %}
+  </div>
 </article>

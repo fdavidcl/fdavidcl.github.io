@@ -3,7 +3,7 @@ layout: default
 title: Archive
 ---
 
-[{% icon fa-arrow-left %}](/blog)
+# Archive
 
 {% for post in site.posts %}
 {:.archive-post}
