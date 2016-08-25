@@ -1,5 +1,10 @@
 ---
 title: Un sistema de contribuciones a blogs Jekyll para gente sin conocimientos de Jekyll, GitHub o Markdown
+tags:
+  - code
+  - jekyll
+  - github
+  - libreim
 ---
 
 Durante un tiempo, los colaboradores del [blog de LibreIM](http://tux.ugr.es/dgiim/blog) hemos tenido que componer los posts prácticamente a mano, haciendo uso de un editor de texto para escribirlos, Git para llevar el registro de cambios y una *pull request* en GitHub para enviar el post, revisarlo y corregirlo. Evidentemente, este puede ser un proceso ideal para desarrolladores acostumbrados al proceso, pero está lejos de ser perfecto cuando tratamos de mantener un blog colaborativo abierto a que cualquiera publique su conocimiento. Lo que buscamos es una forma de abstraer el proceso de edición y envío de posts para hacer el blog accesible a mucha más gente.
