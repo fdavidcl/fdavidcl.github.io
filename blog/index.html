@@ -8,9 +8,11 @@ paginate:
   title_suffix: " (page :num)"
 ---
 
+{% assign excerpt = true %}
 {% for post in paginator.posts %}
   {% include single_post.html %}
 {% endfor %}
+{% assign excerpt = false %}
 
 <nav class="pagination">
   {% if paginator.previous_page %}
