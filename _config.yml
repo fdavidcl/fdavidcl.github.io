@@ -60,3 +60,6 @@ markdown: kramdown
 kramdown:
   parse_span_html: false
 highlighter: rouge
+
+tag_title_prefix: "Posts tagged #"
+tag_title_suffix: ""
