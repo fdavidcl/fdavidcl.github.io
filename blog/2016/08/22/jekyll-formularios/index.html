@@ -1,4 +1,86 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Un sistema de contribuciones a blogs Jekyll para gente sin conocimientos de Jekyll, GitHub o Markdown - fdavidcl</title> <link rel="stylesheet" href="/assets/stylesheets/normalize.css"> <link rel="stylesheet" href="/assets/stylesheets/default.css"> </head> <body> <div class="wrapper pure-g"> <aside class="sidebar"> <div class="side-content"> <header> <a class="name-box" href="/"> <h1>David Charte</h1> <h3>fdavidcl</h3> </a> <img src="https://secure.gravatar.com/avatar/7083d161b041964b75c38376d9dee37a?s=200" class="profile-pic"/> </header> <nav class="sections"> <a href="/blog" class="section-link section-blog">blog</a> <a href="/research" class="section-link section-research">research</a> <a href="/projects" class="section-link section-projects">projects</a> </nav> <nav class="social-links"> <a class="social-button Twitter-link" href="https://twitter.com/fdavidcl" title="Twitter"><i class="fa fa-twitter"></i></a> <a class="social-button Instagram-link" href="https://instagram.com/fdavidcl" title="Instagram"><i class="fa fa-instagram"></i></a> <a class="social-button Github-link" href="https://github.com/fdavidcl" title="Github"><i class="fa fa-github"></i></a> <a class="social-button LinkedIn-link" href="https://linkedin.com/in/fdavidcl" title="LinkedIn"><i class="fa fa-linkedin"></i></a> <a class="social-button Scholar-link" href="https://scholar.google.es/citations?user=FRv_MwYAAAAJ" title="Scholar"><i class="fa fa-graduation-cap"></i></a> </nav> </div> </aside> <div class="main"> <div class="main-content"> <article> <span class="date">22-08-2016</span> <a href="/blog/2016/08/22/jekyll-formularios/"><h1>Un sistema de contribuciones a blogs Jekyll para gente sin conocimientos de Jekyll, GitHub o Markdown</h1></a> <p>Durante un tiempo, los colaboradores del <a href="http://tux.ugr.es/dgiim/blog">blog de LibreIM</a> hemos tenido que componer los posts prácticamente a mano, haciendo uso de un editor de texto para escribirlos, Git para llevar el registro de cambios y una <em>pull request</em> en GitHub para enviar el post, revisarlo y corregirlo. Evidentemente, este puede ser un proceso ideal para desarrolladores acostumbrados al proceso, pero está lejos de ser perfecto cuando tratamos de mantener un blog colaborativo abierto a que cualquiera publique su conocimiento. Lo que buscamos es una forma de abstraer el proceso de edición y envío de posts para hacer el blog accesible a mucha más gente.</p> <p>La solución que concebimos consta de dos partes: por un lado, un backend que utilizaría una cuenta <em>bot</em> de GitHub para la gestión automática de ramas y <em>pull requests</em>; por otro, una aplicación web con un formulario y un sencillo editor desde la que se enviarían los posts.</p> <p class="fig"><img src="/assets/images/jekyll-form.png" alt="Formulario resultante"/> Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante</a></p> <h2 id="preparativos-previos">Preparativos previos</h2> <p>Para crear nuevos <em>commits</em> y <em>pull requests</em> necesitamos una cuenta de GitHub. Podemos usar la propia o crear una nueva. Otorgaremos a dicha cuenta permisos de escritura sobre el repositorio de blog en cuestión. Después, obtendremos un <a href="https://github.com/settings/tokens">token de acceso personal</a> con permisos de modificación de repositorios. Dicho token lo almacenaremos en las variables de entorno de la shell donde vayamos a hospedar la aplicación, supongamos que bajo el nombre de <code class="highlighter-rouge">GITHUB_TOKEN</code>.</p> <h2 id="el-backend">El backend</h2> <p>Componer un guion que trabaje con Git automáticamente no es muy complicado. Se podría utilizar directamente un guion de Bash pero, en vistas a integrarlo en la aplicación web, usamos la <a href="https://rubygems.org/gems/git">gema git</a> para Ruby. Esta permite realizar todo tipo de operaciones sobre repositorios Git, a nosotros nos basta con clonar, abrir una nueva rama, incluir un nuevo archivo en un <em>commit</em> y enviarlo al repositorio remoto. El siguiente código Ruby define una función que realiza todo el proceso, notemos cómo se obtiene por parámetro un <em>block</em> (similar a una función anónima) que permite realizar las modificaciones pertinentes al repositorio:</p> <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># repo.rb</span>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un sistema de contribuciones a blogs Jekyll para gente sin conocimientos de Jekyll, GitHub o Markdown - fdavidcl</title>
+    <link rel="stylesheet" href="/assets/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/assets/stylesheets/default.css">
+  </head>
+  <body>
+    <div class="wrapper pure-g">
+      <aside class="sidebar">
+        <div class="side-content">
+          <header>
+            <a class="name-box" href="/">
+              <h1>David Charte</h1>
+              <h3>fdavidcl</h3>
+            </a>
+            <img src="https://secure.gravatar.com/avatar/7083d161b041964b75c38376d9dee37a?s=200" class="profile-pic" />
+          </header>
+          <nav class="sections">
+            
+              <a href="/blog" class="section-link section-blog">blog</a>
+            
+            
+              <a href="/research" class="section-link section-research">research</a>
+            
+              <a href="/projects" class="section-link section-projects">projects</a>
+            
+          </nav>
+          <nav class="social-links">
+            
+              
+              <a class="social-button Twitter-link" href="https://twitter.com/fdavidcl" title="Twitter"><!--
+                --><i class="fa fa-twitter"></i><!--
+              --></a>
+            
+              
+              <a class="social-button Instagram-link" href="https://instagram.com/fdavidcl" title="Instagram"><!--
+                --><i class="fa fa-instagram"></i><!--
+              --></a>
+            
+              
+              <a class="social-button Github-link" href="https://github.com/fdavidcl" title="Github"><!--
+                --><i class="fa fa-github"></i><!--
+              --></a>
+            
+              
+              <a class="social-button LinkedIn-link" href="https://linkedin.com/in/fdavidcl" title="LinkedIn"><!--
+                --><i class="fa fa-linkedin"></i><!--
+              --></a>
+            
+              
+              <a class="social-button Scholar-link" href="https://scholar.google.es/citations?user=FRv_MwYAAAAJ" title="Scholar"><!--
+                --><i class="fa fa-graduation-cap"></i><!--
+              --></a>
+            
+          </nav>
+        </div>
+      </aside>
+      <div class="main">
+        <div class="main-content">
+          
+<article>
+  <span class="date">22-08-2016</span>
+  <a href="/blog/2016/08/22/jekyll-formularios/"><h1>Un sistema de contribuciones a blogs Jekyll para gente sin conocimientos de Jekyll, GitHub o Markdown</h1></a>
+
+  <p>Durante un tiempo, los colaboradores del <a href="http://tux.ugr.es/dgiim/blog">blog de LibreIM</a> hemos tenido que componer los posts prácticamente a mano, haciendo uso de un editor de texto para escribirlos, Git para llevar el registro de cambios y una <em>pull request</em> en GitHub para enviar el post, revisarlo y corregirlo. Evidentemente, este puede ser un proceso ideal para desarrolladores acostumbrados al proceso, pero está lejos de ser perfecto cuando tratamos de mantener un blog colaborativo abierto a que cualquiera publique su conocimiento. Lo que buscamos es una forma de abstraer el proceso de edición y envío de posts para hacer el blog accesible a mucha más gente.</p>
+
+<p>La solución que concebimos consta de dos partes: por un lado, un backend que utilizaría una cuenta <em>bot</em> de GitHub para la gestión automática de ramas y <em>pull requests</em>; por otro, una aplicación web con un formulario y un sencillo editor desde la que se enviarían los posts.</p>
+
+<p class="fig"><img src="/assets/images/jekyll-form.png" alt="Formulario resultante" />
+Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante</a></p>
+
+<h2 id="preparativos-previos">Preparativos previos</h2>
+
+<p>Para crear nuevos <em>commits</em> y <em>pull requests</em> necesitamos una cuenta de GitHub. Podemos usar la propia o crear una nueva. Otorgaremos a dicha cuenta permisos de escritura sobre el repositorio de blog en cuestión. Después, obtendremos un <a href="https://github.com/settings/tokens">token de acceso personal</a> con permisos de modificación de repositorios. Dicho token lo almacenaremos en las variables de entorno de la shell donde vayamos a hospedar la aplicación, supongamos que bajo el nombre de <code class="highlighter-rouge">GITHUB_TOKEN</code>.</p>
+
+<h2 id="el-backend">El backend</h2>
+
+<p>Componer un guion que trabaje con Git automáticamente no es muy complicado. Se podría utilizar directamente un guion de Bash pero, en vistas a integrarlo en la aplicación web, usamos la <a href="https://rubygems.org/gems/git">gema git</a> para Ruby. Esta permite realizar todo tipo de operaciones sobre repositorios Git, a nosotros nos basta con clonar, abrir una nueva rama, incluir un nuevo archivo en un <em>commit</em> y enviarlo al repositorio remoto. El siguiente código Ruby define una función que realiza todo el proceso, notemos cómo se obtiene por parámetro un <em>block</em> (similar a una función anónima) que permite realizar las modificaciones pertinentes al repositorio:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># repo.rb</span>
 <span class="nb">require</span> <span class="s1">'fileutils'</span>
 <span class="nb">require</span> <span class="s1">'git'</span>
 
@@ -25,7 +107,12 @@
 
   <span class="no">FileUtils</span><span class="p">.</span><span class="nf">rm_rf</span><span class="p">(</span><span class="n">dir</span><span class="p">)</span>
 <span class="k">end</span>
-</code></pre> </div> <p>Ahora hemos de añadir la capacidad de crear <em>pull requests</em>, para ello usamos la <a href="https://rubygems.org/gems/octokit">gema octokit</a>, que acepta el token de acceso que obtuvimos antes:</p> <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># form.rb</span>
+</code></pre>
+</div>
+
+<p>Ahora hemos de añadir la capacidad de crear <em>pull requests</em>, para ello usamos la <a href="https://rubygems.org/gems/octokit">gema octokit</a>, que acepta el token de acceso que obtuvimos antes:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># form.rb</span>
 <span class="nb">require</span> <span class="s1">'octokit'</span>
 <span class="nb">require_relative</span> <span class="s1">'repo'</span>
 
@@ -40,7 +127,18 @@
 <span class="k">end</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">github</span><span class="p">.</span><span class="nf">create_pull_request</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="s2">"Nuevo post"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
-</code></pre> </div> <p>Únicamente nos queda obtener del usuario los datos necesarios para crear un nuevo post: un titulo, un autor, una categoría y el contenido.</p> <h2 id="el-formulario">El formulario</h2> <h3 id="sinatra">Sinatra</h3> <p><a href="http://www.sinatrarb.com/">Sinatra</a> es un <em>domain specific language</em> (DSL) para Ruby que facilita la creación de aplicaciones web sencillas sin apenas esfuerzo. Basta con escribir las peticiones HTTP que se aceptan y cuál es la respuesta. Además, es muy útil utilizarlo junto a otras gemas de Ruby que ahorren trabajo a la hora de escribir las plantillas y el estilo. Nuestro archivo de dependencias <code class="highlighter-rouge">Gemfile</code> queda de la siguiente forma:</p> <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># Gemfile</span>
+</code></pre>
+</div>
+
+<p>Únicamente nos queda obtener del usuario los datos necesarios para crear un nuevo post: un titulo, un autor, una categoría y el contenido.</p>
+
+<h2 id="el-formulario">El formulario</h2>
+
+<h3 id="sinatra">Sinatra</h3>
+
+<p><a href="http://www.sinatrarb.com/">Sinatra</a> es un <em>domain specific language</em> (DSL) para Ruby que facilita la creación de aplicaciones web sencillas sin apenas esfuerzo. Basta con escribir las peticiones HTTP que se aceptan y cuál es la respuesta. Además, es muy útil utilizarlo junto a otras gemas de Ruby que ahorren trabajo a la hora de escribir las plantillas y el estilo. Nuestro archivo de dependencias <code class="highlighter-rouge">Gemfile</code> queda de la siguiente forma:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># Gemfile</span>
 
 <span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
 
@@ -54,7 +152,16 @@
 <span class="n">gem</span> <span class="s1">'octokit'</span>   <span class="c1"># For pull requests</span>
 <span class="n">gem</span> <span class="s1">'git'</span>       <span class="c1"># Repo management</span>
 <span class="n">gem</span> <span class="s1">'recaptcha'</span> <span class="c1"># Some protection against bots</span>
-</code></pre> </div> <p>Para instalar y manejar las dependencias usamos <a href="http://bundler.io/">Bundler</a>: basta así con ejecutar <code class="highlighter-rouge">gem install bundler</code> y tras esto <code class="highlighter-rouge">bundle install</code>.</p> <h3 id="respondiendo-a-peticiones">Respondiendo a peticiones</h3> <p>Vamos a ampliar el archivo <code class="highlighter-rouge">form.rb</code> creado anteriormente para aceptar y responder un par de peticiones HTTP. Responderemos a <code class="highlighter-rouge">GET /</code> mostrando el formulario, que crearemos aparte en una vista en Haml. Por otro lado, al enviar dicho formulario se creará una petición <code class="highlighter-rouge">POST /posts</code> con los datos que necesitamos para componer el nuevo post.</p> <div class="language-haml highlighter-rouge"><pre class="highlight"><code><span class="c">-# views/form.haml
+</code></pre>
+</div>
+
+<p>Para instalar y manejar las dependencias usamos <a href="http://bundler.io/">Bundler</a>: basta así con ejecutar <code class="highlighter-rouge">gem install bundler</code> y tras esto <code class="highlighter-rouge">bundle install</code>.</p>
+
+<h3 id="respondiendo-a-peticiones">Respondiendo a peticiones</h3>
+
+<p>Vamos a ampliar el archivo <code class="highlighter-rouge">form.rb</code> creado anteriormente para aceptar y responder un par de peticiones HTTP. Responderemos a <code class="highlighter-rouge">GET /</code> mostrando el formulario, que crearemos aparte en una vista en Haml. Por otro lado, al enviar dicho formulario se creará una petición <code class="highlighter-rouge">POST /posts</code> con los datos que necesitamos para componer el nuevo post.</p>
+
+<div class="language-haml highlighter-rouge"><pre class="highlight"><code><span class="c">-# views/form.haml
 </span><span class="nt">%h1</span> Nuevo post
 <span class="nt">%form</span><span class="p">{</span><span class="ss">action: </span><span class="s2">"/posts"</span><span class="p">,</span> <span class="ss">method: </span><span class="s2">"post"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="p">{</span><span class="ss">type: </span><span class="s2">"text"</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"title"</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Título"</span><span class="p">}</span>
@@ -62,7 +169,10 @@
   <span class="nt">%input</span><span class="p">{</span><span class="ss">type: </span><span class="s2">"text"</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"category"</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Categoría"</span><span class="p">}</span>
   <span class="nt">%textarea</span><span class="p">{</span><span class="ss">name: </span><span class="s2">"content"</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Contenido"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="p">{</span><span class="ss">type: </span><span class="s2">"submit"</span><span class="p">,</span> <span class="ss">value: </span><span class="s2">"Enviar"</span><span class="p">}</span>
-</code></pre> </div> <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># form.rb</span>
+</code></pre>
+</div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># form.rb</span>
 <span class="nb">require</span> <span class="s1">'rubygems'</span>
 <span class="nb">require</span> <span class="s1">'bundler'</span>
 <span class="no">Bundler</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:default</span><span class="p">)</span>
@@ -108,12 +218,28 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
 
   <span class="n">response</span> <span class="o">=</span> <span class="n">github</span><span class="p">.</span><span class="nf">create_pull_request</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="s2">"Nuevo post"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
 <span class="k">end</span>
-</code></pre> </div> <p>Para iniciar el servidor web con nuestra aplicación, debería bastar con ejecutar <code class="highlighter-rouge">ruby form.rb</code> en el terminal.</p> <h3 id="aadiendo-un-editor-de-verdad">Añadiendo un editor de verdad</h3> <p>Todo esto ya está muy bien, y la aplicación ahorra un montón de esfuerzo para cada vez que se crea un nuevo post. Pero aún queda una barrera que evitaría que algunos usuarios estuvieran cómodos escribiendo: el marcado de formato con Markdown. Existen diversos editores Markdown que pueden incrustarse en una página web, algunos con amplias funcionalidades y otros más sencillos. Nosotros optamos por <a href="https://simplemde.com/">SimpleMDE</a>, que facilita la escritura mediante algunas pistas visuales en el código y unos botones que dan acceso a la mayoría de opciones de formato de Markdown.</p> <p>Este editor aporta además una opción de previsualización personalizable, lo que quiere decir que podemos modificar la forma en que se compila el código Markdown y se muestra dicha vista previa. Como los blogs Jekyll usan el intérprete <a href="http://kramdown.gettalong.org/">Kramdown</a> por defecto, podemos añadir una ruta al servidor que compile un documento mediante esta herramienta. Además, utilizamos también la gema <a href="http://rouge.jneen.net/">Rouge</a> para resaltado de código.</p> <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># form.rb</span>
+</code></pre>
+</div>
+
+<p>Para iniciar el servidor web con nuestra aplicación, debería bastar con ejecutar <code class="highlighter-rouge">ruby form.rb</code> en el terminal.</p>
+
+<h3 id="aadiendo-un-editor-de-verdad">Añadiendo un editor de verdad</h3>
+
+<p>Todo esto ya está muy bien, y la aplicación ahorra un montón de esfuerzo para cada vez que se crea un nuevo post. Pero aún queda una barrera que evitaría que algunos usuarios estuvieran cómodos escribiendo: el marcado de formato con Markdown. Existen diversos editores Markdown que pueden incrustarse en una página web, algunos con amplias funcionalidades y otros más sencillos. Nosotros optamos por <a href="https://simplemde.com/">SimpleMDE</a>, que facilita la escritura mediante algunas pistas visuales en el código y unos botones que dan acceso a la mayoría de opciones de formato de Markdown.</p>
+
+<p>Este editor aporta además una opción de previsualización personalizable, lo que quiere decir que podemos modificar la forma en que se compila el código Markdown y se muestra dicha vista previa. Como los blogs Jekyll usan el intérprete <a href="http://kramdown.gettalong.org/">Kramdown</a> por defecto, podemos añadir una ruta al servidor que compile un documento mediante esta herramienta. Además, utilizamos también la gema <a href="http://rouge.jneen.net/">Rouge</a> para resaltado de código.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># form.rb</span>
 <span class="c1"># ...</span>
 <span class="n">post</span> <span class="s2">"/preview/?"</span> <span class="k">do</span>
   <span class="no">Kramdown</span><span class="o">::</span><span class="no">Document</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:content</span><span class="p">],</span> <span class="ss">syntax_highlighter: :rouge</span><span class="p">).</span><span class="nf">to_html</span>
 <span class="k">end</span>
-</code></pre> </div> <p>Por otro lado, el editor habrá que inicializarlo mediante un código similar al siguiente:</p> <div class="language-haml highlighter-rouge"><pre class="highlight"><code><span class="nt">%form</span><span class="p">{</span><span class="ss">action: </span><span class="s2">"/posts"</span><span class="p">,</span> <span class="ss">method: </span><span class="s2">"post"</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Por otro lado, el editor habrá que inicializarlo mediante un código similar al siguiente:</p>
+
+<div class="language-haml highlighter-rouge"><pre class="highlight"><code><span class="nt">%form</span><span class="p">{</span><span class="ss">action: </span><span class="s2">"/posts"</span><span class="p">,</span> <span class="ss">method: </span><span class="s2">"post"</span><span class="p">}</span>
   <span class="c">-# ...
 </span>  <span class="nt">%textarea</span><span class="nf">#markdown_editor</span><span class="p">{</span><span class="ss">name: </span><span class="s2">"content"</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Contenido"</span><span class="p">}</span>
 
@@ -169,4 +295,39 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
       <span class="k">return</span> <span class="nx">preview</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">});</span>
-</code></pre> </div> <p>Ahora sí, con todo esto tenemos un editor que facilita la tarea de escribir un post a cualquiera.</p> <h2 id="los-extras">Los extras</h2> <p>Un par de funcionalidades adicionales que hemos utilizado en <a href="http://tux.ugr.es/dgiim/new/post">el formulario para LibreIM</a> son la inclusión de <a href="http://mathjax.org/">MathJax</a> para interpretar fórmulas en LaTeX, y de un CAPTCHA mediante la gema <a href="https://rubygems.org/gems/recaptcha/">recaptcha</a>. No entro aquí en más detalle porque son fáciles de usar; además, todo nuestro código está <a href="https://github.com/libreim/form-im">publicado en GitHub</a>.</p> <h2 id="en-conclusin">En conclusión…</h2> <p>Mantener un blog en Jekyll tiene muchas ventajas: se puede hostear en cualquier servidor ya que es un generador de sitios estáticos, se puede realizar control de cambios por Git, etc. Y, con un poco de trabajo y una pequeña aplicación web, también se puede hacer accesible la colaboración a cualquier persona, incluso sin conocimientos de GitHub, Jekyll o Markdown. Ahora queda la parte complicada: convencer a más personas para que contribuyan al blog ;)</p> <div class="tags"> <a href="/tag/code">code</a> <a href="/tag/jekyll">jekyll</a> <a href="/tag/github">github</a> <a href="/tag/libreim">libreim</a> </div> </article> </div> </div> </div> <link href='https://fonts.googleapis.com/css?family=Source Sans Pro:300,400,400i,700|Inconsolata:400,700' rel='stylesheet' type='text/css'> <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"/> <link rel="stylesheet" href="/assets/stylesheets/highlight-friendly.css"> </body> </html>
+</code></pre>
+</div>
+
+<p>Ahora sí, con todo esto tenemos un editor que facilita la tarea de escribir un post a cualquiera.</p>
+
+<h2 id="los-extras">Los extras</h2>
+
+<p>Un par de funcionalidades adicionales que hemos utilizado en <a href="http://tux.ugr.es/dgiim/new/post">el formulario para LibreIM</a> son la inclusión de <a href="http://mathjax.org/">MathJax</a> para interpretar fórmulas en LaTeX, y de un CAPTCHA mediante la gema <a href="https://rubygems.org/gems/recaptcha/">recaptcha</a>. No entro aquí en más detalle porque son fáciles de usar; además, todo nuestro código está <a href="https://github.com/libreim/form-im">publicado en GitHub</a>.</p>
+
+<h2 id="en-conclusin">En conclusión…</h2>
+
+<p>Mantener un blog en Jekyll tiene muchas ventajas: se puede hostear en cualquier servidor ya que es un generador de sitios estáticos, se puede realizar control de cambios por Git, etc. Y, con un poco de trabajo y una pequeña aplicación web, también se puede hacer accesible la colaboración a cualquier persona, incluso sin conocimientos de GitHub, Jekyll o Markdown. Ahora queda la parte complicada: convencer a más personas para que contribuyan al blog ;)</p>
+
+
+  <div class="tags">
+    
+      <a href="/tag/code">code</a>
+    
+      <a href="/tag/jekyll">jekyll</a>
+    
+      <a href="/tag/github">github</a>
+    
+      <a href="/tag/libreim">libreim</a>
+    
+  </div>
+</article>
+
+
+        </div>
+      </div>
+    </div>
+    <link href='https://fonts.googleapis.com/css?family=Source Sans Pro:300,400,400i,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/stylesheets/highlight-friendly.css">
+  </body>
+</html>

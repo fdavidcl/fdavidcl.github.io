@@ -1,4 +1,86 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Métodos de aproximación en Ruby - fdavidcl</title> <link rel="stylesheet" href="/assets/stylesheets/normalize.css"> <link rel="stylesheet" href="/assets/stylesheets/default.css"> </head> <body> <div class="wrapper pure-g"> <aside class="sidebar"> <div class="side-content"> <header> <a class="name-box" href="/"> <h1>David Charte</h1> <h3>fdavidcl</h3> </a> <img src="https://secure.gravatar.com/avatar/7083d161b041964b75c38376d9dee37a?s=200" class="profile-pic"/> </header> <nav class="sections"> <a href="/blog" class="section-link section-blog">blog</a> <a href="/research" class="section-link section-research">research</a> <a href="/projects" class="section-link section-projects">projects</a> </nav> <nav class="social-links"> <a class="social-button Twitter-link" href="https://twitter.com/fdavidcl" title="Twitter"><i class="fa fa-twitter"></i></a> <a class="social-button Instagram-link" href="https://instagram.com/fdavidcl" title="Instagram"><i class="fa fa-instagram"></i></a> <a class="social-button Github-link" href="https://github.com/fdavidcl" title="Github"><i class="fa fa-github"></i></a> <a class="social-button LinkedIn-link" href="https://linkedin.com/in/fdavidcl" title="LinkedIn"><i class="fa fa-linkedin"></i></a> <a class="social-button Scholar-link" href="https://scholar.google.es/citations?user=FRv_MwYAAAAJ" title="Scholar"><i class="fa fa-graduation-cap"></i></a> </nav> </div> </aside> <div class="main"> <div class="main-content"> <article> <span class="date">28-01-2017</span> <a href="/blog/2017/01/28/aproximadores-ruby/"><h1>Métodos de aproximación en Ruby</h1></a> <p>Entre las tareas de una práctica para la asignatura de Mecánica Celeste (todo el <a href="https://github.com/fdavidcl/celeste">código disponible en GitHub</a>), he tenido que programar un par de métodos numéricos de aproximación iterativos. Resultó ser una aplicación muy práctica de los <a href="http://tux.ugr.es/libreim/blog/2015/08/24/ruby-enumerators/">enumerables de Ruby</a> y me parece un buen ejemplo del ahorro de código que puede suponer su uso.</p> <p>Para abstraer distintos métodos iterativos de aproximación, definí una clase abstracta <code class="highlighter-rouge">Approximator</code> de la que derivarían el resto. Permite almacenar la aproximación actual y la tolerancia o error que se quiera aceptar. Las clases derivadas implementan el método <code class="highlighter-rouge">next_one</code> que calcula la siguiente aproximación a partir de la actual.</p> <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># Clase base para métodos numéricos de aproximación de funciones</span>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos de aproximación en Ruby - fdavidcl</title>
+    <link rel="stylesheet" href="/assets/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/assets/stylesheets/default.css">
+  </head>
+  <body>
+    <div class="wrapper pure-g">
+      <aside class="sidebar">
+        <div class="side-content">
+          <header>
+            <a class="name-box" href="/">
+              <h1>David Charte</h1>
+              <h3>fdavidcl</h3>
+            </a>
+            <img src="https://secure.gravatar.com/avatar/7083d161b041964b75c38376d9dee37a?s=200" class="profile-pic" />
+          </header>
+          <nav class="sections">
+            
+              <a href="/blog" class="section-link section-blog">blog</a>
+            
+            
+              <a href="/research" class="section-link section-research">research</a>
+            
+              <a href="/projects" class="section-link section-projects">projects</a>
+            
+          </nav>
+          <nav class="social-links">
+            
+              
+              <a class="social-button Twitter-link" href="https://twitter.com/fdavidcl" title="Twitter"><!--
+                --><i class="fa fa-twitter"></i><!--
+              --></a>
+            
+              
+              <a class="social-button Instagram-link" href="https://instagram.com/fdavidcl" title="Instagram"><!--
+                --><i class="fa fa-instagram"></i><!--
+              --></a>
+            
+              
+              <a class="social-button Github-link" href="https://github.com/fdavidcl" title="Github"><!--
+                --><i class="fa fa-github"></i><!--
+              --></a>
+            
+              
+              <a class="social-button LinkedIn-link" href="https://linkedin.com/in/fdavidcl" title="LinkedIn"><!--
+                --><i class="fa fa-linkedin"></i><!--
+              --></a>
+            
+              
+              <a class="social-button Scholar-link" href="https://scholar.google.es/citations?user=FRv_MwYAAAAJ" title="Scholar"><!--
+                --><i class="fa fa-graduation-cap"></i><!--
+              --></a>
+            
+          </nav>
+        </div>
+      </aside>
+      <div class="main">
+        <div class="main-content">
+          
+<article>
+  <span class="date">28-01-2017</span>
+  <a href="/blog/2017/01/28/aproximadores-ruby/"><h1>Métodos de aproximación en Ruby</h1></a>
+
+  <p>Entre las tareas de una práctica para la asignatura de Mecánica
+Celeste (todo
+el
+<a href="https://github.com/fdavidcl/celeste">código disponible en GitHub</a>),
+he tenido que programar un par de métodos numéricos de aproximación
+iterativos. Resultó ser una aplicación muy práctica de los
+<a href="http://tux.ugr.es/libreim/blog/2015/08/24/ruby-enumerators/">enumerables de Ruby</a> y
+me parece un buen ejemplo del ahorro de código que puede suponer su uso.</p>
+
+<p>Para abstraer distintos métodos iterativos de aproximación, definí una
+clase abstracta <code class="highlighter-rouge">Approximator</code> de la que derivarían el resto. Permite
+almacenar la aproximación actual y la tolerancia o error que se quiera
+aceptar. Las clases derivadas implementan el método <code class="highlighter-rouge">next_one</code> que
+calcula la siguiente aproximación a partir de la actual.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># Clase base para métodos numéricos de aproximación de funciones</span>
 <span class="k">class</span> <span class="nc">Approximator</span>
 
   <span class="c1"># Datos miembro</span>
@@ -16,7 +98,29 @@
     <span class="k">raise</span> <span class="no">NotImplementedError</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre> </div> <p>El punto clave para aprovechar la potencia de los enumeradores es implementar un método <code class="highlighter-rouge">each</code> que haga uso de la función <code class="highlighter-rouge">yield</code> para proporcionar los resultados parciales. En este caso, proporciona la aproximación encontrada en cada iteración. Lo interesante de <code class="highlighter-rouge">yield</code> es que no devuelve el control al método hasta que se necesita un nuevo resultado, de forma que sólo se realizan los cálculos necesarios. Por ejemplo, podría haber implementado (y lo hice, al principio) el método <code class="highlighter-rouge">each</code> como un <code class="highlighter-rouge">loop</code> infinito, sin condición de parada, y podría iterar las veces necesarias para obtener una precisión arbitraria (suponiendo convergencia del método). Sin embargo, para poder hacer un uso práctico de las clases, añadí la condición de parada con la tolerancia.</p> <p>Una vez implementado <code class="highlighter-rouge">each</code>, basta con incluir el módulo <code class="highlighter-rouge">Enumerable</code> que añade toda la funcionalidad de los enumeradores, como <code class="highlighter-rouge">to_a</code> que acumula en un array todos los elementos devueltos por <code class="highlighter-rouge">each</code>. Así, para calcular la mejor aproximación basta con devolver el último elemento de ese array.</p> <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Approximator</span>
+</code></pre>
+</div>
+
+<p>El punto clave para aprovechar la potencia de los enumeradores es
+implementar un método <code class="highlighter-rouge">each</code> que haga uso de la función <code class="highlighter-rouge">yield</code> para
+proporcionar los resultados parciales. En este caso, proporciona la
+aproximación encontrada en cada iteración. Lo interesante de <code class="highlighter-rouge">yield</code>
+es que no devuelve el control al método hasta que se necesita un nuevo
+resultado, de forma que sólo se realizan los cálculos necesarios. Por
+ejemplo, podría haber implementado (y lo hice, al principio) el método
+<code class="highlighter-rouge">each</code> como un <code class="highlighter-rouge">loop</code> infinito, sin condición de parada, y podría
+iterar las veces necesarias para obtener una precisión arbitraria
+(suponiendo convergencia del método). Sin embargo, para poder hacer un
+uso práctico de las clases, añadí la condición de parada con la
+tolerancia.</p>
+
+<p>Una vez implementado <code class="highlighter-rouge">each</code>, basta con incluir el módulo <code class="highlighter-rouge">Enumerable</code>
+que añade toda la funcionalidad de los enumeradores, como <code class="highlighter-rouge">to_a</code> que
+acumula en un array todos los elementos devueltos por <code class="highlighter-rouge">each</code>. Así,
+para calcular la mejor aproximación basta con devolver el último
+elemento de ese array.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Approximator</span>
   <span class="c1"># Método que calcula y proporciona aproximaciones</span>
   <span class="k">def</span> <span class="nf">each</span>
     <span class="n">previous</span> <span class="o">=</span> <span class="no">Float</span><span class="o">::</span><span class="no">INFINITY</span>
@@ -39,7 +143,18 @@
     <span class="nb">to_a</span><span class="p">.</span><span class="nf">last</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre> </div> <p>Además de consultar la mejor aproximación, podremos realizar otras tareas como obtener una lista de <em>n</em> iteraciones con <code class="highlighter-rouge">take(n)</code>.</p> <p>Por último, basta implementar especializaciones de esta clase con métodos de aproximación concretos. El siguiente es el método de Newton-Raphson, que permite calcular raíces de funciones a partir de sucesivas evaluaciones en la función y en su derivada.</p> <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">NewtonRaphson</span> <span class="o">&lt;</span> <span class="no">Approximator</span>
+</code></pre>
+</div>
+
+<p>Además de consultar la mejor aproximación, podremos realizar otras
+tareas como obtener una lista de <em>n</em> iteraciones con <code class="highlighter-rouge">take(n)</code>.</p>
+
+<p>Por último, basta implementar especializaciones de esta clase con
+métodos de aproximación concretos. El siguiente es el método de
+Newton-Raphson, que permite calcular raíces de funciones a partir de
+sucesivas evaluaciones en la función y en su derivada.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">NewtonRaphson</span> <span class="o">&lt;</span> <span class="no">Approximator</span>
   <span class="c1"># Datos miembro</span>
   <span class="c1">#  - function:   almacena la función f</span>
   <span class="c1">#  - derivative: almacena la derivada de f</span>
@@ -57,14 +172,26 @@
     <span class="n">current</span> <span class="o">-</span> <span class="n">function</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">current</span><span class="p">)</span><span class="o">/</span><span class="n">derivative</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre> </div> <p>Un ejemplo de uso de esta implementación sería el cálculo de la raíz cuadrada de 5, como la raíz del polinomio correspondiente:</p> <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">example</span> <span class="o">=</span> <span class="no">NewtonRaphson</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+</code></pre>
+</div>
+
+<p>Un ejemplo de uso de esta implementación sería el cálculo de la raíz
+cuadrada de 5, como la raíz del polinomio correspondiente:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">example</span> <span class="o">=</span> <span class="no">NewtonRaphson</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
   <span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span>
   <span class="o">-&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span> <span class="p">},</span>
   <span class="o">-&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span>
 <span class="p">)</span>
 <span class="n">example</span><span class="p">.</span><span class="nf">approximate</span>
 <span class="c1">#=&gt; 2.23606797749979</span>
-</code></pre> </div> <p>Otra especialización es la aproximación de la suma de una serie convergente, a partir de una función que evalúe el n-ésimo término:</p> <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SeriesApproximator</span> <span class="o">&lt;</span> <span class="no">Approximator</span>
+</code></pre>
+</div>
+
+<p>Otra especialización es la aproximación de la suma de una serie
+convergente, a partir de una función que evalúe el n-ésimo término:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SeriesApproximator</span> <span class="o">&lt;</span> <span class="no">Approximator</span>
 
   <span class="c1"># Datos miembro</span>
   <span class="c1">#  - term: función que evalúa el término n-ésimo de la serie</span>
@@ -84,7 +211,42 @@
     <span class="nb">self</span><span class="p">.</span><span class="nf">current</span> <span class="o">+=</span> <span class="n">term</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre> </div> <p>Podemos usarla para calcular la suma de Σ1/2^n:</p> <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">series</span> <span class="o">=</span> <span class="no">SeriesApproximator</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">-&gt;</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="n">n</span> <span class="p">})</span>
+</code></pre>
+</div>
+
+<p>Podemos usarla para calcular la suma de Σ1/2^n:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">series</span> <span class="o">=</span> <span class="no">SeriesApproximator</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">-&gt;</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="n">n</span> <span class="p">})</span>
 <span class="n">series</span><span class="p">.</span><span class="nf">approximate</span>
 <span class="c1">#=&gt; 0.999999999998181</span>
-</code></pre> </div> <p>En particular, las sumas de series nos pueden permitir aproximar los valores de algunas funciones en diversos puntos, utilizando por ejemplo <a href="https://en.wikipedia.org/wiki/Fourier_series">desarrollos de Fourier</a>.</p> <p>Y si habéis leído hasta aquí, ¡gracias! Espero que os haya parecido útil y os sirva para aprovechar los enumerables en otros proyectos.</p> <div class="tags"> <a href="/tag/programacion">programacion</a> <a href="/tag/ruby">ruby</a> <a href="/tag/math">math</a> </div> </article> </div> </div> </div> <link href='https://fonts.googleapis.com/css?family=Source Sans Pro:300,400,400i,700|Inconsolata:400,700' rel='stylesheet' type='text/css'> <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"/> <link rel="stylesheet" href="/assets/stylesheets/highlight-friendly.css"> </body> </html>
+</code></pre>
+</div>
+
+<p>En particular, las sumas de series nos pueden permitir aproximar los
+valores de algunas funciones en diversos puntos, utilizando
+por ejemplo <a href="https://en.wikipedia.org/wiki/Fourier_series">desarrollos de Fourier</a>.</p>
+
+<p>Y si habéis leído hasta aquí, ¡gracias! Espero que os haya parecido útil
+y os sirva para aprovechar los enumerables en otros proyectos.</p>
+
+
+  <div class="tags">
+    
+      <a href="/tag/programacion">programacion</a>
+    
+      <a href="/tag/ruby">ruby</a>
+    
+      <a href="/tag/math">math</a>
+    
+  </div>
+</article>
+
+
+        </div>
+      </div>
+    </div>
+    <link href='https://fonts.googleapis.com/css?family=Source Sans Pro:300,400,400i,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/stylesheets/highlight-friendly.css">
+  </body>
+</html>

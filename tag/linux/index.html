@@ -1,1 +1,706 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Posts tagged &ldquo;linux&rdquo; - fdavidcl</title> <link rel="stylesheet" href="/assets/stylesheets/normalize.css"> <link rel="stylesheet" href="/assets/stylesheets/default.css"> </head> <body> <div class="wrapper pure-g"> <aside class="sidebar"> <div class="side-content"> <header> <a class="name-box" href="/"> <h1>David Charte</h1> <h3>fdavidcl</h3> </a> <img src="https://secure.gravatar.com/avatar/7083d161b041964b75c38376d9dee37a?s=200" class="profile-pic"/> </header> <nav class="sections"> <a href="/blog" class="section-link section-blog">blog</a> <a href="/research" class="section-link section-research">research</a> <a href="/projects" class="section-link section-projects">projects</a> </nav> <nav class="social-links"> <a class="social-button Twitter-link" href="https://twitter.com/fdavidcl" title="Twitter"><i class="fa fa-twitter"></i></a> <a class="social-button Instagram-link" href="https://instagram.com/fdavidcl" title="Instagram"><i class="fa fa-instagram"></i></a> <a class="social-button Github-link" href="https://github.com/fdavidcl" title="Github"><i class="fa fa-github"></i></a> <a class="social-button LinkedIn-link" href="https://linkedin.com/in/fdavidcl" title="LinkedIn"><i class="fa fa-linkedin"></i></a> <a class="social-button Scholar-link" href="https://scholar.google.es/citations?user=FRv_MwYAAAAJ" title="Scholar"><i class="fa fa-graduation-cap"></i></a> </nav> </div> </aside> <div class="main"> <div class="main-content"> <h1>Posts tagged &ldquo;linux&rdquo;</h1> <p class="archive-post"> <time datetime='2015-06-19'>19-06-2015</time> <a href='/blog/2015/06/19/hidpi-linux/'>Gestionando HiDPI en Linux</a> </p> <p class="archive-post"> <time datetime='2015-01-06'>06-01-2015</time> <a href='/blog/2015/01/06/linux-el-rey-de-las-teles/'>Linux, el rey de las teles</a> </p> <p class="archive-post"> <time datetime='2014-12-22'>22-12-2014</time> <a href='/blog/2014/12/22/mi-escritorio-minimalista/'>Mi escritorio minimalista</a> </p> <p class="archive-post"> <time datetime='2014-11-07'>07-11-2014</time> <a href='/blog/2014/11/07/instalaci%C3%B3n-y-configuraci%C3%B3n-de-un-cliente-oracle/'>Instalación y configuración de un cliente Oracle en Linux</a> </p> <p class="archive-post"> <time datetime='2014-02-25'>25-02-2014</time> <a href='/blog/2014/02/25/lidiando-con-uefi-gpt-y-las-instalaciones-de/'>Lidiando con UEFI, GPT y las instalaciones de Linux (y IV): Discos y particiones</a> </p> <p class="archive-post"> <time datetime='2013-11-10'>10-11-2013</time> <a href='/blog/2013/11/10/lidiando-con-uefi-gpt-y-las-instalaciones-de/'>Lidiando con UEFI, GPT y las instalaciones de Linux (III): El cargador de arranque</a> </p> <p class="archive-post"> <time datetime='2013-10-30'>30-10-2013</time> <a href='/blog/2013/10/30/lidiando-con-uefi-gpt-y-las-instalaciones-de/'>Lidiando con UEFI, GPT y las instalaciones de Linux (II): El Setup</a> </p> <p class="archive-post"> <time datetime='2013-10-27'>27-10-2013</time> <a href='/blog/2013/10/27/lidiando-con-uefi-gpt-y-las-instalaciones-de/'>Lidiando con UEFI, GPT y las instalaciones de Linux (I): Introducción</a> </p> <p class="archive-post"> <time datetime='2013-03-19'>19-03-2013</time> <a href='/blog/2013/03/19/6-extensiones-imprescindibles-para-gnome-3/'>6 extensiones imprescindibles para GNOME 3</a> </p> <p class="archive-post"> <time datetime='2013-03-10'>10-03-2013</time> <a href='/blog/2013/03/10/nuevas-propuestas-libres-de-so-m%C3%B3viles-iii/'>Nuevas propuestas libres de S.O. móviles (III): Ubuntu de Canonical</a> </p> <p class="archive-post"> <time datetime='2013-02-24'>24-02-2013</time> <a href='/blog/2013/02/24/nuevas-propuestas-libres-de-so-m%C3%B3viles-ii/'>Nuevas propuestas libres de S.O. móviles (II): Firefox OS de Mozilla</a> </p> <p class="archive-post"> <time datetime='2013-02-06'>06-02-2013</time> <a href='/blog/2013/02/06/eligiendo-un-entorno-de-escritorio-en-linux-i/'>Eligiendo un entorno de escritorio en Linux (I): Conocimientos básicos</a> </p> </div> </div> </div> <link href='https://fonts.googleapis.com/css?family=Source Sans Pro:300,400,400i,700|Inconsolata:400,700' rel='stylesheet' type='text/css'> <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"/> <link rel="stylesheet" href="/assets/stylesheets/highlight-friendly.css"> </body> </html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts tagged #linux - fdavidcl</title>
+    <link rel="stylesheet" href="/assets/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/assets/stylesheets/default.css">
+  </head>
+  <body>
+    <div class="wrapper pure-g">
+      <aside class="sidebar">
+        <div class="side-content">
+          <header>
+            <a class="name-box" href="/">
+              <h1>David Charte</h1>
+              <h3>fdavidcl</h3>
+            </a>
+            <img src="https://secure.gravatar.com/avatar/7083d161b041964b75c38376d9dee37a?s=200" class="profile-pic" />
+          </header>
+          <nav class="sections">
+            
+              <a href="/blog" class="section-link section-blog">blog</a>
+            
+            
+              <a href="/research" class="section-link section-research">research</a>
+            
+              <a href="/projects" class="section-link section-projects">projects</a>
+            
+          </nav>
+          <nav class="social-links">
+            
+              
+              <a class="social-button Twitter-link" href="https://twitter.com/fdavidcl" title="Twitter"><!--
+                --><i class="fa fa-twitter"></i><!--
+              --></a>
+            
+              
+              <a class="social-button Instagram-link" href="https://instagram.com/fdavidcl" title="Instagram"><!--
+                --><i class="fa fa-instagram"></i><!--
+              --></a>
+            
+              
+              <a class="social-button Github-link" href="https://github.com/fdavidcl" title="Github"><!--
+                --><i class="fa fa-github"></i><!--
+              --></a>
+            
+              
+              <a class="social-button LinkedIn-link" href="https://linkedin.com/in/fdavidcl" title="LinkedIn"><!--
+                --><i class="fa fa-linkedin"></i><!--
+              --></a>
+            
+              
+              <a class="social-button Scholar-link" href="https://scholar.google.es/citations?user=FRv_MwYAAAAJ" title="Scholar"><!--
+                --><i class="fa fa-graduation-cap"></i><!--
+              --></a>
+            
+          </nav>
+        </div>
+      </aside>
+      <div class="main">
+        <div class="main-content">
+          <h1>Posts tagged #linux</h1>
+
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  <p class="archive-post">
+    <time datetime='2015-06-19'>19-06-2015</time> <a href='/blog/2015/06/19/hidpi-linux/'>Gestionando HiDPI en Linux</a>
+    <!--ul class="tag_list">
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/tech">tech</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/hidpi">hidpi</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/4k">4k</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/uhd">uhd</a></li>
+      
+    </ul-->
+  </p>
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <p class="archive-post">
+    <time datetime='2015-01-06'>06-01-2015</time> <a href='/blog/2015/01/06/linux-el-rey-de-las-teles/'>Linux, el rey de las teles</a>
+    <!--ul class="tag_list">
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/tech">tech</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/ces">ces</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/ces 2015">ces 2015</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/webOS">webOS</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/tizen">tizen</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/firefox os">firefox os</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/android">android</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/open source">open source</a></li>
+      
+    </ul-->
+  </p>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  <p class="archive-post">
+    <time datetime='2014-12-22'>22-12-2014</time> <a href='/blog/2014/12/22/mi-escritorio-minimalista/'>Mi escritorio minimalista</a>
+    <!--ul class="tag_list">
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/tech">tech</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/gnome">gnome</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/minimalism">minimalism</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/desktop">desktop</a></li>
+      
+    </ul-->
+  </p>
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <p class="archive-post">
+    <time datetime='2014-11-07'>07-11-2014</time> <a href='/blog/2014/11/07/instalaci%C3%B3n-y-configuraci%C3%B3n-de-un-cliente-oracle/'>Instalación y configuración de un cliente Oracle en Linux</a>
+    <!--ul class="tag_list">
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/code">code</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/database">database</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/oracle">oracle</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
+      
+    </ul-->
+  </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  <p class="archive-post">
+    <time datetime='2014-02-25'>25-02-2014</time> <a href='/blog/2014/02/25/lidiando-con-uefi-gpt-y-las-instalaciones-de/'>Lidiando con UEFI, GPT y las instalaciones de Linux (y IV): Discos y particiones</a>
+    <!--ul class="tag_list">
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/uefi">uefi</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/gpt">gpt</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/tech">tech</a></li>
+      
+    </ul-->
+  </p>
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <p class="archive-post">
+    <time datetime='2013-11-10'>10-11-2013</time> <a href='/blog/2013/11/10/lidiando-con-uefi-gpt-y-las-instalaciones-de/'>Lidiando con UEFI, GPT y las instalaciones de Linux (III): El cargador de arranque</a>
+    <!--ul class="tag_list">
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/tech">tech</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/uefi">uefi</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/gpt">gpt</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/ubuntu">ubuntu</a></li>
+      
+    </ul-->
+  </p>
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <p class="archive-post">
+    <time datetime='2013-10-30'>30-10-2013</time> <a href='/blog/2013/10/30/lidiando-con-uefi-gpt-y-las-instalaciones-de/'>Lidiando con UEFI, GPT y las instalaciones de Linux (II): El Setup</a>
+    <!--ul class="tag_list">
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/tech">tech</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/uefi">uefi</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/gpt">gpt</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
+      
+    </ul-->
+  </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <p class="archive-post">
+    <time datetime='2013-10-27'>27-10-2013</time> <a href='/blog/2013/10/27/lidiando-con-uefi-gpt-y-las-instalaciones-de/'>Lidiando con UEFI, GPT y las instalaciones de Linux (I): Introducción</a>
+    <!--ul class="tag_list">
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/tech">tech</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/uefi">uefi</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/gpt">gpt</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
+      
+    </ul-->
+  </p>
+  
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <p class="archive-post">
+    <time datetime='2013-03-19'>19-03-2013</time> <a href='/blog/2013/03/19/6-extensiones-imprescindibles-para-gnome-3/'>6 extensiones imprescindibles para GNOME 3</a>
+    <!--ul class="tag_list">
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/tech">tech</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/informatica">informatica</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/gnome">gnome</a></li>
+      
+    </ul-->
+  </p>
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  <p class="archive-post">
+    <time datetime='2013-03-10'>10-03-2013</time> <a href='/blog/2013/03/10/nuevas-propuestas-libres-de-so-m%C3%B3viles-iii/'>Nuevas propuestas libres de S.O. móviles (III): Ubuntu de Canonical</a>
+    <!--ul class="tag_list">
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/ubuntu">ubuntu</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/s.o. móviles libres">s.o. móviles libres</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/tech">tech</a></li>
+      
+    </ul-->
+  </p>
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <p class="archive-post">
+    <time datetime='2013-02-24'>24-02-2013</time> <a href='/blog/2013/02/24/nuevas-propuestas-libres-de-so-m%C3%B3viles-ii/'>Nuevas propuestas libres de S.O. móviles (II): Firefox OS de Mozilla</a>
+    <!--ul class="tag_list">
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/mozilla">mozilla</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/s.o. móviles libres">s.o. móviles libres</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/tech">tech</a></li>
+      
+    </ul-->
+  </p>
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <p class="archive-post">
+    <time datetime='2013-02-06'>06-02-2013</time> <a href='/blog/2013/02/06/eligiendo-un-entorno-de-escritorio-en-linux-i/'>Eligiendo un entorno de escritorio en Linux (I): Conocimientos básicos</a>
+    <!--ul class="tag_list">
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/linux">linux</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/entornos de escritorio">entornos de escritorio</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/informatica">informatica</a></li>
+      
+      <li class="inline archive_list"><a class="tag_list_link" href="/tag/tech">tech</a></li>
+      
+    </ul-->
+  </p>
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+        </div>
+      </div>
+    </div>
+    <link href='https://fonts.googleapis.com/css?family=Source Sans Pro:300,400,400i,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/stylesheets/highlight-friendly.css">
+  </body>
+</html>
