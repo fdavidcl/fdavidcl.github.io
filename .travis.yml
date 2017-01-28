@@ -15,6 +15,7 @@ script:
 
 after_success:
   - cd _site/
+  - touch .nojekyll
   - git ls-files --deleted -z | xargs -0 git rm
   - git add *
   - git add .
