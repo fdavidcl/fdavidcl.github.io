@@ -7,7 +7,7 @@ tags:
  - syncthing
 ---
 
-Uno de los sistemas más versátiles que existen para organización personal y gestión de tareas es *org-mode* de Emacs, un modo de este editor que proporciona diversas comodidades útiles para desde tomar notas rápidas como incluso [escribir unos apuntes con fórmulas matemáticas](https://m42.github.io/blog/2016/09/26/matematicas-en-emacs/). Esencialmente, aunque cuesta trabajo empezar a usarlo, tiene más utilidades y plugins que la mayoría de [navajas suizas](https://www.amazon.com/Wenger-16999-Swiss-Knife-Giant/product-reviews/B001DZTJRQ/ref=cm_cr_arp_d_viewopt_rvwer?pageNumber=1&filterByStar=positive&reviewerType=all_reviews), por lo que no es muy difícil encontrar una forma cómoda de aprovechar unas cuantas para organizarse.
+Uno de los sistemas más versátiles que existen para organización personal y gestión de tareas es *org-mode* de Emacs, un modo de este editor que proporciona comodidades útiles tanto para tomar notas rápidas como incluso [escribir unos apuntes con fórmulas matemáticas](https://m42.github.io/blog/2016/09/26/matematicas-en-emacs/). Esencialmente, aunque cuesta trabajo empezar a usarlo, tiene más utilidades y plugins que la mayoría de [navajas suizas](https://www.amazon.com/Wenger-16999-Swiss-Knife-Giant/product-reviews/B001DZTJRQ/ref=cm_cr_arp_d_viewopt_rvwer?pageNumber=1&filterByStar=positive&reviewerType=all_reviews), por lo que no es muy difícil encontrar una forma cómoda de aprovechar unas cuantas para organizarse.
 
 Para llevar un sistema basado en *org* en el móvil existe [Orgzly](http://www.orgzly.com/), una aplicación de Android que da una interfaz intuitiva mediante botones y gestos, pero que internamente utiliza el formato de *org*.
 
