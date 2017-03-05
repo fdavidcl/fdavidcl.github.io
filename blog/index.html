@@ -63,6 +63,53 @@
           
 
   <article>
+  <span class="date">05-03-2017</span>
+  <a href="/blog/2017/03/05/sincronizar-org/"><h1>Sincronizando notas entre PC y móvil mediante Orgzly y Syncthing</h1></a>
+
+  <p>Uno de los sistemas más versátiles que existen para organización personal y gestión de tareas es <em>org-mode</em> de Emacs, un modo de este editor que proporciona diversas comodidades útiles para desde tomar notas rápidas como incluso <a href="https://m42.github.io/blog/2016/09/26/matematicas-en-emacs/">escribir unos apuntes con fórmulas matemáticas</a>. Esencialmente, aunque cuesta trabajo empezar a usarlo, tiene más utilidades y plugins que la mayoría de <a href="https://www.amazon.com/Wenger-16999-Swiss-Knife-Giant/product-reviews/B001DZTJRQ/ref=cm_cr_arp_d_viewopt_rvwer?pageNumber=1&amp;filterByStar=positive&amp;reviewerType=all_reviews">navajas suizas</a>, por lo que no es muy difícil encontrar una forma cómoda de aprovechar unas cuantas para organizarse.</p>
+
+<p>Para llevar un sistema basado en <em>org</em> en el móvil existe <a href="http://www.orgzly.com/">Orgzly</a>, una aplicación de Android que da una interfaz intuitiva mediante botones y gestos, pero que internamente utiliza el formato de <em>org</em>.</p>
+
+<p class="fig medium"><img src="/assets/images/orgzly.png" alt="" />
+Orgzly en funcionamiento</p>
+
+<p>La pregunta que nos vendría a la mente a todos sería si podemos tener el mismo archivo de <em>org</em> sincronizado entre nuestros dispositivos con Emacs y Orgzly. El problema al que llegamos es que el único sistema de sincronización que ofrece Orgzly es a través de Dropbox y, aparte de las preocupaciones por seguridad y privacidad que nos podrían surgir, en realidad es totalmente innecesario tener nuestro archivo almacenado en la nube.</p>
+
+<p>La solución que he encontrado es usar <a href="https://syncthing.net/">Syncthing, un sistema de sincronización P2P de código libre</a>. Para ello simplemente tendremos que instalar la app de Syncthing en los dispositivos Android y la versión del programa correspondiente a nuestro sistema operativo para el PC.</p>
+
+<p class="note">En Arch Linux basta ejecutar <code class="highlighter-rouge">pacman -S syncthing</code>. Además, conviene añadirlo al arranque del sistema con <code class="highlighter-rouge">systemctl --user enable syncthing</code>.</p>
+
+<p>En la versión de PC, Syncthing generalmente inicializará una carpeta por defecto. Podemos mover ahí nuestro archivo <em>org</em>. Para hacer que se comuniquen los dispositivos entre sí, desde la interfaz web disponible en <code class="highlighter-rouge">localhost:8384</code> mostramos el ID desde <em>Options</em> → <em>Show ID</em> y escaneamos el código QR desde el móvil en la pantalla de <em>Nuevo dispositivo</em>.</p>
+
+<p class="fig medium"><img src="/assets/images/syncthing-add.jpg" alt="" /></p>
+
+<p>Una vez hecho esto, la app avisará de que el PC quiere comenzar a sincronizar la carpeta por defecto. Aceptamos la solicitud y asignamos una ruta dentro de los archivos del teléfono, para almacenar esa carpeta. Syncthing descargará en esa ubicación los archivos que hayamos copiado en el ordenador, y los volverá a enviar a este cuando realicemos cambios.</p>
+
+<p class="fig medium"><img src="/assets/images/syncthing-pc.png" alt="" /></p>
+
+<p>El último paso es configurar a Orgzly para que lea y escriba de esa carpeta. Para esto entramos en la configuración de la aplicación, y bajo <em>Sync</em> seleccionamos <em>Repositories</em> → <em>Directory</em>. Escogemos la ruta que definimos antes para el almacenamiento de Syncthing. A partir de ahora, Orgzly guardará en ese directorio los archivos <em>org</em> que cree, y leerá los nuevos archivos que aparezcan.</p>
+
+<p class="fig medium"><img src="/assets/images/orgzly-repos.jpg" alt="" /></p>
+
+<p>Por último, Syncthing permite sincronizar datos entre muchos dispositivos y ser relativamente selectivo en cuanto a qué se sincroniza con cada uno. Así, nuestros archivos de <em>org</em> pueden estar siempre actualizados vayamos donde vayamos, y sin necesidad de almacenarlos permanentemente en servidores externos.</p>
+
+
+
+  <div class="tags">
+    
+      <a href="/tag/emacs">emacs</a>
+    
+      <a href="/tag/trucos">trucos</a>
+    
+      <a href="/tag/android">android</a>
+    
+      <a href="/tag/syncthing">syncthing</a>
+    
+  </div>
+</article>
+
+
+  <article>
   <span class="date">28-01-2017</span>
   <a href="/blog/2017/01/28/aproximadores-ruby/"><h1>Métodos de aproximación en Ruby</h1></a>
 
@@ -551,63 +598,6 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
       <a href="/tag/4k">4k</a>
     
       <a href="/tag/uhd">uhd</a>
-    
-  </div>
-</article>
-
-
-  <article>
-  <span class="date">24-02-2015</span>
-  <a href="/blog/2015/02/24/open-data-day-y-el-hackathon-de-datos-abiertos/"><h1>Open Data Day y el hackathon de datos abiertos</h1></a>
-
-  <p><em><a href="https://joindiaspora.com/posts/5653136">Versión en inglés</a></em></p>
-
-<p>Este pasado sábado 21 de febrero se celebraba el Open Data Day, un día en el que se promueve la publicación de datos administrativos y gubernamentales. Con este objetivo, se organizó un hackathon (maratón de programación) a lo largo de todo el fin de semana, que pretendía demostrar la utilidad de estos datos abiertos mediante análisis y minería de datos, visualizaciones y gráficos, etc.</p>
-
-<h3>El Open Data Day en Granada</h3>
-
-<blockquote class="twitter-tweet" lang="es"><p>Empezando la sesión de viernes del <a href="https://twitter.com/hashtag/opendataday?src=hash">#opendataday</a>, con <a href="https://twitter.com/jjmerelo">@jjmerelo</a> , <a href="https://twitter.com/OSLUGR">@OSLUGR</a> y gente <a href="http://t.co/5jMecwlVJk">pic.twitter.com/5jMecwlVJk</a></p><div>— David Charte (@fdavidcl) </div><a href="https://twitter.com/fdavidcl/status/568690265369796608">febrero 20, 2015</a></blockquote>
-
-<p>En particular, en Granada fue la <a href="http://osl.ugr.es">Oficina de Software Libre</a> de la Universidad de Granada la que <a href="http://osl.ugr.es/2015/01/26/open-data-day-2015/">organizó el hackathon local</a> para la ocasión. En él, se presentaron tres proyectos distintos de forma que los participantes del hackathon se unieran a uno de ellos y colaboraran desde el viernes hasta el lunes. Estos tres proyectos trataban temas bastante distintos:</p>
-
-<ul><li><strong>Scraping y análisis de datos del ayuntamiento</strong>, propuesto por el periodista de datos <a href="https://twitter.com/inchocordero">Incho Cordero</a>. Esta iniciativa proponía recuperar contratos del ayuntamiento de Granada, sobre todo de obras y similares, para realizar un estudio sobre las empresas contratadas y los costes de dichos contratos, tras un proceso de scraping previo para extraer la información de los PDFs en los que se publica.</li>
-<li><strong>Monitorización y predicción del estado de tráfico</strong>, a raíz del <a href="https://proyectopetra.wordpress.com/">Proyecto PETRA</a>. El proyecto en cuestión utiliza unos dispositivos de bajo coste que rastrean señales de Bluetooth y Wi-Fi para detectar coches mediante los manos libres y móviles. De esta forma se obtienen datos sobre el paso de los dispositivos en distintos puntos de las carreteras y se pueden utilizar para, a partir de cambios ligeros en el tráfico, predecir distintos estados futuros.</li>
-<li><strong>Comparación de portales de transparencia universitarios</strong>, presentado por <a href="https://twitter.com/mhmario89">Mario Heredia</a>, <a href="https://twitter.com/moloco5">Mónica López</a>, <a href="https://twitter.com/germaaan_">Germán Martínez</a>&hellip; Este último proyecto consistía en utilizar los portales de transparencia de las distintas universidades españolas, para realizar comparativas acerca de los datos que proporcionan y de las universidades en sí, incluyendo scraping de los datos que estuviesen en formatos poco accesibles.</li>
-</ul><h3>El hackathon con el proyecto PETRA</h3>
-
-<p>Me apunté al hackathon del proyecto PETRA sencillamente porque prometía más ciencia de datos y menos temas político-administrativos, por lo que resultaba más interesante que los otros dos. El objetivo durante el fin de semana fue encontrar fuentes de datos de tráfico, extraer esos datos y publicarlos, para después tratar de realizar visualizaciones sobre mapas.</p>
-
-<p>Gracias a que el equipo estaba compuesto por gente de conocimientos muy diversos, tanto distintos lenguajes de programación como distintas materias sobre minería y visualización de datos, se pudieron distribuir tareas y proponer ideas, todo en forma de <a href="https://github.com/global-urban-datafest/grx-PETRA/issues/">issues del repositorio</a>, que combinadas llevarían a cabo los objetivos, entre ellas:</p>
-
-<ul><li>Extracción de los datos de paso de vehículos por estaciones de la DGT</li>
-<li>Concatenación y preprocesamiento de dichos datos</li>
-<li>Estudio y obtención de datos de diferentes APIs de tráfico</li>
-<li>Minería de datos y clasificación con WEKA</li>
-<li>Estudio de plataformas de mapas</li>
-<li>Estudio de librerías de gráficos para visualización de datos</li>
-<li>Hacer un logo para el proyecto</li>
-</ul><p>Todos los resultados están publicados en el <a href="https://github.com/global-urban-datafest/grx-PETRA">repositorio dedicado al hackathon</a>, incluyendo el <a href="https://github.com/global-urban-datafest/grx-PETRA/blob/master/Datasets/dgt/all.csv">archivo CSV</a> con los datos de la DGT acerca de las estaciones de monitorización, extraídos de varios PDFs; <a href="https://github.com/global-urban-datafest/grx-PETRA/blob/master/Datasets/dgt/joinSources.sh">los</a> <a href="https://github.com/global-urban-datafest/grx-PETRA/blob/master/Datasets/dgt/processCSV.py">scripts</a> <a href="https://github.com/global-urban-datafest/grx-PETRA/blob/master/Datasets/concat.js">utilizados</a> para preprocesarlos; el <a href="https://github.com/global-urban-datafest/grx-PETRA/blob/master/Datasets/apis/traffic_apis.R">código</a> de obtención de datos de APIs en R; el estudio de recursos para <a href="https://github.com/global-urban-datafest/grx-PETRA/issues/10">gráficos</a> y <a href="https://github.com/global-urban-datafest/grx-PETRA/issues/9">mapas</a>, y cómo no, las <a href="https://github.com/global-urban-datafest/grx-PETRA/tree/master/Logo">propuestas de logo</a> para el proyecto.</p>
-
-<p>Además de esto, se realizaron algunos gráficos en Google <a href="https://www.google.com/fusiontables/DataSource?docid=1v8M5FZCgBdUaXLVx3WGKa3wEa-IHOTR_J_67YhWu#rows:id=1">Fusion Tables</a>, se extrajo información interesante mediante Weka y se publicaron también los datos en <a href="https://fdavidcl.shinyapps.io/PETRA">una aplicación web</a> realizada con Shiny. Todo esto se resumió en la <a href="//www.slideshare.net/fergunet/open-dataday-hackathon-conclusiones">presentación de conclusiones</a> para el lunes.</p>
-
-<blockquote class="twitter-tweet" lang="es"><p>El equipo del <a href="https://twitter.com/proyectoPETRA">@proyectoPETRA</a> en el <a href="https://twitter.com/hashtag/SmartCityHack?src=hash">#SmartCityHack</a> <a href="https://twitter.com/hashtag/OpenDataDay?src=hash">#OpenDataDay</a> trabajando en <a href="https://twitter.com/fcienciasugr">@fcienciasugr</a> <a href="https://twitter.com/hashtag/grx?src=hash">#grx</a> <a href="http://t.co/P82wNTvIDP">pic.twitter.com/P82wNTvIDP</a></p><div>— Pablo García (@fergunet) </div><a href="https://twitter.com/fergunet/status/569102017056129024">febrero 21, 2015</a></blockquote>
-
-<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
-  <div class="tags">
-    
-      <a href="/tag/code">code</a>
-    
-      <a href="/tag/opendata">opendata</a>
-    
-      <a href="/tag/opendataday">opendataday</a>
-    
-      <a href="/tag/open data day">open data day</a>
-    
-      <a href="/tag/hackathon">hackathon</a>
-    
-      <a href="/tag/urbancityhack">urbancityhack</a>
     
   </div>
 </article>

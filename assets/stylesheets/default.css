@@ -105,10 +105,26 @@ body {
           max-width: 100%;
           overflow-x: auto;
           padding: 0.2rem 0.6rem; }
+        .wrapper .main .main-content article .note {
+          border: 1px solid #e6e6e6;
+          padding: 0.2rem 0.6rem;
+          color: #4d4d4d; }
+          .wrapper .main .main-content article .note:before {
+            content: "Nota";
+            font-weight: bold;
+            margin-right: 0.6rem; }
         .wrapper .main .main-content article .fig {
           border: 1px solid #e6e6e6;
           padding: 0.2rem 0.6rem;
-          text-align: center; }
+          text-align: center;
+          font-style: italic; }
+          .wrapper .main .main-content article .fig img {
+            display: block;
+            margin: 0 auto 0.2rem; }
+          .wrapper .main .main-content article .fig.medium img {
+            max-height: 24rem; }
+          .wrapper .main .main-content article .fig.small img {
+            max-height: 12rem; }
         .wrapper .main .main-content article .tags a {
           display: inline-block;
           text-decoration: none;
