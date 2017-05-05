@@ -63,10 +63,120 @@
           
 
   <article>
+  <span class="date">05-05-2017</span>
+  <a href="/blog/2017/05/05/emacs-lazy/"><h1>Emacs for lazy people</h1></a>
+
+  <p>Emacs is one of the most powerful, extensible editors out there.
+However, learning to use it is not an easy task, and I’m just really
+lazy. The following are some packages that I hope will make your life
+way easier. And if you already use Emacs, I encourage you to try them
+and see if they help you get a more comfortable development environment.</p>
+
+<p>To add any of these packages to your Emacs configuration, find your 
+initialization file (usually <code class="highlighter-rouge">~/.emacs</code> or <code class="highlighter-rouge">~/.emacs.d/init.el</code>) and
+add the snippets there. You will also need to install and enable <code class="highlighter-rouge">use-package</code> 
+beforehand (<a href="http://www.lunaryorn.com/posts/my-emacs-configuration-with-use-package.html">why?</a>).</p>
+
+<h2 id="smex">Smex</h2>
+
+<p>In Emacs we use M-x
+(<kbd>Alt</kbd>+<kbd>X</kbd>) to enter any
+command without the need for a dedicated keyboard shortcut or menu
+entry. By default Emacs doesn’t help much while writing a command, and
+it can be challenging to remember many of them, as well as tedious
+writing the long ones (<code class="highlighter-rouge">package-list-packages</code> anyone?).
+<a href="https://github.com/nonsequitur/smex/">Smex</a> is a M-x enhancement for
+Emacs, built on top of Ido, which means it will try to predict and
+autocomplete commands as you write them.</p>
+
+<p>In order to install and enable Smex, add the following code to your
+initialization file:</p>
+
+<div class="language-common_lisp highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">smex</span>
+<span class="ss">:config</span> <span class="p">(</span><span class="nv">smex-initialize</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<h2 id="ergoemacs">Ergoemacs</h2>
+
+<p>If you’re just starting to use emacs, you may find it difficult to learn
+all the new keybindings. If you’re a long-time user, you may have
+experienced repetitive strain injury (RSI), also known as <a href="https://en.wikipedia.org/wiki/Emacs#Emacs_pinky">Emacs
+pinky</a>. Don’t worry,
+I’ve got just the solution for you:
+<a href="https://ergoemacs.github.io/index.html">ergoemacs-mode</a> is a minor-mode
+that sets ergonomic and well-known keybindings for common editing
+functions, with the aim of reducing RSI as well as adding some
+familiarity to the use of emacs.</p>
+
+<p>Just as before, add the following code to your initialization file and
+restart Emacs to use it:</p>
+
+<div class="language-common_lisp highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">ergoemacs-mode</span>
+<span class="ss">:init</span>
+  <span class="p">(</span><span class="k">setq</span> <span class="nv">ergoemacs-theme</span> <span class="no">nil</span><span class="p">)</span>
+  <span class="p">(</span><span class="k">setq</span> <span class="nv">ergoemacs-keyboard-layout</span> <span class="s">"es"</span><span class="p">)</span>
+<span class="ss">:config</span>
+  <span class="p">(</span><span class="nv">ergoemacs-mode</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre>
+</div>
+
+<p>You can check <a href="https://ergoemacs.github.io/key-setup.html">your new keybinding
+layout</a>. Remember that,
+after enabling Ergoemacs, the keyboard shortcut that allows you to enter
+a custom command becomes
+<kbd>Alt</kbd>+<kbd>A</kbd>.</p>
+
+<h2 id="which-key">Which-key</h2>
+
+<p><img src="/assets/images/emacs-which-key.png" alt="" /></p>
+
+<p><a href="https://github.com/justbur/emacs-which-key">Which-key</a> displays the key
+bindings following your currently entered incomplete command. That way,
+when you can’t remember which key to press, you’ll have a cheat sheet in
+a couple of seconds.</p>
+
+<div class="language-common_lisp highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">which-key</span>
+<span class="ss">:config</span> <span class="p">(</span><span class="nv">which-key-mode</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<h2 id="auto-reload-stuff">Auto-reload stuff</h2>
+
+<p>When using version control, files generally change while having them
+open in the editor. If this happens, I expect my editor to refresh the
+files so that I don’t write on an old version. Emacs doesn’t enable this
+behavior by default, rather letting the user decide if they want to
+reload files. Instead, we can set it to automatically reload files from
+disk when changed via these configuration lines (source: <a href="http://pragmaticemacs.com/emacs/automatically-revert-buffers/">Pragmatic
+Emacs</a>):</p>
+
+<div class="language-common_lisp highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nv">global-auto-revert-mode</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">add-hook</span> <span class="ss">'dired-mode-hook</span> <span class="ss">'auto-revert-mode</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="still-want-more">Still want more?</h2>
+
+<p>These are the main tools that have eased my way into Emacs. You can check out the rest of my configuration in <a href="https://github.com/fdavidcl/dotfiles/tree/master/emacs">my dotfiles repository</a>.</p>
+
+
+  <div class="tags">
+    
+      <a href="/tag/emacs">emacs</a>
+    
+      <a href="/tag/linux">linux</a>
+    
+  </div>
+</article>
+
+
+  <article>
   <span class="date">05-03-2017</span>
   <a href="/blog/2017/03/05/sincronizar-org/"><h1>Sincronizando notas entre PC y móvil mediante Orgzly y Syncthing</h1></a>
 
-  <p>Uno de los sistemas más versátiles que existen para organización personal y gestión de tareas es <em>org-mode</em> de Emacs, un modo de este editor que proporciona diversas comodidades útiles para desde tomar notas rápidas como incluso <a href="https://m42.github.io/blog/2016/09/26/matematicas-en-emacs/">escribir unos apuntes con fórmulas matemáticas</a>. Esencialmente, aunque cuesta trabajo empezar a usarlo, tiene más utilidades y plugins que la mayoría de <a href="https://www.amazon.com/Wenger-16999-Swiss-Knife-Giant/product-reviews/B001DZTJRQ/ref=cm_cr_arp_d_viewopt_rvwer?pageNumber=1&amp;filterByStar=positive&amp;reviewerType=all_reviews">navajas suizas</a>, por lo que no es muy difícil encontrar una forma cómoda de aprovechar unas cuantas para organizarse.</p>
+  <p>Uno de los sistemas más versátiles que existen para organización personal y gestión de tareas es <em>org-mode</em> de Emacs, un modo de este editor que proporciona comodidades útiles tanto para tomar notas rápidas como incluso <a href="https://m42.github.io/blog/2016/09/26/matematicas-en-emacs/">escribir unos apuntes con fórmulas matemáticas</a>. Esencialmente, aunque cuesta trabajo empezar a usarlo, tiene más utilidades y plugins que la mayoría de <a href="https://www.amazon.com/Wenger-16999-Swiss-Knife-Giant/product-reviews/B001DZTJRQ/ref=cm_cr_arp_d_viewopt_rvwer?pageNumber=1&amp;filterByStar=positive&amp;reviewerType=all_reviews">navajas suizas</a>, por lo que no es muy difícil encontrar una forma cómoda de aprovechar unas cuantas para organizarse.</p>
 
 <p>Para llevar un sistema basado en <em>org</em> en el móvil existe <a href="http://www.orgzly.com/">Orgzly</a>, una aplicación de Android que da una interfaz intuitiva mediante botones y gestos, pero que internamente utiliza el formato de <em>org</em>.</p>
 
@@ -547,57 +657,6 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
       <a href="/tag/github">github</a>
     
       <a href="/tag/libreim">libreim</a>
-    
-  </div>
-</article>
-
-
-  <article>
-  <span class="date">19-06-2015</span>
-  <a href="/blog/2015/06/19/hidpi-linux/"><h1>Gestionando HiDPI en Linux</h1></a>
-
-  <p>Desde hace un tiempo estoy usando un Dell XPS 15 como ordenador principal, y esta máquina incluye una característica que lo hace increíble y, a veces, casi inusable: la resolución de la pantalla. Me refiero a su pantalla UHD, que en términos numéricos son 3840 píxeles de ancho por 2160 de alto. Para haceros una idea, eso significa que en esta pantalla caben los píxeles de exactamente 4 pantallas Full HD (1920x1080). La densidad de píxeles resulta en 282 PPI, bastante alta para una pantalla de 15 pulgadas, por lo que entra en la categoría de lo que denominamos HiDPI.</p>
-
-<p>Y evidentemente, leer y ver contenido en una pantalla como esta es genial, todo se ve muy nítido y es imposible ver algo pixelado. El problema viene al utilizar aplicaciones para otros fines: ofimática, desarrollo o edición de imágenes. Según con qué bibliotecas estén compuestas las interfaces de usuario, o según las opciones que aporten estos programas, se podrán o no adaptar a la resolución, y por tanto escalarse a un tamaño mayor para que sea usable.</p>
-
-<p><strong>GNOME</strong></p>
-
-<p>La tercera versión de GNOME y de GTK+ están ya más que preparadas para las pantallas HiDPI, y resulta muy sencillo escalar las interfaces tanto de la Shell como de las aplicaciones de GNOME. Basta con abrir la Herramienta de retoques (o Tweak Tool), y ajustar el escalado de ventanas a 2:</p>
-
-<p><a href="http://i.imgur.com/6ggqmHB.jpg"><img src="http://67.media.tumblr.com/0b576df42eb1ab6ef79a809f18d0846f/tumblr_inline_nq7dle0HHa1r7kqtk_540.jpg" alt="image"/></a></p>
-
-<p>Este ajuste permite adaptar el tamaño de todas las aplicaciones GTK+3, pero no así las que usen GTK+2 u otras bibliotecas (Qt, wxWidgets&hellip;). Qt en su versión 5 sí adapta el tamaño de los elementos a la resolución, pero las versiones anteriores no lo hacen y aún hay pocas aplicaciones que se hayan pasado a esta nueva versión.</p>
-
-<p><strong>Firefox</strong></p>
-
-<p>En Firefox el ajuste del tamaño &ldquo;virtual&rdquo; de un píxel se puede ajustar, bien manualmente, o bien mediante una extensión que permite un comportamiento dinámico según la resolución de la pantalla en que se encuentre el navegador (lo que nos permite usar proyectores o monitores externos que no sean HiDPI): <a href="https://addons.mozilla.org/en-US/firefox/addon/autohidpi/">AutoHiDPI</a>. Basta instalarla y podemos personalizar el aumento de tamaño cuando la ventana de Firefox esté en un monitor HiDPI.</p>
-
-<p><strong>Atom</strong></p>
-
-<p>Atom es un editor de texto y código muy completo y extensible mediante <em>paquetes</em>. Uno de estos paquetes, apropiadamente llamado <a href="https://atom.io/packages/hidpi">hidpi</a>, realiza la misma tarea que la extensión de Firefox anterior: ajusta la ampliación de elementos en Atom a la resolución del monitor en que se use.</p>
-
-<p><strong>Otras aplicaciones</strong></p>
-
-<p>Hay muchas otras aplicaciones que aún no se adaptan del todo a este tipo de resoluciones. Por ejemplo, todavía no he encontrado un reproductor de música para Linux que se adapte y me resulte cómodo (Rhythmbox sí funciona, pero la gestión de listas es menos intuitiva; sigo usando Clementine). El asunto es peor cuando hablamos de editores de imágenes, los botones de herramientas de <a href="http://pinta-project.com/">Pinta</a> y <a href="https://krita.org/">Krita</a> son demasiado pequeños para poder usarse cómodamente, aunque es un alivio que se esté trabajando en <a href="https://krita.org/item/krita-2-9-2-released/">portar Krita a Qt 5</a>.</p>
-
-<p><a href="http://i.imgur.com/PRd7714.jpg"><img src="http://67.media.tumblr.com/721a184f440e1763fe4353395ce5e8df/tumblr_inline_nq7ex3gnhT1r7kqtk_540.png" alt=""/></a></p>
-
-<p><em>Pinta, Krita, Exaile y Audacity no se adaptan a la resolución UHD.</em></p>
-
-<p>Hasta aquí estos pequeños consejos para quienes tengáis pantallas de muy alta resolución. espero que sean útiles y si sabéis de alguna buena aplicación que funcione bien con HiDPI, no dudéis en dejarla en los comentarios.</p>
-
-
-  <div class="tags">
-    
-      <a href="/tag/tech">tech</a>
-    
-      <a href="/tag/linux">linux</a>
-    
-      <a href="/tag/hidpi">hidpi</a>
-    
-      <a href="/tag/4k">4k</a>
-    
-      <a href="/tag/uhd">uhd</a>
     
   </div>
 </article>

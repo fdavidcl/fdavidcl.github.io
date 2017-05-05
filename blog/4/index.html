@@ -63,6 +63,29 @@
           
 
   <article>
+  <span class="date">24-06-2014</span>
+  <a href="/blog/2014/06/24/introducci%C3%B3n-a-javascript-programaci%C3%B3n-con/"><h1>Introducción a JavaScript. Programación con prototipos</h1></a>
+
+  <a href="http://dgiim.github.io/blog/2014/06/24/introduccion-javascript">Introducción a JavaScript. Programación con prototipos</a><br/><blockquote>
+<p>JavaScript (JS) es el lenguaje de programación desarrollado por Netscape para la web. Se trata de un lenguaje de script, generalmente interpretado por el navegador del usuario, esto es, se ejecuta en el <em>cliente</em>. Hablamos del cliente refiriéndonos a la máquina del usuario final que visitará el sitio web, y del servidor para referirnos a la máquina o el conjunto de ellas que lo almacenan y proporcionan. Sin embargo, también se puede utilizar JavaScript como lenguaje de servidor gracias a <a href="http://nodejs.org/">Node.js</a>.<br/><br/><a href="http://dgiim.github.io/blog/2014/06/24/introduccion-javascript">[&hellip;]</a></p>
+</blockquote>
+
+
+  <div class="tags">
+    
+      <a href="/tag/code">code</a>
+    
+      <a href="/tag/programming">programming</a>
+    
+      <a href="/tag/javascript">javascript</a>
+    
+      <a href="/tag/web development">web development</a>
+    
+  </div>
+</article>
+
+
+  <article>
   <span class="date">13-05-2014</span>
   <a href="/blog/2014/05/13/el-futuro-de-la-web-es-descentralizado/"><h1>El futuro de la web es descentralizado</h1></a>
 
@@ -185,36 +208,6 @@ each (v, it,
       <a href="/tag/c++">c++</a>
     
       <a href="/tag/donttrythisathome">donttrythisathome</a>
-    
-  </div>
-</article>
-
-
-  <article>
-  <span class="date">25-02-2014</span>
-  <a href="/blog/2014/02/25/lidiando-con-uefi-gpt-y-las-instalaciones-de/"><h1>Lidiando con UEFI, GPT y las instalaciones de Linux (y IV): Discos y particiones</h1></a>
-
-  <p><a href="http://fdavidcl.tumblr.com/post/66598876479/lidiando-con-uefi-gpt-y-las-instalaciones-de-linux">← (III) El cargador de arranque</a></p>
-<p>Uno de los puntos clave que trae UEFI consigo es la introducción, a su vez, del sistema de particionado GPT (<em>GUID Partition Table</em>), que es una alternativa al sistema que se venía utilizando hasta ahora, conocido como MBR. Las ventajas son claras: un disco duro formateado con GPT puede organizarse en un gran número de particiones, y estas se pueden redimensionar a nuestro gusto, cosa que no es tan fácil en MBR. A diferencia de UEFI, los sistemas operativos actuales no tienen problema reconociendo un disco GPT y trabajando con él de la forma habitual. No se puede decir lo mismo de otros aparatos (una Smart TV o una consola tal vez no reconozca un disco externo si es GPT).</p>
-<p><img alt="image" src="http://67.media.tumblr.com/da2b217ef634e0efbfb041d2f2626d01/tumblr_inline_n1bin3BlsM1r7kqtk.png"/></p>
-<p>Un disco con GPT tendrá generalmente un <em>Master Boot Record</em> &ldquo;protectivo&rdquo;, lo que quiere decir que se hará ver como un disco vacío en sistemas que no soporten GPT (como Windows XP), para evitar que estos traten de modificar o arreglar el formato y destruyan la tabla de particiones.</p>
-<p>Normalmente el disco contendrá una primera partición de unos 200 MB dedicada al arranque EFI. Esta partición contiene el <a href="http://fdavidcl.tumblr.com/post/66598876479/lidiando-con-uefi-gpt-y-las-instalaciones-de-linux">cargador de arranque</a>, luego hay que tener cuidado de no modificarla. A partir de ahí, podemos añadir y modificar las particiones que queramos. Para ello podemos usar las herramientas de administración de discos de Windows (<em>Administrador de discos</em>), Linux (hay varias, <em>Discos</em> en algunas distros, también <em>gparted,</em> o <em>gdisk</em> en la terminal) y OS X (<em>Utilidad de discos</em>).</p>
-<p>Los tipos de particiones que puede tener un disco GPT son distintos a los de MBR, pero eso no es problema, ya que pueden albergar los mismos sistemas de archivos que en un disco MBR. De estos, usaremos NTFS en general para Windows (y para compatibilidad con todos los sistemas) en particiones de tipo <em>Microsoft basic data</em>, ext4 para Linux en particiones de tipo <em>Linux filesystem</em> y HFS+, en particiones <em>Apple HFS/HFS+</em>, si utilizamos OS X. La elección del tipo de partición se suele hacer automáticamente mediante la herramienta que usemos, luego no debemos preocuparnos por eso.</p>
-<p>Una herramienta avanzada para la manipulación de discos GPT es <em>gdisk</em> (en Linux), que se ejecuta desde la terminal y permite modificar las particiones y la tabla de particiones. Además, <em>gdisk</em> es muy útil porque es capaz de <strong>convertir un disco MBR en GPT sin perder datos</strong> (aun así es recomendable hacer una copia de seguridad de todo). Simplemente ejecutando <code>sudo gdisk /dev/sdb</code> (suponiendo que /dev/sdb es el disco que queremos convertir) e introduciendo <code>w</code> se realizará el proceso.</p>
-<p><img alt="image" src="http://66.media.tumblr.com/f99f82027e687bb5493c6f7dbed6fcdd/tumblr_inline_n1kesx3EFV1r7kqtk.png"/></p>
-<p>En la imagen vemos arriba el aviso que presenta <em>gdisk</em> al ejecutarlo sobre un disco MBR, antes de convertirlo a GPT; al convertirlo podemos prepararlo para que un ordenador con arranque (U)EFI sea capaz de iniciar un SO desde el disco. En la captura de abajo vemos parte de las opciones disponibles para gestión de discos GPT, una opción muy útil es <code>p</code>, que muestra la tabla de particiones actual.</p>
-<p>Y con esto termina la guía sobre UEFI y GPT, que podéis volver a visitar cuando queráis en la etiqueta <a href="http://fdavidcl.tumblr.com/tagged/uefi">#uefi</a>.</p>
-
-
-  <div class="tags">
-    
-      <a href="/tag/uefi">uefi</a>
-    
-      <a href="/tag/gpt">gpt</a>
-    
-      <a href="/tag/linux">linux</a>
-    
-      <a href="/tag/tech">tech</a>
     
   </div>
 </article>

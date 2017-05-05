@@ -63,6 +63,38 @@
           
 
   <article>
+  <span class="date">13-04-2013</span>
+  <a href="/blog/2013/04/13/hackintosh-y-distros-de-os-x/"><h1>Hackintosh y distros de OS X</h1></a>
+
+  <p><em><strong>Nota</strong>: Algunas de las prácticas comentadas en este post no son legales y no las apoyo ni las recomiendo.</em></p>
+<p>Hackintosh es un término que se refiere a la instalación de OS X (aka Mac OS X) en PCs. Desde que Apple lanzó los primeros ordenadores Mac con procesadores Intel en 2006, esta práctica se ha ido desarrollando y hoy día contamos con abundante documentación sobre cómo convertir un PC normal en un Hackintosh.</p>
+<h3>Mac vs. PC</h3>
+<p><img src="http://66.media.tumblr.com/e91072e234d7e28e03f509a096113cc4/tumblr_inline_ml7fzt4LCp1qz4rgp.png"/></p>
+
+<p>El mayor problema que puede plantearse a la hora de tratar de instalar OS X en un PC es generalmente el soporte de hardware: OS X únicamente soporta procesadores Intel, luego un PC con procesador de AMD no podrá ejecutar una versión original de OS X; además la gama de tarjetas gráficas soportadas es limitada, teniendo frecuentemente mejor soporte para las de Nvidia que para las AMD/ATI. Para ampliar el hardware soportado, a excepción del procesador, se utilizan controladores o <em>kexts</em> para dispositivos específicos, que permiten la utilización de los mismos bajo OS X. Se puede encontrar una gran variedad de <em>kexts</em> en la página de descargas del proyecto <a href="http://www.osx86.net/">OSx86</a>.</p>
+<p>Por otro lado, los Mac utilizan discos con tablas de particiones GUID y arranque EFI, y sin embargo la mayoría de los PCs utilizan el sistema MBR para estas tareas, a excepción de los ordenadores más recientes con Windows 8 que incluyen UEFI como sustituta de la clásica BIOS. Para solventar el problema del arranque se utilizan cargadores de arranque especiales, como Chameleon, Chimera o el más reciente Clover, que soporta los dos tipos de arranque, el clásico y el (U)EFI. Para permitir que OS X se deje instalar en discos particionados sin GPT (<em>GUID Partition Table</em>) existen algunas soluciones que requieren modificar los archivos de instalación del sistema, o bien se puede convertir la tabla de particiones a GUID desde el instalador de OS X.</p>
+<h3>OS X y las distros</h3>
+<p>La palabra <em>distro</em> suele referirse a Linux, cuando se habla de las distintas variedades (o distribuciones) que hay disponibles, ya que cualquiera puede crear su propio sistema operativo basado en Linux. Sin embargo, OS X no es libre luego las <em>distros</em> de este S.O. no son lo más común del mundo, ya que utilizar una conlleva la piratería (de hecho, en muchos foros sobre Hackintosh no se permite o no se recomienda hablar de ellas). <span>En ocasiones la única forma de instalar OS X en algunos PCs es utilizar una de estas distros, que no modifican gran parte del sistema, sino que añaden soporte para más procesadores, tarjetas gráficas y otro hardware.</span></p>
+<p>Una de las más conocidas en el mundillo Hackintosh es iAtkos, un proyecto que trata de facilitar la instalación de OS X y de drivers adecuados sin ir más allá. Hay algunas más, como EmpireEFI, iDeneb, Hazard; algunas aseguran soportar procesadores AMD pero por lo general es difícil llegar a una buena compatibilidad.</p>
+<h3>Montando un Hackintosh</h3>
+<p>Existen multitud de guías para instalar diferentes versiones de OS X en PCs, varias aplicaciones que ayudan en el proceso, incluso guías de cómo comprar un ordenador de forma que sea totalmente compatible con una versión original de OS X (se ahorra bastante dinero, incluso comprando OS X aparte del ordenador). Podéis encontrarlas en <a href="http://lifehacker.com/5841604/the-always-up+to+date-guide-to-building-a-hackintosh">Lifehacker</a>, <a href="http://www.tonymacx86.com/61-unibeast-install-os-x-mountain-lion-any-supported-intel-based-pc.html">Tonymacx86</a> y en <span>los foros de <a href="http://www.insanelymac.com/forum/topic/281192-guide-a-fast-and-easy-way-to-install-mountain-lion/">InsanelyMac</a>, además de muchos otros sitios.</span></p>
+
+
+  <div class="tags">
+    
+      <a href="/tag/tech">tech</a>
+    
+      <a href="/tag/os x">os x</a>
+    
+      <a href="/tag/apple">apple</a>
+    
+      <a href="/tag/hackintosh">hackintosh</a>
+    
+  </div>
+</article>
+
+
+  <article>
   <span class="date">06-04-2013</span>
   <a href="/blog/2013/04/06/truco-javascript-seleccionando-elementos-con/"><h1>Truco (Javascript): Seleccionando elementos con querySelector</h1></a>
 
@@ -136,57 +168,6 @@ mi_elemento.classList.remove("otra_clase");
       <a href="/tag/truco">truco</a>
     
       <a href="/tag/code">code</a>
-    
-  </div>
-</article>
-
-
-  <article>
-  <span class="date">19-03-2013</span>
-  <a href="/blog/2013/03/19/6-extensiones-imprescindibles-para-gnome-3/"><h1>6 extensiones imprescindibles para GNOME 3</h1></a>
-
-  <p><img alt="image" src="http://66.media.tumblr.com/569955bff74ec57ef8545f93fd1d6058/tumblr_inline_mjx4g9whpH1qz4rgp.png"/></p>
-<p>GNOME es uno de los entornos de escritorio para Linux más utilizados, que ha experimentado un cambio radical en los últimos meses, convirtiéndose de un sencillo entorno basado en dos paneles para lanzar aplicaciones y gestionar tareas abiertas respectivamente, a uno más avanzado y lleno de nuevas características. GNOME 3 no agradó a todos, ha sido criticado por ser complejo y difícil de personalizar, lo cual ha dado lugar al surgimiento de nuevos entornos de escritorio basados en GNOME, de los que ya hablaré en otro post.</p>
-<p>Sin embargo, una de las nuevas características más potentes de GNOME es la utilización de extensiones de terceros para modificar la interfaz y adaptarla a nuestras necesidades. Esta manera de personalizar el entorno de escritorio es menos sencilla que lo que se ofrecía antes, pero a la vez permite cambios mucho más profundos en el comportamiento de GNOME. Las extensiones se cargan y se gestionan desde la página web <a href="http://extensions.gnome.org/">http://extensions.gnome.org</a>.</p>
-<h3>User themes</h3>
-<p>Otro de los puntos fuertes de GNOME es que se puede modificar la apariencia mediante temas, pero es necesario activar esta extensión para poder instalarlos. Para gestionar los temas es interesante instalar además la herramienta de retoque de GNOME (gnome-tweak-tool) desde el repositorio de la <em>distro</em><span> que estéis utilizando (algunas </span><em>distros</em><span> ya la traen instalada por defecto).</span></p>
-<p>Hay infinidad de temas disponibles, tanto en <a href="http://browse.deviantart.com/customization/skins/linuxutil/desktopenv/gnome/gnome/?order=9">DeviantArt</a> como en <a href="http://gnome-look.org/index.php?xcontentmode=191">GNOME-Look.org</a>. Yo utilizo <a href="http://satya164.deviantart.com/art/Gnome-Shell-Ambiance-Blue-196833665">Ambiance Blue</a>, que combina bien con la versión negra del tema por defecto de GNOME (<em>Adwaita</em>).</p>
-<h3>Dash to dock</h3>
-<p><span><img alt="image" src="http://66.media.tumblr.com/cdf6cae7937abe0aa4b3bf2edca7d7f5/tumblr_inline_mjx317zj271qz4rgp.png"/></span></p>
-
-<p><span>El Dash es la barra que aparece a la izquierda en la pantalla Actividades, y que contiene las aplicaciones favoritas y las aplicaciones abiertas. Para poder acceder cómodamente al Dash sin tener que pasar por la pantalla de Actividades, </span><span><strong>Dash to dock </strong></span><span><span>lo convierte en un dock que entra en pantalla al colocar el cursor en el lado izquierdo de la pantalla.</span></span></p>
-<p><span><span>Como función adicional, si movemos el cursor al extremo izquierdo del dock y desplazamos con la rueda (o de la forma correspondiente en el touchpad), podemos cambiar de escritorio.</span></span></p>
-<h3 class="western">Maximus</h3>
-<p>La finalidad de Maximus es muy simple: ahorrar espacio al maximizar una ventana. Para ello, simplemente elimina la barra de título (podemos arrastrar desde la barra superior de GNOME hacia abajo para restaurar la ventana, o pulsar Win+Abajo).</p>
-<h3 class="western">Search Chrome/Chromium bookmarks o Search Firefox bookmarks</h3>
-<p><img alt="image" src="http://66.media.tumblr.com/e73b094a93fbc5ec4b0da4e2d941fa96/tumblr_inline_mjx3gaIpPq1qz4rgp.png"/></p>
-<p>Estas extensiones añaden una gran funcionalidad al sistema de búsqueda de la pantalla Actividades, ya que encuentran resultados de lo que busquemos en los marcadores del navegador además de en las aplicaciones instaladas.</p>
-<h3 class="western">Remove accesibility</h3>
-<p>Una de las características que probablemente menos se utiliza de GNOME es el menú de Accesibilidad que es persistente en la barra superior. Esta extensión lo elimina sin más florituras.</p>
-<h3 class="western">Media player indicator</h3>
-<p><img alt="image" src="http://67.media.tumblr.com/a52fc0d9bde968187be3def5abca6bd4/tumblr_inline_mjx3k0UMT51qz4rgp.png"/></p>
-<p>Media Player Indicator es una herramienta muy útil para los amantes de la música: añade una sección para ver y gestionar lo que se está reproduciendo, al control de volumen.</p>
-
-<p>Hasta aquí el repaso a seis de las mejores extensiones para GNOME, si estáis deseando probarlas, solo tenéis que ir a <a href="http://extensions.gnome.org">GNOME Extensions</a> y activarlas.</p>
-<p><em>Bonus</em>: dejo otras seis sugerencias más para los ávidos customizadores.</p>
-<ul><li><span>Frippery Move Clock (mueve el reloj a la derecha).</span></li>
-<li><span>Battery remaining time and percentage (muestra el porcentaje de batería restante).</span></li>
-<li><span>Brightness control (añade un control para brillo).</span></li>
-<li><span>Advanced calculator (permite realizar cálculos escribiéndolos en la búsqueda de la vista Actividades).</span></li>
-<li><span>Coverflow Alt-Tab (una vista más agradable para cambiar de tarea con Alt+Tab).</span></li>
-<li><span>Antisocial Menu (elimina las opciones sociales del menú de usuario).</span></li>
-</ul>
-
-
-  <div class="tags">
-    
-      <a href="/tag/linux">linux</a>
-    
-      <a href="/tag/tech">tech</a>
-    
-      <a href="/tag/informatica">informatica</a>
-    
-      <a href="/tag/gnome">gnome</a>
     
   </div>
 </article>

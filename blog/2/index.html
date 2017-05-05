@@ -63,6 +63,57 @@
           
 
   <article>
+  <span class="date">19-06-2015</span>
+  <a href="/blog/2015/06/19/hidpi-linux/"><h1>Gestionando HiDPI en Linux</h1></a>
+
+  <p>Desde hace un tiempo estoy usando un Dell XPS 15 como ordenador principal, y esta máquina incluye una característica que lo hace increíble y, a veces, casi inusable: la resolución de la pantalla. Me refiero a su pantalla UHD, que en términos numéricos son 3840 píxeles de ancho por 2160 de alto. Para haceros una idea, eso significa que en esta pantalla caben los píxeles de exactamente 4 pantallas Full HD (1920x1080). La densidad de píxeles resulta en 282 PPI, bastante alta para una pantalla de 15 pulgadas, por lo que entra en la categoría de lo que denominamos HiDPI.</p>
+
+<p>Y evidentemente, leer y ver contenido en una pantalla como esta es genial, todo se ve muy nítido y es imposible ver algo pixelado. El problema viene al utilizar aplicaciones para otros fines: ofimática, desarrollo o edición de imágenes. Según con qué bibliotecas estén compuestas las interfaces de usuario, o según las opciones que aporten estos programas, se podrán o no adaptar a la resolución, y por tanto escalarse a un tamaño mayor para que sea usable.</p>
+
+<p><strong>GNOME</strong></p>
+
+<p>La tercera versión de GNOME y de GTK+ están ya más que preparadas para las pantallas HiDPI, y resulta muy sencillo escalar las interfaces tanto de la Shell como de las aplicaciones de GNOME. Basta con abrir la Herramienta de retoques (o Tweak Tool), y ajustar el escalado de ventanas a 2:</p>
+
+<p><a href="http://i.imgur.com/6ggqmHB.jpg"><img src="http://67.media.tumblr.com/0b576df42eb1ab6ef79a809f18d0846f/tumblr_inline_nq7dle0HHa1r7kqtk_540.jpg" alt="image"/></a></p>
+
+<p>Este ajuste permite adaptar el tamaño de todas las aplicaciones GTK+3, pero no así las que usen GTK+2 u otras bibliotecas (Qt, wxWidgets&hellip;). Qt en su versión 5 sí adapta el tamaño de los elementos a la resolución, pero las versiones anteriores no lo hacen y aún hay pocas aplicaciones que se hayan pasado a esta nueva versión.</p>
+
+<p><strong>Firefox</strong></p>
+
+<p>En Firefox el ajuste del tamaño &ldquo;virtual&rdquo; de un píxel se puede ajustar, bien manualmente, o bien mediante una extensión que permite un comportamiento dinámico según la resolución de la pantalla en que se encuentre el navegador (lo que nos permite usar proyectores o monitores externos que no sean HiDPI): <a href="https://addons.mozilla.org/en-US/firefox/addon/autohidpi/">AutoHiDPI</a>. Basta instalarla y podemos personalizar el aumento de tamaño cuando la ventana de Firefox esté en un monitor HiDPI.</p>
+
+<p><strong>Atom</strong></p>
+
+<p>Atom es un editor de texto y código muy completo y extensible mediante <em>paquetes</em>. Uno de estos paquetes, apropiadamente llamado <a href="https://atom.io/packages/hidpi">hidpi</a>, realiza la misma tarea que la extensión de Firefox anterior: ajusta la ampliación de elementos en Atom a la resolución del monitor en que se use.</p>
+
+<p><strong>Otras aplicaciones</strong></p>
+
+<p>Hay muchas otras aplicaciones que aún no se adaptan del todo a este tipo de resoluciones. Por ejemplo, todavía no he encontrado un reproductor de música para Linux que se adapte y me resulte cómodo (Rhythmbox sí funciona, pero la gestión de listas es menos intuitiva; sigo usando Clementine). El asunto es peor cuando hablamos de editores de imágenes, los botones de herramientas de <a href="http://pinta-project.com/">Pinta</a> y <a href="https://krita.org/">Krita</a> son demasiado pequeños para poder usarse cómodamente, aunque es un alivio que se esté trabajando en <a href="https://krita.org/item/krita-2-9-2-released/">portar Krita a Qt 5</a>.</p>
+
+<p><a href="http://i.imgur.com/PRd7714.jpg"><img src="http://67.media.tumblr.com/721a184f440e1763fe4353395ce5e8df/tumblr_inline_nq7ex3gnhT1r7kqtk_540.png" alt=""/></a></p>
+
+<p><em>Pinta, Krita, Exaile y Audacity no se adaptan a la resolución UHD.</em></p>
+
+<p>Hasta aquí estos pequeños consejos para quienes tengáis pantallas de muy alta resolución. espero que sean útiles y si sabéis de alguna buena aplicación que funcione bien con HiDPI, no dudéis en dejarla en los comentarios.</p>
+
+
+  <div class="tags">
+    
+      <a href="/tag/tech">tech</a>
+    
+      <a href="/tag/linux">linux</a>
+    
+      <a href="/tag/hidpi">hidpi</a>
+    
+      <a href="/tag/4k">4k</a>
+    
+      <a href="/tag/uhd">uhd</a>
+    
+  </div>
+</article>
+
+
+  <article>
   <span class="date">24-02-2015</span>
   <a href="/blog/2015/02/24/open-data-day-y-el-hackathon-de-datos-abiertos/"><h1>Open Data Day y el hackathon de datos abiertos</h1></a>
 
@@ -222,43 +273,6 @@
       <a href="/tag/minimalism">minimalism</a>
     
       <a href="/tag/desktop">desktop</a>
-    
-  </div>
-</article>
-
-
-  <article>
-  <span class="date">07-11-2014</span>
-  <a href="/blog/2014/11/07/instalaci%C3%B3n-y-configuraci%C3%B3n-de-un-cliente-oracle/"><h1>Instalación y configuración de un cliente Oracle en Linux</h1></a>
-
-  <p>Instalar un cliente de bases de datos puede ser tedioso, y más cuando se trata de Oracle. Además, el soporte y la ayuda para Linux suelen ser más bien nulos. Así que aquí va una guía rápida de cómo instalar un cliente de Oracle (SQL*Plus) y configurarlo para conectarlo al servidor de bases de datos.</p>
-<blockquote>
-<p><strong>Nota:</strong> La guía de instalación es para sistemas basados en Ubuntu/Debian. Para los sistemas que utilizan paquetes RPM hay paquetes disponibles para descarga en la página oficial de Oracle.</p>
-</blockquote>
-<p>Lo primero que haremos será ejecutar los siguientes comandos para instalar SQL*Plus en nuestro ordenador:</p>
-<pre><code class="bash">wget <a href="https://oss.oracle.com/debian/dists/unstable/non-free/binary-i386/oracle-xe-client_10.2.0.1-1.2_i386.deb">https://oss.oracle.com/debian/dists/unstable/non-free/binary-i386/oracle-xe-client_10.2.0.1-1.2_i386.deb</a>
-wget <a href="https://oss.oracle.com/debian/dists/unstable/main/binary-i386/libaio_0.3.104-1_i386.deb">https://oss.oracle.com/debian/dists/unstable/main/binary-i386/libaio_0.3.104-1_i386.deb</a>
-sudo dpkg -i --force depends libaio_0.3.104-1_i386.deb oracle-xe-client_10.2.0.1-1.2_i386.deb<br/>sudo apt-get -f install<br/>sudo apt-get install rlwrap<br/></code></pre>
-<p>Ahora, para configurar la conexión al servidor, utilizaremos un archivo <code>tnsnames.ora</code> que normalmente se nos habrá proporcionado. El archivo tiene el formato siguiente:</p>
-<pre><code class="sql">connection_name =
-  (
-    // datos de la conexión
-  )</code></pre>
-<p>El dato que nos interesa es el nombre de la conexión (<em>connection_name</em> en este caso). Guardad este archivo en el directorio <code>~/.oracle/</code> (cread la carpeta si es necesario). Crearemos ahora un alias que tome el archivo y utilice ese nombre de conexión. Para ello añadid la siguiente línea a vuestro archivo <code>~/.bash_aliases</code> (o <code>~/.bashrc</code> si no tenéis el <code>.bash_aliases</code>):</p>
-<pre><code class="bash">alias sqlplus="export TNS_ADMIN=\"`echo ~`/.oracle/\" &amp;&amp; rlwrap /usr/lib/oracle/xe/app/oracle/product/10.2.0/client/bin/sqlplus username@connection_name"</code></pre>
-<p>donde <em>username</em> es nuestro nombre de usuario en el servidor Oracle, <em>connection_name</em> el nombre que pusimos a la conexión en el archivo <code>tnsnames.ora</code>. Aseguraos también de que el directorio que apunta al ejecutable <code>sqlplus</code> es correcto.</p>
-<p>La configuración ya está terminada, ahora abrid una nueva terminal (necesario para cargar los nuevos <code>.bashrc</code>/<code>.bash_aliases</code>) y ejecutad el comando <code>sqlplus</code>. Debería preguntar vuestra contraseña y conectar correctamente. No olvidéis conectar por VPN a la red de vuestro servidor Oracle si es necesario.</p>
-
-
-  <div class="tags">
-    
-      <a href="/tag/code">code</a>
-    
-      <a href="/tag/database">database</a>
-    
-      <a href="/tag/oracle">oracle</a>
-    
-      <a href="/tag/linux">linux</a>
     
   </div>
 </article>
