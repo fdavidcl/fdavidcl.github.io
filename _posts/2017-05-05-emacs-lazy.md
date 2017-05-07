@@ -3,6 +3,7 @@ title: Emacs for lazy people
 tags:
  - emacs
  - linux
+lang: en
 ---
 
 Emacs is one of the most powerful, extensible editors out there.
@@ -99,6 +100,11 @@ Emacs](http://pragmaticemacs.com/emacs/automatically-revert-buffers/)):
 (global-auto-revert-mode 1)
 (add-hook 'dired-mode-hook 'auto-revert-mode)
 ~~~
+
+{:.note}
+The [magit](https://magit.vc/) plugin for version control with git does
+refresh the files without the need for this configuration (thanks [Nacho](https://ncordon.github.io/)
+for the remark!).
 
 Still want more?
 -------------------

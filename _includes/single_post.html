@@ -1,4 +1,4 @@
-<article>
+<article class="article lang-{% if post.lang %}{{ post.lang }}{% else %}es{% endif %}">
   <span class="date">{{ post.date | date: "%d-%m-%Y" }}</span>
   <a href="{{ post.url }}"><h1>{{ post.title }}</h1></a>
 
