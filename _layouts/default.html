@@ -30,7 +30,7 @@
             {% for link in site.profile.links %}
               {% assign properties = link | last %}
               <a class="social-button {{ link | first }}-link" href="{{ properties.url }}" title="{{ link | first }}"><!--
-                --><i class="fa fa-{{ properties.icon }}"></i><!--
+                --><i class="fa fa-{{ properties.icon }} icon-{{ properties.icon }}"></i><!--
               --></a>
             {% endfor %}
           </nav>
@@ -43,7 +43,8 @@
       </div>
     </div>
     <link href='https://fonts.googleapis.com/css?family={{ site.style.font }}:300,400,400i,700|{{ site.style.monofont }}:400,700' rel='stylesheet' type='text/css'>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
+    <!--link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" /-->
+    <link rel="stylesheet" href="{{ site.baseurl }}assets/stylesheets/icons.css">
     <link rel="stylesheet" href="{{ site.baseurl }}assets/stylesheets/highlight-friendly.css">
   </body>
 </html>

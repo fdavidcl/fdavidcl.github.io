@@ -19,7 +19,7 @@ profile:
       icon: linkedin
     Scholar:
       url: https://scholar.google.es/citations?user=FRv_MwYAAAAJ
-      icon: graduation-cap
+      icon: school
 
 style:
   background: "ffffff"
