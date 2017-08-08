@@ -1,6 +1,9 @@
 ---
 title: Deep learning
 layout: post
+tags:
+- research
+- code
 ---
 
 Deep learning is a branch of machine learning dedicated to algorithms which find abstractions or partial representations of data through multiple layers of neurons or other complex structures.

@@ -2,17 +2,16 @@
 layout: default
 title: Blog
 paginate:
-  per_page: 4
+  per_page: 6
   limit: false
   permalink:    /:num/
   title_suffix: " (page :num)"
 ---
+<h1>{{page.title}}</h1>
 
-{% assign excerpt = true %}
 {% for post in paginator.posts %}
-  {% include single_post.html %}
+  {% include single_post.html excerpt = true %}
 {% endfor %}
-{% assign excerpt = false %}
 
 <nav class="pagination">
   {% if paginator.previous_page %}
