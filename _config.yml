@@ -1,4 +1,4 @@
-baseurl: /
+baseurl: ""
 
 profile:
   name: David Charte
@@ -13,13 +13,13 @@ profile:
       icon: instagram
     Github:
       url: https://github.com/fdavidcl
-      icon: github
+      icon: github-circled
     LinkedIn:
       url: https://linkedin.com/in/fdavidcl
-      icon: linkedin
-    Scholar:
-      url: https://scholar.google.es/citations?user=FRv_MwYAAAAJ
-      icon: school
+      icon: linkedin-squared
+    ResearchGate:
+      url: https://www.researchgate.net/profile/David_Charte
+      icon: graduation-cap
 
 style:
   background: "ffffff"
@@ -29,19 +29,14 @@ style:
   monofont: "Inconsolata"
 
 # This list helps the index page show the correct collections in the desired order
-lists:
-  - research
-  - projects
-
-# This list tells Jekyll which collections exist
-collections:
-  research:
-    output: true
-  projects:
+side:
+  tags:
+    - research
+    - projects
 
 # Settings for the blog section
 enable_blog: true
-gems:
+plugins:
   - octopress-paginate
 #  - jekyll-minifier
 
@@ -54,12 +49,13 @@ defaults:
       lang: es
       layout: post
 
-permalink: /blog/:year/:month/:day/:title/
+permalink: pretty
 
 markdown: kramdown
 kramdown:
   parse_span_html: false
 highlighter: rouge
 
+tag_dir: "/tag"
 tag_title_prefix: "Posts tagged #"
 tag_title_suffix: ""

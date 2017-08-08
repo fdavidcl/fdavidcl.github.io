@@ -2,3 +2,6 @@ _site
 .DS_Store
 .sass-cache
 secrets.yml
+*~
+#*
+.old

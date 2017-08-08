@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.profile.alias }}</title>
-    <link rel="stylesheet" href="{{ site.baseurl }}assets/stylesheets/normalize.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}assets/stylesheets/default.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/stylesheets/normalize.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/stylesheets/default.css">
   </head>
   <body>
     <div class="wrapper pure-g">
       <aside class="sidebar">
         <div class="side-content">
           <header>
-            <a class="name-box" href="{{ site.baseurl }}">
+            <a class="name-box" href="{{ site.baseurl }}/">
               <h1>{{ site.profile.name }}</h1>
               <h3>{{ site.profile.alias }}</h3>
             </a>
@@ -20,10 +20,13 @@
           </header>
           <nav class="sections">
             {% if site.enable_blog %}
-              <a href="/blog" class="section-link section-blog">blog</a>
+              <a href="{{ site.baseurl }}/blog" class="section-link section-blog">blog</a>
             {% endif %}
-            {% for name in site.lists %}
-              <a href="/{{ name }}" class="section-link section-{{ name }}">{{ name }}</a>
+            {% for name in site.side.collections %}
+              <a href="{{ site.baseurl }}/{{ name }}" class="section-link section-{{ name }}">{{ name }}</a>
+            {% endfor %}
+            {% for name in site.side.tags %}
+              <a href="{{ site.baseurl }}{{ site.tag_dir }}/{{ name }}" class="section-link section-{{ name }}">{{ name }}</a>
             {% endfor %}
           </nav>
           <nav class="social-links">
@@ -44,7 +47,7 @@
     </div>
     <link href='https://fonts.googleapis.com/css?family={{ site.style.font }}:300,400,400i,700|{{ site.style.monofont }}:400,700' rel='stylesheet' type='text/css'>
     <!--link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" /-->
-    <link rel="stylesheet" href="{{ site.baseurl }}assets/stylesheets/icons.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}assets/stylesheets/highlight-friendly.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/fonts/css/icons.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/stylesheets/highlight-friendly.css">
   </body>
 </html>

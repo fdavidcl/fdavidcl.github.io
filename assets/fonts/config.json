@@ -1,0 +1,106 @@
+{
+  "name": "icons",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "627abcdb627cb1789e009c08e2678ef9",
+      "css": "twitter",
+      "code": 61593,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "4c1ef492f1d2c39a2250ae457cee2a6e",
+      "css": "instagram",
+      "code": 61805,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "0f6a2573a7b6df911ed199bb63717e27",
+      "css": "github-circled",
+      "code": 61595,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "1145676a91138011729fa2909997af66",
+      "css": "linkedin-squared",
+      "code": 62220,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "ef74ff62feda486fd414410e782b598a",
+      "css": "graduation-cap",
+      "code": 59392,
+      "src": "entypo"
+    },
+    {
+      "uid": "e15f0d620a7897e2035c18c80142f6d9",
+      "css": "link-ext",
+      "code": 61582,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "7034e4d22866af82bef811f52fb1ba46",
+      "css": "code",
+      "code": 61729,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "4a413ef43c364dafa42766e74c31bbca",
+      "css": "cc",
+      "code": 59393,
+      "src": "entypo"
+    },
+    {
+      "uid": "72681d2825fef7fd83711278f845547b",
+      "css": "cc-by",
+      "code": 59394,
+      "src": "entypo"
+    },
+    {
+      "uid": "900851106d63af1bc6076ae118dc543d",
+      "css": "cc-sa",
+      "code": 59395,
+      "src": "entypo"
+    },
+    {
+      "uid": "1b5a5d7b7e3c71437f5a26befdd045ed",
+      "css": "doc",
+      "code": 59396,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "178053298e3e5b03551d754d4b9acd8b",
+      "css": "doc-inv",
+      "code": 61787,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "3db5347bd219f3bce6025780f5d9ef45",
+      "css": "tag",
+      "code": 59397,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "a3f89e106175a5c5c4e9738870b12e55",
+      "css": "tags",
+      "code": 59398,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "33194d4a025fbf12baca54579afe4c8e",
+      "css": "at",
+      "code": 61946,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "ccc2329632396dc096bb638d4b46fb98",
+      "css": "mail-alt",
+      "code": 61664,
+      "src": "fontawesome"
+    }
+  ]
+}
