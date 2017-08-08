@@ -121,12 +121,25 @@ body
 
       h2
         font-weight: normal
-        font-style: italic
-        opacity: .7
+        opacity: .9
 
       h3
         text-transform: uppercase
         color: mix($foreground, $background, 50%)
+        
+      .post-link
+        background: mix($accent, $foreground, 60%)
+        color: $background
+        font-size: 1rem
+        display: inline-block
+        padding: 0 0.6rem 0 0.6rem
+        vertical-align: middle
+        margin-left: 0.6rem
+        text-decoration: none
+
+        .icon
+          margin-right: 0.6rem
+
 
       img
         max-width: 100%
@@ -137,6 +150,9 @@ body
         .date
           color: lighten($foreground, 70%)
           font-weight: bold
+
+          & + h2, & + a > h2
+            margin-top: 0
 
         code
           font-family: {{ site.style.monofont }}, monospace, monospace
@@ -188,11 +204,15 @@ body
               max-height: 12rem
 
         .tags
+          &:before
+            content: "\e806"
+            font-family: "icons"
+            font-size: 1rem
+            color: mix($foreground, $background, 50%)
+            
           a
-            +button-style
-
-            &:before
-              content: "#"
+            display: inline-block
+            margin-left: 0.6rem
 
       .pagination
         width: 100%

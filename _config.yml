@@ -57,5 +57,5 @@ kramdown:
 highlighter: rouge
 
 tag_dir: "/tag"
-tag_title_prefix: "Posts tagged #"
-tag_title_suffix: ""
+tag_title_prefix: "Tag '"
+tag_title_suffix: "'"
