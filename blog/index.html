@@ -9,6 +9,15 @@ paginate:
 ---
 <h1>{{page.title}}</h1>
 
+{% if site.featured.tags %}
+<div class="featured">
+  <h3>Featured tags:</h3>
+  {% for name in site.featured.tags %}
+  <a href="{{ site.baseurl }}{{ site.tag_dir }}/{{ name }}" class="section-link section-{{ name }}">{{ name }}</a>
+  {% endfor %}
+</div>
+{% endif %}
+
 {% for post in paginator.posts %}
   {% include single_post.html excerpt = true %}
 {% endfor %}

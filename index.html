@@ -1,13 +1,35 @@
 ---
 layout: default
+title: About
 ---
 
 <article class="home">
   <div class="big-text">Hi!</div>
-
-  I'm David. I study Mathematics + Computer Science at
-  <a href="http://www.ugr.es/">Universidad de Granada</a>.
-  I also contribute to <a href="https://libreim.github.io/">LibreIM</a>. You can find me
-  as <strong>fdavidcl</strong> in all the socials.
-
+  <p>{{ site.profile.description | markdownify }}</p>
+</article>
+<article>
+  <h3>More about me</h3>
+  <p>
+    {{ site.profile.about | markdownify }}
+  </p>
+  <ul class="with-icons">
+    {% for link in site.profile.links %}
+    {% assign properties = link | last %}
+    <li>
+      <i class="icon icon-{{ properties.icon }}"></i>
+      {% if properties.url %}
+      <a class="social-button {{ link | first }}-link" href="{{ properties.url }}" title="{{ link | first }}">
+        {% endif %}
+        {% if properties.title %}
+        {{ properties.title }}
+        {% else %}
+        {{ link | first }}
+        {% endif %}
+        {% if properties.url %}
+      </a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+    
 </article>

@@ -4,22 +4,33 @@ profile:
   name: David Charte
   alias: fdavidcl
   pic: https://secure.gravatar.com/avatar/7083d161b041964b75c38376d9dee37a?s=200
+  description: >
+    I'm David. I code and do maths. 
+
+  about: >
+    I studied a Double Degree on Computer Science and Mathematics at the University of Granada. Currently I'm doing research in neural networks and Deep Learning. I also contribute to [LibreIM](https://libreim.github.io). You can find me as **fdavidcl** in all the socials.
+
   links:
-    Twitter:
-      url: https://twitter.com/fdavidcl
-      icon: twitter
-    Instagram:
-      url: https://instagram.com/fdavidcl
-      icon: instagram
-    Github:
-      url: https://github.com/fdavidcl
-      icon: github-circled
-    LinkedIn:
-      url: https://linkedin.com/in/fdavidcl
-      icon: linkedin-squared
-    ResearchGate:
+    "Academic profile":
       url: https://www.researchgate.net/profile/David_Charte
       icon: graduation-cap
+    "Professional profile":
+      url: https://linkedin.com/in/fdavidcl
+      icon: linkedin-squared
+    "Projects":
+      url: https://github.com/fdavidcl
+      icon: github-circled
+    "Tweets":
+      url: https://twitter.com/fdavidcl
+      icon: twitter
+    "Photos":
+      url: https://instagram.com/fdavidcl
+      icon: instagram
+    "Download my CV":
+      url: cv.pdf
+      icon: doc
+    "fdavidcl [at] protonmail [dot] com":
+      icon: mail-alt
 
 style:
   background: "ffffff"
@@ -29,13 +40,12 @@ style:
   monofont: "Inconsolata"
 
 # This list helps the index page show the correct collections in the desired order
-side:
+featured:
   tags:
     - research
     - projects
 
 # Settings for the blog section
-enable_blog: true
 plugins:
   - octopress-paginate
 #  - jekyll-minifier

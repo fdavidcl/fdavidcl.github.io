@@ -8,34 +8,20 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/stylesheets/default.css">
   </head>
   <body>
-    <div class="wrapper pure-g">
-      <aside class="sidebar">
-        <div class="side-content">
+    <div class="wrapper">
+      <aside class="top">
+        <div class="top-content">
           <header>
             <a class="name-box" href="{{ site.baseurl }}/">
-              <h1>{{ site.profile.name }}</h1>
-              <h3>{{ site.profile.alias }}</h3>
+              {% if site.profile.pic %}
+              <img src="{{ site.profile.pic }}" class="profile-pic" />
+              {% endif %}
+              {{ site.profile.name }}
             </a>
-            {% if site.profile.pic %}<img src="{{ site.profile.pic }}" class="profile-pic" />{% endif %}
           </header>
           <nav class="sections">
-            {% if site.enable_blog %}
-              <a href="{{ site.baseurl }}/blog" class="section-link section-blog">blog</a>
-            {% endif %}
-            {% for name in site.side.collections %}
-              <a href="{{ site.baseurl }}/{{ name }}" class="section-link section-{{ name }}">{{ name }}</a>
-            {% endfor %}
-            {% for name in site.side.tags %}
-              <a href="{{ site.baseurl }}{{ site.tag_dir }}/{{ name }}" class="section-link section-{{ name }}">{{ name }}</a>
-            {% endfor %}
-          </nav>
-          <nav class="social-links">
-            {% for link in site.profile.links %}
-              {% assign properties = link | last %}
-              <a class="social-button {{ link | first }}-link" href="{{ properties.url }}" title="{{ link | first }}"><!--
-                --><i class="fa fa-{{ properties.icon }} icon-{{ properties.icon }}"></i><!--
-              --></a>
-            {% endfor %}
+              <a href="{{ site.baseurl }}/" class="section-link">about</a>
+              <a href="{{ site.baseurl }}/blog" class="section-link">blog</a>
           </nav>
         </div>
       </aside>

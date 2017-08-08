@@ -1,5 +1,5 @@
 <article class="article lang-{% if post.lang %}{{ post.lang }}{% else %}es{% endif %}">
-  <span class="date">{{ post.date | date: "%d-%m-%Y" }}</span>
+  <datetime class="date">{{ post.date | date: "%d-%m-%Y" }}</datetime>
   {% if post.link %}
   {% if include.excerpt %}<h2>{% else %}<h1>{% endif %}
       <a href="{{ post.url }}">

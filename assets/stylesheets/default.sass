@@ -15,6 +15,15 @@ $font: "{{ site.style.font }}"
   margin: 0 0 .2rem
   border: .1rem solid lighten($foreground, 80%)
 
+
+=breadcrumb
+  color: lighten($foreground, 70%)
+  font-weight: bold
+  text-transform: uppercase
+
+  & + h1, & + a > h1, & + h2, & + a > h2
+    margin-top: 0
+
 body, html
   height: 100%
   font-family: $font, Arial, sans-serif
@@ -31,69 +40,56 @@ body
   max-width: 100%
   overflow: hidden
 
-  .sidebar
+  .top
     background: $sidebar-back
     color: $background
-    text-align: center
 
-    .side-content
-      padding: 2rem 2rem 1rem
+    .top-content
+      max-width: 40em
+      margin: 0 auto
+      apadding: 2rem 2rem 1rem
 
       a
         color: $sidebar-fore
 
       header
         white-space: nowrap
-
-        .profile-pic
-          width: 6rem
-          display: inline-block
-          vertical-align: middle
-          border: .3rem solid
-          border-radius: 8rem
-          abox-shadow: -2px 1px 5px -3px rgba(0,0,0,0.4)
+        display: inline-block
 
         .name-box
           display: inline-block
           color: inherit
           text-decoration: none
           vertical-align: middle
-          margin-right: 2rem
+          margin: 0 1rem 0 0
           text-align: right
 
-          h1, h3
-            margin: 0
-
-          h1
-            font-size: 220%
-            font-weight: 300
-            letter-spacing: -.02em
-            padding: 1em 0 0
-
-          h3
-            color: mix($sidebar-back, $sidebar-fore, 30%)
-            padding: 0.3em 0 1em
+          font-size: 1.5em
+          padding: 1rem 0
+          
+          .profile-pic
+            width: 1.8em
+            margin: 0.2rem 0.6rem 0.2rem 0
+            border: .1rem solid
+            border-radius: 8rem
+            display: inline-block
+            vertical-align: inherit
 
       .sections, .social-links
-        clear: both
-        margin-top: 2rem
-
+        display: inline-block
+        
         .section-link, .social-button
-          display: inline-block
           padding: .25rem .5rem
           margin: 0 .25rem 1rem
-          border: .1em solid
           color: $sidebar-fore
           text-decoration: none
           text-transform: uppercase
           font-size: 90%
-          transition: opacity .1s ease, color .1s ease
 
           &:hover
-            opacity: .7
+            text-decoration: underline
 
           &.social-button
-            border: 0px solid
             font-size: 1.2rem
 
   .main
@@ -115,6 +111,16 @@ body
         &:hover
           color: mix($accent, $foreground, 80%)
 
+      .breadcrumbs
+        +breadcrumb
+
+        a
+          color: inherit
+
+        .separator
+          &:before
+            content: "/"
+        
       h1
         line-height: 1.1em
         letter-spacing: -0.03rem
@@ -126,7 +132,22 @@ body
       h3
         text-transform: uppercase
         color: mix($foreground, $background, 50%)
+
+      .featured
+        margin: 1em 0
         
+        h3
+          display: inline-block
+
+        a
+          margin-left: 0.6rem
+          text-decoration: none
+          
+          &:before
+            content: "\e805"
+            font-family: "icons"
+            margin-right: 0.3rem
+      
       .post-link
         background: mix($accent, $foreground, 60%)
         color: $background
@@ -144,15 +165,18 @@ body
       img
         max-width: 100%
 
+      ul.with-icons
+        list-style-type: none
+        padding-left: .6rem
+
+        li > .icon
+          margin-right: .6rem
+        
       article
         margin-bottom: 4rem
 
         .date
-          color: lighten($foreground, 70%)
-          font-weight: bold
-
-          & + h2, & + a > h2
-            margin-top: 0
+          +breadcrumb
 
         code
           font-family: {{ site.style.monofont }}, monospace, monospace
@@ -244,6 +268,11 @@ body
   line-height: normal
 
 @media (min-width: 64em)
+  body
+    font-size: 18px
+
+  
+@media (min-width: 654em)
   body
     font-size: 18px
 
