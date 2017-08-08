@@ -23,9 +23,10 @@
               <a href="/blog" class="section-link section-blog">blog</a>
             
             
-              <a href="/research" class="section-link section-research">research</a>
             
-              <a href="/projects" class="section-link section-projects">projects</a>
+              <a href="/tag/research" class="section-link section-research">research</a>
+            
+              <a href="/tag/projects" class="section-link section-projects">projects</a>
             
           </nav>
           <nav class="social-links">
@@ -42,17 +43,17 @@
             
               
               <a class="social-button Github-link" href="https://github.com/fdavidcl" title="Github"><!--
-                --><i class="fa fa-github icon-github"></i><!--
+                --><i class="fa fa-github-circled icon-github-circled"></i><!--
               --></a>
             
               
               <a class="social-button LinkedIn-link" href="https://linkedin.com/in/fdavidcl" title="LinkedIn"><!--
-                --><i class="fa fa-linkedin icon-linkedin"></i><!--
+                --><i class="fa fa-linkedin-squared icon-linkedin-squared"></i><!--
               --></a>
             
               
-              <a class="social-button Scholar-link" href="https://scholar.google.es/citations?user=FRv_MwYAAAAJ" title="Scholar"><!--
-                --><i class="fa fa-school icon-school"></i><!--
+              <a class="social-button ResearchGate-link" href="https://www.researchgate.net/profile/David_Charte" title="ResearchGate"><!--
+                --><i class="fa fa-graduation-cap icon-graduation-cap"></i><!--
               --></a>
             
           </nav>
@@ -63,8 +64,15 @@
           
 <article class="article lang-es">
   <span class="date">24-09-2013</span>
-  <a href="/blog/2013/09/24/lidiando-con-uefi-particiones-y-la-instalaci%C3%B3n-de/"><h1>Lidiando con UEFI, particiones y la instalación de Linux</h1></a>
+  
+  <a href="/blog/2013/09/24/lidiando-con-uefi-particiones-y-la-instalaci%C3%B3n-de/">
+    <h1>
+        Lidiando con UEFI, particiones y la instalación de Linux
+        </h1>
+  </a>
+  
 
+  
   <p><b>El Setup: Secure boot, Compatibility mode</b></p>
 <p>El Setup es la pantalla de configuración del firmware del ordenador. Esta pantalla es accesible únicamente desde la primera pantalla de arranque en el momento de encender el ordenador. En los ordenadores con BIOS suele aparecer una indicación de la tecla que hay que pulsar (suele ser DEL/Supr. o F2, F10, F12), pero los que tienen UEFI suelen ser demasiado rápidos para eso, por lo que hay que mantener pulsada la tecla correspondiente desde antes de encenderlos.</p>
 <p>Si vuestro ordenador viene con Windows 8/8.1, es más sencillo entrar al Setup, con la opción <b>Inicio avanzado</b> de la aplicación de configuración (en Windows 8 está en la sección Uso general; en 8.1 está en Actualizar y recuperar &gt; Recuperación). Al pulsar en &ldquo;Reiniciar ahora&rdquo;, accederéis a una serie de menús en los que podréis encontrar la configuración del firmware bajo Opciones avanzadas.</p>
@@ -77,6 +85,7 @@
 <p><b>Las particiones</b></p>
 <p>En general, Linux es capaz de iniciar desde un ordenador con BIOS pero el disco duro formateado en GPT, pero Windows no puede, sino que requiere EFI/UEFI para arrancar un disco GPT.</p>
 
+  
 
   <div class="tags">
     
@@ -89,7 +98,7 @@
     </div>
     <link href='https://fonts.googleapis.com/css?family=Source Sans Pro:300,400,400i,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <!--link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" /-->
-    <link rel="stylesheet" href="/assets/stylesheets/icons.css">
+    <link rel="stylesheet" href="/assets/fonts/css/icons.css">
     <link rel="stylesheet" href="/assets/stylesheets/highlight-friendly.css">
   </body>
 </html>

@@ -23,9 +23,10 @@
               <a href="/blog" class="section-link section-blog">blog</a>
             
             
-              <a href="/research" class="section-link section-research">research</a>
             
-              <a href="/projects" class="section-link section-projects">projects</a>
+              <a href="/tag/research" class="section-link section-research">research</a>
+            
+              <a href="/tag/projects" class="section-link section-projects">projects</a>
             
           </nav>
           <nav class="social-links">
@@ -42,17 +43,17 @@
             
               
               <a class="social-button Github-link" href="https://github.com/fdavidcl" title="Github"><!--
-                --><i class="fa fa-github icon-github"></i><!--
+                --><i class="fa fa-github-circled icon-github-circled"></i><!--
               --></a>
             
               
               <a class="social-button LinkedIn-link" href="https://linkedin.com/in/fdavidcl" title="LinkedIn"><!--
-                --><i class="fa fa-linkedin icon-linkedin"></i><!--
+                --><i class="fa fa-linkedin-squared icon-linkedin-squared"></i><!--
               --></a>
             
               
-              <a class="social-button Scholar-link" href="https://scholar.google.es/citations?user=FRv_MwYAAAAJ" title="Scholar"><!--
-                --><i class="fa fa-school icon-school"></i><!--
+              <a class="social-button ResearchGate-link" href="https://www.researchgate.net/profile/David_Charte" title="ResearchGate"><!--
+                --><i class="fa fa-graduation-cap icon-graduation-cap"></i><!--
               --></a>
             
           </nav>
@@ -63,26 +64,34 @@
           
 <article class="article lang-es">
   <span class="date">06-04-2013</span>
-  <a href="/blog/2013/04/06/truco-javascript-seleccionando-elementos-con/"><h1>Truco (Javascript): Seleccionando elementos con querySelector</h1></a>
+  
+  <a href="/blog/2013/04/06/truco-javascript-seleccionando-elementos-con/">
+    <h1>
+        Truco (Javascript): Seleccionando elementos con querySelector
+        </h1>
+  </a>
+  
 
+  
   <p>Una de las novedades recientes de Javascript es la inclusión de un nuevo método para seleccionar elementos que ofrece mucha más funcionalidad que los tradicionales <code>getElementById</code>, <code>getElementsByTagName</code>, etc. Se trata de <code>querySelector</code>. La sintaxis es sencilla, seleccionamos elementos igual que en CSS, usando <code>.</code> para denotar clases y <code>#</code> para identificadores.</p>
 <pre><code>var con_id = document.querySelector("#elemento_con_id");<br/>var elegante = document.querySelector(".elemento_con_clase");<br/>var familia = document.querySelector(".padre div#descendiente &gt; a.hijo");<br/></code></pre>
 <p><code>querySelector</code> seleccionará la primera ocurrencia del selector introducido. Si, por el contrario, queremos seleccionar todos los elementos que coincidan, podemos usar <code>querySelectorAll</code>, que devuelve un array de nodos HTML:</p>
 <pre><code>var todos_con_clase = document.querySelectorAll('.una_clase');
 var activadas = document.querySelectorAll("input[type='checkbox']:checked");</code></pre>
 
+  
 
   <div class="tags">
     
-      <a href="/tag/informatica">informatica</a>
+    <a href="/tag/informatica">informatica</a>
     
-      <a href="/tag/programación">programación</a>
+    <a href="/tag/programación">programación</a>
     
-      <a href="/tag/javascript">javascript</a>
+    <a href="/tag/javascript">javascript</a>
     
-      <a href="/tag/truco">truco</a>
+    <a href="/tag/truco">truco</a>
     
-      <a href="/tag/code">code</a>
+    <a href="/tag/code">code</a>
     
   </div>
 </article>
@@ -93,7 +102,7 @@ var activadas = document.querySelectorAll("input[type='checkbox']:checked");</co
     </div>
     <link href='https://fonts.googleapis.com/css?family=Source Sans Pro:300,400,400i,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <!--link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" /-->
-    <link rel="stylesheet" href="/assets/stylesheets/icons.css">
+    <link rel="stylesheet" href="/assets/fonts/css/icons.css">
     <link rel="stylesheet" href="/assets/stylesheets/highlight-friendly.css">
   </body>
 </html>

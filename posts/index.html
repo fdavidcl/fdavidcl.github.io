@@ -23,9 +23,10 @@
               <a href="/blog" class="section-link section-blog">blog</a>
             
             
-              <a href="/research" class="section-link section-research">research</a>
             
-              <a href="/projects" class="section-link section-projects">projects</a>
+              <a href="/tag/research" class="section-link section-research">research</a>
+            
+              <a href="/tag/projects" class="section-link section-projects">projects</a>
             
           </nav>
           <nav class="social-links">
@@ -42,17 +43,17 @@
             
               
               <a class="social-button Github-link" href="https://github.com/fdavidcl" title="Github"><!--
-                --><i class="fa fa-github icon-github"></i><!--
+                --><i class="fa fa-github-circled icon-github-circled"></i><!--
               --></a>
             
               
               <a class="social-button LinkedIn-link" href="https://linkedin.com/in/fdavidcl" title="LinkedIn"><!--
-                --><i class="fa fa-linkedin icon-linkedin"></i><!--
+                --><i class="fa fa-linkedin-squared icon-linkedin-squared"></i><!--
               --></a>
             
               
-              <a class="social-button Scholar-link" href="https://scholar.google.es/citations?user=FRv_MwYAAAAJ" title="Scholar"><!--
-                --><i class="fa fa-school icon-school"></i><!--
+              <a class="social-button ResearchGate-link" href="https://www.researchgate.net/profile/David_Charte" title="ResearchGate"><!--
+                --><i class="fa fa-graduation-cap icon-graduation-cap"></i><!--
               --></a>
             
           </nav>
@@ -61,6 +62,12 @@
       <div class="main">
         <div class="main-content">
           
+  <article>
+    <a href="http://sharetodiaspora.github.io/"><h1>Advanced Sharer</h1></a>
+    <p>A service to share links to decentralized social networks such as Diaspora* or Friendica.</p>
+
+  </article>
+
   <article>
     <a href="/blog/2013/02/06/eligiendo-un-entorno-de-escritorio-en-linux-i/"><h1>Eligiendo un entorno de escritorio en Linux (I): Conocimientos básicos</h1></a>
     <p>La mayoría de vosotros utilizaréis Windows como sistema operativo para el día a día, y estaréis más que acostumbrados a la interfaz; no solo me refiero a las ventanas, sino a que exista una barra de tareas donde almacenar las aplicaciones abiertas y un menú Inicio desde donde abrir otras. Todo este conjunto de herramientas básicas se denomina el entorno de escritorio.</p>
@@ -749,6 +756,12 @@ sudo dpkg -i --force depends libaio_0.3.104-1_i386.deb oracle-xe-client_10.2.0.1
   </article>
 
   <article>
+    <a href="http://fdavidcl.me/veaml"><h1>Video Editing Abstraction Markup Language</h1></a>
+    <p>Veaml (short for <em>Video Editing Abstraction Markup Language</em>) is a lightweight markup language inspired by Haml, and designed to relieve the tedious process of video editing.</p>
+
+  </article>
+
+  <article>
     <a href="/blog/2014/12/22/mi-escritorio-minimalista/"><h1>Mi escritorio minimalista</h1></a>
     <p><em><a href="http://i.imgur.com/On48gUN.png"><img alt="image" src="http://i.imgur.com/On48gUN.png"/></a></em></p>
 <p><em>¿Quién dijo que Linux no podía ser bonito?</em></p>
@@ -883,6 +896,25 @@ sudo dpkg -i --force depends libaio_0.3.104-1_i386.deb oracle-xe-client_10.2.0.1
 <p><em>Pinta, Krita, Exaile y Audacity no se adaptan a la resolución UHD.</em></p>
 
 <p>Hasta aquí estos pequeños consejos para quienes tengáis pantallas de muy alta resolución. espero que sean útiles y si sabéis de alguna buena aplicación que funcione bien con HiDPI, no dudéis en dejarla en los comentarios.</p>
+
+  </article>
+
+  <article>
+    <a href="/blog/2016/06/01/multilabel/"><h1>Multilabel classification</h1></a>
+    <p>Multilabel classification is a variant of the classification problem where each instance can be associated with a subset of labels from the set of available ones. Some of my collaborations within this field are:</p>
+
+<ul>
+  <li>F. Charte, D. Charte: <a href="https://journal.r-project.org/archive/2015-2/charte-charte.pdf">Working with Multilabel Datasets in R: the mldr Package</a> (The R Journal, 2015)</li>
+  <li>D. Charte, F. Charte: <a href="http://simd.albacete.org/actascaepia15/papers/00695.pdf">mldr: Paquete R para Exploración de Datos Multietiqueta</a> (TAMIDA - CAEPIA, 2015)</li>
+  <li>F. Charte, D. Charte, A. Rivera, M. J. del Jesus, F. Herrera: <a href="http://link.springer.com/chapter/10.1007/978-3-319-32034-2_41">R Ultimate Multilabel Dataset Repository</a> (HAIS 2016)</li>
+</ul>
+
+<p>Associated software:</p>
+
+<ul>
+  <li><a href="https://github.com/fcharte/mldr">mldr</a>, an R package for exploratory data analysis and manipulation of multilabel datasets</li>
+  <li><a href="https://github.com/fcharte/mldr.datasets/">mldr.datasets</a>, the R package associated to the Ultimate Multilabel Dataset Repository</li>
+</ul>
 
   </article>
 
@@ -1046,7 +1078,7 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
 
 <p>Para iniciar el servidor web con nuestra aplicación, debería bastar con ejecutar <code class="highlighter-rouge">ruby form.rb</code> en el terminal.</p>
 
-<h3 id="aadiendo-un-editor-de-verdad">Añadiendo un editor de verdad</h3>
+<h3 id="añadiendo-un-editor-de-verdad">Añadiendo un editor de verdad</h3>
 
 <p>Todo esto ya está muy bien, y la aplicación ahorra un montón de esfuerzo para cada vez que se crea un nuevo post. Pero aún queda una barrera que evitaría que algunos usuarios estuvieran cómodos escribiendo: el marcado de formato con Markdown. Existen diversos editores Markdown que pueden incrustarse en una página web, algunos con amplias funcionalidades y otros más sencillos. Nosotros optamos por <a href="https://simplemde.com/">SimpleMDE</a>, que facilita la escritura mediante algunas pistas visuales en el código y unos botones que dan acceso a la mayoría de opciones de formato de Markdown.</p>
 
@@ -1127,9 +1159,21 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
 
 <p>Un par de funcionalidades adicionales que hemos utilizado en <a href="http://tux.ugr.es/dgiim/new/post">el formulario para LibreIM</a> son la inclusión de <a href="http://mathjax.org/">MathJax</a> para interpretar fórmulas en LaTeX, y de un CAPTCHA mediante la gema <a href="https://rubygems.org/gems/recaptcha/">recaptcha</a>. No entro aquí en más detalle porque son fáciles de usar; además, todo nuestro código está <a href="https://github.com/libreim/form-im">publicado en GitHub</a>.</p>
 
-<h2 id="en-conclusin">En conclusión…</h2>
+<h2 id="en-conclusión">En conclusión…</h2>
 
 <p>Mantener un blog en Jekyll tiene muchas ventajas: se puede hostear en cualquier servidor ya que es un generador de sitios estáticos, se puede realizar control de cambios por Git, etc. Y, con un poco de trabajo y una pequeña aplicación web, también se puede hacer accesible la colaboración a cualquier persona, incluso sin conocimientos de GitHub, Jekyll o Markdown. Ahora queda la parte complicada: convencer a más personas para que contribuyan al blog ;)</p>
+
+  </article>
+
+  <article>
+    <a href="/blog/2016/09/01/deep-learning/"><h1>Deep learning</h1></a>
+    <p>Deep learning is a branch of machine learning dedicated to algorithms which find abstractions or partial representations of data through multiple layers of neurons or other complex structures.</p>
+
+<p>Developed software:</p>
+
+<ul>
+  <li><a href="http://fdavidcl.me/dlvisr/about/">dlvisR</a>, an early-stage R package for visualization of unsupervised deep learning techniques</li>
+</ul>
 
   </article>
 
@@ -1456,7 +1500,7 @@ for the remark!).</p>
     </div>
     <link href='https://fonts.googleapis.com/css?family=Source Sans Pro:300,400,400i,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <!--link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" /-->
-    <link rel="stylesheet" href="/assets/stylesheets/icons.css">
+    <link rel="stylesheet" href="/assets/fonts/css/icons.css">
     <link rel="stylesheet" href="/assets/stylesheets/highlight-friendly.css">
   </body>
 </html>

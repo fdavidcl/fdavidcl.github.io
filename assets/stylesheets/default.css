@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body, html {
   height: 100%;
   font-family: "Source Sans Pro", Arial, sans-serif;
@@ -85,11 +86,21 @@ body {
         letter-spacing: -0.03rem; }
       .wrapper .main .main-content h2 {
         font-weight: normal;
-        font-style: italic;
-        opacity: 0.7; }
+        opacity: 0.9; }
       .wrapper .main .main-content h3 {
         text-transform: uppercase;
         color: gray; }
+      .wrapper .main .main-content .post-link {
+        background: #00717f;
+        color: #ffffff;
+        font-size: 1rem;
+        display: inline-block;
+        padding: 0 0.6rem 0 0.6rem;
+        vertical-align: middle;
+        margin-left: 0.6rem;
+        text-decoration: none; }
+        .wrapper .main .main-content .post-link .icon {
+          margin-right: 0.6rem; }
       .wrapper .main .main-content img {
         max-width: 100%; }
       .wrapper .main .main-content article {
@@ -97,6 +108,8 @@ body {
         .wrapper .main .main-content article .date {
           color: #b3b3b3;
           font-weight: bold; }
+          .wrapper .main .main-content article .date + h2, .wrapper .main .main-content article .date + a > h2 {
+            margin-top: 0; }
         .wrapper .main .main-content article code {
           font-family: Inconsolata, monospace, monospace;
           background: #f2f2f2; }
@@ -134,14 +147,14 @@ body {
             max-height: 24rem; }
           .wrapper .main .main-content article .fig.small img {
             max-height: 12rem; }
+        .wrapper .main .main-content article .tags:before {
+          content: "";
+          font-family: "icons";
+          font-size: 1rem;
+          color: gray; }
         .wrapper .main .main-content article .tags a {
           display: inline-block;
-          text-decoration: none;
-          padding: 0.2rem 0.6rem;
-          margin: 0 0 0.2rem;
-          border: 0.1rem solid #cccccc; }
-          .wrapper .main .main-content article .tags a:before {
-            content: "#"; }
+          margin-left: 0.6rem; }
       .wrapper .main .main-content .pagination {
         width: 100%;
         text-align: right; }

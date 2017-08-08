@@ -23,9 +23,10 @@
               <a href="/blog" class="section-link section-blog">blog</a>
             
             
-              <a href="/research" class="section-link section-research">research</a>
             
-              <a href="/projects" class="section-link section-projects">projects</a>
+              <a href="/tag/research" class="section-link section-research">research</a>
+            
+              <a href="/tag/projects" class="section-link section-projects">projects</a>
             
           </nav>
           <nav class="social-links">
@@ -42,17 +43,17 @@
             
               
               <a class="social-button Github-link" href="https://github.com/fdavidcl" title="Github"><!--
-                --><i class="fa fa-github icon-github"></i><!--
+                --><i class="fa fa-github-circled icon-github-circled"></i><!--
               --></a>
             
               
               <a class="social-button LinkedIn-link" href="https://linkedin.com/in/fdavidcl" title="LinkedIn"><!--
-                --><i class="fa fa-linkedin icon-linkedin"></i><!--
+                --><i class="fa fa-linkedin-squared icon-linkedin-squared"></i><!--
               --></a>
             
               
-              <a class="social-button Scholar-link" href="https://scholar.google.es/citations?user=FRv_MwYAAAAJ" title="Scholar"><!--
-                --><i class="fa fa-school icon-school"></i><!--
+              <a class="social-button ResearchGate-link" href="https://www.researchgate.net/profile/David_Charte" title="ResearchGate"><!--
+                --><i class="fa fa-graduation-cap icon-graduation-cap"></i><!--
               --></a>
             
           </nav>
@@ -63,8 +64,15 @@
           
 <article class="article lang-es">
   <span class="date">30-10-2013</span>
-  <a href="/blog/2013/10/30/lidiando-con-uefi-gpt-y-las-instalaciones-de/"><h1>Lidiando con UEFI, GPT y las instalaciones de Linux (II): El Setup</h1></a>
+  
+  <a href="/blog/2013/10/30/lidiando-con-uefi-gpt-y-las-instalaciones-de/">
+    <h1>
+        Lidiando con UEFI, GPT y las instalaciones de Linux (II): El Setup
+        </h1>
+  </a>
+  
 
+  
   <p><a href="http://fdavidcl.tumblr.com/post/65241668621/lidiando-con-uefi-gpt-y-las-instalaciones-de-linux">← (I) Introducción</a></p>
 <p>El Setup es la pantalla de configuración del firmware del ordenador. Esta pantalla es accesible únicamente desde la primera pantalla de arranque en el momento de encender el ordenador. En los ordenadores con BIOS suele aparecer una indicación de la tecla que hay que pulsar (suele ser DEL/Supr. F2, F10, o F12), pero los que tienen UEFI suelen ser demasiado rápidos para eso, por lo que hay que mantener pulsada la tecla correspondiente desde antes de encenderlos.</p>
 <p>Si vuestro ordenador viene con Windows 8/8.1, es más sencillo entrar al Setup, con la opción <strong>Inicio avanzado</strong> de la aplicación de configuración (en Windows 8 está en la sección Uso general; en 8.1 está en Actualizar y recuperar &gt; Recuperación). Al pulsar en &ldquo;Reiniciar ahora&rdquo;, accederéis a una serie de menús en los que podréis encontrar la configuración del firmware bajo Opciones avanzadas.</p>
@@ -81,16 +89,17 @@
 <p>Esta otra función del Setup (generalmente aparece como <em>Boot Priority</em> o <em>Boot Sequence</em>) nos permite establecer el orden en que se tratará de iniciar un dispositivo. Por ejemplo, si estamos frecuentemente arrancando desde un pen drive, puede ser más cómodo establecer USB con la máxima prioridad, de forma que el ordenador busque algo que arrancar en un pen antes de ir a arrancar el S.O. del disco duro. Si raramente hacemos esto, poner el disco duro con mayor prioridad asegurará un arranque algo más rápido.</p>
 <p><a href="http://fdavidcl.tumblr.com/post/66598876479/lidiando-con-uefi-gpt-y-las-instalaciones-de-linux">→ (III) El cargador de arranque</a></p>
 
+  
 
   <div class="tags">
     
-      <a href="/tag/tech">tech</a>
+    <a href="/tag/tech">tech</a>
     
-      <a href="/tag/uefi">uefi</a>
+    <a href="/tag/uefi">uefi</a>
     
-      <a href="/tag/gpt">gpt</a>
+    <a href="/tag/gpt">gpt</a>
     
-      <a href="/tag/linux">linux</a>
+    <a href="/tag/linux">linux</a>
     
   </div>
 </article>
@@ -101,7 +110,7 @@
     </div>
     <link href='https://fonts.googleapis.com/css?family=Source Sans Pro:300,400,400i,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
     <!--link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" /-->
-    <link rel="stylesheet" href="/assets/stylesheets/icons.css">
+    <link rel="stylesheet" href="/assets/fonts/css/icons.css">
     <link rel="stylesheet" href="/assets/stylesheets/highlight-friendly.css">
   </body>
 </html>
