@@ -194,6 +194,13 @@ body {
         font-weight: bold; }
         .wrapper .main .main-content .archive-post a {
           font-weight: normal; }
+  .wrapper footer {
+    border-top: 1px solid #cccccc;
+    padding: 1em;
+    margin: 1em -1em;
+    color: gray; }
+    .wrapper footer a {
+      color: inherit; }
 
 .big-text {
   font-size: 300%;
