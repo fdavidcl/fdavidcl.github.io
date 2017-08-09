@@ -20,7 +20,7 @@ body {
     .wrapper .top .top-content {
       max-width: 40em;
       margin: 0 auto;
-      apadding: 2rem 2rem 1rem; }
+      padding: 0 2em; }
       .wrapper .top .top-content a {
         color: #ffffff; }
       .wrapper .top .top-content header {
@@ -42,6 +42,8 @@ body {
             border-radius: 8rem;
             display: inline-block;
             vertical-align: inherit; }
+          .wrapper .top .top-content header .name-box .name {
+            display: none; }
       .wrapper .top .top-content .sections, .wrapper .top .top-content .social-links {
         display: inline-block; }
         .wrapper .top .top-content .sections .section-link, .wrapper .top .top-content .sections .social-button, .wrapper .top .top-content .social-links .section-link, .wrapper .top .top-content .social-links .social-button {
@@ -200,7 +202,9 @@ body {
 
 @media (min-width: 64em) {
   body {
-    font-size: 18px; } }
+    font-size: 18px; }
+    body .top .top-content .name-box .name {
+      display: inline !important; } }
 @media (min-width: 654em) {
   body {
     font-size: 18px; }
