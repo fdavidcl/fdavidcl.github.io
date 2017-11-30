@@ -8,7 +8,11 @@ profile:
     I'm David Charte. I code and do maths. 
 
   about: >
-    I studied a Double Degree on Computer Science and Mathematics at the University of Granada. Currently I'm doing research in neural networks and Deep Learning. I also contribute to [LibreIM](https://libreim.github.io). You can find me as **fdavidcl** in all the socials.
+    I studied a Double Degree on Computer Science and Mathematics 
+    at the University of Granada. Currently I'm doing research in
+    neural networks and Deep Learning. I also contribute to
+    [LibreIM](https://libreim.github.io). You can find me as
+    **fdavidcl** in all the socials.
 
   links:
     "Academic profile":
@@ -48,6 +52,7 @@ featured:
 # Settings for the blog section
 plugins:
   - octopress-paginate
+  - jemoji
 #  - jekyll-minifier
 
 exclude:
