@@ -89,7 +89,7 @@ for_window <span class="o">[</span><span class="nv">class</span><span class="o">
 (add-hook 'org-clock-out-hook 'save-buffer)
 </code></pre>
 
-<p>Finally, I let Emacs open the file in background at startup with the following line in the configuration, so I don’t ever close the buffer:</p>
+<p>Finally, I let Emacs open the file in background at startup with the following line in the configuration, so the buffer isn’t actually closed when I close the window:</p>
 
 <pre><code class="language-lisp">(find-file-noselect "~/Documentos/timelog.org")
 </code></pre>
