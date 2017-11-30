@@ -759,7 +759,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 
 <p>Componer un guion que trabaje con Git automáticamente no es muy complicado. Se podría utilizar directamente un guion de Bash pero, en vistas a integrarlo en la aplicación web, usamos la <a href="https://rubygems.org/gems/git">gema git</a> para Ruby. Esta permite realizar todo tipo de operaciones sobre repositorios Git, a nosotros nos basta con clonar, abrir una nueva rama, incluir un nuevo archivo en un <em>commit</em> y enviarlo al repositorio remoto. El siguiente código Ruby define una función que realiza todo el proceso, notemos cómo se obtiene por parámetro un <em>block</em> (similar a una función anónima) que permite realizar las modificaciones pertinentes al repositorio:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># repo.rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># repo.rb</span>
 <span class="nb">require</span> <span class="s1">'fileutils'</span>
 <span class="nb">require</span> <span class="s1">'git'</span>
 
@@ -786,12 +786,11 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 
   <span class="no">FileUtils</span><span class="p">.</span><span class="nf">rm_rf</span><span class="p">(</span><span class="n">dir</span><span class="p">)</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Ahora hemos de añadir la capacidad de crear <em>pull requests</em>, para ello usamos la <a href="https://rubygems.org/gems/octokit">gema octokit</a>, que acepta el token de acceso que obtuvimos antes:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># form.rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># form.rb</span>
 <span class="nb">require</span> <span class="s1">'octokit'</span>
 <span class="nb">require_relative</span> <span class="s1">'repo'</span>
 
@@ -806,8 +805,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 <span class="k">end</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">github</span><span class="p">.</span><span class="nf">create_pull_request</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="s2">"Nuevo post"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Únicamente nos queda obtener del usuario los datos necesarios para crear un nuevo post: un titulo, un autor, una categoría y el contenido.</p>
 
@@ -817,7 +815,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 
 <p><a href="http://www.sinatrarb.com/">Sinatra</a> es un <em>domain specific language</em> (DSL) para Ruby que facilita la creación de aplicaciones web sencillas sin apenas esfuerzo. Basta con escribir las peticiones HTTP que se aceptan y cuál es la respuesta. Además, es muy útil utilizarlo junto a otras gemas de Ruby que ahorren trabajo a la hora de escribir las plantillas y el estilo. Nuestro archivo de dependencias <code class="highlighter-rouge">Gemfile</code> queda de la siguiente forma:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># Gemfile</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Gemfile</span>
 
 <span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
 
@@ -831,8 +829,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 <span class="n">gem</span> <span class="s1">'octokit'</span>   <span class="c1"># For pull requests</span>
 <span class="n">gem</span> <span class="s1">'git'</span>       <span class="c1"># Repo management</span>
 <span class="n">gem</span> <span class="s1">'recaptcha'</span> <span class="c1"># Some protection against bots</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Para instalar y manejar las dependencias usamos <a href="http://bundler.io/">Bundler</a>: basta así con ejecutar <code class="highlighter-rouge">gem install bundler</code> y tras esto <code class="highlighter-rouge">bundle install</code>.</p>
 
@@ -840,7 +837,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 
 <p>Vamos a ampliar el archivo <code class="highlighter-rouge">form.rb</code> creado anteriormente para aceptar y responder un par de peticiones HTTP. Responderemos a <code class="highlighter-rouge">GET /</code> mostrando el formulario, que crearemos aparte en una vista en Haml. Por otro lado, al enviar dicho formulario se creará una petición <code class="highlighter-rouge">POST /posts</code> con los datos que necesitamos para componer el nuevo post.</p>
 
-<div class="language-haml highlighter-rouge"><pre class="highlight"><code><span class="c">-# views/form.haml
+<div class="language-haml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-# views/form.haml
 </span><span class="nt">%h1</span> Nuevo post
 <span class="nt">%form</span><span class="p">{</span><span class="ss">action: </span><span class="s2">"/posts"</span><span class="p">,</span> <span class="ss">method: </span><span class="s2">"post"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="p">{</span><span class="ss">type: </span><span class="s2">"text"</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"title"</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Título"</span><span class="p">}</span>
@@ -848,10 +845,9 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
   <span class="nt">%input</span><span class="p">{</span><span class="ss">type: </span><span class="s2">"text"</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"category"</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Categoría"</span><span class="p">}</span>
   <span class="nt">%textarea</span><span class="p">{</span><span class="ss">name: </span><span class="s2">"content"</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Contenido"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="p">{</span><span class="ss">type: </span><span class="s2">"submit"</span><span class="p">,</span> <span class="ss">value: </span><span class="s2">"Enviar"</span><span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># form.rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># form.rb</span>
 <span class="nb">require</span> <span class="s1">'rubygems'</span>
 <span class="nb">require</span> <span class="s1">'bundler'</span>
 <span class="no">Bundler</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:default</span><span class="p">)</span>
@@ -871,7 +867,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 
   <span class="c1"># Creamos el nombre del archivo</span>
   <span class="n">date</span> <span class="o">=</span> <span class="no">Date</span><span class="p">.</span><span class="nf">today</span><span class="p">.</span><span class="nf">strftime</span> <span class="s2">"%Y-%m-%d"</span>
-  <span class="n">filename</span> <span class="o">=</span> <span class="n">title</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)[</span><span class="mi">0</span><span class="p">.</span><span class="nf">.</span><span class="mi">4</span><span class="p">].</span><span class="nf">join</span><span class="p">(</span><span class="s2">"-"</span><span class="p">)</span>
+  <span class="n">filename</span> <span class="o">=</span> <span class="n">title</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)[</span><span class="mi">0</span><span class="o">..</span><span class="mi">4</span><span class="p">].</span><span class="nf">join</span><span class="p">(</span><span class="s2">"-"</span><span class="p">)</span>
 
   <span class="n">github</span> <span class="o">=</span> <span class="no">Octokit</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:access_token</span> <span class="o">=&gt;</span> <span class="no">ENV</span><span class="p">[</span><span class="s2">"GITHUB_TOKEN"</span><span class="p">])</span>
 
@@ -897,8 +893,7 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
 
   <span class="n">response</span> <span class="o">=</span> <span class="n">github</span><span class="p">.</span><span class="nf">create_pull_request</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="s2">"Nuevo post"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Para iniciar el servidor web con nuestra aplicación, debería bastar con ejecutar <code class="highlighter-rouge">ruby form.rb</code> en el terminal.</p>
 
@@ -908,17 +903,16 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
 
 <p>Este editor aporta además una opción de previsualización personalizable, lo que quiere decir que podemos modificar la forma en que se compila el código Markdown y se muestra dicha vista previa. Como los blogs Jekyll usan el intérprete <a href="http://kramdown.gettalong.org/">Kramdown</a> por defecto, podemos añadir una ruta al servidor que compile un documento mediante esta herramienta. Además, utilizamos también la gema <a href="http://rouge.jneen.net/">Rouge</a> para resaltado de código.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># form.rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># form.rb</span>
 <span class="c1"># ...</span>
 <span class="n">post</span> <span class="s2">"/preview/?"</span> <span class="k">do</span>
   <span class="no">Kramdown</span><span class="o">::</span><span class="no">Document</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:content</span><span class="p">],</span> <span class="ss">syntax_highlighter: :rouge</span><span class="p">).</span><span class="nf">to_html</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Por otro lado, el editor habrá que inicializarlo mediante un código similar al siguiente:</p>
 
-<div class="language-haml highlighter-rouge"><pre class="highlight"><code><span class="nt">%form</span><span class="p">{</span><span class="ss">action: </span><span class="s2">"/posts"</span><span class="p">,</span> <span class="ss">method: </span><span class="s2">"post"</span><span class="p">}</span>
+<div class="language-haml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">%form</span><span class="p">{</span><span class="ss">action: </span><span class="s2">"/posts"</span><span class="p">,</span> <span class="ss">method: </span><span class="s2">"post"</span><span class="p">}</span>
   <span class="c">-# ...
 </span>  <span class="nt">%textarea</span><span class="nf">#markdown_editor</span><span class="p">{</span><span class="ss">name: </span><span class="s2">"content"</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Contenido"</span><span class="p">}</span>
 
@@ -974,8 +968,7 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
       <span class="k">return</span> <span class="nx">preview</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Ahora sí, con todo esto tenemos un editor que facilita la tarea de escribir un post a cualquiera.</p>
 
@@ -1019,13 +1012,13 @@ almacenar la aproximación actual y la tolerancia o error que se quiera
 aceptar. Las clases derivadas implementan el método <code class="highlighter-rouge">next_one</code> que
 calcula la siguiente aproximación a partir de la actual.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># Clase base para métodos numéricos de aproximación de funciones</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Clase base para métodos numéricos de aproximación de funciones</span>
 <span class="k">class</span> <span class="nc">Approximator</span>
 
   <span class="c1"># Datos miembro</span>
   <span class="c1">#  - current:   valor de la aproximación actual</span>
   <span class="c1">#  - tolerance: valor de tolerancia</span>
-  <span class="kp">attr_accessor</span> <span class="ss">:current</span><span class="p">,</span> <span class="ss">:tolerance</span>
+  <span class="nb">attr_accessor</span> <span class="ss">:current</span><span class="p">,</span> <span class="ss">:tolerance</span>
   
   <span class="k">def</span> <span class="nf">initialize</span> <span class="n">initial</span><span class="p">,</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="no">DEFAULT_TOLERANCE</span>
     <span class="nb">self</span><span class="p">.</span><span class="nf">current</span> <span class="o">=</span> <span class="n">initial</span>
@@ -1037,8 +1030,7 @@ calcula la siguiente aproximación a partir de la actual.</p>
     <span class="k">raise</span> <span class="no">NotImplementedError</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>El punto clave para aprovechar la potencia de los enumeradores es
 implementar un método <code class="highlighter-rouge">each</code> que haga uso de la función <code class="highlighter-rouge">yield</code> para
@@ -1059,7 +1051,7 @@ acumula en un array todos los elementos devueltos por <code class="highlighter-r
 para calcular la mejor aproximación basta con devolver el último
 elemento de ese array.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Approximator</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Approximator</span>
   <span class="c1"># Método que calcula y proporciona aproximaciones</span>
   <span class="k">def</span> <span class="nf">each</span>
     <span class="n">previous</span> <span class="o">=</span> <span class="no">Float</span><span class="o">::</span><span class="no">INFINITY</span>
@@ -1082,8 +1074,7 @@ elemento de ese array.</p>
     <span class="nb">to_a</span><span class="p">.</span><span class="nf">last</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Además de consultar la mejor aproximación, podremos realizar otras
 tareas como obtener una lista de <em>n</em> iteraciones con <code class="highlighter-rouge">take(n)</code>.</p>
@@ -1093,11 +1084,11 @@ métodos de aproximación concretos. El siguiente es el método de
 Newton-Raphson, que permite calcular raíces de funciones a partir de
 sucesivas evaluaciones en la función y en su derivada.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">NewtonRaphson</span> <span class="o">&lt;</span> <span class="no">Approximator</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">NewtonRaphson</span> <span class="o">&lt;</span> <span class="no">Approximator</span>
   <span class="c1"># Datos miembro</span>
   <span class="c1">#  - function:   almacena la función f</span>
   <span class="c1">#  - derivative: almacena la derivada de f</span>
-  <span class="kp">attr_accessor</span> <span class="ss">:function</span><span class="p">,</span> <span class="ss">:derivative</span>
+  <span class="nb">attr_accessor</span> <span class="ss">:function</span><span class="p">,</span> <span class="ss">:derivative</span>
   
   <span class="k">def</span> <span class="nf">initialize</span> <span class="n">initial</span><span class="p">,</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="no">DEFAULT_TOLERANCE</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">derivative</span>
     <span class="k">super</span><span class="p">(</span><span class="n">initial</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">)</span>
@@ -1111,31 +1102,29 @@ sucesivas evaluaciones en la función y en su derivada.</p>
     <span class="n">current</span> <span class="o">-</span> <span class="n">function</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">current</span><span class="p">)</span><span class="o">/</span><span class="n">derivative</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Un ejemplo de uso de esta implementación sería el cálculo de la raíz
 cuadrada de 5, como la raíz del polinomio correspondiente:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">example</span> <span class="o">=</span> <span class="no">NewtonRaphson</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
-  <span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">example</span> <span class="o">=</span> <span class="no">NewtonRaphson</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+  <span class="mf">3.0</span><span class="p">,</span>
   <span class="o">-&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">5</span> <span class="p">},</span>
   <span class="o">-&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span>
 <span class="p">)</span>
 <span class="n">example</span><span class="p">.</span><span class="nf">approximate</span>
 <span class="c1">#=&gt; 2.23606797749979</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Otra especialización es la aproximación de la suma de una serie
 convergente, a partir de una función que evalúe el n-ésimo término:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SeriesApproximator</span> <span class="o">&lt;</span> <span class="no">Approximator</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SeriesApproximator</span> <span class="o">&lt;</span> <span class="no">Approximator</span>
 
   <span class="c1"># Datos miembro</span>
   <span class="c1">#  - term: función que evalúa el término n-ésimo de la serie</span>
   <span class="c1">#  - n: índice del término actual se la serie</span>
-  <span class="kp">attr_accessor</span> <span class="ss">:term</span><span class="p">,</span> <span class="ss">:n</span>
+  <span class="nb">attr_accessor</span> <span class="ss">:term</span><span class="p">,</span> <span class="ss">:n</span>
   
   <span class="k">def</span> <span class="nf">initialize</span> <span class="n">tolerance</span> <span class="o">=</span> <span class="no">DEFAULT_TOLERANCE</span><span class="p">,</span> <span class="n">term</span>
     <span class="k">super</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">)</span>
@@ -1150,16 +1139,14 @@ convergente, a partir de una función que evalúe el n-ésimo término:</p>
     <span class="nb">self</span><span class="p">.</span><span class="nf">current</span> <span class="o">+=</span> <span class="n">term</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Podemos usarla para calcular la suma de Σ1/2^n:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">series</span> <span class="o">=</span> <span class="no">SeriesApproximator</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">-&gt;</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="n">n</span> <span class="p">})</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">series</span> <span class="o">=</span> <span class="no">SeriesApproximator</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="o">-&gt;</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span> <span class="mf">1.0</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="n">n</span> <span class="p">})</span>
 <span class="n">series</span><span class="p">.</span><span class="nf">approximate</span>
 <span class="c1">#=&gt; 0.999999999998181</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>En particular, las sumas de series nos pueden permitir aproximar los
 valores de algunas funciones en diversos puntos, utilizando
@@ -1230,10 +1217,9 @@ autocomplete commands as you write them.</p>
 <p>In order to install and enable Smex, add the following code to your
 initialization file:</p>
 
-<div class="language-common_lisp highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">smex</span>
+<div class="language-common_lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">smex</span>
 <span class="ss">:config</span> <span class="p">(</span><span class="nv">smex-initialize</span><span class="p">))</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="ergoemacs">Ergoemacs</h2>
 
@@ -1250,15 +1236,14 @@ familiarity to the use of emacs.</p>
 <p>Just as before, add the following code to your initialization file and
 restart Emacs to use it:</p>
 
-<div class="language-common_lisp highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">ergoemacs-mode</span>
+<div class="language-common_lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">ergoemacs-mode</span>
 <span class="ss">:init</span>
   <span class="p">(</span><span class="k">setq</span> <span class="nv">ergoemacs-theme</span> <span class="no">nil</span><span class="p">)</span>
   <span class="p">(</span><span class="k">setq</span> <span class="nv">ergoemacs-keyboard-layout</span> <span class="s">"es"</span><span class="p">)</span>
 <span class="ss">:config</span>
   <span class="p">(</span><span class="nv">ergoemacs-mode</span> <span class="mi">1</span><span class="p">)</span>
 <span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>You can check <a href="https://ergoemacs.github.io/key-setup.html">your new keybinding
 layout</a>. Remember that,
@@ -1275,10 +1260,9 @@ bindings following your currently entered incomplete command. That way,
 when you can’t remember which key to press, you’ll have a cheat sheet in
 a couple of seconds.</p>
 
-<div class="language-common_lisp highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">which-key</span>
+<div class="language-common_lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">which-key</span>
 <span class="ss">:config</span> <span class="p">(</span><span class="nv">which-key-mode</span><span class="p">))</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="auto-reload-stuff">Auto-reload stuff</h2>
 
@@ -1290,10 +1274,9 @@ reload files. Instead, we can set it to automatically reload files from
 disk when changed via these configuration lines (source: <a href="http://pragmaticemacs.com/emacs/automatically-revert-buffers/">Pragmatic
 Emacs</a>):</p>
 
-<div class="language-common_lisp highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nv">global-auto-revert-mode</span> <span class="mi">1</span><span class="p">)</span>
+<div class="language-common_lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">global-auto-revert-mode</span> <span class="mi">1</span><span class="p">)</span>
 <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">'dired-mode-hook</span> <span class="ss">'auto-revert-mode</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p class="note">The <a href="https://magit.vc/">magit</a> plugin for version control with git does
 refresh the files without the need for this configuration (thanks <a href="https://ncordon.github.io/">Nacho</a>
@@ -1302,6 +1285,65 @@ for the remark!).</p>
 <h2 id="still-want-more">Still want more?</h2>
 
 <p>These are the main tools that have eased my way into Emacs. You can check out the rest of my configuration in <a href="https://github.com/fdavidcl/dotfiles/tree/master/emacs">my dotfiles repository</a>.</p>
+
+  </article>
+
+  <article>
+    <a href="/blog/2017/11/30/time-tracking-org/"><h1>Time tracking in Emacs with org-clock</h1></a>
+    <p>This is yet another short post about a little feature in Emacs that turned out to be pretty useful. If you ever feel that you’d like to know how much time you are spending working on different projects (and are an Emacs user), this is the post for you.</p>
+
+<h2 id="org-clock">org-clock</h2>
+
+<p>After searching for a simple app to track my time for an hour or so, I ended up looking for that functionality in Emacs and, <a href="https://www.xkcd.com/378/">unsurprisingly enough</a>, it exists. It’s integrated inside <em>org-mode</em> so it works very well with any task list you may already have, or you could create a completely separate file exclusive for time tracking.</p>
+
+<p>The following is the skeleton for my time log:</p>
+
+<pre><code class="language-org">#+title: Time log
+
+=CHEATSHEET=
+- S-c         open this window (i3)
+- C-c C-x C-i org-clock-in
+- C-c C-x C-o org-clock-out
+- C-c C-x C-j org-clock-goto
+- C-c C-x C-d org-clock-display
+- C-c C-x C-r org-clock-report
+
+* Work
+* M.Sc.
+* Projects / Fun
+</code></pre>
+
+<p>Easy enough, the only actual content of the file is that last stack of headers (it could be a list with <code class="highlighter-rouge">-</code> instead of <code class="highlighter-rouge">*</code> as well). Now onto the good part: place the cursor over one of the tasks and type <kbd>Ctrl + c</kbd>,<kbd>Ctrl + x</kbd>,<kbd>Ctrl + i</kbd>. This will set a clock under that task with the starting time of the task. Let some time pass, and use <kbd>Ctrl + c</kbd>,<kbd>Ctrl + x</kbd>,<kbd>Ctrl + o</kbd> to stop the clock. Emacs will also remember when you have a clock running, and will warn you if you try to close the buffer or stop the clock if you start another one.</p>
+
+<p>When you have tracked several time periods for the same task, you can compute the total time with <kbd>Ctrl + c</kbd>,<kbd>Ctrl + x</kbd>,<kbd>Ctrl + d</kbd>. <em>org-clock</em> also understands nested tasks (second-level headers, nested lists, etc.) and will sum the time of all the tasks inside a higher-level task to compute the overall spent time. You can generate a daily report with <kbd>Ctrl + c</kbd>,<kbd>Ctrl + x</kbd>,<kbd>Ctrl + r</kbd> and setting the <code class="highlighter-rouge">:block today</code> parameter. The following screenshot shows all these features at work:</p>
+
+<p><img src="/assets/images/emacs-org-clock.png" alt="Screenshot of my time log" /></p>
+
+<h2 id="convenient-stuff">Convenient stuff</h2>
+
+<p>As a user of i3, it’s easy to set keybindings that will let me access my time log instantly:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># .config/i3/config</span>
+bindsym <span class="nv">$mod</span>+c <span class="nb">exec</span> <span class="s2">"xdotool search --name 'timelog.org' windowactivate &amp;&amp; i3-msg kill || emacsclient -c /media/datos/Documents/timelog.org"</span>
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Emacs"</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"timelog.org"</span><span class="o">]</span> floating <span class="nb">enable
+</span>for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Emacs"</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"timelog.org"</span><span class="o">]</span> resize <span class="nb">set </span>1920 1280
+for_window <span class="o">[</span><span class="nv">class</span><span class="o">=</span><span class="s2">"Emacs"</span> <span class="nv">title</span><span class="o">=</span><span class="s2">"timelog.org"</span><span class="o">]</span> move position center
+</code></pre></div></div>
+
+<p>This enables a <kbd>Super + c</kbd> binding that will toggle an Emacs window with the time log file.</p>
+
+<p>In order to save some keystrokes and prevent forgetting to save the time log, I have also added these hooks into my Emacs config:</p>
+
+<pre><code class="language-lisp">(add-hook 'org-clock-in-hook 'save-buffer)
+(add-hook 'org-clock-out-hook 'save-buffer)
+</code></pre>
+
+<p>Finally, I let Emacs open the file in background at startup with the following line in the configuration, so I don’t ever close the buffer:</p>
+
+<pre><code class="language-lisp">(find-file-noselect "~/Documentos/timelog.org")
+</code></pre>
+
+<p>And that’s all there is to simply time tracking in Emacs. I hope you learned something useful and I didn’t waste your time.</p>
 
   </article>
 

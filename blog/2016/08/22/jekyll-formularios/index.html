@@ -56,7 +56,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 
 <p>Componer un guion que trabaje con Git automáticamente no es muy complicado. Se podría utilizar directamente un guion de Bash pero, en vistas a integrarlo en la aplicación web, usamos la <a href="https://rubygems.org/gems/git">gema git</a> para Ruby. Esta permite realizar todo tipo de operaciones sobre repositorios Git, a nosotros nos basta con clonar, abrir una nueva rama, incluir un nuevo archivo en un <em>commit</em> y enviarlo al repositorio remoto. El siguiente código Ruby define una función que realiza todo el proceso, notemos cómo se obtiene por parámetro un <em>block</em> (similar a una función anónima) que permite realizar las modificaciones pertinentes al repositorio:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># repo.rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># repo.rb</span>
 <span class="nb">require</span> <span class="s1">'fileutils'</span>
 <span class="nb">require</span> <span class="s1">'git'</span>
 
@@ -83,12 +83,11 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 
   <span class="no">FileUtils</span><span class="p">.</span><span class="nf">rm_rf</span><span class="p">(</span><span class="n">dir</span><span class="p">)</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Ahora hemos de añadir la capacidad de crear <em>pull requests</em>, para ello usamos la <a href="https://rubygems.org/gems/octokit">gema octokit</a>, que acepta el token de acceso que obtuvimos antes:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># form.rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># form.rb</span>
 <span class="nb">require</span> <span class="s1">'octokit'</span>
 <span class="nb">require_relative</span> <span class="s1">'repo'</span>
 
@@ -103,8 +102,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 <span class="k">end</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">github</span><span class="p">.</span><span class="nf">create_pull_request</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="s2">"Nuevo post"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Únicamente nos queda obtener del usuario los datos necesarios para crear un nuevo post: un titulo, un autor, una categoría y el contenido.</p>
 
@@ -114,7 +112,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 
 <p><a href="http://www.sinatrarb.com/">Sinatra</a> es un <em>domain specific language</em> (DSL) para Ruby que facilita la creación de aplicaciones web sencillas sin apenas esfuerzo. Basta con escribir las peticiones HTTP que se aceptan y cuál es la respuesta. Además, es muy útil utilizarlo junto a otras gemas de Ruby que ahorren trabajo a la hora de escribir las plantillas y el estilo. Nuestro archivo de dependencias <code class="highlighter-rouge">Gemfile</code> queda de la siguiente forma:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># Gemfile</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Gemfile</span>
 
 <span class="n">source</span> <span class="s1">'https://rubygems.org'</span>
 
@@ -128,8 +126,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 <span class="n">gem</span> <span class="s1">'octokit'</span>   <span class="c1"># For pull requests</span>
 <span class="n">gem</span> <span class="s1">'git'</span>       <span class="c1"># Repo management</span>
 <span class="n">gem</span> <span class="s1">'recaptcha'</span> <span class="c1"># Some protection against bots</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Para instalar y manejar las dependencias usamos <a href="http://bundler.io/">Bundler</a>: basta así con ejecutar <code class="highlighter-rouge">gem install bundler</code> y tras esto <code class="highlighter-rouge">bundle install</code>.</p>
 
@@ -137,7 +134,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 
 <p>Vamos a ampliar el archivo <code class="highlighter-rouge">form.rb</code> creado anteriormente para aceptar y responder un par de peticiones HTTP. Responderemos a <code class="highlighter-rouge">GET /</code> mostrando el formulario, que crearemos aparte en una vista en Haml. Por otro lado, al enviar dicho formulario se creará una petición <code class="highlighter-rouge">POST /posts</code> con los datos que necesitamos para componer el nuevo post.</p>
 
-<div class="language-haml highlighter-rouge"><pre class="highlight"><code><span class="c">-# views/form.haml
+<div class="language-haml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-# views/form.haml
 </span><span class="nt">%h1</span> Nuevo post
 <span class="nt">%form</span><span class="p">{</span><span class="ss">action: </span><span class="s2">"/posts"</span><span class="p">,</span> <span class="ss">method: </span><span class="s2">"post"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="p">{</span><span class="ss">type: </span><span class="s2">"text"</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"title"</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Título"</span><span class="p">}</span>
@@ -145,10 +142,9 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
   <span class="nt">%input</span><span class="p">{</span><span class="ss">type: </span><span class="s2">"text"</span><span class="p">,</span> <span class="ss">name: </span><span class="s2">"category"</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Categoría"</span><span class="p">}</span>
   <span class="nt">%textarea</span><span class="p">{</span><span class="ss">name: </span><span class="s2">"content"</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Contenido"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="p">{</span><span class="ss">type: </span><span class="s2">"submit"</span><span class="p">,</span> <span class="ss">value: </span><span class="s2">"Enviar"</span><span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># form.rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># form.rb</span>
 <span class="nb">require</span> <span class="s1">'rubygems'</span>
 <span class="nb">require</span> <span class="s1">'bundler'</span>
 <span class="no">Bundler</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:default</span><span class="p">)</span>
@@ -168,7 +164,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 
   <span class="c1"># Creamos el nombre del archivo</span>
   <span class="n">date</span> <span class="o">=</span> <span class="no">Date</span><span class="p">.</span><span class="nf">today</span><span class="p">.</span><span class="nf">strftime</span> <span class="s2">"%Y-%m-%d"</span>
-  <span class="n">filename</span> <span class="o">=</span> <span class="n">title</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)[</span><span class="mi">0</span><span class="p">.</span><span class="nf">.</span><span class="mi">4</span><span class="p">].</span><span class="nf">join</span><span class="p">(</span><span class="s2">"-"</span><span class="p">)</span>
+  <span class="n">filename</span> <span class="o">=</span> <span class="n">title</span><span class="p">.</span><span class="nf">downcase</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)[</span><span class="mi">0</span><span class="o">..</span><span class="mi">4</span><span class="p">].</span><span class="nf">join</span><span class="p">(</span><span class="s2">"-"</span><span class="p">)</span>
 
   <span class="n">github</span> <span class="o">=</span> <span class="no">Octokit</span><span class="o">::</span><span class="no">Client</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:access_token</span> <span class="o">=&gt;</span> <span class="no">ENV</span><span class="p">[</span><span class="s2">"GITHUB_TOKEN"</span><span class="p">])</span>
 
@@ -194,8 +190,7 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
 
   <span class="n">response</span> <span class="o">=</span> <span class="n">github</span><span class="p">.</span><span class="nf">create_pull_request</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="s2">"Nuevo post"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Para iniciar el servidor web con nuestra aplicación, debería bastar con ejecutar <code class="highlighter-rouge">ruby form.rb</code> en el terminal.</p>
 
@@ -205,17 +200,16 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
 
 <p>Este editor aporta además una opción de previsualización personalizable, lo que quiere decir que podemos modificar la forma en que se compila el código Markdown y se muestra dicha vista previa. Como los blogs Jekyll usan el intérprete <a href="http://kramdown.gettalong.org/">Kramdown</a> por defecto, podemos añadir una ruta al servidor que compile un documento mediante esta herramienta. Además, utilizamos también la gema <a href="http://rouge.jneen.net/">Rouge</a> para resaltado de código.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># form.rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># form.rb</span>
 <span class="c1"># ...</span>
 <span class="n">post</span> <span class="s2">"/preview/?"</span> <span class="k">do</span>
   <span class="no">Kramdown</span><span class="o">::</span><span class="no">Document</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:content</span><span class="p">],</span> <span class="ss">syntax_highlighter: :rouge</span><span class="p">).</span><span class="nf">to_html</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Por otro lado, el editor habrá que inicializarlo mediante un código similar al siguiente:</p>
 
-<div class="language-haml highlighter-rouge"><pre class="highlight"><code><span class="nt">%form</span><span class="p">{</span><span class="ss">action: </span><span class="s2">"/posts"</span><span class="p">,</span> <span class="ss">method: </span><span class="s2">"post"</span><span class="p">}</span>
+<div class="language-haml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">%form</span><span class="p">{</span><span class="ss">action: </span><span class="s2">"/posts"</span><span class="p">,</span> <span class="ss">method: </span><span class="s2">"post"</span><span class="p">}</span>
   <span class="c">-# ...
 </span>  <span class="nt">%textarea</span><span class="nf">#markdown_editor</span><span class="p">{</span><span class="ss">name: </span><span class="s2">"content"</span><span class="p">,</span> <span class="ss">placeholder: </span><span class="s2">"Contenido"</span><span class="p">}</span>
 
@@ -271,8 +265,7 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
       <span class="k">return</span> <span class="nx">preview</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Ahora sí, con todo esto tenemos un editor que facilita la tarea de escribir un post a cualquiera.</p>
 

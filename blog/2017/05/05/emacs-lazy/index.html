@@ -67,10 +67,9 @@ autocomplete commands as you write them.</p>
 <p>In order to install and enable Smex, add the following code to your
 initialization file:</p>
 
-<div class="language-common_lisp highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">smex</span>
+<div class="language-common_lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">smex</span>
 <span class="ss">:config</span> <span class="p">(</span><span class="nv">smex-initialize</span><span class="p">))</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="ergoemacs">Ergoemacs</h2>
 
@@ -87,15 +86,14 @@ familiarity to the use of emacs.</p>
 <p>Just as before, add the following code to your initialization file and
 restart Emacs to use it:</p>
 
-<div class="language-common_lisp highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">ergoemacs-mode</span>
+<div class="language-common_lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">ergoemacs-mode</span>
 <span class="ss">:init</span>
   <span class="p">(</span><span class="k">setq</span> <span class="nv">ergoemacs-theme</span> <span class="no">nil</span><span class="p">)</span>
   <span class="p">(</span><span class="k">setq</span> <span class="nv">ergoemacs-keyboard-layout</span> <span class="s">"es"</span><span class="p">)</span>
 <span class="ss">:config</span>
   <span class="p">(</span><span class="nv">ergoemacs-mode</span> <span class="mi">1</span><span class="p">)</span>
 <span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>You can check <a href="https://ergoemacs.github.io/key-setup.html">your new keybinding
 layout</a>. Remember that,
@@ -112,10 +110,9 @@ bindings following your currently entered incomplete command. That way,
 when you can’t remember which key to press, you’ll have a cheat sheet in
 a couple of seconds.</p>
 
-<div class="language-common_lisp highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">which-key</span>
+<div class="language-common_lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nb">use-package</span> <span class="nv">which-key</span>
 <span class="ss">:config</span> <span class="p">(</span><span class="nv">which-key-mode</span><span class="p">))</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="auto-reload-stuff">Auto-reload stuff</h2>
 
@@ -127,10 +124,9 @@ reload files. Instead, we can set it to automatically reload files from
 disk when changed via these configuration lines (source: <a href="http://pragmaticemacs.com/emacs/automatically-revert-buffers/">Pragmatic
 Emacs</a>):</p>
 
-<div class="language-common_lisp highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="nv">global-auto-revert-mode</span> <span class="mi">1</span><span class="p">)</span>
+<div class="language-common_lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">global-auto-revert-mode</span> <span class="mi">1</span><span class="p">)</span>
 <span class="p">(</span><span class="nv">add-hook</span> <span class="ss">'dired-mode-hook</span> <span class="ss">'auto-revert-mode</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p class="note">The <a href="https://magit.vc/">magit</a> plugin for version control with git does
 refresh the files without the need for this configuration (thanks <a href="https://ncordon.github.io/">Nacho</a>
