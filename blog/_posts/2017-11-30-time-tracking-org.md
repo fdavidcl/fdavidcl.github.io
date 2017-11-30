@@ -63,4 +63,4 @@ Finally, I let Emacs open the file in background at startup with the following l
 (find-file-noselect "~/Documentos/timelog.org")
 ~~~
 
-And that's all there is to simply time tracking in Emacs. I hope you learned something useful and I didn't waste your time.
+And that's all there is to simple time tracking in Emacs. I hope you learned something useful and I didn't waste your time.
