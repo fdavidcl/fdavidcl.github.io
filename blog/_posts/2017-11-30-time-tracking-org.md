@@ -57,10 +57,10 @@ In order to save some keystrokes and prevent forgetting to save the time log, I 
 (add-hook 'org-clock-out-hook 'save-buffer)
 ~~~
 
-Finally, I let Emacs open the file in background at startup with the following line in the configuration, so I don't ever close the buffer:
+Finally, I let Emacs open the file in background at startup with the following line in the configuration, so the buffer isn't actually closed when I close the window:
 
 ~~~lisp
 (find-file-noselect "~/Documentos/timelog.org")
 ~~~
 
-And that's all there is to simply time tracking in Emacs. I hope you learned something useful and I didn't waste your time.
+And that's all there is to simple time tracking in Emacs. I hope you learned something useful and I didn't waste your time.
