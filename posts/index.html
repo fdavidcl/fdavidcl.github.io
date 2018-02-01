@@ -175,15 +175,6 @@ mi_elemento.classList.remove("otra_clase");
   </article>
 
   <article>
-    <a href="/blog/2013/03/26/js1k-impresionantes-scripts-en-1kb/"><h1>JS1K, impresionantes scripts en 1KB</h1></a>
-    <p><img src="http://67.media.tumblr.com/c234992419262abd488db2fab96cd7b3/tumblr_inline_mk9lazcRi01qz4rgp.png"/></p>
-
-<p><a href="http://js1k.com/">JS1K</a> es una competición anual que consiste en crear el guion en Javascript más original en un solo kilobyte. Eso son 512 caracteres de código como máximo, ya que Javascript utiliza la codificación Unicode de 16 bits.</p>
-<p>Aun en un espacio tan limitado, se pueden crear verdaderas maravillas, y la prueba está en la <a href="http://js1k.com/2013-spring/demos">sección de Demos</a> de cada año, en la que se publican todas las entradas aceptadas en la competición, y que realizan cosas de lo más variado, desde simular el <a href="http://js1k.com/2013-spring/demo/1348">crecimiento de un árbol meciéndose con el viento</a> hasta <a href="http://js1k.com/2012-love/demo/1274">sintetizar texto a voz</a>, pasando por un montón de juegos (como <a href="http://js1k.com/2013-spring/demo/1448">Meteors</a>, en la imagen) y efectos visuales.</p>
-
-  </article>
-
-  <article>
     <a href="/blog/2013/04/06/truco-javascript-seleccionando-elementos-con/"><h1>Truco (Javascript): Seleccionando elementos con querySelector</h1></a>
     <p>Una de las novedades recientes de Javascript es la inclusión de un nuevo método para seleccionar elementos que ofrece mucha más funcionalidad que los tradicionales <code>getElementById</code>, <code>getElementsByTagName</code>, etc. Se trata de <code>querySelector</code>. La sintaxis es sencilla, seleccionamos elementos igual que en CSS, usando <code>.</code> para denotar clases y <code>#</code> para identificadores.</p>
 <pre><code>var con_id = document.querySelector("#elemento_con_id");<br/>var elegante = document.querySelector(".elemento_con_clase");<br/>var familia = document.querySelector(".padre div#descendiente &gt; a.hijo");<br/></code></pre>
@@ -265,46 +256,6 @@ var activadas = document.querySelectorAll("input[type='checkbox']:checked");</co
 &lt;label for="micheck1"&gt;&lt;/label&gt;</code></pre>
 <p><a href="http://fdavidcl.tumblr.com/code/twostatebuttons">Ver el código en acción</a></p>
 <p>¡Y listo! Un botón de dos estados simple utilizando solamente código CSS. Además, es muy sencillo comprobar si está activado o desactivado desde Javascript utilizando <code>document.querySelector("#micheck1").checked</code></p>
-
-  </article>
-
-  <article>
-    <a href="/blog/2013/06/28/lentes-un-repaso-a-la-c%C3%A1mara-de-windows-phone/"><h1>Lentes, un repaso a la cámara de Windows Phone</h1></a>
-    <p>La aplicación de cámara de Windows Phone siempre ha sido más bien sencilla, sin muchas características aparte de las típicas preferencias de luz, balance de blancos, ISO y demás. Sin embargo, en Windows Phone 8 se introdujeron las <em>lenses</em>, aplicaciones que se pueden integrar en la cámara para añadir muchísimas funcionalidades, desde imágenes panorámicas a filtros <em>vintage</em> (a lo Instagram), pasando por traductores de texto y aplicaciones de ráfaga de fotos. <span>Cualquier aplicación de la Tienda de aplicaciones puede integrarse en la cámara con esta funcionalidad (ya vemos en la captura que Twitter también lo hace).</span></p>
-<p><img alt="image" src="http://65.media.tumblr.com/e81147ca77501cfc2ef8384cceb6c27d/tumblr_inline_monfz5sPze1qz4rgp.png"/></p>
-<h3>LazyLens (gratis)</h3>
-<p>Esta es una aplicación con un único propósito, el de aplicar filtros a las imágenes que tomes. Tiene 23 filtros distintos y además incluye algunas herramientas de retoque básico (brillo y contraste, recorte, saturación).</p>
-<h3>Bing Vision (incluida)</h3>
-<p><img alt="image" src="http://67.media.tumblr.com/909f4622a3ec50c7a07ebd2044e59574/tumblr_inline_monhxq3Kpk1qz4rgp.png"/></p>
-
-<p>Bing Vision es la aplicación de Microsoft que escanea códigos QR, códigos de barras, portadas de discos y libros y además permite escanear texto para buscarlo en Bing directamente. Funciona genial y muy rápidamente con los códigos QR, que es el principal uso de la app, aunque también es interesante que pueda reconocer portadas de libros y llevarte a páginas de análisis y compras.</p>
-<h3>ReadyClick! (0,99€ + gratis)</h3>
-<p>Esta app permite controlar la cámara con la voz. Al iniciar ReadyClick, la aplicación nos ofrece unas cuantas opciones simples del comportamiento de la cámara. Una vez ajustadas, basta con decir en voz alta &ldquo;ReadyClick&rdquo; o &ldquo;Listo!&rdquo; para iniciar un temporizador que disparará la cámara cuando termine la cuenta atrás.</p>
-<p>Para activar ReadyClick ni siquiera hace falta entrar en la cámara o en la aplicación. Incluso en la pantalla de bloqueo, solo es necesario dejar pulsado el botón Windows (activará el control por voz de Windows Phone) y decir &ldquo;Readyclick listo&rdquo;.</p>
-<h3>ProShot (1,99€ + prueba)</h3>
-<p><img alt="image" src="http://65.media.tumblr.com/84585873d399abcaf7e52310fca7e869/tumblr_inline_monhiw1CQd1qz4rgp.png"/></p>
-<p>ProShot lleva la cámara a otro nivel, proporcionando toda clase de ajustes para los expertos, pudiendo ajustar todos los aspectos de la cámara (al menos, los que soporte el hardware) de forma manual: enfoque, ISO, balance de blancos y muchos otros. Es una aplicación imprescindible para los que quieren ir más allá del modo automático de la cámara.</p>
-<h3>Refocus (0,99€ + prueba)</h3>
-<p>Esta app genera fotografías que se pueden reenfocar después, muy al estilo de <a href="https://pictures.lytro.com/">la cámara Lytro</a>. Realmente, lo que hace es tomar fotos con cada enfoque posible y posteriormente permite modificar el enfoque simplemente tocando en la zona que queremos enfocar en la foto.</p>
-<h3>Photosynth (gratis)</h3>
-<p><img alt="image" src="http://67.media.tumblr.com/27b24ae9e38915dc76d9e24c37607a56/tumblr_inline_mp42t0GX1Y1qz4rgp.png"/></p>
-<p>Microsoft Photosynth permite capturar panorámicas en tres dimensiones, abarcando no solo los típicos 360º, sino también arriba y debajo del fotógrafo. El resultado es una increíble panorámica 2D lista para guardar como foto, y una panorámica 3D interactiva que se puede visualizar desde la aplicación o se puede subir a Photosynth,net y compartirla.</p>
-<h3>BLINK (gratis)</h3>
-<p>BLINK es otra app de Microsoft, que en este caso captura una ráfaga de fotos desde antes de que presionemos el botón de la cámara hasta unos segundos después de soltarlo, facilitando el seleccionar la mejor fotografía de la lista (por ejemplo, si tratamos de capturar a mucha gente, para que nadie salga con los ojos cerrados), o bien crear una animación, al estilo de los GIF animados, que podemos compartir.</p>
-<h3>Bing Traductor (gratis)</h3>
-<p><img alt="image" src="http://67.media.tumblr.com/685ba183af6626779ecc5d94c765ce6d/tumblr_inline_mp43eudcTe1qz4rgp.png"/></p>
-
-<p>La aplicación de Traductor de Bing incluye una lente para la cámara que nos permite, directamente desde esta, capturar texto y traducirlo al vuelo. No es perfecta, pero es de gran ayuda.</p>
-
-<p>Y hasta aquí el análisis de algunas de las mejores aplicaciones con lentes para Windows Phone, una de las características más novedosas en la versión 8 de este sistema operativo móvil y que ningún otro sistema puede equiparar por el momento.</p>
-
-  </article>
-
-  <article>
-    <a href="/blog/2013/08/31/dashclock-informaci%C3%B3n-ordenada-en-la-pantalla-de/"><h1>Dashclock, información ordenada en la pantalla de inicio de Android</h1></a>
-    <p><img src="http://67.media.tumblr.com/95e742cb0d61e118b430514b502cdfe7/tumblr_inline_msehxqCjQa1qz4rgp.png"/></p>
-<p>Dashclock es un completo widget que muestra mucha información sin echar a perder la pantalla de inicio, ya que es muy minimalista. Además es muy personalizable, incluyendo varios tipos de reloj (tanto digitales como analógicos) y una cantidad ingente de extensiones que permiten variar la información mostrada (los mensajes de Whatsapp, la música que se escucha, el correo electrónico, la batería, el consumo de CPU y RAM, y muchas otras).</p>
-<p>Lo podéis encontrar en el <a href="https://play.google.com/store/apps/details?id=net.nurik.roman.dashclock">Play Store</a>, y no olvidéis <a href="https://play.google.com/store/search?q=dashclock%20extension&amp;c=apps">instalar varias extensiones</a> para añadir información al widget.</p>
 
   </article>
 
@@ -422,23 +373,6 @@ netsh wlan stop hostednetwork<br/></code></pre>
 <p>Si el cargador de arranque no se ha instalado bien y es imposible llegar a iniciar vuestro Linux, podéis probar con un <strong>cargador de arranque para USB.</strong> Por ejemplo, <a href="http://sourceforge.net/projects/refind/">rEFInd</a> es un extendido <em>bootloader</em> diseñado para UEFI, y tiene una versión para USB. Es una variante de rEFIt, el conocido cargador de arranque para Mac que permite arrancar OS X, Windows y Linux.</p>
 <p>Otro ejemplo es <a href="http://sourceforge.net/projects/cloverefiboot/">Clover</a>, que se instala desde OS X en la partición EFI o en un pen drive, y es capaz no sólo de arrancar en un ordenador con UEFI sino también en un ordenador con BIOS y <strong>simular un arranque UEFI</strong>, de forma que un S.O. instalado con UEFI o que lo requiera (por ejemplo, <a href="http://fdavidcl.tumblr.com/post/47880085562/hackintosh-y-distros-de-os-x">OS X</a>) pueda iniciarse sin tener UEFI en realidad.</p>
 <p><a href="http://fdavidcl.tumblr.com/post/77824313799/lidiando-con-uefi-gpt-y-las-instalaciones-de-linux-y">→ (IV) Discos y particiones</a></p>
-
-  </article>
-
-  <article>
-    <a href="/blog/2013/12/11/fen%C3%B3menos-cerebrales-colores-sinestesia-y-asmr/"><h1>Fenómenos cerebrales: colores, sinestesia y ASMR</h1></a>
-    <p>Se suele decir que el cerebro es uno de los órganos del cuerpo más difíciles de estudiar, y que guarda enormes misterios. Hoy os cuento algunos extraños fenómenos relacionados con los sentidos, pero que tienen lugar en nuestra cabeza.</p>
-<h3>Colores: el magenta no existe</h3>
-<p><img alt="image" src="http://67.media.tumblr.com/590986debe72994ecc8b74a5d6e739b2/tumblr_inline_mr85hrYQ8I1qz4rgp.png"/></p>
-<p>Es curioso que el color magenta no aparece en el arco iris, ni en el espectro de longitudes de onda visibles (que va desde el rojo hasta el violeta, pasando por amarillo, verde y azul). ¿Cómo es que podemos ver algo rosa, entonces? En realidad, nuestros ojos solo pueden detectar tres colores: rojo, verde y azul (RGB), y el cerebro averigua el resto cuando se reciben señales de más de un color. Entonces, en el caso de que se detecte color rojo y verde, el cerebro entenderá que estamos viendo algo amarillo, y si detecta verde y azul, veremos cian. Sin embargo, se puede dar el caso de que se detecte el azul y el rojo, pero no el verde, por lo que el cerebro no puede tomar el color que está en medio, y ha de inventarse uno nuevo, el magenta. En este vídeo, Steve Mould explica más gráficamente como es todo este proceso.</p>
-<p><iframe frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/iPPYGJjKVco?rel=0" width="560"></iframe></p>
-
-<h3>Sinestesia e ideastesia: vinculando sentidos entre sí, e ideas a sentidos</h3>
-<p>La sinestesia es un término que abarca una variedad de fenómenos, que tienen en común que la percepción de una cosa lleva vinculada alguna otra sensación que no está implícita en la primera. Es difícil de explicar, pero básicamente, puede ocurrir que uno &ldquo;vea&rdquo; sonidos, &ldquo;oiga&rdquo; colores, y similares. Por otro lado, la ideastesia, que generalmente se engloba dentro de la sinestesia, lleva a una persona a asociar conceptos (números, palabras) con colores o sonidos. Por ejemplo, alguien con ideastesia podría percibir el 2 como un número asociado al verde, aun estando escrito en otro color. Estas curiosas alteraciones de los sentidos no son tan inusuales, se estima que se dan en aproximadamente una de cada 23 personas.</p>
-<p><iframe frameborder="0" height="349" src="//www.youtube-nocookie.com/embed/dNy23tJMTzQ?rel=0" width="620"></iframe></p>
-<h3>ASMR: el cosquilleo mental</h3>
-<p>El ASMR (<em>Autonomous sensory meridian response</em>) es un fenómeno aún más raro y menos estudiado que la sinestesia, pero que ha ido volviéndose más conocido poco a poco gracias a Internet. Fundamentalmente se trata de una sensación similar a un cosquilleo intenso en la cabeza, que aparece en determinadas situaciones o bajo ciertos estímulos. Ni siquiera hay aún un estudio científico de este concepto, porque es muy difícil de investigar y además parece darse en muy pocas personas, se estima que podría aparecer en una de cada mil personas.</p>
-<p>Curiosamente, se ha formado una pequeña comunidad de personas que experimentan esta sensación (sobre todo en Youtube, donde algunos vídeos tratan de provocarla), y que la utilizan para mitigar el insomnio o para relajarse.</p>
 
   </article>
 
@@ -582,72 +516,6 @@ sudo dpkg -i --force depends libaio_0.3.104-1_i386.deb oracle-xe-client_10.2.0.1
   <article>
     <a href="http://fdavidcl.me/veaml"><h1>Video Editing Abstraction Markup Language</h1></a>
     <p>Veaml (short for <em>Video Editing Abstraction Markup Language</em>) is a lightweight markup language inspired by Haml, and designed to relieve the tedious process of video editing.</p>
-
-  </article>
-
-  <article>
-    <a href="/blog/2014/12/22/mi-escritorio-minimalista/"><h1>Mi escritorio minimalista</h1></a>
-    <p><em><a href="http://i.imgur.com/On48gUN.png"><img alt="image" src="http://i.imgur.com/On48gUN.png"/></a></em></p>
-<p><em>¿Quién dijo que Linux no podía ser bonito?</em></p>
-<p>Si me preguntáis &ldquo;¿Qué Linux es ese?&rdquo;, no será la primera ni la segunda vez que alguien lo hace. Y realmente, la cuestión no depende realmente de la distro que utilicemos, sino más bien del entorno de escritorio que instalemos y la personalización que nos permita.</p>
-<h3>El sistema operativo: Ubuntu GNOME</h3>
-<p>Aunque ya os digo que la distro en sí es lo de menos, personalmente he escogido el <em>flavor</em> GNOME de Ubuntu, que obviamente mantiene la compatibilidad con todas las aplicaciones disponibles para Ubuntu (bendito <em>apt-get</em>). De todas formas, lo mismo daría usar Fedora, Arch, Sabayon o cualquier distro que tenga disponible el escritorio GNOME.</p>
-<h3>El entorno de escritorio: GNOME 3</h3>
-<p><img alt="image" src="http://67.media.tumblr.com/15a827b24a8a84fe9a38b32f75ef91c2/tumblr_inline_ngzcugJBqE1r7kqtk.png"/></p>
-<p>Cuando se lanzó la tercera versión de GNOME, el cambio radical en la interfaz y la falta de estabilidad provocaron mucha negatividad por parte de los usuarios, que se desplazaron a otros escritorios. Sin embargo, tras varias versiones (yo estoy usando la 3.12) se ha convertido en un escritorio más robusto y cómodo de usar, con la funcionalidad añadida que aportan las extensiones. Esto facilita que cada usuario pueda disponer de todas las funciones que necesite, y ninguna más.</p>
-<h3>Las extensiones</h3>
-<p>Siguiendo (un poco literalmente) el principio de <em>Form follows function</em>, os hablaré antes de las extensiones que uso y su utilidad:</p>
-<ul><li>Activities configurator: permite ocultar o modificar el botón de Actividades, yo lo tengo oculto pero con la esquina activa.</li>
-<li>Alternatetab: realmente imprescindible para los que utilizamos constantemente Alt+Tab para cambiar de ventana.</li>
-<li>Dash to dock: otra extensión imprescindible, para poder acceder al Dash sin abrir la pantalla de Actividades.</li>
-<li>Drop down terminal: para tener una terminal siempre a mano.</li>
-<li>Frippery move clock: simplemente mueve el reloj a la derecha.</li>
-<li>Impatience: acelera las animaciones, para los impacientes.</li>
-<li>Maximus two: oculta la barra de título de las aplicaciones maximizadas, para ahorrar espacio.</li>
-<li>Media player indicator: muestra la música en reproducción y proporciona la funcionalidad básica de play/pause y pasar de canción.</li>
-<li>Removable drive menu: permite expulsar <em>pendrives</em> fácilmente.</li>
-<li>Remove dropdown arrows: porque las flechitas son innecesarias.</li>
-<li>Status title bar: muestra el título completo de la ventana.</li>
-<li>User themes: para personalizar el tema de la shell.</li>
-<li>System-monitor (no Systemmonitor): muestra la actividad de CPU/RAM en la shell.</li>
-</ul><p><img alt="image" src="http://67.media.tumblr.com/e09c164f0ce9e4b209e5858abbf6e481/tumblr_inline_ngzdgcBMby1r7kqtk.png"/></p>
-<p>Las podéis instalar todas desde la web de <a href="https://extensions.gnome.org/">Extensiones de GNOME</a>.</p>
-<h3>El tema: iris-light-blue</h3>
-<blockquote>
-<p>Good design is as little design as possible<br/>- <a href="https://en.wikipedia.org/wiki/Dieter_Rams#Dieter_Rams:_ten_principles_for_good_design">Dieter Rams</a></p>
-</blockquote>
-<p><a href="https://github.com/fdavidcl/iris-light-blue">iris-light-blue</a> es un tema para GTK 2, 3 y GNOME Shell muy minimalista, con acentos de color en azul. Es una variante del tema <a href="https://github.com/xyl0n/iris-light">iris-light de xyl0n</a>, junto con un tema de GNOME Shell generado por <a href="https://github.com/satya164/elegance-colors">Elegance Colors de satya164</a>.</p>
-<p>Para utilizar este tema simplemente <a href="https://github.com/fdavidcl/iris-light-blue/archive/master.zip">descargadlo como ZIP</a> y extraed los archivos en la carpeta <code>/usr/share/themes</code>. Usad la Herramienta de retoques (gnome-tweak-tool) para activar el tema en GTK+, Ventana y Shell.</p>
-<h3>Los iconos: Faience Azur</h3>
-<p><a href="http://tiheum.deviantart.com/art/Faience-icon-theme-255099649">Faience</a> es una suite de iconos basada en Faenza. El tema de iconos Azur dispone de muchos iconos azulados.</p>
-<h3>El fondo: Arctic Fox</h3>
-<p>Mi fondo de escritorio es un precioso zorro ártico, <a href="https://500px.com/photo/55034994/arctic-fox-by-jim-cumming">fotografía obra de Jim Cumming</a>.</p>
-
-<blockquote>
-<p>Comentadme qué os parece mi escritorio y, si os habéis personalizado el vuestro, mostradlo en los comentarios :D</p>
-</blockquote>
-
-  </article>
-
-  <article>
-    <a href="/blog/2015/01/06/linux-el-rey-de-las-teles/"><h1>Linux, el rey de las teles</h1></a>
-    <p>Pues empezó el CES, la enorme feria de tecnología de Las Vegas. Y además de fantásticos productos presentados por las más diversas marcas, me ha sorprendido cómo Linux se está estableciendo de forma permanente en las televisiones, y cómo cada marca descarta las plataformas propietarias anteriores y apuesta por un sistema o variante basada en Linux.</p>
-<h3>LG se queda con webOS</h3>
-<p><img alt="image" src="http://67.media.tumblr.com/8b6ea553702215cb900ed39a49dfb51a/tumblr_inline_nhrqjuBJFG1r7kqtk.jpg"/></p>
-
-<p>webOS (leído web-o-es) ha pasado de correr en los antiguos teléfonos de Palm a ser adoptado por LG, que lo lleva utilizando en sus televisores inteligentes desde hace unos meses. Una interfaz muy simple y agradable facilita el uso del sistema desde el sofá.</p>
-<h3>Samsung cuenta con Tizen</h3>
-<p><img alt="image" src="http://66.media.tumblr.com/2a91d105abfde3474804ae3192028564/tumblr_inline_nhrr0djVf91r7kqtk.jpg"/></p>
-
-<p>Tizen es uno de los herederos del proyecto MeeGo, y Samsung lo está introduciendo en varios de sus dispositivos que no corren con Android, es decir, algunos smartwatches y ahora en las televisiones. Nada desdeñable es el resto de tecnología que hay bajo estas, con sus nuevas pantallas curvas y SUHD. Pero eso ya lo podéis leer en cualquier otro sitio.</p>
-<h3>Sony se hace amigo de Android</h3>
-<p><img alt="image" src="http://67.media.tumblr.com/b9a72b5f221ce88e48079df10f575d0f/tumblr_inline_nhrr7ml59l1r7kqtk.jpg"/></p>
-<p>Sony por su parte ha asegurado que todas sus televisiones BRAVIA contarán a partir de ahora con Android TV, una plataforma de Google en la que destaca el control por voz y un buen soporte de aplicaciones e incluso juegos. Además, lo ha anunciado junto a la impresionante <span class="_dwd st s std">X900C</span>, que tiene un grosor de menos de 5mm. Eso es más delgado que tu teléfono móvil (sea cual sea, prácticamente).</p>
-<h3>Panasonic hace equipo con Firefox</h3>
-<p><img alt="image" src="http://67.media.tumblr.com/d736678422cdc619a38db93fca5e5cc8/tumblr_inline_nhrrhmccNC1r7kqtk.jpg"/></p>
-<p>Panasonic, otro de los grandes en lo que se refiere a televisiones, ha decidido utilizar Firefox OS de Mozilla (<a href="http://fdavidcl.me/post/43922277677/nuevas-propuestas-libres-de-s-o-moviles-ii">ya os hablé de él</a>), que incorpora una interfaz un poco menos seria pero con la ventaja de trabajar con tecnologías web, lo que asegurará, según Mozilla, que podamos interactuar con la tele desde el ordenador, el móvil con Firefox o incluso desde un posible smartwatch con Firefox OS.</p>
-
-<p>Lo que todas estas nuevas televisiones tendrán en común es que usarán un sistema operativo libre compartiendo <a href="https://github.com/torvalds/linux">un mismo núcleo</a>, lo que propicia cierta homogeneidad a lo largo de toda una gama de dispositivos y nos permite ver que el código libre mantenido por una enorme comunidad realmente sirve para sostener una cantidad aún mayor de productos y servicios. Ganan los desarrolladores, ganan las empresas y ganan los consumidores.</p>
 
   </article>
 
