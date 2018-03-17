@@ -4,8 +4,8 @@
 $background: #{{ site.style.background }}
 $foreground: #{{ site.style.foreground }}
 $accent: #{{ site.style.accent }}
-$sidebar-back: darken($accent, 20%)
-$sidebar-fore: $background
+$sidebar-back: desaturate(lighten($accent, 50%), 70%)
+$sidebar-fore: darken($accent, 10%)
 $font: "{{ site.style.font }}"
 
 =button-style
@@ -13,11 +13,11 @@ $font: "{{ site.style.font }}"
   text-decoration: none
   padding: .2rem .6rem
   margin: 0 0 .2rem
-  border: .1rem solid lighten($foreground, 80%)
+  border: .1rem solid lighten($foreground, 70%)
 
 
 =breadcrumb
-  color: lighten($foreground, 70%)
+  color: lighten($foreground, 50%)
   font-weight: bold
   text-transform: uppercase
 
@@ -30,7 +30,7 @@ body, html
   font-size: 16px
 
 a
-  color: $sidebar-back
+  color: $accent
 
 body
   background: $background
@@ -42,7 +42,8 @@ body
 
   .top
     background: $sidebar-back
-    color: $background
+    color: $sidebar-fore
+    box-shadow: inset 0 -.5rem .5rem -.25rem rgba(0,0,0,0.1)
 
     .top-content
       max-width: 40em
@@ -52,10 +53,20 @@ body
       a
         color: $sidebar-fore
 
+      .arrow-up
+        display: block
+        width: 0
+        height: 0
+        margin-left: 1.1rem
+        border-left: .6rem solid transparent
+        border-right: .6rem solid transparent
+        border-bottom: .6rem solid $background
+        box-shadow: inset 0 -10px 10px -5px rgba(0,0,0,0.1)
+
       header
         white-space: nowrap
         display: inline-block
-
+        
         .name-box
           display: inline-block
           color: inherit
@@ -66,17 +77,14 @@ body
 
           font-size: 1.5em
           padding: 1rem 0
-          
+
           .profile-pic
-            width: 1.8em
+            width: 3.2rem
             margin: 0.2rem 0.6rem 0.2rem 0
-            border: .1rem solid
+            border: .1rem solid $background
             border-radius: 8rem
             display: inline-block
             vertical-align: inherit
-
-          .name
-            display: none
 
       .sections, .social-links
         display: inline-block
@@ -147,8 +155,8 @@ body
           text-decoration: none
           
           &:before
-            content: "\e805"
-            font-family: "icons"
+            content: "\f02b"
+            font-family: "ForkAwesome"
             margin-right: 0.3rem
       
       .post-link
@@ -173,6 +181,9 @@ body
         padding-left: .6rem
 
         li > .icon
+          display: inline-block
+          width: 1.2rem
+          text-align: center
           margin-right: .6rem
         
       article
@@ -232,8 +243,8 @@ body
 
         .tags
           &:before
-            content: "\e806"
-            font-family: "icons"
+            content: "\f02c"
+            font-family: "ForkAwesome"
             font-size: 1rem
             color: mix($foreground, $background, 50%)
             
@@ -259,7 +270,7 @@ body
 
       .archive-post
         margin: 0 0 .2rem
-        color: lighten($foreground, 70%)
+        color: lighten($foreground, 50%)
         font-weight: bold
 
         a
@@ -273,6 +284,8 @@ body
 
     a
       color: inherit
+      text-decoration: none
+      font-size: small
 
 .big-text
   font-size: 300%
@@ -282,9 +295,6 @@ body
 @media (min-width: 64em)
   body
     font-size: 18px
-
-    .top .top-content .name-box .name
-      display: inline !important
 
   
 @media (min-width: 654em)

@@ -5,7 +5,7 @@
       <a href="{{ post.url }}">
         {{ post.title }}</a>
       <a class="post-link" href="{{ post.link }}">
-        <i class="icon icon-small icon-link-ext"></i>{{ post.link | split: "://" | last | split: "/" | first }}</a>
+        <i class="icon fa fa-small fa-external-link"></i>{{ post.link | split: "://" | last | split: "/" | first }}</a>
       {% if include.excerpt %}</h2>{% else %}</h1>{% endif %}
   {% else %}
   <a href="{{ post.url }}">

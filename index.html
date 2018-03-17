@@ -3,6 +3,8 @@ layout: default
 title: About
 ---
 
+<style>.name { display: none; }</style>
+
 <article class="home">
   <div class="big-text">Hi!</div>
   <p>{{ site.profile.description | markdownify }}</p>
@@ -16,7 +18,7 @@ title: About
     {% for link in site.profile.links %}
     {% assign properties = link | last %}
     <li>
-      <i class="icon icon-{{ properties.icon }}"></i>
+      <i class="icon fa fa-{{ properties.icon }}"></i>
       {% if properties.url %}
       <a class="social-button {{ link | first }}-link" href="{{ properties.url }}" title="{{ link | first }}">
         {% endif %}
@@ -31,5 +33,18 @@ title: About
     </li>
     {% endfor %}
   </ul>
-    
+</article>
+<article>
+  <h3>Latest posts</h3>
+
+  {% assign posts = (0..3) %}
+  {% for i in posts %}
+  {% assign post = site.posts[i] %}
+  <div class="archive-post">
+    {{ post.date | date: "%d-%m-%Y" }}
+    <a href="{{ post.url }}">{{ post.title }}</a>
+  </div>
+  {% endfor %}
+
+  <p><a href="{{ site.baseurl }}/blog">See more posts</a></p>
 </article>
