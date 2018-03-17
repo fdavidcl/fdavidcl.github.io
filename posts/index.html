@@ -1216,6 +1216,76 @@ for_window <span class="o">[</span><span class="nv">class</span><span class="o">
 
   </article>
 
+  <article>
+    <a href="/blog/2018/03/10/mastodon-digitalocean/"><h1>Deploying Mastodon on a single DigitalOcean droplet</h1></a>
+    <h2 id="what-happened">What happened</h2>
+<p>I bought a super cheap domain with a <a href="https://quotient.space">cool name</a>. I had to put something there, so why not Mastodon? I had a 10$ coupon from DigitalOcean so I could try it for free for a month or two.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>You’ll need a domain name for this. There are free domains available in certain TLDs, and also very cheap ones out there (quotient.space was just 0.55€ for the first year).</p>
+
+<h2 id="how-to-do-the-thing">How to do the thing</h2>
+
+<p>Most of this process is just following Mastodon’s own <a href="https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Docker-Guide.md">Docker guide</a>. I used version 2.3.0 for this, so the process may be different for other versions.</p>
+
+<p><strong>Disclaimer</strong>:  This is my first time deploying Mastodon so trust your own common sense over these steps.</p>
+
+<ol>
+  <li>Set up a single 5$ droplet in your DO account (if you are not yet an user you can use this link to get 10$ credit: <a href="https://m.do.co/c/ca70d8a84d85">https://m.do.co/c/ca70d8a84d85</a>). Throw your public SSH key in there and use its IP address to login: <code class="highlighter-rouge">ssh root@[ip-address]</code>. You can also set up your domain so that it points to DO’s nameservers and redirects to your droplet.</li>
+  <li><code class="highlighter-rouge">apt install docker.io nginx letsencrypt</code></li>
+  <li>
+    <p>You’ll need a new version of docker-compose so run this (<a href="https://gist.github.com/wdullaer/f1af16bd7e970389bad3">source</a>):</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">COMPOSE_VERSION</span><span class="o">=</span><span class="sb">`</span>git ls-remote https://github.com/docker/compose | <span class="nb">grep </span>refs/tags | <span class="nb">grep</span> <span class="nt">-oP</span> <span class="s2">"[0-9]+</span><span class="se">\.</span><span class="s2">[0-9][0-9]+</span><span class="se">\.</span><span class="s2">[0-9]+$"</span> | <span class="nb">tail</span> <span class="nt">-n</span> 1<span class="sb">`</span>
+ <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s2">"curl -L https://github.com/docker/compose/releases/download/</span><span class="k">${</span><span class="nv">COMPOSE_VERSION</span><span class="k">}</span><span class="s2">/docker-compose-</span><span class="sb">`</span><span class="nb">uname</span> <span class="nt">-s</span><span class="sb">`</span><span class="s2">-</span><span class="sb">`</span><span class="nb">uname</span> <span class="nt">-m</span><span class="sb">`</span><span class="s2"> &gt; /usr/local/bin/docker-compose"</span>
+ <span class="nb">sudo chmod</span> +x /usr/local/bin/docker-compose
+ <span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s2">"curl -L https://raw.githubusercontent.com/docker/compose/</span><span class="k">${</span><span class="nv">COMPOSE_VERSION</span><span class="k">}</span><span class="s2">/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Also, create a swapfile:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> fallocate <span class="nt">-l</span> 1G /swapfile
+ <span class="nb">chmod </span>600 /swapfile
+ mkswap /swapfile
+ swapon /swapfile
+</code></pre></div>    </div>
+  </li>
+  <li>Follow the guide for Docker in Mastodon documentation to clone the repository. Now, <code class="highlighter-rouge">touch .env.production</code> since docker-compose will not work without it. Follow the guide to get the images.</li>
+  <li>
+    <p>Check that file permissions are correct. I came across a couple of <code class="highlighter-rouge">Permission denied</code> errors since some directories in the Docker container were owned by <code class="highlighter-rouge">root</code> instead of <code class="highlighter-rouge">mastodon</code>. To check this, login into the web container as root:</p>
+
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> docker-compose run <span class="nt">--rm</span> <span class="nt">-u</span> 0 web bash
+ <span class="c"># in the container:</span>
+ <span class="nb">chmod</span> <span class="nt">-R</span> mastodon:mastodon /mastodon/public/
+</code></pre></div>    </div>
+
+    <blockquote>
+      <p>Is this terrible? Shouldn’t I have changed it? Tell me</p>
+    </blockquote>
+  </li>
+  <li>Follow the guide to setup your instance. You don’t need a MailGun account if it’s a single-user instance, but put some fake user and password just in case. The compilation of assets may take several minutes, for convenience make sure you aren’t kicked out of the ssh session. Set up an admin account for yourself.</li>
+  <li><code class="highlighter-rouge">docker-compose up -d</code></li>
+  <li>Follow the nginx and Let’s Encrypt sections of the <a href="https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Production-guide.md#nginx-configuration">production guide</a>.</li>
+  <li>If all went well you should be able to see your new Mastodon instance when you visit your domain.</li>
+</ol>
+
+<h2 id="useful-stuff">Useful stuff</h2>
+
+<p>If assets compilation didn’t work, you can try again with</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose run <span class="nt">--rm</span> web rake assets:precompile
+</code></pre></div></div>
+
+<p>If creating the user didn’t work, try adding a new user, locating the password reset token in the logs (then navigating to <code class="highlighter-rouge">example.com/auth/password/edit?reset_password_token=[your-token]</code> to create a password) and lastly confirming the email address:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose run <span class="nt">--rm</span> web rake mastodon:add_user
+docker logs mastodon_web_1
+docker-compose run <span class="nt">--rm</span> web rake mastodon:confirm_email <span class="nv">USER_EMAIL</span><span class="o">=[</span>your-email]
+</code></pre></div></div>
+
+  </article>
+
 
 <style>
 .wrapper .sidebar .side-content .sections .section-posts {
