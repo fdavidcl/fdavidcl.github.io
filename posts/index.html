@@ -1286,6 +1286,135 @@ docker-compose run <span class="nt">--rm</span> web rake mastodon:confirm_email 
 
   </article>
 
+  <article>
+    <a href="/blog/2018/03/17/ruby-10/"><h1>A guide to Ruby in ten lines of code</h1></a>
+    <p>This is a slightly unorthodox introduction guide to the Ruby language. Through this guide we will examine just ten one-line snippets of code, and discover a lot of features from each of them.</p>
+
+<p>This is the post version of a talk I gave for <a href="https//libreim.github.io">LibreIM</a>.</p>
+
+<h2 id="syntax">Syntax</h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"Hello </span><span class="si">#{</span><span class="nb">gets</span><span class="p">.</span><span class="nf">strip</span><span class="si">}</span><span class="s2">!"</span>
+</code></pre></div></div>
+
+<p>This snippet accepts a string from standard input, then cleans the leading and trailing spacing characters and embeds it in a greeting which is shown on standard output. Notice that:</p>
+<ul>
+  <li><code class="highlighter-rouge">puts</code> and <code class="highlighter-rouge">gets</code> are the standard functions for displaying messages and reading input, respectively.</li>
+  <li>You can omit parenthesis around parameters for better readability.</li>
+  <li><code class="highlighter-rouge">#{...}</code> in strings interprets small pieces of code and transforms the output into a string.</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"boooored"</span><span class="p">.</span><span class="nf">upcase</span> <span class="k">unless</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">saturday?</span>
+</code></pre></div></div>
+
+<p>This example is so readable you probably don’t need a description. Notice that:</p>
+<ul>
+  <li>Literals are Ruby objects and can receive methods.</li>
+  <li><code class="highlighter-rouge">if</code>, <code class="highlighter-rouge">unless</code>, <code class="highlighter-rouge">while</code> and <code class="highlighter-rouge">until</code> can be used as one-line structures.</li>
+  <li>There is a convention to end methods which return booleans with <code class="highlighter-rouge">?</code> and methods which have non-explicit side effects with <code class="highlighter-rouge">!</code>.</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">real</span><span class="p">,</span> <span class="n">imag</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="n">i</span><span class="p">).</span><span class="nf">rectangular</span>
+</code></pre></div></div>
+
+<p>This snippet assigns the real part of 1 + 3i to <code class="highlighter-rouge">real</code> and the imaginary part to <code class="highlighter-rouge">imag</code>. Notice that:</p>
+<ul>
+  <li>Ruby has built-in support for complex numbers, big numbers (as in symbolic, bigger than <code class="highlighter-rouge">long long</code> numbers) and symbolic rationals.</li>
+  <li>Assignment allows splatting arrays. The splat operator <code class="highlighter-rouge">*</code> allows for related operations. For example,
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</code></pre></div>    </div>
+    <p>performs some Haskell-ish pattern matching: <code class="highlighter-rouge">x</code> receives the first element and <code class="highlighter-rouge">xs</code> holds the rest of the array. There is also a similar double-splat <code class="highlighter-rouge">**</code> for hashes.</p>
+  </li>
+</ul>
+
+<h2 id="object-oriented-programming">Object oriented programming</h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DeadPlayerError</span> <span class="o">&lt;</span> <span class="no">StandardError</span><span class="p">;</span> <span class="k">end</span>
+</code></pre></div></div>
+
+<p>Defines a class useful to return errors (exceptions). Notice that:</p>
+<ul>
+  <li>Classes are defined with <code class="highlighter-rouge">class</code> (which is syntax sugar for <code class="highlighter-rouge">Class.new { ... }</code>).</li>
+  <li>There is simple inheritance with <code class="highlighter-rouge">&lt;</code>.</li>
+  <li>You can throw an error with <code class="highlighter-rouge">raise DeadPlayerError</code>. Ruby distinguishes errors, from which a program can recover, and other kinds of exceptions, which leave the program in an invalid state and therefore it must stop.</li>
+</ul>
+
+<pre><code class="language-{.ruby}">Point = Struct.new :x, :y, :z
+</code></pre>
+
+<p>Creates a class with getters and setters for the given attributes. Notice that:</p>
+<ul>
+  <li>Member attributes of a class are <strong>always</strong> private (or protected, as they are inherited). Thus, the <em>dot</em> only sends methods and doesn’t directly access attributes.</li>
+  <li>Methods can be defined in a <code class="highlighter-rouge">do ... end</code> block. You should consider defining a class if you want to add them.</li>
+  <li>New objects are created with <code class="highlighter-rouge">Point.new</code>.</li>
+</ul>
+
+<h2 id="iteration-and-data-structures">Iteration and data structures</h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="sx">%w[such elegant wow]</span><span class="p">.</span><span class="nf">each_with_index</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">w</span><span class="p">,</span><span class="n">i</span><span class="o">|</span> <span class="s2">"</span><span class="si">#{</span><span class="n">i</span><span class="si">}</span><span class="s2">. </span><span class="si">#{</span><span class="n">w</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Walks through the array, obtains an array of strings <em>index. element</em> and prints it on stdout. Notice that:</p>
+<ul>
+  <li><code class="highlighter-rouge">%w[]</code> splits a list of words by spaces and returns an array.</li>
+  <li><code class="highlighter-rouge">each_with_index</code> iterates giving each element and its index in the collection.</li>
+  <li><code class="highlighter-rouge">map</code> applies a function on each element of a collection and returns the result.</li>
+  <li><code class="highlighter-rouge">{...}</code> o <code class="highlighter-rouge">do ... end</code> denote <em>blocks</em>, structures of code which are passed to methods in order to be ran from them. Blocks can receive parameters between bars <code class="highlighter-rouge">|a, b|</code>.</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dot</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span> <span class="p">{</span> <span class="n">v1</span><span class="p">.</span><span class="nf">zip</span><span class="p">(</span><span class="n">v2</span><span class="p">).</span><span class="nf">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="nb">p</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span><span class="o">|</span> <span class="nb">p</span> <span class="o">+</span> <span class="n">n</span> <span class="o">*</span> <span class="n">m</span> <span class="p">}</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Computes the dot product. Example usage: <code class="highlighter-rouge">dot.([1, 2, 3], [-1, 0, 2])</code>. Notice that:</p>
+<ul>
+  <li>Lambda functions are defined with <code class="highlighter-rouge">-&gt;</code>. As opposed to usual functions or methods, Lambdas are objects.</li>
+  <li><code class="highlighter-rouge">zip</code> pairs the elements of two or more arrays.</li>
+  <li><code class="highlighter-rouge">reduce</code> accumulates results of a binary function.</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fib</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">h</span><span class="p">,</span> <span class="n">i</span><span class="o">|</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="p">}.</span><span class="nf">update</span><span class="p">(</span><span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Creates a Hash which contains, for each index, the corresponding term of the Fibonacci sequence. Notice that:</p>
+<ul>
+  <li><code class="highlighter-rouge">Hash</code> may receive a <em>default</em> initialization (usually <code class="highlighter-rouge">nil</code>). This initialization takes place whenever the user attempts to access a value which has not been assigned previously.</li>
+  <li><code class="highlighter-rouge">Hash#update</code> assigns several values at a time.</li>
+  <li>This would be equivalent to a memoized recursive version.</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">solution</span><span class="p">.</span><span class="nf">neighborhood</span><span class="p">.</span><span class="nf">detect</span> <span class="p">{</span> <span class="o">|</span><span class="n">attempt</span><span class="p">,</span> <span class="n">fitness</span><span class="o">|</span> <span class="n">fitness</span> <span class="o">&gt;</span> <span class="vi">@current_fitness</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Assuming the <code class="highlighter-rouge">.neighborhood</code> returns a collection of possible solutions and their performance (fitness), this finds the first one which improves the current solution. Actual use: <a href="https://git.io/vPxQ6">https://git.io/vPxQ6</a>. Notice that:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">detect</code> receives a predicate and returns the first ellement of the collection which verifies it.</li>
+  <li>If you want to get the best solution in the neighborhood instead, you can use <code class="highlighter-rouge">max_by</code>.</li>
+  <li>There is a huge list of iteration methods available in any Ruby collection class:
+<a href="https://ruby-doc.org/core-2.5.0/Enumerable.html"><code class="highlighter-rouge">Enumerable</code></a></li>
+</ul>
+
+<h2 id="io">I/O</h2>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">open</span><span class="p">(</span><span class="no">DATA</span><span class="p">.</span><span class="nf">read</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">).</span><span class="nf">write</span> <span class="no">IO</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="vg">$0</span><span class="p">).</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/^#' /</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This snippet reads itself (as in, the own program running), uncomments lines marked with <code class="highlighter-rouge">#'</code> and passes the result as input to the program started by <code class="highlighter-rouge">Kernel#open</code>. Notice that:</p>
+<ul>
+  <li><code class="highlighter-rouge">$0</code> is the name of the current program/script.</li>
+  <li><code class="highlighter-rouge">gsub</code> performs global sustitution</li>
+  <li><code class="highlighter-rouge">Kernel#open</code> opens read/write pipes with other processes when the “filename” looks like <code class="highlighter-rouge">"|program_name"</code>.</li>
+</ul>
+
+<p><em>The catch</em>  The program is hidden in the data section of the <a href="https://github.com/fdavidcl/ruby-ten-lines/blob/master/slides.rb">original script</a>:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>__END__
+|pandoc <span class="nt">-t</span> beamer <span class="nt">-o</span> slides.pdf <span class="nt">--pdf-engine</span><span class="o">=</span>xelatex
+</code></pre></div></div>
+
+
+  </article>
+
 
 <style>
 .wrapper .sidebar .side-content .sections .section-posts {
