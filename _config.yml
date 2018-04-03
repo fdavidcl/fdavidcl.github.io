@@ -27,7 +27,7 @@ profile:
       url: https://mstdn.io/@fdavidcl
       icon: mastodon
     "Photos":
-      url: https://instagram.com/fdavidcl
+      url: https://photos.quotient.space/
       icon: instagram
     "Download my CV":
       url: cv.pdf
