@@ -29,6 +29,9 @@ profile:
     "Photos":
       url: https://photos.quotient.space/
       icon: instagram
+    "Questions and answers":
+      url: http://david.quotient.space/ask
+      icon: question-circle
     "Download my CV":
       url: cv.pdf
       icon: file-o
