@@ -27,6 +27,7 @@
           line-height: 1;
           margin-right: .6rem;
           font-family: 'Astloch', sans-serif;
+          font-weight: bold;
           color: crimson;
       }
 
@@ -34,6 +35,7 @@
       .drop-cap-first p:first-child::first-letter {
           float: left;
           font-size: 6em;
+          line-height: 1;
           margin-right: 0.6rem;
           margin-bottom: 0.2rem;
           margin-left: -1rem;
@@ -51,12 +53,15 @@
       }
 
       /* Método initial-letter (sólo Safari) */
-      .drop-cap-initial p:first-child {
-          initial-letter: 4; /* ocupará 4 líneas hacia abajo */
-      }
-      .drop-cap-initial p:first-child::first-letter {
-          font-family: 'Rye', serif;
-          color: #108070;
+      @supports (initial-letter: 4) {
+          .drop-cap-initial p:first-child::first-letter {
+              -webkit-initial-letter: 4;
+              initial-letter: 4; /* ocupará 4 líneas hacia abajo */
+              
+              font-family: 'Rye', serif;
+              margin-right: 0.6rem;
+              color: #108070;
+          }
       }
     </style>
   </head>
