@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cómo resaltar la inicial de un texto con CSS</title>
+    <link href="https://fonts.googleapis.com/css?family=Astloch|Parisienne|Merriweather|Rye|Fondamento" rel="stylesheet">
+    <style>
+      body {
+          font-family: sans-serif;
+      }
+      main {
+          max-width: 28em;
+          margin: 0 auto;
+      }
+      article {
+          font-family: 'Merriweather', serif;
+          line-height: 1.8;
+      }
+      p {
+          margin-left: 1rem;
+      }
+
+      /* Método span */
+      .drop-cap-span .drop-cap {
+          float: left;
+          font-size: 5.4em;
+          line-height: 1;
+          margin-right: .6rem;
+          font-family: 'Astloch', sans-serif;
+          color: crimson;
+      }
+
+      /* Método ::first-letter */      
+      .drop-cap-first p:first-child::first-letter {
+          float: left;
+          font-size: 6em;
+          margin-right: 0.6rem;
+          margin-bottom: 0.2rem;
+          margin-left: -1rem;
+          padding: 1rem;
+          font-family: 'Fondamento', serif;
+          background: #a070c0;
+          box-shadow: 0 0 0 .2rem #a070c0;
+          border: .2rem solid black;
+          color: #ffffff;
+          text-shadow:
+              1px 1px #000,
+              -1px -1px #000,
+              -1px 1px #000,
+              1px -1px #000;
+      }
+
+      /* Método initial-letter (sólo Safari) */
+      .drop-cap-initial p:first-child {
+          initial-letter: 4; /* ocupará 4 líneas hacia abajo */
+      }
+      .drop-cap-initial p:first-child::first-letter {
+          font-family: 'Rye', serif;
+          color: #108070;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Cómo resaltar la inicial de un texto con CSS</h1>
+
+      <h2>Método <code>&lt;span&gt;</code></h2>      
+      <article class="drop-cap-span">
+        <p><span class="drop-cap">G</span>ranada ama lo diminuto. Y en general toda Andalucía. El lenguaje del pueblo pone los verbos en diminutivo. Nada tan incitante para la confidencia y el amor. Pero los diminutivos de Sevilla y los diminutivos de Málaga son ciudades en las encrucijadas del agua, ciudades con sed de aventura que se escapan al mar. Granada, quieta y fina, ceñida por sus sierras y definitivamente anclada, busca a sí misma sus horizontes, se recrea en sus pequeñas joyas y ofrece en su lenguaje diminutivo soso, su diminutivo sin ritmo y casi sin gracia, si se compara con el baile fonético de Málaga y Sevilla, pero cordial, doméstico, entrañable. Diminutivo asustado como un pájaro, que abre secretas cámaras de sentimiento y revela el más definido matiz de la ciudad.</p>
+      </article>
+      
+      <h2>Método <code>::first-letter</code></h2>
+      <article class="drop-cap-first">
+        <p>El diminutivo no tiene más misión que la de limitar, ceñir, traer a la habitación y poner en nuestra mano los objetos o ideas de gran perspectiva. Se limita el tiempo, el espacio, el mar, la luna, las distancias, y hasta lo prodigioso: la acción. No queremos que el mundo sea tan grande ni el mar tan hondo. Hay necesidad de limitar, de domesticar los términos inmensos.</p>
+      </article>
+      
+      <h2>Método <code>initial-letter</code> (<a href="https://caniuse.com/#feat=css-initial-letter">navegadores soportados</a>)</h2>
+      <article class="drop-cap-initial">
+        <p>Por eso la estética genuinamente granadina es la estética del diminutivo, la estética de las cosas diminutas. Las creaciones justas de Granada son el camarín y el mirador de bellas y reducidas proporciones. Así como el jardín pequeño y la estatua chica. Lo que se llaman escuelas granadinas son núcleos de artistas que trabajan con primor obras de pequeño tamaño. No quiere esto decir que limiten su actividad a esta clase de trabajo; pero, desde luego, es lo más característico de sus personalidades.</p>
+        <p><em>Federico García Lorca</em></p>
+      </article>
+    </main>
+  </body>
+</html>
