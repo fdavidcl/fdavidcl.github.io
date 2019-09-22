@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructuras de datos 2019/2020 - David C</title>
+    <link rel="stylesheet" href="/assets/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/assets/stylesheets/default.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <aside class="top">
+        <div class="top-content">
+          <header>
+            <a class="name-box" href="/">
+              
+              <img src="https://secure.gravatar.com/avatar/7083d161b041964b75c38376d9dee37a?s=200" class="profile-pic" />
+              
+              <span class="name">
+                David Charte
+              </span>
+            </a>
+          </header>
+          <!--nav class="sections">
+              <a href="/" class="section-link">about</a>
+              <a href="/blog" class="section-link">blog</a>
+          </nav-->
+          <div class="arrow-up"></div>
+        </div>
+      </aside>
+      <div class="main">
+        <div class="main-content">
+          
+<article class="article lang-es">
+  <datetime class="date">11-09-2019</datetime>
+  
+  <a href="/docencia/2019/09/11/ed/">
+    <h1>
+        Estructuras de datos 2019/2020
+        </h1>
+  </a>
+  
+
+  
+  <h2 id="material-adicional">Material adicional</h2>
+
+<h3 id="práctica-1">Práctica 1</h3>
+
+<p>Makefile para compilar el código y generar archivos de tiempos:</p>
+
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">CPP</span><span class="o">=</span><span class="err">$</span><span class="o">(</span>wildcard <span class="k">*</span>.cpp<span class="o">)</span>
+<span class="nv">EXE</span><span class="o">=</span><span class="err">$</span><span class="o">(</span><span class="nb">basename</span> <span class="nv">$(CPP)</span><span class="o">)</span>
+<span class="nv">CPPFLAGS</span><span class="o">=</span><span class="nt">-O0</span>
+<span class="nv">DAT</span><span class="o">=</span>tiempos_busqueda.dat tiempos_ej3.dat
+
+<span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">default clean tiempos</span>
+
+<span class="nl">default</span><span class="o">:</span> <span class="nf">$(EXE)</span>
+
+<span class="nl">clean</span><span class="o">:</span>
+	<span class="nb">rm</span> <span class="nt">-f</span> <span class="nv">$(EXE)</span> <span class="nv">$(DAT)</span>
+
+<span class="nv">inicio_busq</span><span class="o">=</span>100
+<span class="nv">fin_busq</span><span class="o">=</span>1000000
+<span class="nv">incremento</span><span class="o">=</span>1000
+<span class="nv">inicio_ej3</span><span class="o">=</span>1024
+<span class="nv">fin_ej3</span><span class="o">=</span>1000000000
+<span class="nv">factor</span><span class="o">=</span>2
+
+<span class="nl">tiempos</span><span class="o">:</span> <span class="nf">$(DAT)</span>
+
+<span class="nl">tiempos_busqueda.dat</span><span class="o">:</span> <span class="nf">busqueda_lineal</span>
+	<span class="k">for</span> <span class="o">((</span> <span class="nv">i</span><span class="o">=</span><span class="nv">$(inicio_busq)</span><span class="p">;</span> i &lt; <span class="nv">$(fin_busq)</span><span class="p">;</span> i+<span class="o">=</span><span class="nv">$(incremento)</span> <span class="o">))</span><span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+		<span class="nv">cmd</span><span class="o">=</span><span class="s2">"./</span><span class="nv">$&lt;</span><span class="s2"> </span><span class="nv">$$</span><span class="s2">i 10000"</span><span class="p">;</span> <span class="se">\</span>
+		<span class="nb">echo</span> <span class="nt">-en</span> <span class="s2">"</span><span class="se">\r</span><span class="nv">$$</span><span class="s2">cmd"</span><span class="p">;</span> <span class="se">\</span>
+		<span class="nv">$$</span>cmd <span class="o">&gt;&gt;</span> <span class="nv">$@</span><span class="p">;</span> <span class="se">\</span>
+	<span class="k">done</span>
+
+<span class="nl">tiempos_ej3.dat</span><span class="o">:</span> <span class="nf">ejercicio3</span>
+	<span class="k">for</span> <span class="o">((</span> <span class="nv">i</span><span class="o">=</span><span class="nv">$(inicio_ej3)</span><span class="p">;</span> i &lt; <span class="nv">$(fin_ej3)</span><span class="p">;</span> i<span class="k">*</span><span class="o">=</span><span class="nv">$(factor)</span> <span class="o">))</span><span class="p">;</span> <span class="k">do</span> <span class="se">\</span>
+		<span class="nv">cmd</span><span class="o">=</span><span class="s2">"./</span><span class="nv">$&lt;</span><span class="s2"> </span><span class="nv">$$</span><span class="s2">i 10000"</span><span class="p">;</span> <span class="se">\</span>
+		<span class="nb">echo</span> <span class="nt">-en</span> <span class="s2">"</span><span class="se">\r</span><span class="nv">$$</span><span class="s2">cmd"</span><span class="p">;</span> <span class="se">\</span>
+		<span class="nv">$$</span>cmd <span class="o">&gt;&gt;</span> <span class="nv">$@</span><span class="p">;</span> <span class="se">\</span>
+	<span class="k">done</span>
+</code></pre></div></div>
+
+<h2 id="recursos">Recursos</h2>
+
+<ul>
+  <li><a href="https://www.bigocheatsheet.com/">Big O Cheat Sheet</a> - Chuleta con las eficiencias teóricas de las operaciones más habituales sobre distintas estructuras de datos y de algoritmos de ordenación</li>
+  <li><a href="https://www.hackerrank.com/domains/data-structures">Hackerrank</a> - Plataforma de problemas de programación para practicar</li>
+</ul>
+
+
+  
+
+  <div class="tags">
+    
+  </div>
+</article>
+
+
+<footer>
+  <div class="license">
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/">
+      <i class="icon fa fa-creative-commons fa-lg"></i> BY-SA
+    </a>
+  </div>
+</footer>
+
+
+        </div>
+      </div>
+    </div>
+    <link href='https://fonts.googleapis.com/css?family=Source Sans Pro:300,400,400i,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+    <!--link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" /-->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.0.11/css/fork-awesome.min.css" integrity="sha256-MGU/JUq/40CFrfxjXb5pZjpoZmxiP2KuICN5ElLFNd8=" crossorigin="anonymous">
+    <!--link rel="stylesheet" href="/assets/fonts/css/icons.css"-->
+    <link rel="stylesheet" href="/assets/stylesheets/highlight-friendly.css">
+  </body>
+</html>
