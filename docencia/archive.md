@@ -7,7 +7,7 @@ title: Archive
 
 {% for c in site.categories %}
 {% assign cname = c | first %}
-{% if cname == "blog" %}
+{% if cname == "docencia" %}
 {% assign posts = c | last %}
 {% endif %}
 {% endfor %}
