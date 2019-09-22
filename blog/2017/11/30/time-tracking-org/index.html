@@ -86,14 +86,14 @@ for_window <span class="o">[</span><span class="nv">class</span><span class="o">
 
 <p>In order to save some keystrokes and prevent forgetting to save the time log, I have also added these hooks into my Emacs config:</p>
 
-<pre><code class="language-lisp">(add-hook 'org-clock-in-hook 'save-buffer)
-(add-hook 'org-clock-out-hook 'save-buffer)
-</code></pre>
+<div class="language-lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">'org-clock-in-hook</span> <span class="ss">'save-buffer</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">add-hook</span> <span class="ss">'org-clock-out-hook</span> <span class="ss">'save-buffer</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>Finally, I let Emacs open the file in background at startup with the following line in the configuration, so the buffer isn’t actually closed when I close the window:</p>
 
-<pre><code class="language-lisp">(find-file-noselect "~/Documentos/timelog.org")
-</code></pre>
+<div class="language-lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">find-file-noselect</span> <span class="s">"~/Documentos/timelog.org"</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>And that’s all there is to simple time tracking in Emacs. I hope you learned something useful and I didn’t waste your time.</p>
 

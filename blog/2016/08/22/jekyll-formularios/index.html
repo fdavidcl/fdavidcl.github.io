@@ -224,7 +224,7 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
     <span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">XMLHttpRequest</span><span class="p">)</span>
       <span class="nx">xmlhttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
     <span class="k">else</span>
-      <span class="nx">xmlhttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="s2">"Microsoft.XMLHTTP"</span><span class="p">);</span>
+      <span class="nx">xmlhttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="dl">"</span><span class="s2">Microsoft.XMLHTTP</span><span class="dl">"</span><span class="p">);</span>
 
     <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
@@ -238,17 +238,17 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
 
     <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="nx">method</span> <span class="o">==</span> <span class="s2">"POST"</span><span class="p">)</span>
-      <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-type"</span><span class="p">,</span> <span class="s2">"application/x-www-form-urlencoded"</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">method</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">)</span>
+      <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">Content-type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/x-www-form-urlencoded</span><span class="dl">"</span><span class="p">);</span>
 
     <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// Inicializa el editor Markdown con algunas opciones extra</span>
   <span class="kd">var</span> <span class="nx">simplemde</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SimpleMDE</span><span class="p">({</span>
-    <span class="na">element</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"markdown_editor"</span><span class="p">),</span>
+    <span class="na">element</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">markdown_editor</span><span class="dl">"</span><span class="p">),</span>
     <span class="na">blockStyles</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">code</span><span class="p">:</span> <span class="s2">"~~~"</span>
+      <span class="na">code</span><span class="p">:</span> <span class="dl">"</span><span class="s2">~~~</span><span class="dl">"</span>
     <span class="p">},</span>
     <span class="c1">// Usa el sistema propio para vista previa (kramdown + rouge)</span>
     <span class="na">previewRender</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">plainText</span><span class="p">,</span> <span class="nx">preview</span><span class="p">)</span> <span class="p">{</span>
@@ -257,7 +257,7 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
         <span class="nx">clearTimeout</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">delay</span><span class="p">);</span>
 
       <span class="nb">window</span><span class="p">.</span><span class="nx">delay</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">AjaxRequest</span><span class="p">(</span><span class="s2">"/preview"</span><span class="p">,</span> <span class="s2">"POST"</span><span class="p">,</span> <span class="s2">"content="</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">plainText</span><span class="p">),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">AjaxRequest</span><span class="p">(</span><span class="dl">"</span><span class="s2">/preview</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">content=</span><span class="dl">"</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">plainText</span><span class="p">),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
           <span class="c1">// `preview` es el nodo que contiene la vista previa</span>
           <span class="nx">preview</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">response</span><span class="p">;</span>
         <span class="p">});</span>

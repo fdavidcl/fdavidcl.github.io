@@ -48,8 +48,8 @@
 
 <p>Makefile para compilar el código y generar archivos de tiempos:</p>
 
-<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">CPP</span><span class="o">=</span><span class="err">$</span><span class="o">(</span>wildcard <span class="k">*</span>.cpp<span class="o">)</span>
-<span class="nv">EXE</span><span class="o">=</span><span class="err">$</span><span class="o">(</span><span class="nb">basename</span> <span class="nv">$(CPP)</span><span class="o">)</span>
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">CPP</span><span class="o">=</span><span class="nf">$(</span><span class="nb">wildcard</span> <span class="k">*</span>.cpp<span class="nf">)</span>
+<span class="nv">EXE</span><span class="o">=</span><span class="nf">$(</span><span class="nb">basename</span> <span class="nv">$(CPP)</span><span class="nf">)</span>
 <span class="nv">CPPFLAGS</span><span class="o">=</span><span class="nt">-O0</span>
 <span class="nv">DAT</span><span class="o">=</span>tiempos_busqueda.dat tiempos_ej3.dat
 

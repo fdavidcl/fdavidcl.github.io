@@ -798,7 +798,7 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
     <span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">XMLHttpRequest</span><span class="p">)</span>
       <span class="nx">xmlhttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
     <span class="k">else</span>
-      <span class="nx">xmlhttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="s2">"Microsoft.XMLHTTP"</span><span class="p">);</span>
+      <span class="nx">xmlhttp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="dl">"</span><span class="s2">Microsoft.XMLHTTP</span><span class="dl">"</span><span class="p">);</span>
 
     <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">if</span> <span class="p">(</span><span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
@@ -812,17 +812,17 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
 
     <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
 
-    <span class="k">if</span> <span class="p">(</span><span class="nx">method</span> <span class="o">==</span> <span class="s2">"POST"</span><span class="p">)</span>
-      <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">"Content-type"</span><span class="p">,</span> <span class="s2">"application/x-www-form-urlencoded"</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">method</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">)</span>
+      <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="dl">"</span><span class="s2">Content-type</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">application/x-www-form-urlencoded</span><span class="dl">"</span><span class="p">);</span>
 
     <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
   <span class="p">}</span>
 
   <span class="c1">// Inicializa el editor Markdown con algunas opciones extra</span>
   <span class="kd">var</span> <span class="nx">simplemde</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SimpleMDE</span><span class="p">({</span>
-    <span class="na">element</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"markdown_editor"</span><span class="p">),</span>
+    <span class="na">element</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">markdown_editor</span><span class="dl">"</span><span class="p">),</span>
     <span class="na">blockStyles</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">code</span><span class="p">:</span> <span class="s2">"~~~"</span>
+      <span class="na">code</span><span class="p">:</span> <span class="dl">"</span><span class="s2">~~~</span><span class="dl">"</span>
     <span class="p">},</span>
     <span class="c1">// Usa el sistema propio para vista previa (kramdown + rouge)</span>
     <span class="na">previewRender</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">plainText</span><span class="p">,</span> <span class="nx">preview</span><span class="p">)</span> <span class="p">{</span>
@@ -831,7 +831,7 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
         <span class="nx">clearTimeout</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">delay</span><span class="p">);</span>
 
       <span class="nb">window</span><span class="p">.</span><span class="nx">delay</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">AjaxRequest</span><span class="p">(</span><span class="s2">"/preview"</span><span class="p">,</span> <span class="s2">"POST"</span><span class="p">,</span> <span class="s2">"content="</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">plainText</span><span class="p">),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">AjaxRequest</span><span class="p">(</span><span class="dl">"</span><span class="s2">/preview</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">content=</span><span class="dl">"</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">plainText</span><span class="p">),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
           <span class="c1">// `preview` es el nodo que contiene la vista previa</span>
           <span class="nx">preview</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">response</span><span class="p">;</span>
         <span class="p">});</span>
@@ -1212,14 +1212,14 @@ for_window <span class="o">[</span><span class="nv">class</span><span class="o">
 
 <p>In order to save some keystrokes and prevent forgetting to save the time log, I have also added these hooks into my Emacs config:</p>
 
-<pre><code class="language-lisp">(add-hook 'org-clock-in-hook 'save-buffer)
-(add-hook 'org-clock-out-hook 'save-buffer)
-</code></pre>
+<div class="language-lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">add-hook</span> <span class="ss">'org-clock-in-hook</span> <span class="ss">'save-buffer</span><span class="p">)</span>
+<span class="p">(</span><span class="nv">add-hook</span> <span class="ss">'org-clock-out-hook</span> <span class="ss">'save-buffer</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>Finally, I let Emacs open the file in background at startup with the following line in the configuration, so the buffer isn’t actually closed when I close the window:</p>
 
-<pre><code class="language-lisp">(find-file-noselect "~/Documentos/timelog.org")
-</code></pre>
+<div class="language-lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">find-file-noselect</span> <span class="s">"~/Documentos/timelog.org"</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>And that’s all there is to simple time tracking in Emacs. I hope you learned something useful and I didn’t waste your time.</p>
 
@@ -1432,8 +1432,8 @@ docker-compose run <span class="nt">--rm</span> web rake mastodon:confirm_email 
 
 <p>Makefile para compilar el código y generar archivos de tiempos:</p>
 
-<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">CPP</span><span class="o">=</span><span class="err">$</span><span class="o">(</span>wildcard <span class="k">*</span>.cpp<span class="o">)</span>
-<span class="nv">EXE</span><span class="o">=</span><span class="err">$</span><span class="o">(</span><span class="nb">basename</span> <span class="nv">$(CPP)</span><span class="o">)</span>
+<div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">CPP</span><span class="o">=</span><span class="nf">$(</span><span class="nb">wildcard</span> <span class="k">*</span>.cpp<span class="nf">)</span>
+<span class="nv">EXE</span><span class="o">=</span><span class="nf">$(</span><span class="nb">basename</span> <span class="nv">$(CPP)</span><span class="nf">)</span>
 <span class="nv">CPPFLAGS</span><span class="o">=</span><span class="nt">-O0</span>
 <span class="nv">DAT</span><span class="o">=</span>tiempos_busqueda.dat tiempos_ej3.dat
 
