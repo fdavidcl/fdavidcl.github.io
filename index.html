@@ -37,9 +37,15 @@ title: About
 <article>
   <h3>Latest posts</h3>
 
-  {% assign posts = (0..3) %}
-  {% for i in posts %}
-  {% assign post = site.posts[i] %}
+  {% for c in site.categories %}
+  {% assign cname = c | first %}
+  {% if cname == "blog" %}
+  {% assign posts = c | last %}
+  {% endif %}
+  {% endfor %}
+  {% assign postsi = (0..3) %}
+  {% for i in postsi %}
+  {% assign post = posts[i] %}
   <div class="archive-post">
     {{ post.date | date: "%d-%m-%Y" }}
     <a href="{{ post.url }}">{{ post.title }}</a>

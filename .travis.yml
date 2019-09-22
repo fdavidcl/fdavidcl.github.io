@@ -1,7 +1,7 @@
 language: ruby
 
 rvm:
- - 2.3.1
+ - 2.5
 
 # Adapted from https://github.com/iblancasa/blog_files/blob/master/.travis.yml
 before_install:
