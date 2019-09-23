@@ -50,7 +50,8 @@
 
 <div class="language-makefile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">CPP</span><span class="o">=</span><span class="nf">$(</span><span class="nb">wildcard</span> <span class="k">*</span>.cpp<span class="nf">)</span>
 <span class="nv">EXE</span><span class="o">=</span><span class="nf">$(</span><span class="nb">basename</span> <span class="nv">$(CPP)</span><span class="nf">)</span>
-<span class="nv">CPPFLAGS</span><span class="o">=</span><span class="nt">-O0</span>
+<span class="c"># Modifica aquí para ajustar el nivel de optimización (de 0 a 3):
+</span><span class="nv">CPPFLAGS</span><span class="o">=</span><span class="nt">-O0</span>
 <span class="nv">DAT</span><span class="o">=</span>tiempos_busqueda.dat tiempos_ej3.dat
 
 <span class="nl">.PHONY</span><span class="o">:</span> <span class="nf">default clean tiempos</span>
@@ -60,7 +61,8 @@
 <span class="nl">clean</span><span class="o">:</span>
 	<span class="nb">rm</span> <span class="nt">-f</span> <span class="nv">$(EXE)</span> <span class="nv">$(DAT)</span>
 
-<span class="nv">inicio_busq</span><span class="o">=</span>100
+<span class="c"># Modifica aquí para cambiar los puntos de inicio, fin y los saltos:
+</span><span class="nv">inicio_busq</span><span class="o">=</span>100
 <span class="nv">fin_busq</span><span class="o">=</span>1000000
 <span class="nv">incremento</span><span class="o">=</span>1000
 <span class="nv">inicio_ej3</span><span class="o">=</span>1024
