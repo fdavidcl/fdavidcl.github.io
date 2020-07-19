@@ -24,14 +24,11 @@ profile:
       url: https://github.com/fdavidcl
       icon: github
     "Toots":
-      url: https://mstdn.io/@fdavidcl
+      url: https://toot.cafe/@fdavidcl
       icon: mastodon
     "Photos":
-      url: https://photos.quotient.space/
+      url: https://pixelfed.social/fdavidcl
       icon: instagram
-    "Questions and answers":
-      url: http://david.quotient.space/ask
-      icon: question-circle
     "Download my CV":
       url: cv.pdf
       icon: file-o
