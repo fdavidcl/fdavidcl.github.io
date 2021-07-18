@@ -15,7 +15,7 @@ profile:
 
   links:
     "Academic profile":
-      url: https://www.researchgate.net/profile/David_Charte
+      url: https://scholar.google.com/citations?user=FRv_MwYAAAAJ&view_op=list_works&sortby=pubdate
       icon: graduation-cap
     "Professional profile":
       url: https://linkedin.com/in/fdavidcl
@@ -23,9 +23,9 @@ profile:
     "Projects":
       url: https://github.com/fdavidcl
       icon: github
-    "Toots":
-      url: https://toot.cafe/@fdavidcl
-      icon: mastodon
+    "Tweets":
+      url: https://twitter.com/fdavidcl
+      icon: twitter
     "Photos":
       url: https://pixelfed.social/fdavidcl
       icon: instagram
