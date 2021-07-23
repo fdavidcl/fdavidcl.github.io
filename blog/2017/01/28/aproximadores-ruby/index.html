@@ -52,9 +52,9 @@ iterativos. Resultó ser una aplicación muy práctica de los
 me parece un buen ejemplo del ahorro de código que puede suponer su uso.</p>
 
 <p>Para abstraer distintos métodos iterativos de aproximación, definí una
-clase abstracta <code class="highlighter-rouge">Approximator</code> de la que derivarían el resto. Permite
+clase abstracta <code class="language-plaintext highlighter-rouge">Approximator</code> de la que derivarían el resto. Permite
 almacenar la aproximación actual y la tolerancia o error que se quiera
-aceptar. Las clases derivadas implementan el método <code class="highlighter-rouge">next_one</code> que
+aceptar. Las clases derivadas implementan el método <code class="language-plaintext highlighter-rouge">next_one</code> que
 calcula la siguiente aproximación a partir de la actual.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Clase base para métodos numéricos de aproximación de funciones</span>
@@ -78,21 +78,21 @@ calcula la siguiente aproximación a partir de la actual.</p>
 </code></pre></div></div>
 
 <p>El punto clave para aprovechar la potencia de los enumeradores es
-implementar un método <code class="highlighter-rouge">each</code> que haga uso de la función <code class="highlighter-rouge">yield</code> para
+implementar un método <code class="language-plaintext highlighter-rouge">each</code> que haga uso de la función <code class="language-plaintext highlighter-rouge">yield</code> para
 proporcionar los resultados parciales. En este caso, proporciona la
-aproximación encontrada en cada iteración. Lo interesante de <code class="highlighter-rouge">yield</code>
+aproximación encontrada en cada iteración. Lo interesante de <code class="language-plaintext highlighter-rouge">yield</code>
 es que no devuelve el control al método hasta que se necesita un nuevo
 resultado, de forma que sólo se realizan los cálculos necesarios. Por
 ejemplo, podría haber implementado (y lo hice, al principio) el método
-<code class="highlighter-rouge">each</code> como un <code class="highlighter-rouge">loop</code> infinito, sin condición de parada, y podría
+<code class="language-plaintext highlighter-rouge">each</code> como un <code class="language-plaintext highlighter-rouge">loop</code> infinito, sin condición de parada, y podría
 iterar las veces necesarias para obtener una precisión arbitraria
 (suponiendo convergencia del método). Sin embargo, para poder hacer un
 uso práctico de las clases, añadí la condición de parada con la
 tolerancia.</p>
 
-<p>Una vez implementado <code class="highlighter-rouge">each</code>, basta con incluir el módulo <code class="highlighter-rouge">Enumerable</code>
-que añade toda la funcionalidad de los enumeradores, como <code class="highlighter-rouge">to_a</code> que
-acumula en un array todos los elementos devueltos por <code class="highlighter-rouge">each</code>. Así,
+<p>Una vez implementado <code class="language-plaintext highlighter-rouge">each</code>, basta con incluir el módulo <code class="language-plaintext highlighter-rouge">Enumerable</code>
+que añade toda la funcionalidad de los enumeradores, como <code class="language-plaintext highlighter-rouge">to_a</code> que
+acumula en un array todos los elementos devueltos por <code class="language-plaintext highlighter-rouge">each</code>. Así,
 para calcular la mejor aproximación basta con devolver el último
 elemento de ese array.</p>
 
@@ -122,7 +122,7 @@ elemento de ese array.</p>
 </code></pre></div></div>
 
 <p>Además de consultar la mejor aproximación, podremos realizar otras
-tareas como obtener una lista de <em>n</em> iteraciones con <code class="highlighter-rouge">take(n)</code>.</p>
+tareas como obtener una lista de <em>n</em> iteraciones con <code class="language-plaintext highlighter-rouge">take(n)</code>.</p>
 
 <p>Por último, basta implementar especializaciones de esta clase con
 métodos de aproximación concretos. El siguiente es el método de

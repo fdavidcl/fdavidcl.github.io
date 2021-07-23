@@ -625,7 +625,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 
 <h2 id="preparativos-previos">Preparativos previos</h2>
 
-<p>Para crear nuevos <em>commits</em> y <em>pull requests</em> necesitamos una cuenta de GitHub. Podemos usar la propia o crear una nueva. Otorgaremos a dicha cuenta permisos de escritura sobre el repositorio de blog en cuestión. Después, obtendremos un <a href="https://github.com/settings/tokens">token de acceso personal</a> con permisos de modificación de repositorios. Dicho token lo almacenaremos en las variables de entorno de la shell donde vayamos a hospedar la aplicación, supongamos que bajo el nombre de <code class="highlighter-rouge">GITHUB_TOKEN</code>.</p>
+<p>Para crear nuevos <em>commits</em> y <em>pull requests</em> necesitamos una cuenta de GitHub. Podemos usar la propia o crear una nueva. Otorgaremos a dicha cuenta permisos de escritura sobre el repositorio de blog en cuestión. Después, obtendremos un <a href="https://github.com/settings/tokens">token de acceso personal</a> con permisos de modificación de repositorios. Dicho token lo almacenaremos en las variables de entorno de la shell donde vayamos a hospedar la aplicación, supongamos que bajo el nombre de <code class="language-plaintext highlighter-rouge">GITHUB_TOKEN</code>.</p>
 
 <h2 id="el-backend">El backend</h2>
 
@@ -685,7 +685,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 
 <h3 id="sinatra">Sinatra</h3>
 
-<p><a href="http://www.sinatrarb.com/">Sinatra</a> es un <em>domain specific language</em> (DSL) para Ruby que facilita la creación de aplicaciones web sencillas sin apenas esfuerzo. Basta con escribir las peticiones HTTP que se aceptan y cuál es la respuesta. Además, es muy útil utilizarlo junto a otras gemas de Ruby que ahorren trabajo a la hora de escribir las plantillas y el estilo. Nuestro archivo de dependencias <code class="highlighter-rouge">Gemfile</code> queda de la siguiente forma:</p>
+<p><a href="http://www.sinatrarb.com/">Sinatra</a> es un <em>domain specific language</em> (DSL) para Ruby que facilita la creación de aplicaciones web sencillas sin apenas esfuerzo. Basta con escribir las peticiones HTTP que se aceptan y cuál es la respuesta. Además, es muy útil utilizarlo junto a otras gemas de Ruby que ahorren trabajo a la hora de escribir las plantillas y el estilo. Nuestro archivo de dependencias <code class="language-plaintext highlighter-rouge">Gemfile</code> queda de la siguiente forma:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Gemfile</span>
 
@@ -703,11 +703,11 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 <span class="n">gem</span> <span class="s1">'recaptcha'</span> <span class="c1"># Some protection against bots</span>
 </code></pre></div></div>
 
-<p>Para instalar y manejar las dependencias usamos <a href="http://bundler.io/">Bundler</a>: basta así con ejecutar <code class="highlighter-rouge">gem install bundler</code> y tras esto <code class="highlighter-rouge">bundle install</code>.</p>
+<p>Para instalar y manejar las dependencias usamos <a href="http://bundler.io/">Bundler</a>: basta así con ejecutar <code class="language-plaintext highlighter-rouge">gem install bundler</code> y tras esto <code class="language-plaintext highlighter-rouge">bundle install</code>.</p>
 
 <h3 id="respondiendo-a-peticiones">Respondiendo a peticiones</h3>
 
-<p>Vamos a ampliar el archivo <code class="highlighter-rouge">form.rb</code> creado anteriormente para aceptar y responder un par de peticiones HTTP. Responderemos a <code class="highlighter-rouge">GET /</code> mostrando el formulario, que crearemos aparte en una vista en Haml. Por otro lado, al enviar dicho formulario se creará una petición <code class="highlighter-rouge">POST /posts</code> con los datos que necesitamos para componer el nuevo post.</p>
+<p>Vamos a ampliar el archivo <code class="language-plaintext highlighter-rouge">form.rb</code> creado anteriormente para aceptar y responder un par de peticiones HTTP. Responderemos a <code class="language-plaintext highlighter-rouge">GET /</code> mostrando el formulario, que crearemos aparte en una vista en Haml. Por otro lado, al enviar dicho formulario se creará una petición <code class="language-plaintext highlighter-rouge">POST /posts</code> con los datos que necesitamos para componer el nuevo post.</p>
 
 <div class="language-haml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-# views/form.haml
 </span><span class="nt">%h1</span> Nuevo post
@@ -767,7 +767,7 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Para iniciar el servidor web con nuestra aplicación, debería bastar con ejecutar <code class="highlighter-rouge">ruby form.rb</code> en el terminal.</p>
+<p>Para iniciar el servidor web con nuestra aplicación, debería bastar con ejecutar <code class="language-plaintext highlighter-rouge">ruby form.rb</code> en el terminal.</p>
 
 <h3 id="añadiendo-un-editor-de-verdad">Añadiendo un editor de verdad</h3>
 
@@ -885,9 +885,9 @@ iterativos. Resultó ser una aplicación muy práctica de los
 me parece un buen ejemplo del ahorro de código que puede suponer su uso.</p>
 
 <p>Para abstraer distintos métodos iterativos de aproximación, definí una
-clase abstracta <code class="highlighter-rouge">Approximator</code> de la que derivarían el resto. Permite
+clase abstracta <code class="language-plaintext highlighter-rouge">Approximator</code> de la que derivarían el resto. Permite
 almacenar la aproximación actual y la tolerancia o error que se quiera
-aceptar. Las clases derivadas implementan el método <code class="highlighter-rouge">next_one</code> que
+aceptar. Las clases derivadas implementan el método <code class="language-plaintext highlighter-rouge">next_one</code> que
 calcula la siguiente aproximación a partir de la actual.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Clase base para métodos numéricos de aproximación de funciones</span>
@@ -911,21 +911,21 @@ calcula la siguiente aproximación a partir de la actual.</p>
 </code></pre></div></div>
 
 <p>El punto clave para aprovechar la potencia de los enumeradores es
-implementar un método <code class="highlighter-rouge">each</code> que haga uso de la función <code class="highlighter-rouge">yield</code> para
+implementar un método <code class="language-plaintext highlighter-rouge">each</code> que haga uso de la función <code class="language-plaintext highlighter-rouge">yield</code> para
 proporcionar los resultados parciales. En este caso, proporciona la
-aproximación encontrada en cada iteración. Lo interesante de <code class="highlighter-rouge">yield</code>
+aproximación encontrada en cada iteración. Lo interesante de <code class="language-plaintext highlighter-rouge">yield</code>
 es que no devuelve el control al método hasta que se necesita un nuevo
 resultado, de forma que sólo se realizan los cálculos necesarios. Por
 ejemplo, podría haber implementado (y lo hice, al principio) el método
-<code class="highlighter-rouge">each</code> como un <code class="highlighter-rouge">loop</code> infinito, sin condición de parada, y podría
+<code class="language-plaintext highlighter-rouge">each</code> como un <code class="language-plaintext highlighter-rouge">loop</code> infinito, sin condición de parada, y podría
 iterar las veces necesarias para obtener una precisión arbitraria
 (suponiendo convergencia del método). Sin embargo, para poder hacer un
 uso práctico de las clases, añadí la condición de parada con la
 tolerancia.</p>
 
-<p>Una vez implementado <code class="highlighter-rouge">each</code>, basta con incluir el módulo <code class="highlighter-rouge">Enumerable</code>
-que añade toda la funcionalidad de los enumeradores, como <code class="highlighter-rouge">to_a</code> que
-acumula en un array todos los elementos devueltos por <code class="highlighter-rouge">each</code>. Así,
+<p>Una vez implementado <code class="language-plaintext highlighter-rouge">each</code>, basta con incluir el módulo <code class="language-plaintext highlighter-rouge">Enumerable</code>
+que añade toda la funcionalidad de los enumeradores, como <code class="language-plaintext highlighter-rouge">to_a</code> que
+acumula en un array todos los elementos devueltos por <code class="language-plaintext highlighter-rouge">each</code>. Así,
 para calcular la mejor aproximación basta con devolver el último
 elemento de ese array.</p>
 
@@ -955,7 +955,7 @@ elemento de ese array.</p>
 </code></pre></div></div>
 
 <p>Además de consultar la mejor aproximación, podremos realizar otras
-tareas como obtener una lista de <em>n</em> iteraciones con <code class="highlighter-rouge">take(n)</code>.</p>
+tareas como obtener una lista de <em>n</em> iteraciones con <code class="language-plaintext highlighter-rouge">take(n)</code>.</p>
 
 <p>Por último, basta implementar especializaciones de esta clase con
 métodos de aproximación concretos. El siguiente es el método de
@@ -1048,9 +1048,9 @@ Orgzly en funcionamiento</p>
 
 <p>La solución que he encontrado es usar <a href="https://syncthing.net/">Syncthing, un sistema de sincronización P2P de código libre</a>. Para ello simplemente tendremos que instalar la app de Syncthing en los dispositivos Android y la versión del programa correspondiente a nuestro sistema operativo para el PC.</p>
 
-<p class="note">En Arch Linux basta ejecutar <code class="highlighter-rouge">pacman -S syncthing</code>. Además, conviene añadirlo al arranque del sistema con <code class="highlighter-rouge">systemctl --user enable syncthing</code>.</p>
+<p class="note">En Arch Linux basta ejecutar <code class="language-plaintext highlighter-rouge">pacman -S syncthing</code>. Además, conviene añadirlo al arranque del sistema con <code class="language-plaintext highlighter-rouge">systemctl --user enable syncthing</code>.</p>
 
-<p>En la versión de PC, Syncthing generalmente inicializará una carpeta por defecto. Podemos mover ahí nuestro archivo <em>org</em>. Para hacer que se comuniquen los dispositivos entre sí, desde la interfaz web disponible en <code class="highlighter-rouge">localhost:8384</code> mostramos el ID desde <em>Options</em> → <em>Show ID</em> y escaneamos el código QR desde el móvil en la pantalla de <em>Nuevo dispositivo</em>.</p>
+<p>En la versión de PC, Syncthing generalmente inicializará una carpeta por defecto. Podemos mover ahí nuestro archivo <em>org</em>. Para hacer que se comuniquen los dispositivos entre sí, desde la interfaz web disponible en <code class="language-plaintext highlighter-rouge">localhost:8384</code> mostramos el ID desde <em>Options</em> → <em>Show ID</em> y escaneamos el código QR desde el móvil en la pantalla de <em>Nuevo dispositivo</em>.</p>
 
 <p class="fig medium"><img src="/assets/images/syncthing-add.jpg" alt="" /></p>
 
@@ -1076,8 +1076,8 @@ way easier. And if you already use Emacs, I encourage you to try them
 and see if they help you get a more comfortable development environment.</p>
 
 <p>To add any of these packages to your Emacs configuration, find your 
-initialization file (usually <code class="highlighter-rouge">~/.emacs</code> or <code class="highlighter-rouge">~/.emacs.d/init.el</code>) and
-add the snippets there. You will also need to install and enable <code class="highlighter-rouge">use-package</code> 
+initialization file (usually <code class="language-plaintext highlighter-rouge">~/.emacs</code> or <code class="language-plaintext highlighter-rouge">~/.emacs.d/init.el</code>) and
+add the snippets there. You will also need to install and enable <code class="language-plaintext highlighter-rouge">use-package</code> 
 beforehand (<a href="http://www.lunaryorn.com/posts/my-emacs-configuration-with-use-package.html">why?</a>).</p>
 
 <h2 id="smex">Smex</h2>
@@ -1087,7 +1087,7 @@ beforehand (<a href="http://www.lunaryorn.com/posts/my-emacs-configuration-with-
 command without the need for a dedicated keyboard shortcut or menu
 entry. By default Emacs doesn’t help much while writing a command, and
 it can be challenging to remember many of them, as well as tedious
-writing the long ones (<code class="highlighter-rouge">package-list-packages</code> anyone?).
+writing the long ones (<code class="language-plaintext highlighter-rouge">package-list-packages</code> anyone?).
 <a href="https://github.com/nonsequitur/smex/">Smex</a> is a M-x enhancement for
 Emacs, built on top of Ido, which means it will try to predict and
 autocomplete commands as you write them.</p>
@@ -1191,9 +1191,9 @@ for the remark!).</p>
 * Projects / Fun
 </code></pre>
 
-<p>Easy enough, the only actual content of the file is that last stack of headers (it could be a list with <code class="highlighter-rouge">-</code> instead of <code class="highlighter-rouge">*</code> as well). Now onto the good part: place the cursor over one of the tasks and type <kbd>Ctrl + c</kbd>,<kbd>Ctrl + x</kbd>,<kbd>Ctrl + i</kbd>. This will set a clock under that task with the starting time of the task. Let some time pass, and use <kbd>Ctrl + c</kbd>,<kbd>Ctrl + x</kbd>,<kbd>Ctrl + o</kbd> to stop the clock. Emacs will also remember when you have a clock running, and will warn you if you try to close the buffer or stop the clock if you start another one.</p>
+<p>Easy enough, the only actual content of the file is that last stack of headers (it could be a list with <code class="language-plaintext highlighter-rouge">-</code> instead of <code class="language-plaintext highlighter-rouge">*</code> as well). Now onto the good part: place the cursor over one of the tasks and type <kbd>Ctrl + c</kbd>,<kbd>Ctrl + x</kbd>,<kbd>Ctrl + i</kbd>. This will set a clock under that task with the starting time of the task. Let some time pass, and use <kbd>Ctrl + c</kbd>,<kbd>Ctrl + x</kbd>,<kbd>Ctrl + o</kbd> to stop the clock. Emacs will also remember when you have a clock running, and will warn you if you try to close the buffer or stop the clock if you start another one.</p>
 
-<p>When you have tracked several time periods for the same task, you can compute the total time with <kbd>Ctrl + c</kbd>,<kbd>Ctrl + x</kbd>,<kbd>Ctrl + d</kbd>. <em>org-clock</em> also understands nested tasks (second-level headers, nested lists, etc.) and will sum the time of all the tasks inside a higher-level task to compute the overall spent time. You can generate a daily report with <kbd>Ctrl + c</kbd>,<kbd>Ctrl + x</kbd>,<kbd>Ctrl + r</kbd> and setting the <code class="highlighter-rouge">:block today</code> parameter. The following screenshot shows all these features at work:</p>
+<p>When you have tracked several time periods for the same task, you can compute the total time with <kbd>Ctrl + c</kbd>,<kbd>Ctrl + x</kbd>,<kbd>Ctrl + d</kbd>. <em>org-clock</em> also understands nested tasks (second-level headers, nested lists, etc.) and will sum the time of all the tasks inside a higher-level task to compute the overall spent time. You can generate a daily report with <kbd>Ctrl + c</kbd>,<kbd>Ctrl + x</kbd>,<kbd>Ctrl + r</kbd> and setting the <code class="language-plaintext highlighter-rouge">:block today</code> parameter. The following screenshot shows all these features at work:</p>
 
 <p><img src="/assets/images/emacs-org-clock.png" alt="Screenshot of my time log" /></p>
 
@@ -1241,8 +1241,8 @@ for_window <span class="o">[</span><span class="nv">class</span><span class="o">
 <p><strong>Disclaimer</strong>:  This is my first time deploying Mastodon so trust your own common sense over these steps.</p>
 
 <ol>
-  <li>Set up a single 5$ droplet in your DO account (if you are not yet an user you can use this link to get 10$ credit: <a href="https://m.do.co/c/ca70d8a84d85">https://m.do.co/c/ca70d8a84d85</a>). Throw your public SSH key in there and use its IP address to login: <code class="highlighter-rouge">ssh root@[ip-address]</code>. You can also set up your domain so that it points to DO’s nameservers and redirects to your droplet.</li>
-  <li><code class="highlighter-rouge">apt install docker.io nginx letsencrypt</code></li>
+  <li>Set up a single 5$ droplet in your DO account (if you are not yet an user you can use this link to get 10$ credit: <a href="https://m.do.co/c/ca70d8a84d85">https://m.do.co/c/ca70d8a84d85</a>). Throw your public SSH key in there and use its IP address to login: <code class="language-plaintext highlighter-rouge">ssh root@[ip-address]</code>. You can also set up your domain so that it points to DO’s nameservers and redirects to your droplet.</li>
+  <li><code class="language-plaintext highlighter-rouge">apt install docker.io nginx letsencrypt</code></li>
   <li>
     <p>You’ll need a new version of docker-compose so run this (<a href="https://gist.github.com/wdullaer/f1af16bd7e970389bad3">source</a>):</p>
 
@@ -1261,9 +1261,9 @@ for_window <span class="o">[</span><span class="nv">class</span><span class="o">
  swapon /swapfile
 </code></pre></div>    </div>
   </li>
-  <li>Follow the guide for Docker in Mastodon documentation to clone the repository. Now, <code class="highlighter-rouge">touch .env.production</code> since docker-compose will not work without it. Follow the guide to get the images.</li>
+  <li>Follow the guide for Docker in Mastodon documentation to clone the repository. Now, <code class="language-plaintext highlighter-rouge">touch .env.production</code> since docker-compose will not work without it. Follow the guide to get the images.</li>
   <li>
-    <p>Check that file permissions are correct. I came across a couple of <code class="highlighter-rouge">Permission denied</code> errors since some directories in the Docker container were owned by <code class="highlighter-rouge">root</code> instead of <code class="highlighter-rouge">mastodon</code>. To check this, login into the web container as root:</p>
+    <p>Check that file permissions are correct. I came across a couple of <code class="language-plaintext highlighter-rouge">Permission denied</code> errors since some directories in the Docker container were owned by <code class="language-plaintext highlighter-rouge">root</code> instead of <code class="language-plaintext highlighter-rouge">mastodon</code>. To check this, login into the web container as root:</p>
 
     <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> docker-compose run <span class="nt">--rm</span> <span class="nt">-u</span> 0 web bash
  <span class="c"># in the container:</span>
@@ -1275,7 +1275,7 @@ for_window <span class="o">[</span><span class="nv">class</span><span class="o">
     </blockquote>
   </li>
   <li>Follow the guide to setup your instance. You don’t need a MailGun account if it’s a single-user instance, but put some fake user and password just in case. The compilation of assets may take several minutes, for convenience make sure you aren’t kicked out of the ssh session. Set up an admin account for yourself.</li>
-  <li><code class="highlighter-rouge">docker-compose up -d</code></li>
+  <li><code class="language-plaintext highlighter-rouge">docker-compose up -d</code></li>
   <li>Follow the nginx and Let’s Encrypt sections of the <a href="https://github.com/tootsuite/documentation/blob/master/Running-Mastodon/Production-guide.md#nginx-configuration">production guide</a>.</li>
   <li>If all went well you should be able to see your new Mastodon instance when you visit your domain.</li>
 </ol>
@@ -1287,7 +1287,7 @@ for_window <span class="o">[</span><span class="nv">class</span><span class="o">
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose run <span class="nt">--rm</span> web rake assets:precompile
 </code></pre></div></div>
 
-<p>If creating the user didn’t work, try adding a new user, locating the password reset token in the logs (then navigating to <code class="highlighter-rouge">example.com/auth/password/edit?reset_password_token=[your-token]</code> to create a password) and lastly confirming the email address:</p>
+<p>If creating the user didn’t work, try adding a new user, locating the password reset token in the logs (then navigating to <code class="language-plaintext highlighter-rouge">example.com/auth/password/edit?reset_password_token=[your-token]</code> to create a password) and lastly confirming the email address:</p>
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose run <span class="nt">--rm</span> web rake mastodon:add_user
 docker logs mastodon_web_1
 docker-compose run <span class="nt">--rm</span> web rake mastodon:confirm_email <span class="nv">USER_EMAIL</span><span class="o">=[</span>your-email]
@@ -1308,9 +1308,9 @@ docker-compose run <span class="nt">--rm</span> web rake mastodon:confirm_email 
 
 <p>This snippet accepts a string from standard input, then cleans the leading and trailing spacing characters and embeds it in a greeting which is shown on standard output. Notice that:</p>
 <ul>
-  <li><code class="highlighter-rouge">puts</code> and <code class="highlighter-rouge">gets</code> are the standard functions for displaying messages and reading input, respectively.</li>
+  <li><code class="language-plaintext highlighter-rouge">puts</code> and <code class="language-plaintext highlighter-rouge">gets</code> are the standard functions for displaying messages and reading input, respectively.</li>
   <li>You can omit parenthesis around parameters for better readability.</li>
-  <li><code class="highlighter-rouge">#{...}</code> in strings interprets small pieces of code and transforms the output into a string.</li>
+  <li><code class="language-plaintext highlighter-rouge">#{...}</code> in strings interprets small pieces of code and transforms the output into a string.</li>
 </ul>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">puts</span> <span class="s2">"boooored"</span><span class="p">.</span><span class="nf">upcase</span> <span class="k">unless</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">saturday?</span>
@@ -1319,20 +1319,20 @@ docker-compose run <span class="nt">--rm</span> web rake mastodon:confirm_email 
 <p>This example is so readable you probably don’t need a description. Notice that:</p>
 <ul>
   <li>Literals are Ruby objects and can receive methods.</li>
-  <li><code class="highlighter-rouge">if</code>, <code class="highlighter-rouge">unless</code>, <code class="highlighter-rouge">while</code> and <code class="highlighter-rouge">until</code> can be used as one-line structures.</li>
-  <li>There is a convention to end methods which return booleans with <code class="highlighter-rouge">?</code> and methods which have non-explicit side effects with <code class="highlighter-rouge">!</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">if</code>, <code class="language-plaintext highlighter-rouge">unless</code>, <code class="language-plaintext highlighter-rouge">while</code> and <code class="language-plaintext highlighter-rouge">until</code> can be used as one-line structures.</li>
+  <li>There is a convention to end methods which return booleans with <code class="language-plaintext highlighter-rouge">?</code> and methods which have non-explicit side effects with <code class="language-plaintext highlighter-rouge">!</code>.</li>
 </ul>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">real</span><span class="p">,</span> <span class="n">imag</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="n">i</span><span class="p">).</span><span class="nf">rectangular</span>
 </code></pre></div></div>
 
-<p>This snippet assigns the real part of 1 + 3i to <code class="highlighter-rouge">real</code> and the imaginary part to <code class="highlighter-rouge">imag</code>. Notice that:</p>
+<p>This snippet assigns the real part of 1 + 3i to <code class="language-plaintext highlighter-rouge">real</code> and the imaginary part to <code class="language-plaintext highlighter-rouge">imag</code>. Notice that:</p>
 <ul>
-  <li>Ruby has built-in support for complex numbers, big numbers (as in symbolic, bigger than <code class="highlighter-rouge">long long</code> numbers) and symbolic rationals.</li>
-  <li>Assignment allows splatting arrays. The splat operator <code class="highlighter-rouge">*</code> allows for related operations. For example,
+  <li>Ruby has built-in support for complex numbers, big numbers (as in symbolic, bigger than <code class="language-plaintext highlighter-rouge">long long</code> numbers) and symbolic rationals.</li>
+  <li>Assignment allows splatting arrays. The splat operator <code class="language-plaintext highlighter-rouge">*</code> allows for related operations. For example,
     <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">xs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 </code></pre></div>    </div>
-    <p>performs some Haskell-ish pattern matching: <code class="highlighter-rouge">x</code> receives the first element and <code class="highlighter-rouge">xs</code> holds the rest of the array. There is also a similar double-splat <code class="highlighter-rouge">**</code> for hashes.</p>
+    <p>performs some Haskell-ish pattern matching: <code class="language-plaintext highlighter-rouge">x</code> receives the first element and <code class="language-plaintext highlighter-rouge">xs</code> holds the rest of the array. There is also a similar double-splat <code class="language-plaintext highlighter-rouge">**</code> for hashes.</p>
   </li>
 </ul>
 
@@ -1343,9 +1343,9 @@ docker-compose run <span class="nt">--rm</span> web rake mastodon:confirm_email 
 
 <p>Defines a class useful to return errors (exceptions). Notice that:</p>
 <ul>
-  <li>Classes are defined with <code class="highlighter-rouge">class</code> (which is syntax sugar for <code class="highlighter-rouge">Class.new { ... }</code>).</li>
-  <li>There is simple inheritance with <code class="highlighter-rouge">&lt;</code>.</li>
-  <li>You can throw an error with <code class="highlighter-rouge">raise DeadPlayerError</code>. Ruby distinguishes errors, from which a program can recover, and other kinds of exceptions, which leave the program in an invalid state and therefore it must stop.</li>
+  <li>Classes are defined with <code class="language-plaintext highlighter-rouge">class</code> (which is syntax sugar for <code class="language-plaintext highlighter-rouge">Class.new { ... }</code>).</li>
+  <li>There is simple inheritance with <code class="language-plaintext highlighter-rouge">&lt;</code>.</li>
+  <li>You can throw an error with <code class="language-plaintext highlighter-rouge">raise DeadPlayerError</code>. Ruby distinguishes errors, from which a program can recover, and other kinds of exceptions, which leave the program in an invalid state and therefore it must stop.</li>
 </ul>
 
 <pre><code class="language-{.ruby}">Point = Struct.new :x, :y, :z
@@ -1354,8 +1354,8 @@ docker-compose run <span class="nt">--rm</span> web rake mastodon:confirm_email 
 <p>Creates a class with getters and setters for the given attributes. Notice that:</p>
 <ul>
   <li>Member attributes of a class are <strong>always</strong> private (or protected, as they are inherited). Thus, the <em>dot</em> only sends methods and doesn’t directly access attributes.</li>
-  <li>Methods can be defined in a <code class="highlighter-rouge">do ... end</code> block. You should consider defining a class if you want to add them.</li>
-  <li>New objects are created with <code class="highlighter-rouge">Point.new</code>.</li>
+  <li>Methods can be defined in a <code class="language-plaintext highlighter-rouge">do ... end</code> block. You should consider defining a class if you want to add them.</li>
+  <li>New objects are created with <code class="language-plaintext highlighter-rouge">Point.new</code>.</li>
 </ul>
 
 <h2 id="iteration-and-data-structures">Iteration and data structures</h2>
@@ -1365,20 +1365,20 @@ docker-compose run <span class="nt">--rm</span> web rake mastodon:confirm_email 
 
 <p>Walks through the array, obtains an array of strings <em>index. element</em> and prints it on stdout. Notice that:</p>
 <ul>
-  <li><code class="highlighter-rouge">%w[]</code> splits a list of words by spaces and returns an array.</li>
-  <li><code class="highlighter-rouge">each_with_index</code> iterates giving each element and its index in the collection.</li>
-  <li><code class="highlighter-rouge">map</code> applies a function on each element of a collection and returns the result.</li>
-  <li><code class="highlighter-rouge">{...}</code> o <code class="highlighter-rouge">do ... end</code> denote <em>blocks</em>, structures of code which are passed to methods in order to be ran from them. Blocks can receive parameters between bars <code class="highlighter-rouge">|a, b|</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">%w[]</code> splits a list of words by spaces and returns an array.</li>
+  <li><code class="language-plaintext highlighter-rouge">each_with_index</code> iterates giving each element and its index in the collection.</li>
+  <li><code class="language-plaintext highlighter-rouge">map</code> applies a function on each element of a collection and returns the result.</li>
+  <li><code class="language-plaintext highlighter-rouge">{...}</code> o <code class="language-plaintext highlighter-rouge">do ... end</code> denote <em>blocks</em>, structures of code which are passed to methods in order to be ran from them. Blocks can receive parameters between bars <code class="language-plaintext highlighter-rouge">|a, b|</code>.</li>
 </ul>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dot</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">)</span> <span class="p">{</span> <span class="n">v1</span><span class="p">.</span><span class="nf">zip</span><span class="p">(</span><span class="n">v2</span><span class="p">).</span><span class="nf">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="nb">p</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span><span class="o">|</span> <span class="nb">p</span> <span class="o">+</span> <span class="n">n</span> <span class="o">*</span> <span class="n">m</span> <span class="p">}</span> <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Computes the dot product. Example usage: <code class="highlighter-rouge">dot.([1, 2, 3], [-1, 0, 2])</code>. Notice that:</p>
+<p>Computes the dot product. Example usage: <code class="language-plaintext highlighter-rouge">dot.([1, 2, 3], [-1, 0, 2])</code>. Notice that:</p>
 <ul>
-  <li>Lambda functions are defined with <code class="highlighter-rouge">-&gt;</code>. As opposed to usual functions or methods, Lambdas are objects.</li>
-  <li><code class="highlighter-rouge">zip</code> pairs the elements of two or more arrays.</li>
-  <li><code class="highlighter-rouge">reduce</code> accumulates results of a binary function.</li>
+  <li>Lambda functions are defined with <code class="language-plaintext highlighter-rouge">-&gt;</code>. As opposed to usual functions or methods, Lambdas are objects.</li>
+  <li><code class="language-plaintext highlighter-rouge">zip</code> pairs the elements of two or more arrays.</li>
+  <li><code class="language-plaintext highlighter-rouge">reduce</code> accumulates results of a binary function.</li>
 </ul>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fib</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="n">h</span><span class="p">,</span> <span class="n">i</span><span class="o">|</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="p">}.</span><span class="nf">update</span><span class="p">(</span><span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span>
@@ -1386,21 +1386,21 @@ docker-compose run <span class="nt">--rm</span> web rake mastodon:confirm_email 
 
 <p>Creates a Hash which contains, for each index, the corresponding term of the Fibonacci sequence. Notice that:</p>
 <ul>
-  <li><code class="highlighter-rouge">Hash</code> may receive a <em>default</em> initialization (usually <code class="highlighter-rouge">nil</code>). This initialization takes place whenever the user attempts to access a value which has not been assigned previously.</li>
-  <li><code class="highlighter-rouge">Hash#update</code> assigns several values at a time.</li>
+  <li><code class="language-plaintext highlighter-rouge">Hash</code> may receive a <em>default</em> initialization (usually <code class="language-plaintext highlighter-rouge">nil</code>). This initialization takes place whenever the user attempts to access a value which has not been assigned previously.</li>
+  <li><code class="language-plaintext highlighter-rouge">Hash#update</code> assigns several values at a time.</li>
   <li>This would be equivalent to a memoized recursive version.</li>
 </ul>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">solution</span><span class="p">.</span><span class="nf">neighborhood</span><span class="p">.</span><span class="nf">detect</span> <span class="p">{</span> <span class="o">|</span><span class="n">attempt</span><span class="p">,</span> <span class="n">fitness</span><span class="o">|</span> <span class="n">fitness</span> <span class="o">&gt;</span> <span class="vi">@current_fitness</span> <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Assuming the <code class="highlighter-rouge">.neighborhood</code> returns a collection of possible solutions and their performance (fitness), this finds the first one which improves the current solution. Actual use: <a href="https://git.io/vPxQ6">https://git.io/vPxQ6</a>. Notice that:</p>
+<p>Assuming the <code class="language-plaintext highlighter-rouge">.neighborhood</code> returns a collection of possible solutions and their performance (fitness), this finds the first one which improves the current solution. Actual use: <a href="https://git.io/vPxQ6">https://git.io/vPxQ6</a>. Notice that:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">detect</code> receives a predicate and returns the first ellement of the collection which verifies it.</li>
-  <li>If you want to get the best solution in the neighborhood instead, you can use <code class="highlighter-rouge">max_by</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">detect</code> receives a predicate and returns the first ellement of the collection which verifies it.</li>
+  <li>If you want to get the best solution in the neighborhood instead, you can use <code class="language-plaintext highlighter-rouge">max_by</code>.</li>
   <li>There is a huge list of iteration methods available in any Ruby collection class:
-<a href="https://ruby-doc.org/core-2.5.0/Enumerable.html"><code class="highlighter-rouge">Enumerable</code></a></li>
+<a href="https://ruby-doc.org/core-2.5.0/Enumerable.html"><code class="language-plaintext highlighter-rouge">Enumerable</code></a></li>
 </ul>
 
 <h2 id="io">I/O</h2>
@@ -1408,11 +1408,11 @@ docker-compose run <span class="nt">--rm</span> web rake mastodon:confirm_email 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">open</span><span class="p">(</span><span class="no">DATA</span><span class="p">.</span><span class="nf">read</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">).</span><span class="nf">write</span> <span class="no">IO</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="vg">$0</span><span class="p">).</span><span class="nf">gsub</span><span class="p">(</span><span class="sr">/^#' /</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>This snippet reads itself (as in, the own program running), uncomments lines marked with <code class="highlighter-rouge">#'</code> and passes the result as input to the program started by <code class="highlighter-rouge">Kernel#open</code>. Notice that:</p>
+<p>This snippet reads itself (as in, the own program running), uncomments lines marked with <code class="language-plaintext highlighter-rouge">#'</code> and passes the result as input to the program started by <code class="language-plaintext highlighter-rouge">Kernel#open</code>. Notice that:</p>
 <ul>
-  <li><code class="highlighter-rouge">$0</code> is the name of the current program/script.</li>
-  <li><code class="highlighter-rouge">gsub</code> performs global sustitution</li>
-  <li><code class="highlighter-rouge">Kernel#open</code> opens read/write pipes with other processes when the “filename” looks like <code class="highlighter-rouge">"|program_name"</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">$0</code> is the name of the current program/script.</li>
+  <li><code class="language-plaintext highlighter-rouge">gsub</code> performs global sustitution</li>
+  <li><code class="language-plaintext highlighter-rouge">Kernel#open</code> opens read/write pipes with other processes when the “filename” looks like <code class="language-plaintext highlighter-rouge">"|program_name"</code>.</li>
 </ul>
 
 <p><em>The catch</em>  The program is hidden in the data section of the <a href="https://github.com/fdavidcl/ruby-ten-lines/blob/master/slides.rb">original script</a>:</p>

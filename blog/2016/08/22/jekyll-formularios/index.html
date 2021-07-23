@@ -51,7 +51,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 
 <h2 id="preparativos-previos">Preparativos previos</h2>
 
-<p>Para crear nuevos <em>commits</em> y <em>pull requests</em> necesitamos una cuenta de GitHub. Podemos usar la propia o crear una nueva. Otorgaremos a dicha cuenta permisos de escritura sobre el repositorio de blog en cuestión. Después, obtendremos un <a href="https://github.com/settings/tokens">token de acceso personal</a> con permisos de modificación de repositorios. Dicho token lo almacenaremos en las variables de entorno de la shell donde vayamos a hospedar la aplicación, supongamos que bajo el nombre de <code class="highlighter-rouge">GITHUB_TOKEN</code>.</p>
+<p>Para crear nuevos <em>commits</em> y <em>pull requests</em> necesitamos una cuenta de GitHub. Podemos usar la propia o crear una nueva. Otorgaremos a dicha cuenta permisos de escritura sobre el repositorio de blog en cuestión. Después, obtendremos un <a href="https://github.com/settings/tokens">token de acceso personal</a> con permisos de modificación de repositorios. Dicho token lo almacenaremos en las variables de entorno de la shell donde vayamos a hospedar la aplicación, supongamos que bajo el nombre de <code class="language-plaintext highlighter-rouge">GITHUB_TOKEN</code>.</p>
 
 <h2 id="el-backend">El backend</h2>
 
@@ -111,7 +111,7 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 
 <h3 id="sinatra">Sinatra</h3>
 
-<p><a href="http://www.sinatrarb.com/">Sinatra</a> es un <em>domain specific language</em> (DSL) para Ruby que facilita la creación de aplicaciones web sencillas sin apenas esfuerzo. Basta con escribir las peticiones HTTP que se aceptan y cuál es la respuesta. Además, es muy útil utilizarlo junto a otras gemas de Ruby que ahorren trabajo a la hora de escribir las plantillas y el estilo. Nuestro archivo de dependencias <code class="highlighter-rouge">Gemfile</code> queda de la siguiente forma:</p>
+<p><a href="http://www.sinatrarb.com/">Sinatra</a> es un <em>domain specific language</em> (DSL) para Ruby que facilita la creación de aplicaciones web sencillas sin apenas esfuerzo. Basta con escribir las peticiones HTTP que se aceptan y cuál es la respuesta. Además, es muy útil utilizarlo junto a otras gemas de Ruby que ahorren trabajo a la hora de escribir las plantillas y el estilo. Nuestro archivo de dependencias <code class="language-plaintext highlighter-rouge">Gemfile</code> queda de la siguiente forma:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Gemfile</span>
 
@@ -129,11 +129,11 @@ Un ejemplo del <a href="http://tux.ugr.es/dgiim/new/post">formulario resultante<
 <span class="n">gem</span> <span class="s1">'recaptcha'</span> <span class="c1"># Some protection against bots</span>
 </code></pre></div></div>
 
-<p>Para instalar y manejar las dependencias usamos <a href="http://bundler.io/">Bundler</a>: basta así con ejecutar <code class="highlighter-rouge">gem install bundler</code> y tras esto <code class="highlighter-rouge">bundle install</code>.</p>
+<p>Para instalar y manejar las dependencias usamos <a href="http://bundler.io/">Bundler</a>: basta así con ejecutar <code class="language-plaintext highlighter-rouge">gem install bundler</code> y tras esto <code class="language-plaintext highlighter-rouge">bundle install</code>.</p>
 
 <h3 id="respondiendo-a-peticiones">Respondiendo a peticiones</h3>
 
-<p>Vamos a ampliar el archivo <code class="highlighter-rouge">form.rb</code> creado anteriormente para aceptar y responder un par de peticiones HTTP. Responderemos a <code class="highlighter-rouge">GET /</code> mostrando el formulario, que crearemos aparte en una vista en Haml. Por otro lado, al enviar dicho formulario se creará una petición <code class="highlighter-rouge">POST /posts</code> con los datos que necesitamos para componer el nuevo post.</p>
+<p>Vamos a ampliar el archivo <code class="language-plaintext highlighter-rouge">form.rb</code> creado anteriormente para aceptar y responder un par de peticiones HTTP. Responderemos a <code class="language-plaintext highlighter-rouge">GET /</code> mostrando el formulario, que crearemos aparte en una vista en Haml. Por otro lado, al enviar dicho formulario se creará una petición <code class="language-plaintext highlighter-rouge">POST /posts</code> con los datos que necesitamos para componer el nuevo post.</p>
 
 <div class="language-haml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">-# views/form.haml
 </span><span class="nt">%h1</span> Nuevo post
@@ -193,7 +193,7 @@ category: </span><span class="si">#{</span><span class="n">category</span><span 
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Para iniciar el servidor web con nuestra aplicación, debería bastar con ejecutar <code class="highlighter-rouge">ruby form.rb</code> en el terminal.</p>
+<p>Para iniciar el servidor web con nuestra aplicación, debería bastar con ejecutar <code class="language-plaintext highlighter-rouge">ruby form.rb</code> en el terminal.</p>
 
 <h3 id="añadiendo-un-editor-de-verdad">Añadiendo un editor de verdad</h3>
 

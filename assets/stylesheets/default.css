@@ -118,14 +118,6 @@ body { background: #ffffff; }
 
 @media (min-width: 64em) { body { font-size: 18px; } }
 
-@media (min-width: 654em) { body { font-size: 18px; }
-  .wrapper .sidebar { position: fixed; top: 0; bottom: 0; width: 24rem; }
-  .wrapper .sidebar .side-content { padding: 6rem 2rem 2rem; text-align: right; }
-  .wrapper .sidebar .side-content header .profile-pic { margin-right: -5.25rem; }
-  .wrapper .sidebar .side-content .sections .section-link { border: 0px solid; display: block; padding: 0.7rem 0; margin: 0; }
-  .wrapper .main { margin-left: 24rem; }
-  .wrapper .main .main-content { padding: 8.6rem 5rem 2rem; margin: 0; }
-  .wrapper .main .main-content h1 { font-size: 220%; margin-top: 0; }
-  .wrapper .main .main-content article.home { margin-top: 7rem; } }
+@media (min-width: 654em) { body { font-size: 18px; } .wrapper .sidebar { position: fixed; top: 0; bottom: 0; width: 24rem; } .wrapper .sidebar .side-content { padding: 6rem 2rem 2rem; text-align: right; } .wrapper .sidebar .side-content header .profile-pic { margin-right: -5.25rem; } .wrapper .sidebar .side-content .sections .section-link { border: 0px solid; display: block; padding: 0.7rem 0; margin: 0; } .wrapper .main { margin-left: 24rem; } .wrapper .main .main-content { padding: 8.6rem 5rem 2rem; margin: 0; } .wrapper .main .main-content h1 { font-size: 220%; margin-top: 0; } .wrapper .main .main-content article.home { margin-top: 7rem; } }
 
 /*# sourceMappingURL=default.css.map */
