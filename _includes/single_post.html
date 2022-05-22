@@ -3,11 +3,12 @@
   
   <a href="{% if post.link %}{{ post.link }}{% else %}{{ post.url }}{% endif %}">
     {% if include.excerpt %}<h2>{% else %}<h1>{% endif %}
-        {{ post.title }} {% if post.link %}<i class="icon fa fa-small fa-external-link"></i>{% endif %}
+        {{ post.title }}
         {% if include.excerpt %}</h2>
         {% else %}</h1>
         {% endif %}
   </a>
+  {% if post.link %}<p><i class="icon fa fa-small fa-external-link"></i></p>{% endif %}
   {% if include.excerpt %}{{ post.content | truncatewords: 60 | markdownify | strip_html }}
   {% else %}{{ post.content }}
   {% endif %}

@@ -8,14 +8,14 @@ title: About
 <article class="home">
   <h1>{{ site.profile.greeting }}</h1>
   {{ site.profile.about | markdownify }}
-  <ul class="with-icons">
+  <div class="with-icons">
     {% for link in site.profile.links %}
     {% assign properties = link | last %}
-    <li>
-      <i class="icon fa fa-{{ properties.icon }}"></i>
+    <p>
       {% if properties.url %}
       <a class="personal-link {{ link | first }}-link" href="{{ properties.url }}" title="{{ link | first }}">
         {% endif %}
+        <i class="icon fa fa-{{ properties.icon }}"></i>
         {% if properties.title %}
         {{ properties.title }}
         {% else %}
@@ -24,21 +24,19 @@ title: About
         {% if properties.url %}
       </a>
       {% endif %}
-    </li>
+    </p>
     {% endfor %}
-  </ul>
+  </div>
 </article>
 <article>
   <h3>Latest publications</h3>
 
-  <ul>
     {% assign pubs = site.data.publications | sort: 'year' | reverse %}
     {% assign idx = (0..3) %}
     {% for i in idx %}
     {% assign paper = pubs[i] %}
-    <li>{% include bibtex_to_ref.html %}</li>
+    <p>{% include bibtex_to_ref.html %}</p>
     {% endfor %}
-  </ul>
   <p><a href="{{ site.baseurl }}/publications">See all publications</a></p>
 </article>
 <article>
@@ -53,13 +51,19 @@ title: About
   {% assign postsi = (0..3) %}
   {% for i in postsi %}
   {% assign post = posts[i] %}
-  <div class="archive-post">
+  <p>
     <time datetime="{{ post.date | date: "%F" }}">{{ post.date | date: "%F" }}</time>
-    <a href="{% if post.link %}{{ post.link }}{% else %}{{ post.url }}{% endif %}">{{ post.title }}{% if post.link %} <i class="icon fa fa-small fa-external-link"></i>{% endif %}</a>
-  </div>
+    <a href="{% if post.link %}{{ post.link }}{% else %}{{ post.url }}{% endif %}">{{ post.title }}</a>
+  </p>
   {% endfor %}
 
-  <p><a href="{{ site.baseurl }}/blog">See more posts</a></p>
+  <p><a href="{{ site.baseurl }}/blog/archive">See all posts</a></p>
+</article>
+<article>
+  <h3>Other material</h3>
+  {% for item in site.data.material %}
+  <p><a href="{{ item.url }}">{{ item.title }}</a></p>
+  {% endfor %}
 </article>
 <!-- <article>
   <h3>Docencia</h3>
