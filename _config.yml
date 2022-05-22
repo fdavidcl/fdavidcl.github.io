@@ -1,21 +1,16 @@
 baseurl: ""
 
 profile:
+  greeting: Hi!
   name: David Charte
   alias: "David C"
   pic: https://secure.gravatar.com/avatar/7083d161b041964b75c38376d9dee37a?s=200
-  description: >
-    I'm David Charte. I code and do maths. 
-
   about: >
-    I studied a Double Degree on Computer Science and Mathematics.
-    Currently I'm doing research and software development in the field of
-    [Unsupervised Deep Learning](/blog/2016/09/01/deep-learning/) at the University of Granada. I also contribute
-    talks and posts to [LibreIM](https://libreim.github.io).
+    I am a researcher in Data Science at the University of Granada. Here are some places where you can find me:
 
   links:
     "Academic profile":
-      url: https://scholar.google.com/citations?user=FRv_MwYAAAAJ&view_op=list_works&sortby=pubdate
+      url: https://orcid.org/my-orcid?orcid=0000-0002-4830-9512
       icon: graduation-cap
     "Professional profile":
       url: https://linkedin.com/in/fdavidcl
@@ -32,7 +27,7 @@ profile:
     "Download my CV":
       url: cv.pdf
       icon: file-o
-    "fdavidcl [at] ugr [dot] es":
+    "david [at] deivi [dot] ch":
       icon: envelope-o
 
 style:
@@ -41,12 +36,6 @@ style:
   accent: "00626e"
   font: "Source Sans Pro"
   monofont: "Inconsolata"
-
-# This list helps the index page show the correct collections in the desired order
-featured:
-  tags:
-    - research
-    - projects
 
 # Settings for the blog section
 plugins:

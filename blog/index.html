@@ -10,31 +10,13 @@ paginate:
 ---
 <h1>{{page.title}}</h1>
 
-{% if site.featured.tags %}
-<div class="featured">
-  <h3>Featured tags:</h3>
-  {% for name in site.featured.tags %}
-  <a href="{{ site.baseurl }}{{ site.tag_dir }}/{{ name }}" class="section-link section-{{ name }}">{{ name }}</a>
-  {% endfor %}
-</div>
+
+{% for c in site.categories %}
+{% assign cname = c | first %}
+{% if cname == "blog" %}
+{% assign posts = c | last %}
 {% endif %}
-
-{% for post in paginator.posts %}
-  {% include single_post.html excerpt = true %}
 {% endfor %}
-
-<nav class="pagination">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path }}">Newer</a>
-  {% endif %}
-
-  <span class="note">{{ paginator.page }} of {{ paginator.total_pages }}</span>
-
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path }}">Older</a>
-  {% endif %}
-
-  <a href="/blog/archive">All posts</a>
-</nav>
-
-{% include license.html %}
+{% for post in posts %}
+{% include single_post.html excerpt = true %}
+{% endfor %}

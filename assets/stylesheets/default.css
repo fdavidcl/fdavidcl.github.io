@@ -1,0 +1,125 @@
+:root {
+  --dark: #202020;
+  --darker: #000000;
+  --light: #eaeaea;
+  --lighter: #ffffff;
+  /* plum and spray colors, 6.8:1 contrast (https://botsin.space/@randomColorContrasts/108251873966547967) */
+  --accent-dark-primary: #00707b;
+  --accent-dark-secondary: #961d88;
+  --accent-light-secondary: #b877b0;
+  --accent-light-primary: #87eef8; 
+
+  --background: var(--lighter);
+  --foreground: var(--darker);
+  --midback: var(--light);
+  --midfore: var(--dark);
+  --facc: var(--accent-dark-secondary);
+  --bacc: var(--accent-light-secondary);
+  --fsec: var(--accent-dark-primary);
+  --bsec: var(--accent-light-primary);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--darker);
+    --foreground: var(--lighter);
+    --midback: var(--dark);
+    --midfore: var(--light);
+    --bacc: var(--accent-dark-primary);
+    --facc: var(--accent-light-primary);
+    --bsec: var(--accent-dark-secondary);
+    --fsec: var(--accent-light-secondary);
+  }
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background: var(--midback);
+  color: var(--midfore);
+}
+
+code, blockquote {
+    background-color: var(--midback);
+}
+a {
+    box-sizing: border-box;
+    color: var(--facc);
+}
+a:hover {
+    color: var(--fsec);
+    border-bottom: .3rem solid var(--bsec);
+}
+
+/*** TOP BAR ***/
+
+.top {
+    background-color: var(--background);
+    border-radius: .6rem;
+}
+.top header {
+    padding: 1.6rem 1.6rem 1rem 1.6rem;
+    font-size: 180%;
+}
+header > * {
+    vertical-align: middle;
+}
+.profile-pic {
+    width: 3.2rem;
+    margin: 0.2rem 0.6rem 0.2rem 0;
+    border: .2rem solid var(--fsec);
+    border-radius: 8rem;
+    display: inline-block;
+}
+.arrow-up {
+    display: block;
+    width: 0;
+    height: 0;
+    margin-left: 2.6rem;
+    border-left: .6rem solid transparent;
+    border-right: .6rem solid transparent;
+    border-bottom: .6rem solid var(--midback);
+}
+
+/*** HOMEPAGE ***/
+ul.with-icons {
+    list-style-type: none;
+}
+@media screen and (min-width: 40rem) {
+    ul.with-icons {
+        column-count: 2;
+    }
+}
+.with-icons .icon {
+    display: inline-block;
+    width: 1.2em;
+    text-align: center;
+    margin-right: .6rem;
+}
+
+/*** POST ***/
+article, footer {
+    margin: 1.6rem 0;
+    padding: 1.6rem;
+    border-radius: .6rem;
+    background-color: var(--background);
+    color: var(--foreground);
+}
+time {
+    font-family: monospace;
+    opacity: .8;
+}
+article time {
+    margin: 0 1rem;
+    float: right;
+}
+article h2, article h1, article h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+article>:last-child {
+    margin-bottom: 0;
+}
+article h2 .icon {
+    font-size: 80%;
+}

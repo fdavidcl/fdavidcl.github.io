@@ -1,0 +1,6 @@
+{% if paper.doi %}<a href="https://dx.doi.org/{{ paper.doi }}">{% endif %}
+{% for author in paper.author %}
+    {{ site.data.coauthors[author].name }}{% if forloop.last %}.{% else %},{% endif %}
+{% endfor %}
+"{{ paper.title }},"{% if paper.doi %}</a>{% endif %}
+in <em>{% if paper.journal %}{{ paper.journal }}{% else %}{{ paper.booktitle }}{% endif %}</em> ({{ paper.year }}).

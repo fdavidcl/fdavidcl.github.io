@@ -3,17 +3,11 @@ layout: default
 title: About
 ---
 
-<style>.name { display: none; }</style>
+<!-- <style>.name { display: none; }</style> -->
 
 <article class="home">
-  <div class="big-text">Hi!</div>
-  <p>{{ site.profile.description | markdownify }}</p>
-</article>
-<article>
-  <h3>More about me</h3>
-  <p>
-    {{ site.profile.about | markdownify }}
-  </p>
+  <h1>{{ site.profile.greeting }}</h1>
+  {{ site.profile.about | markdownify }}
   <ul class="with-icons">
     {% for link in site.profile.links %}
     {% assign properties = link | last %}
@@ -35,6 +29,19 @@ title: About
   </ul>
 </article>
 <article>
+  <h3>Latest publications</h3>
+
+  <ul>
+    {% assign pubs = site.data.publications | sort: 'year' | reverse %}
+    {% assign idx = (0..3) %}
+    {% for i in idx %}
+    {% assign paper = pubs[i] %}
+    <li>{% include bibtex_to_ref.html %}</li>
+    {% endfor %}
+  </ul>
+  <p><a href="{{ site.baseurl }}/publications">See all publications</a></p>
+</article>
+<article>
   <h3>Latest posts</h3>
 
   {% for c in site.categories %}
@@ -47,14 +54,14 @@ title: About
   {% for i in postsi %}
   {% assign post = posts[i] %}
   <div class="archive-post">
-    {{ post.date | date: "%d-%m-%Y" }}
-    <a href="{{ post.url }}">{{ post.title }}</a>
+    <time datetime="{{ post.date | date: "%F" }}">{{ post.date | date: "%F" }}</time>
+    <a href="{% if post.link %}{{ post.link }}{% else %}{{ post.url }}{% endif %}">{{ post.title }}{% if post.link %} <i class="icon fa fa-small fa-external-link"></i>{% endif %}</a>
   </div>
   {% endfor %}
 
   <p><a href="{{ site.baseurl }}/blog">See more posts</a></p>
 </article>
-<article>
+<!-- <article>
   <h3>Docencia</h3>
 
   {% for c in site.categories %}
@@ -73,4 +80,4 @@ title: About
   {% endfor %}
 
   <p><a href="{{ site.baseurl }}/docencia">Ver todo</a></p>
-</article>
+</article> -->

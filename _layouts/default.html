@@ -5,40 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.profile.alias }}</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/stylesheets/normalize.css">
+    <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/stylesheets/default.css">
   </head>
   <body>
-    <div class="wrapper">
+    <!-- <div class="wrapper"> -->
       <aside class="top">
-        <div class="top-content">
-          <header>
-            <a class="name-box" href="{{ site.baseurl }}/">
-              {% if site.profile.pic %}
-              <img src="{{ site.profile.pic }}" class="profile-pic" />
-              {% endif %}
-              <span class="name">
-                {{ site.profile.name }}
-              </span>
-            </a>
-          </header>
+        <!-- <div class="top-content"> -->
+          <a href="{{ site.baseurl }}/">
+            <header>
+                {% if site.profile.pic %}
+                <img src="{{ site.profile.pic }}" class="profile-pic" />
+                {% endif %}
+                <span class="name">
+                  {{ site.profile.name }}
+                </span>
+            </header>
+          </a>
           <!--nav class="sections">
               <a href="{{ site.baseurl }}/" class="section-link">about</a>
               <a href="{{ site.baseurl }}/blog" class="section-link">blog</a>
           </nav-->
           <div class="arrow-up"></div>
-        </div>
+        <!-- </div> -->
       </aside>
-      <div class="main">
-        <div class="main-content">
+      <!-- <div class="main"> -->
+        <!-- <div class="main-content"> -->
           {{ content }}
-        </div>
-      </div>
-    </div>
-    <link href='https://fonts.googleapis.com/css?family={{ site.style.font }}:300,400,400i,700|{{ site.style.monofont }}:400,700' rel='stylesheet' type='text/css'>
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family={{ site.style.font }}:300,400,400i,700|{{ site.style.monofont }}:400,700' rel='stylesheet' type='text/css'> -->
     <!--link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" /-->
+    <footer>
+      <!-- <p> -->
+        &copy; 2022 David Charte. Shared under
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">
+          <i class="icon fa fa-creative-commons fa-lg"></i> BY-SA</a>.
+      <!-- </p> -->
+    </footer>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.0.11/css/fork-awesome.min.css" integrity="sha256-MGU/JUq/40CFrfxjXb5pZjpoZmxiP2KuICN5ElLFNd8=" crossorigin="anonymous">
     <!--link rel="stylesheet" href="{{ site.baseurl }}/assets/fonts/css/icons.css"-->
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/stylesheets/highlight-friendly.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/stylesheets/highlight.css">
   </body>
 </html>

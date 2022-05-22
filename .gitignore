@@ -4,4 +4,5 @@ _site
 secrets.yml
 *~
 #*
-.old
+*.old
+.jekyll-cache
