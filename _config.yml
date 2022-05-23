@@ -30,18 +30,10 @@ profile:
     "david [at] deivi [dot] ch":
       icon: envelope-o
 
-style:
-  background: "ffffff"
-  foreground: "2e3440"
-  accent: "00626e"
-  font: "Source Sans Pro"
-  monofont: "Inconsolata"
-
 # Settings for the blog section
 plugins:
   - octopress-paginate
   - jemoji
-#  - jekyll-minifier
 
 exclude:
   - Gemfile
@@ -58,7 +50,3 @@ markdown: kramdown
 kramdown:
   parse_span_html: false
 highlighter: rouge
-
-tag_dir: "/tag"
-tag_title_prefix: "Tag '"
-tag_title_suffix: "'"

@@ -3,8 +3,6 @@ layout: default
 title: About
 ---
 
-<!-- <style>.name { display: none; }</style> -->
-
 <article class="home">
   <h1>{{ site.profile.greeting }}</h1>
   {{ site.profile.about | markdownify }}
@@ -57,7 +55,7 @@ title: About
   </p>
   {% endfor %}
 
-  <p><a href="{{ site.baseurl }}/blog/archive">See all posts</a></p>
+  <p><a href="{{ site.baseurl }}/blog">See all posts</a></p>
 </article>
 <article>
   <h3>Other material</h3>
@@ -65,23 +63,3 @@ title: About
   <p><a href="{{ item.url }}">{{ item.title }}</a></p>
   {% endfor %}
 </article>
-<!-- <article>
-  <h3>Docencia</h3>
-
-  {% for c in site.categories %}
-  {% assign cname = c | first %}
-  {% if cname == "docencia" %}
-  {% assign posts = c | last %}
-  {% endif %}
-  {% endfor %}
-  {% assign postsi = (0..3) %}
-  {% for i in postsi %}
-  {% assign post = posts[i] %}
-  <div class="archive-post">
-    {{ post.date | date: "%d-%m-%Y" }}
-    <a href="{{ post.url }}">{{ post.title }}</a>
-  </div>
-  {% endfor %}
-
-  <p><a href="{{ site.baseurl }}/docencia">Ver todo</a></p>
-</article> -->
