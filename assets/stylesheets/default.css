@@ -82,9 +82,6 @@ header > * {
 }
 
 /*** HOMEPAGE ***/
-ul.with-icons {
-    list-style-type: none;
-}
 @media screen and (min-width: 40rem) {
     .with-icons {
         column-count: 2;
