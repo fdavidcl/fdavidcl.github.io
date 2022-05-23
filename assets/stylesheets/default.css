@@ -86,15 +86,19 @@ ul.with-icons {
     list-style-type: none;
 }
 @media screen and (min-width: 40rem) {
-    ul.with-icons {
+    .with-icons {
         column-count: 2;
     }
 }
-.with-icons .icon {
+p .icon {
     display: inline-block;
+    color: var(--foreground);
     width: 1.2em;
     text-align: center;
     margin-right: .6rem;
+}
+.with-icons p {
+    margin-bottom: .4rem;
 }
 
 /*** POST ***/
@@ -108,6 +112,7 @@ article, footer {
 time {
     font-family: monospace;
     opacity: .8;
+    font-size: 90%;
 }
 article time {
     margin: 0 1rem;
@@ -122,4 +127,7 @@ article>:last-child {
 }
 article h2 .icon {
     font-size: 80%;
+}
+p {
+    margin-bottom: 1rem;
 }

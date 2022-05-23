@@ -33,6 +33,18 @@
         <!-- <div class="main-content"> -->
           
   <article>
+    <a href="https://libreim.github.io/blog/2014/06/24/introduccion-javascript/"><h1>Introducción a JavaScript. Programación con prototipos</h1></a>
+    
+
+  </article>
+
+  <article>
+    <a href="https://libreim.github.io/blog/2015/08/24/ruby-enumerators/"><h1>Iterating in Ruby: Enumerable and Enumerators</h1></a>
+    
+
+  </article>
+
+  <article>
     <a href="/research/2016/06/01/multilabel/"><h1>Multilabel classification</h1></a>
     <p>Multilabel classification is a variant of the classification problem where each instance can be associated with a subset of labels from the set of available ones.</p>
 
@@ -1047,6 +1059,121 @@ docker-compose run <span class="nt">--rm</span> web rake mastodon:confirm_email 
   </li>
 </ul>
 
+
+  </article>
+
+  <article>
+    <a href="/blog/2020/02/11/versatile-autoencoders/"><h1>Versatile workflow for autoencoders in Keras</h1></a>
+    <h2 id="architecture-definition">Architecture definition</h2>
+
+<p>This code defines the simplest architecture: [input, encoding (2), output]</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">enc_dim</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">encoder</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">enc_dim</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s">"relu"</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">))</span>
+<span class="p">])</span>
+<span class="n">decoder</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">activation</span><span class="o">=</span><span class="s">"sigmoid"</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">enc_dim</span><span class="p">,))</span>
+<span class="p">])</span>
+</code></pre></div></div>
+
+<h2 id="definition-of-a-loss-function">Definition of a loss function</h2>
+
+<p>Defining the loss as a function allows us much more flexibility to compute penalties from the encodings, or even other inputs (supervised autoencoders).</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">autoencoder_loss</span><span class="p">(</span><span class="n">layers</span><span class="p">):</span>
+    <span class="n">inp</span><span class="p">,</span> <span class="n">enc</span><span class="p">,</span> <span class="n">out</span> <span class="o">=</span> <span class="n">layers</span>
+    <span class="n">rec_loss</span> <span class="o">=</span> <span class="n">K</span><span class="p">.</span><span class="n">binary_crossentropy</span><span class="p">(</span><span class="n">inp</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+    <span class="c1"># compute other penalties
+</span>    <span class="n">loss</span> <span class="o">=</span> <span class="n">rec_loss</span> <span class="c1"># + other penalties
+</span>    <span class="k">return</span> <span class="n">loss</span>
+</code></pre></div></div>
+
+<h2 id="definition-of-the-loss-layer-and-the-model">Definition of the loss layer and the model</h2>
+
+<p>The loss function is wrapped as the last layer of the autoencoder model and connected to the necessary inputs/outputs.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">loss_l</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">layers</span><span class="p">.</span><span class="n">Lambda</span><span class="p">(</span><span class="n">autoencoder_loss</span><span class="p">,</span> <span class="n">output_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="s">"loss"</span><span class="p">)([</span>
+    <span class="n">encoder</span><span class="p">.</span><span class="nb">input</span><span class="p">,</span> <span class="n">encoder</span><span class="p">.</span><span class="n">output</span><span class="p">,</span> <span class="n">decoder</span><span class="p">(</span><span class="n">encoder</span><span class="p">(</span><span class="n">encoder</span><span class="p">.</span><span class="nb">input</span><span class="p">))</span>
+<span class="p">])</span>
+
+<span class="n">autoencoder</span> <span class="o">=</span> <span class="n">tf</span><span class="p">.</span><span class="n">keras</span><span class="p">.</span><span class="n">Model</span><span class="p">([</span><span class="n">encoder</span><span class="p">.</span><span class="nb">input</span><span class="p">,</span> <span class="n">target_input</span><span class="p">],</span> <span class="n">loss_l</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="compilation-of-model-with-custom-loss">Compilation of model with custom loss</h2>
+
+<p>Since the last layer (<code class="language-plaintext highlighter-rouge">y_pred</code>) is actually the loss, our custom loss only needs to return that value.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">autoencoder</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="p">{</span><span class="s">'loss'</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">:</span> <span class="n">y_pred</span><span class="p">},</span> <span class="n">optimizer</span><span class="o">=</span><span class="s">"adam"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="fit-model-with-dummy-target">Fit model with dummy target</h2>
+
+<p>Keras will complain if no target is passed, so we just create some dummy targets which will not be used at all.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hist</span> <span class="o">=</span> <span class="n">autoencoder</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+</code></pre></div></div>
+
+  </article>
+
+  <article>
+    <a href="/blog/2020/03/31/homelabos/"><h1>Deploying HomelabOS on a Raspberry Pi 4</h1></a>
+    <p>HomelabOS is a tool for deploying self-hosted services on a server. For this installation, you will need:</p>
+
+<ul>
+  <li>Raspberry Imager</li>
+  <li>Latest <code class="language-plaintext highlighter-rouge">ubuntu-preinstalled-server-arm64</code> from here: https://github.com/TheRemote/Ubuntu-Server-raspi4-unofficial/releases</li>
+  <li>Docker on your PC (your user should be in the <code class="language-plaintext highlighter-rouge">docker</code> group, <code class="language-plaintext highlighter-rouge">sudo usermod -a -G docker username</code>)</li>
+  <li>Latest HomelabOS zip from here: https://gitlab.com/NickBusey/HomelabOS/-/tags</li>
+</ul>
+
+<h2 id="installing-ubuntu">Installing Ubuntu</h2>
+
+<p>We will need Ubuntu 18.04 on the Raspberry. Here’s how to install it.</p>
+
+<h3 id="fixing-firmware">Fixing firmware</h3>
+
+<p>First, open up Raspberry Imager and flash Raspbian to your SD card. Boot up your RPi 4 and run these commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt-get dist-upgrade <span class="nt">-y</span>
+<span class="nb">sudo </span>rpi-update
+<span class="nb">sudo </span>rpi-eeprom-update <span class="nt">-a</span>
+</code></pre></div></div>
+
+<h3 id="actually-installing-ubuntu">Actually installing Ubuntu</h3>
+
+<p>Now, use Raspbian Imager to flash the IMG file for Ubuntu Server 18.04 to your SD card. Boot up your Raspberry and check for working SSH (default user and password are <code class="language-plaintext highlighter-rouge">ubuntu</code>, <code class="language-plaintext highlighter-rouge">ubuntu</code>). You will need to configure an SSH key if you don’t have one, so <code class="language-plaintext highlighter-rouge">ssh-keygen</code> and <code class="language-plaintext highlighter-rouge">ssh-copy-id</code> are your friends. A static IP would also be convenient, you can <a href="https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/">use netplan to configure it</a>, it’s easy!</p>
+
+<h2 id="installing-homelabos">Installing HomelabOS</h2>
+
+<p>Extract files from the downloaded ZIP <strong>on your PC</strong>. Now <code class="language-plaintext highlighter-rouge">cd</code> to the HomelabOS directory and run the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make logo
+make config <span class="c"># answer some questions</span>
+make <span class="nb">set </span>enable_miniflux <span class="nb">true</span> <span class="c"># miniflux is a feed reader</span>
+make
+</code></pre></div></div>
+
+<p>This should accomplish the following steps:</p>
+
+<ol>
+  <li>Build Docker images for HomelabOS</li>
+  <li>Set some configuration variables and create <code class="language-plaintext highlighter-rouge">settings/config.yml</code></li>
+  <li>Enable a service, it doesn’t have to be miniflux, I chose that for testing</li>
+  <li>Deploy the configured services to your Raspberry</li>
+</ol>
+
+<p>For more info and troubleshooting, see the original posts.</p>
+
+<h1 id="sources">Sources</h1>
+
+<ul>
+  <li>Ubuntu 18.04.4 unofficial image: https://jamesachambers.com/raspberry-pi-4-ubuntu-server-desktop-18-04-3-image-unofficial/</li>
+  <li>HomelabOS installation: https://nickbusey.gitlab.io/HomelabOS/setup/installation/</li>
+</ul>
+
+<p>I’ll be updating this post with more info and tips as I continue optimizing my configuration.</p>
 
   </article>
 

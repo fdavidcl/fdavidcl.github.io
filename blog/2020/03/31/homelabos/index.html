@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploying HomelabOS on a Raspberry Pi 4 - David C</title>
+    <link rel="stylesheet" href="/assets/stylesheets/normalize.css">
+    <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
+    <link rel="stylesheet" href="/assets/stylesheets/default.css">
+  </head>
+  <body>
+    <!-- <div class="wrapper"> -->
+      <aside class="top">
+        <!-- <div class="top-content"> -->
+          <a href="/">
+            <header>
+                
+                <img src="https://secure.gravatar.com/avatar/7083d161b041964b75c38376d9dee37a?s=200" class="profile-pic" />
+                
+                <span class="name">
+                  David Charte
+                </span>
+            </header>
+          </a>
+          <!--nav class="sections">
+              <a href="/" class="section-link">about</a>
+              <a href="/blog" class="section-link">blog</a>
+          </nav-->
+          <div class="arrow-up"></div>
+        <!-- </div> -->
+      </aside>
+      <!-- <div class="main"> -->
+        <!-- <div class="main-content"> -->
+          
+<article class="article lang-es">
+  <time datetime="2020-03-31">2020-03-31</time>
+  
+  <a href="/blog/2020/03/31/homelabos/">
+    <h1>
+        Deploying HomelabOS on a Raspberry Pi 4
+        </h1>
+        
+  </a>
+  
+  <p>HomelabOS is a tool for deploying self-hosted services on a server. For this installation, you will need:</p>
+
+<ul>
+  <li>Raspberry Imager</li>
+  <li>Latest <code class="language-plaintext highlighter-rouge">ubuntu-preinstalled-server-arm64</code> from here: https://github.com/TheRemote/Ubuntu-Server-raspi4-unofficial/releases</li>
+  <li>Docker on your PC (your user should be in the <code class="language-plaintext highlighter-rouge">docker</code> group, <code class="language-plaintext highlighter-rouge">sudo usermod -a -G docker username</code>)</li>
+  <li>Latest HomelabOS zip from here: https://gitlab.com/NickBusey/HomelabOS/-/tags</li>
+</ul>
+
+<h2 id="installing-ubuntu">Installing Ubuntu</h2>
+
+<p>We will need Ubuntu 18.04 on the Raspberry. Here’s how to install it.</p>
+
+<h3 id="fixing-firmware">Fixing firmware</h3>
+
+<p>First, open up Raspberry Imager and flash Raspbian to your SD card. Boot up your RPi 4 and run these commands:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt-get dist-upgrade <span class="nt">-y</span>
+<span class="nb">sudo </span>rpi-update
+<span class="nb">sudo </span>rpi-eeprom-update <span class="nt">-a</span>
+</code></pre></div></div>
+
+<h3 id="actually-installing-ubuntu">Actually installing Ubuntu</h3>
+
+<p>Now, use Raspbian Imager to flash the IMG file for Ubuntu Server 18.04 to your SD card. Boot up your Raspberry and check for working SSH (default user and password are <code class="language-plaintext highlighter-rouge">ubuntu</code>, <code class="language-plaintext highlighter-rouge">ubuntu</code>). You will need to configure an SSH key if you don’t have one, so <code class="language-plaintext highlighter-rouge">ssh-keygen</code> and <code class="language-plaintext highlighter-rouge">ssh-copy-id</code> are your friends. A static IP would also be convenient, you can <a href="https://linuxize.com/post/how-to-configure-static-ip-address-on-ubuntu-18-04/">use netplan to configure it</a>, it’s easy!</p>
+
+<h2 id="installing-homelabos">Installing HomelabOS</h2>
+
+<p>Extract files from the downloaded ZIP <strong>on your PC</strong>. Now <code class="language-plaintext highlighter-rouge">cd</code> to the HomelabOS directory and run the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make logo
+make config <span class="c"># answer some questions</span>
+make <span class="nb">set </span>enable_miniflux <span class="nb">true</span> <span class="c"># miniflux is a feed reader</span>
+make
+</code></pre></div></div>
+
+<p>This should accomplish the following steps:</p>
+
+<ol>
+  <li>Build Docker images for HomelabOS</li>
+  <li>Set some configuration variables and create <code class="language-plaintext highlighter-rouge">settings/config.yml</code></li>
+  <li>Enable a service, it doesn’t have to be miniflux, I chose that for testing</li>
+  <li>Deploy the configured services to your Raspberry</li>
+</ol>
+
+<p>For more info and troubleshooting, see the original posts.</p>
+
+<h1 id="sources">Sources</h1>
+
+<ul>
+  <li>Ubuntu 18.04.4 unofficial image: https://jamesachambers.com/raspberry-pi-4-ubuntu-server-desktop-18-04-3-image-unofficial/</li>
+  <li>HomelabOS installation: https://nickbusey.gitlab.io/HomelabOS/setup/installation/</li>
+</ul>
+
+<p>I’ll be updating this post with more info and tips as I continue optimizing my configuration.</p>
+
+  
+
+</article>
+
+
+
+
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Source Sans Pro:300,400,400i,700|Inconsolata:400,700' rel='stylesheet' type='text/css'> -->
+    <!--link href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" /-->
+    <footer>
+      <!-- <p> -->
+        &copy; 2022 David Charte. Shared under
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/">
+          <i class="icon fa fa-creative-commons fa-lg"></i> BY-SA</a>.
+      <!-- </p> -->
+    </footer>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.0.11/css/fork-awesome.min.css" integrity="sha256-MGU/JUq/40CFrfxjXb5pZjpoZmxiP2KuICN5ElLFNd8=" crossorigin="anonymous">
+    <!--link rel="stylesheet" href="/assets/fonts/css/icons.css"-->
+    <link rel="stylesheet" href="/assets/stylesheets/highlight.css">
+  </body>
+</html>
