@@ -162,26 +162,26 @@
     - sg
     - mj
     - h
-  doi: 10.1016/j.inffus.2017.12.007,
-  journal: Information Fusion,
-  pages: 78--96,
-  publisher: Elsevier,
+  doi: 10.1016/j.inffus.2017.12.007
+  journal: Information Fusion
+  pages: 78--96
+  publisher: Elsevier
   title: "A practical tutorial on autoencoders for nonlinear feature fusion: Taxonomy, models, software and guidelines"
-  volume: 44,
+  volume: 44
   year: 2018
 
 - author: 
     - jmg
     - others
-  doi: 10.1016/j.neucom.2020.05.078,
-  eissn: 1872-8286,
-  issn: 0925-2312,
-  journal: Neurocomputing,
-  month: 10,
-  pages: 237--270,
+  doi: 10.1016/j.neucom.2020.05.078
+  eissn: 1872-8286
+  issn: 0925-2312
+  journal: Neurocomputing
+  month: 10
+  pages: 237--270
   title: "Artificial intelligence within the interplay between natural and artificial computation: Advances in data science, trends and applications"
-  unique-id: Wos:000579799300022,
-  volume: 410,
+  unique-id: Wos:000579799300022
+  volume: 410
   year: 2020
 
 - author: 
@@ -190,32 +190,32 @@
     - iv
     - d
     - others
-  doi: 10.1016/j.inffus.2021.09.018,
-  earlyaccessdate: Oct 2021,
-  eissn: 1872-6305,
-  issn: 1566-2535,
-  journal: Information Fusion,
-  month: 02,
-  orcid-numbers: Luengo, Julian/0000-0003-3952-3629 Moreno Salinas, Raul/0000-0001-6964-2333 Pelaez Vegas, Adrian/0000-0001-7887-4267,
-  pages: 232--253,
-  researcherid-numbers: Luengo, Julian/D-1307-2017,
+  doi: 10.1016/j.inffus.2021.09.018
+  earlyaccessdate: Oct 2021
+  eissn: 1872-6305
+  issn: 1566-2535
+  journal: Information Fusion
+  month: 02
+  orcid-numbers: Luengo, Julian/0000-0003-3952-3629 Moreno Salinas, Raul/0000-0001-6964-2333 Pelaez Vegas, Adrian/0000-0001-7887-4267
+  pages: 232--253
+  researcherid-numbers: Luengo, Julian/D-1307-2017
   title: "A tutorial on the segmentation of metallographic images: Taxonomy, new MetalDAM dataset, deep learning-based ensemble model, experimental analysis and challenges"
-  unique-id: Wos:000710490300009,
-  volume: 78,
+  unique-id: Wos:000710490300009
+  volume: 78
   year: 2022
 
 - author: 
     - p
     - d
-  doi: 10.32614/RJ-2015-027,
-  issn: 2073-4859,
-  journal: R Journal,
-  month: 12,
-  number: 2,
-  orcid-numbers: Charte, Francisco/0000-0002-3083-8942 Charte, David/0000-0002-4830-9512 Luque, Francisco David Charte/0000-0002-4830-9512 Charte, David/0000-0002-4830-9512,
-  pages: 149--162,
-  researcherid-numbers: Charte, Francisco/F-2961-2011 Charte, David/R-8178-2017 Luque, Francisco David Charte/AAB-5715-2020 Charte, David/W-5901-2018,
+  doi: 10.32614/RJ-2015-027
+  issn: 2073-4859
+  journal: R Journal
+  month: 12
+  number: 2
+  orcid-numbers: Charte, Francisco/0000-0002-3083-8942 Charte, David/0000-0002-4830-9512 Luque, Francisco David Charte/0000-0002-4830-9512 Charte, David/0000-0002-4830-9512
+  pages: 149--162
+  researcherid-numbers: Charte, Francisco/F-2961-2011 Charte, David/R-8178-2017 Luque, Francisco David Charte/AAB-5715-2020 Charte, David/W-5901-2018
   title: "Working with Multilabel Datasets in R: The mldr Package"
-  unique-id: Wos:000368551800012,
-  volume: 7,
+  unique-id: Wos:000368551800012
+  volume: 7
   year: 2015
