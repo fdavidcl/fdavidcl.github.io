@@ -1,13 +1,12 @@
 ---
 layout: default
+title: Publications
 ---
 
 <article>
-    <h1>Publications</h1>
-    <ul>
+    <h1>{{ page.title }}</h1>
     {% assign pubs = site.data.publications | sort: 'year' | reverse %}
     {% for paper in pubs %}
-    <li>{% include bibtex_to_ref.html %}
+    <p>{% include bibtex_to_ref.html %}
     {% endfor %}
-</ul>
 </article>
