@@ -1,7 +1,7 @@
 :root {
-  --dark: #202020;
+  --dark: #20262a;
   --darker: #000000;
-  --light: #eaeaea;
+  --light: #e6eaee;
   --lighter: #ffffff;
   /* plum and spray colors, 6.8:1 contrast (https://botsin.space/@randomColorContrasts/108251873966547967) */
   --accent-dark-primary: #00707b;
