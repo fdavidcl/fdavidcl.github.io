@@ -18,7 +18,7 @@ profile:
     "Projects":
       url: https://github.com/fdavidcl
       icon: github
-    "Tweets":
+    "Toots":
       url: https://toot.cafe/@fdavidcl
       icon: mastodon
       rel: me
