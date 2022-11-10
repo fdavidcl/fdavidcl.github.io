@@ -11,7 +11,7 @@ title: About
     {% assign properties = link | last %}
     <p>
       {% if properties.url %}
-      <a class="personal-link {{ link | first }}-link" href="{{ properties.url }}" title="{{ link | first }}">
+      <a class="personal-link {{ link | first }}-link" href="{{ properties.url }}" title="{{ link | first }}" rel="{{ properties.rel }}">
         {% endif %}
         <i class="icon fa fa-{{ properties.icon }}"></i>
         {% if properties.title %}
