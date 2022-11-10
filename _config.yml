@@ -19,8 +19,9 @@ profile:
       url: https://github.com/fdavidcl
       icon: github
     "Tweets":
-      url: https://twitter.com/fdavidcl
-      icon: twitter
+      url: https://toot.cafe/@fdavidcl
+      icon: mastodon
+      rel: me
     "Photos":
       url: https://pixelfed.social/fdavidcl
       icon: instagram
