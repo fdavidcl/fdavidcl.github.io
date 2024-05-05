@@ -13,8 +13,8 @@ After seeing that the git part of the problem could be solved, I looked into Mar
 
 StackEdit also offers PWA capabilities so you can pin it as an icon on your homescreen.
 
-So this is looking great for writing quick and short stories more frequently
+So this is looking great for writing quick and short stories more frequently :) 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3MjY4MTg1XX0=
+eyJoaXN0b3J5IjpbLTE5NzIyNDMxMl19
 -->
