@@ -1,4 +1,10 @@
+---
+title: Finding a convenient mobile workflow for writing posts on a static blog
+---
+
 I wanted to have a more convenient way of adding posts to the blog that didn't involve so much editing, dealing with git, jekyll and everything. Something so that I could just jot down some notes on my phone whenever and have them up in no time. This is what I've found at the moment, I may extend this in the future and feel free to send suggestions my way (talk to me at [dci@c.im](https://c.im/@dcl) on the fediverse)
+
+> 
 
 ## JekyllEx
 An Android app that is supposed to manage Jekyll blogs. Installed it but couldn't get it to launch, it just crashed :(
@@ -16,5 +22,5 @@ StackEdit also offers PWA capabilities so you can pin it as an icon on your home
 So this is looking great for writing quick and short stories more frequently :) 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzIyNDMxMl19
+eyJoaXN0b3J5IjpbLTExMTI4NzE3NjIsLTE5NzIyNDMxMl19
 -->
