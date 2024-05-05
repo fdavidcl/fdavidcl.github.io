@@ -4,11 +4,11 @@ I wanted to have a more convenient way of adding posts to the blog that didn't i
 An Android app that is supposed to manage Jekyll blogs. Installed it but couldn't get it to launch, it just crashed :(
 
 ## isomorphic-git
-I didn't find any other promising phone apps and didn't want to deal with developing one myself so I started looking into what tools I would need to write a simple webapp to clone my blog, edit it and send updates. Managing a git repo from the browser seemed daunting but I found this amazing library
+I didn't find any other promising phone apps and didn't want to deal with developing one myself so I started looking into what tools I would need to write a simple webapp to clone my blog, edit it and send updates. Managing a git repo from the browser seemed daunting but I found this amazing library, isomorphic-git, which makes it a breeze. It's well documented and 
 
 ## StackEdit
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2Mjc1NzE4Ml19
+eyJoaXN0b3J5IjpbLTE3OTU0ODUwNzFdfQ==
 -->
