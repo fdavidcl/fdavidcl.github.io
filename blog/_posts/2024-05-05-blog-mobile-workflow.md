@@ -9,8 +9,12 @@ I didn't find any other promising phone apps and didn't want to deal with develo
 ## StackEdit
 After seeing that the git part of the problem could be solved, I looked into Markdown editors, and I came across [StackEdit](https://stackedit.io) which I had already used ages ago.
 
-...and it turns out StackEdit has full support for GitHub/Gitlab repos! I'm just writing this post on it right now and I can push it to the repo so that GitHub takes care of compiling and adding it to the blog. Am
+...and it turns out StackEdit has full support for GitHub/Gitlab repos! I'm just writing this post on it right now and I can push it to the repo so that GitHub takes care of compiling and adding it to the blog. 
+
+StackEdit also offers PWA capabilities so you can pin it as an icon on your homescreen.
+
+So this is looking great for writing quick and short stories more frequently
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MTQwMzc0MDNdfQ==
+eyJoaXN0b3J5IjpbMTk3MjY4MTg1XX0=
 -->
