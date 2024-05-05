@@ -9,8 +9,8 @@ I didn't find any other promising phone apps and didn't want to deal with develo
 ## StackEdit
 After seeing that the git part of the problem could be solved, I looked into Markdown editors, and I came across [StackEdit](https://stackedit.io) which I had already used ages ago.
 
-It turns out StackEdit has full support 
+...and it turns out StackEdit has full support for GitHub/Gitlab repos! I'm just writing this post on it right now and I can push it to the repo so that GitHub takes care of compiling and adding it to the blog. Am
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU5OTAyNzM5N119
+eyJoaXN0b3J5IjpbLTE0MTQwMzc0MDNdfQ==
 -->
