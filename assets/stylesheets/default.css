@@ -42,7 +42,7 @@ html, body {
 code, blockquote {
     background-color: var(--midback);
 }
-a {
+a, a:visited {
     box-sizing: border-box;
     color: var(--facc);
 }
