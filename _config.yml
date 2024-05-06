@@ -19,7 +19,7 @@ profile:
       url: https://github.com/fdavidcl
       icon: github
     "Toots":
-      url: https://toot.cafe/@fdavidcl
+      url: https://c.im/@dcl
       icon: mastodon
       rel: me
     "Photos":
