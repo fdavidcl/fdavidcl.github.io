@@ -18,13 +18,6 @@ profile:
     "Projects":
       url: https://github.com/fdavidcl
       icon: github
-    "Toots":
-      url: https://c.im/@dcl
-      icon: mastodon
-      rel: me
-    "Photos":
-      url: https://pixelfed.social/fdavidcl
-      icon: instagram
     "Download my CV":
       url: cv.pdf
       icon: file-o
